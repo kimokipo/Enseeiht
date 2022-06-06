@@ -1,0 +1,21 @@
+[comment encoding = UTF-8 /]
+[module toLtl('http://www.n7.fr/ENIGME')]
+
+[template public jeuToLtl(aJeu : Jeu)]
+[comment @main/]
+[file (aJeu.name + '.ltl', false, 'UTF-8')]
+  [let lieux_fins : OrderedSet(Lieu) = aJeu.getTerritoire().lieuxFin ]
+   [if (lieux_fins->size() > 0)] 
+op finished = [for (l : Lieu | lieux_fins) separator (' \\'+'/ ') after(';')][l.name/][/for]
+- <> finished;
+   [else]
+   None.
+   [/if]
+[/let]
+[/file]
+[/template]
+[query public getTerritoire(p: Jeu) : Territoire =
+ p.jeuelement->select( e | e.oclIsTypeOf(Territoire) )
+ ->collect( e | e.oclAsType(Territoire) )
+ ->asOrderedSet()->first()
+ /]

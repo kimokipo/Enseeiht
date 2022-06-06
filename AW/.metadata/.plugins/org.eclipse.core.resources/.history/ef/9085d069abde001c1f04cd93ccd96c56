@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<form action= "Controler" method="get">
+<center>
+Nom :<input type="text" name="nom"><br/>
+<br/>
+Prenom :<input type="text" name="prenom"><br/>
+Login :<input type="text" name="login"><br/>
+Mot de passe :<input type="text" name="mot_de_passe"><br/>
+
+<input type="hidden" name="op" value="register">
+<input type="submit" name="ajouter" value="creer">
+ <a href="index.html">Retour au Menu</a>
+</center>
+</form>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+		<meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+
+
+		<!-- Website CSS style -->
+		<link href="bootstrapLogin.css" rel="stylesheet">
+
+		<!-- Website Font style -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+		<link rel="stylesheet" href="style.css">
+		<!-- Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+
+		<title>Inscription|MeeticMusique</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row main">
+				<div class="main-login main-center">
+				<h5>Entrez vos données pour vous inscrire.</h5>
+					<form class="" method="post" action="Serv">
+						
+						<div class="form-group">
+							<label for="name" class="cols-sm-2 control-label">Nom</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="nom" id="name"  placeholder="Entrez votre nom"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="firstname" class="cols-sm-2 control-label">Prénom</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="prenom" id="name"  placeholder="Entrez votre prénom"/>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="form-group">
+							<label for="email" class="cols-sm-2 control-label">Mail</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="email" id="email"  placeholder="Entrez votre adresse mail"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="username" class="cols-sm-2 control-label">Identifiant</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="identifiant" id="username"  placeholder="Entrez votre identifiant"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="password" class="cols-sm-2 control-label">Mot de passe</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" name="motdepasse" id="password"  placeholder="Entrez votre mot de passe"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="confirm" class="cols-sm-2 control-label">Confirmez votre mot de passe</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" name="confirmer" id="confirm"  placeholder="Confirmez votre mot de passe"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group ">
+							<input type="submit" value="S'inscrire" id="button" class="btn btn-primary btn-lg btn-block login-button"/>
+						</div>
+						<input type="hidden" name="op" value="inscription">
+					</form>
+				</div>
+			</div>
+		</div>
+
+		 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+
+	</body>
+</html>

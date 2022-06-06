@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head> 
+		<meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+
+
+		<!-- Website CSS style -->
+		<link href="css/bootstrapLogin.css" rel="stylesheet">
+
+		<!-- Website Font style -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+		<link rel="stylesheet" href="style.css">
+		<!-- Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+
+		<title>Ajouter un nouveau Manager</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row main">
+				<div class="main-login main-center">
+				<h5>Entrez les données du nouveau Manager.</h5>
+					<form class="" method="get" action="Controler">
+						
+						<div class="form-group">
+							<label for="name" class="cols-sm-2 control-label">Nom</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="nom" id="name"  placeholder="Entrez son nom"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="firstname" class="cols-sm-2 control-label">Prénom</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="prenom" id="name"  placeholder="Entrez son prénom"/>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="form-group">
+							<label for="email" class="cols-sm-2 control-label">Identifiant</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="login"  placeholder="Entrez son identifiant "/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="password" class="cols-sm-2 control-label">Mot de passe</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" name="mot_de_passe" id="password"  placeholder="Entrez son mot de passe"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="email" class="cols-sm-2 control-label">Login du compte Facebook</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="login_Facebook"   placeholder="Entrez son identifaint Facebook"/>
+								</div>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="confirm" class="cols-sm-2 control-label">Mot de passe du compte Facebook</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" name="mot_de_passe_Facebook"  placeholder="Entrez son mot de passe Facebook"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group ">
+							<input type="submit" value="Ajouter" id="button" class="btn btn-primary btn-lg btn-block login-button"/>
+						</div>
+						
+						<input type="hidden" name="op" value="ajoutManager">
+						<div class="form-group ">
+						 
+						 <a href="managerConnect.html"><strong>Retour au Menu</strong></a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+	</body>
+</html>

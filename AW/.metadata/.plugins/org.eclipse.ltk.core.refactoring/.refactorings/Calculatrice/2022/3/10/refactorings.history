@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;pack.HW&apos; to &apos;Calcul&apos;&#x0A;- Original project: &apos;Calculatrice&apos;&#x0A;- Original element: &apos;pack.HW&apos;&#x0A;- Renamed element: &apos;pack.Calcul&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;HW&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;pack{HW.java[HW" matchStrategy="1" name="Calcul" qualified="false" references="true" similarDeclarations="false" stamp="1646984424676" textual="false" version="1.0"/>
+</session>

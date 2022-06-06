@@ -1,0 +1,11 @@
+INDEX VERSION 1.4+/home/khammi/AW/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+1326194437.index
+4138082121.index
+2353249116.index
+762313662.index
+1029034374.index
+732440068.index
+3975043429.index
+1905048507.index
+4092741371.index
+3210561558.index

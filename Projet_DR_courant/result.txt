@@ -1,0 +1,2 @@
+Scan for current status
+Erase all

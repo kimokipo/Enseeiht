@@ -1,0 +1,42 @@
+game enigme {
+    explorateur moi {
+        objet Tentative
+        objet Tentative
+        objet Tentative        
+    }
+    territoire {
+        lieu Enigme {
+            perssone Sphynx {
+                objetsVisibilité : objet Tentative
+                connaissanceInVisibilité : connaissance Réussite
+                obligation : oui 
+                qualification : Quel est le roi du maroc ?
+                interaction {
+                    choix {
+                        action {
+                            qualification : Mohamed 6
+                            objetsConsommes : objet Tentative
+                            connaissanceProduits : connassance Réussite
+                        }
+                        action {
+                            qualification : Mohamed 7
+                            objetsConsommes : objet Tentative
+                        }
+                    }
+                }
+            }
+        }
+        lieu Succés {
+        }
+        lieu Echec {
+        }
+        chemin de Enigme à Succés {
+                    connaissanceVisibilité : connaissance Réussite
+         }
+         chemin de Enigme à Echec {
+                    objetsInVisibilité : objet Tentative
+         }
+    }
+}            
+                        
+                

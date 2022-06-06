@@ -1,0 +1,706 @@
+    1  java linda.w
+    2  cd ..
+    3  java linda.whiteboard.Whiteboard //localhost:4000/toto
+    4  java linda.whiteboard.Whiteboard //"localhost:4000/toto"
+    5  java linda.whiteboard.Whiteboard //localhost:4000/toto
+    6  java linda.whiteboard.Whiteboard //"localhost:4000/toto"
+    7  code .
+    8  jupyter-notebook
+    9  julia
+   10  cd /mnt
+   11  ls
+   12  cd n7fs/
+   13  ls
+   14  cd ..
+   15  ls
+   16  cd n7install/
+   17  ls
+   18  cd ..
+   19  ls
+   20  cd
+   21  history
+   22  /usr/local/bin/install_julia
+   23  /usr/local/bin/install_ijulia
+   24  julia
+   25  /mnt/n7fs/local/sbin/autodiag
+   26  julia
+   27  code .
+   28  cd /applications/
+   29  ls
+   30  cd julia/
+   31  ls
+   32  cd .julia
+   33  ls .julia
+   34  ls .julia/
+   35  cd .julia/
+   36  ls
+   37  cd julia-1.4.2/
+   38  ls
+   39  cd .julia
+   40  julia
+   41  code .
+   42  cd ..
+   43  javac ./linda/whiteboard/*.java
+   44  java linda.whiteboard.Whiteboard //localhost:4000/kamal
+   45  javac ./linda/shm/*.java
+   46  javac ./linda/server/*.java
+   47  java linda.server.CreateServer kamal
+   48  cd /mnt/
+   49  ls
+   50  cd n7fs/
+   51  cd tp_pantel/
+   52  ls
+   53  cd l
+   54  cd local/
+   55  ls
+   56  cd ..
+   57  ls
+   58  cd n7fs
+   59  ls
+   60  cd eclipse
+   61  ls
+   62  cd ..
+   63  cd local/
+   64  ls
+   65  cd etc/
+   66  ls
+   67  cd ..
+   68  ls
+   69  cd ..
+   70  ls
+   71  history
+   72  cd 
+   73  history > history.txt
+   74  cd GL
+   75  Cd GLS/
+   76  LS
+   77  lS
+   78  Ls
+   79  lS
+   80  ls
+   81  cd GLS
+   82  ls
+   83  cd org.xtext.enigme
+   84  cd src-gen/
+   85  ls
+   86  /mnt/n7fs/ens/tp_pantel/tina/bin/nd Enigme.net 
+   87  /mnt/n7fs/ens/tp_cregut/eclipse-gls/eclipse
+   88  code .
+   89  /mnt/n7fs/ens/tp_pantel/tina/bin/nd Enigme.net 
+   90  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz 
+   91  /mnt/n7fs/ens/tp_pantel/tina/bin/nd Enigme.net 
+   92  /mnt/n7fs/ens/tp_pantel/tina/bin/selt -p -S Enigme.scn Enigme.ktz -prelude Enigme.ltl 
+   93  /mnt/n7fs/ens/tp_pantel/tina/bin/selt -p -S Enigme.scn Enigme.ktz -prelude Enigme.ltl
+   94  ls
+   95  /mnt/n7fs/ens/tp_pantel/tina/bin/selt -p -S Enigme.scn Enigme.ktz -prelude Enigme.ltl
+   96  /mnt/n7fs/ens/tp_cregut/eclipse-gls/eclipse
+   97  /mnt/n7fs/ens/tp_pantel/tina/bin/tina enigme.net enigme.ktz 
+   98  /mnt/n7fs/ens/tp_pantel/tina/bin/selt -p -S enigme.scn enigme.ktz -prelude enigme.ltl
+   99  /mnt/n7fs/ens/tp_pantel/tina/bin/nd Enigme2.net 
+  100  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme2.net Enigme2.ktz 
+  101  /mnt/n7fs/ens/tp_pantel/tina/bin/nd Enigme2.net 
+  102  /mnt/n7fs/ens/tp_pantel/tina/bin/tina enigme.net enigme.ktz 
+  103  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz 
+  104  /mnt/n7fs/ens/tp_pantel/tina/bin/selt -p -S Enigme.scn Enigme.ktz -prelude Enigme.ltl
+  105  code .
+  106  code .
+  107  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme2.net Enigme2.ktz 
+  108  /mnt/n7fs/ens/tp_pantel/tina/bin/nd Enigme2.net 
+  109  /mnt/n7fs/ens/tp_cregut/eclipse-gls/eclipse
+  110  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme2.net Enigme2.ktz 
+  111  ls
+  112  cd log
+  113  cd .log
+  114  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme2.net Enigme2.ktz 
+  115  /mnt/n7fs/ens/tp_pantel/tina/bin/tina enigme2.net enigme2.ktz 
+  116  /mnt/n7fs/ens/tp_pantel/tina/bin/tina enigme2.net
+  117  /mnt/n7fs/ens/tp_pantel/tina/bin/tina
+  118  /mnt/n7fs/ens/tp_pantel/tina/bin/nd enigme2.net
+  119  /mnt/n7fs/ens/tp_pantel/tina/bin/nd Enigme.net
+  120  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz 
+  121  /mnt/n7fs/ens/tp_pantel/tina/bin/selt -p -S Enigme.scn Enigme.ktz -prelude Enigme.ltl
+  122  /mnt/n7fs/ens/tp_pantel/tina/bin/nd Enigme.net
+  123  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz 
+  124  /mnt/n7fs/ens/tp_pantel/tina/bin/selt -p -S Enigme.scn Enigme.ktz -prelude Enigme.ltl
+  125  /mnt/n7fs/ens/tp_pantel/tina/bin/nd Enigme.net
+  126  /mnt/n7fs/ens/tp_pantel/tina/bin/tina enigme.net enigme.ktz 
+  127  startup.sh
+  128  shutdown.sh
+  129  startup.sh
+  130  shutdown.sh
+  131  startup.sh
+  132  shutdown.sh
+  133  startup.sh
+  134  shutdown.sh
+  135  startup.sh
+  136  shutdown.sh
+  137  startup.sh
+  138  shutdown.sh
+  139  startup.sh
+  140  shutdown.sh
+  141  startup.sh
+  142  shutdown.sh
+  143  startup.sh
+  144  shutdown.sh
+  145  startup.sh
+  146  /mnt/n7fs/ens/tp_dh/eclipse
+  147  cd /mnt/n7fs/ens/tp_dh/eclipse
+  148  ls
+  149  /mnt/n7fs/ens/tp_dh/eclipse/eclipse 
+  150  /mnt/n7fs/ens/tp_cregut/eclipse-gls/eclipse
+  151  /mnt/n7fs/ens/tp_dh/eclipse/eclipse 
+  152  javac Enigme.java 
+  153  java Enigme 
+  154  javac Enigme.java 
+  155  java Enigme 
+  156  /mnt/n7fs/ens/tp_cregut/eclipse-gls/eclipse
+  157  javac Enigme.java 
+  158  java Enigme 
+  159  javac Enigme.java 
+  160  java Enigme 
+  161  /mnt/n7fs/ens/tp_cregut/eclipse-gls/eclipse
+  162  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz 
+  163  /mnt/n7fs/ens/tp_pantel/tina/bin/selt -p -S Enigme.scn Enigme.ktz -prelude Enigme.ltl
+  164  /mnt/n7fs/ens/tp_pantel/tina/bin/nd Enigme.net
+  165  /mnt/n7fs/ens/tp_cregut/eclipse-gls/eclipse
+  166  A
+  167  /mnt/n7fs/ens/tp_pantel/tina/bin/nd Enigme.net
+  168  /mnt/n7fs/ens/tp_cregut/eclipse-gls/eclipse
+  169  /mnt/n7fs/ens/tp_pantel/tina/bin/nd Enigme.net
+  170  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz 
+  171  /mnt/n7fs/ens/tp_pantel/tina/bin/nd Enigme.net
+  172  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz 
+  173  /mnt/n7fs/ens/tp_pantel/tina/bin/nd Enigme.net
+  174  dune build
+  175  dune runtest
+  176  dune runtest
+  177  code .
+  178  code .
+  179  code e.
+  180  code .
+  181  jupyter-notebook
+  182  mv .julia oldjulia
+  183  julia
+  184  jupyter-notebook
+  185  ./usr/local/bin/install_julia
+  186  /usr/local/bin/install_julia
+  187  julia
+  188  /usr/local/bin/install_julia
+  189  julia
+  190  /usr/local/bin/install_julia
+  191  jupyter-notebook
+  192  julia
+  193  mv .julia oldjulia
+  194  cd 
+  195  mv .julia oldjulia
+  196  julia
+  197  jupyter-notebook
+  198  cd
+  199  mv .julia oldjulia
+  200  julia
+  201  code .
+  202  jupyter-notebook
+  203  cd
+  204  mv .julia oldjulia
+  205  julia
+  206  code .
+  207  julia
+  208  jupyter-notebook
+  209  jupyter-notebook
+  210  y
+  211  /mnt/n7fs/ens/tp_cregut/eclipse-gls/eclipse
+  212  code .
+  213  code .
+  214  ./MuleStudio 
+  215  bash use-jdk7.bash 
+  216  cd /mnt/n7fs/ens/tp_dh/tp-esb
+  217  ls
+  218  cp MuleStudio-CE-for-linux-64bit-1.3.0-201206220515.tar.gz ~/nosave/
+  219  /mnt/n7fs/ens/tp_cregut/eclipse-gls/eclipse
+  220  bash use-jdk7.bash 
+  221  cd /mnt/n7fs/ens/tp_dh/eclipse
+  222  ls
+  223  eclipse
+  224  ./eclipse 
+  225  ant db
+  226  ant console
+  227  ls /tmp/accounts 
+  228  cd /tmp/acc
+  229  cd /tmp
+  230  ls
+  231  cd accounts
+  232  vim accounts 
+  233  bash use-jdk7.bash 
+  234  cd 
+  235  cd nosave/MuleStudio/
+  236  ls
+  237  ./
+  238  ./MuleStudio 
+  239  cd
+  240  cd Intergiciels/TP5/sujet-esb/
+  241  source use-jdk7.bash 
+  242  cd
+  243  cd nosave/MuleStudio/
+  244  ./MuleStudio 
+  245  /activemp start
+  246  ./activemp start
+  247  ./activemq start
+  248  ant start
+  249  startup.sh
+  250  shutdown.sh
+  251  startup.sh
+  252  code .
+  253  cd TDL/
+  254  ls
+  255  cd Projet
+  256  code .
+  257  code
+  258  code .
+  259  ps -jl
+  260  ps 
+  261  ps -ef
+  262  ps -ef | grep code
+  263  ps -ef | grep root
+  264  ps -ef | grep khammi
+  265  jupyter-notebook
+  266  dune build
+  267  code .
+  268  dune build
+  269  source use-jdk7.bash 
+  270  cd ~/nosave/MuleStudio/
+  271  ls
+  272  ./MuleStudio 
+  273  ant db
+  274  ant concole
+  275  startup.sh
+  276  cd /tmp/
+  277  ls
+  278  vim accounts 
+  279  rm accounts 
+  280  ls
+  281  vim accounts 
+  282  ant console
+  283  ant start
+  284  bash run.bash
+  285  source use-jdk7.bash 
+  286  cd 
+  287  cd nosave/
+  288  ls
+  289  cd MuleStudio/
+  290  ls
+  291  ./MuleStudio 
+  292  code .
+  293  cd /mnt/
+  294  ls
+  295  cd n7fs/
+  296  ls
+  297  cd ens/
+  298  ls
+  299  cd tp_d
+  300  cd tp_dh
+  301  ls
+  302  cd eclipse/
+  303  ls
+  304  ./eclipse
+  305  code .
+  306  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz
+  307  /mnt/n7fs/ens/tp_pantel/tina/bin/nd Enigme.net
+  308  cd /mnt/n7fs/ens/
+  309  ls
+  310  cd tp_pantel/
+  311  ls
+  312  cd tina
+  313  ls
+  314  cd bin/
+  315  ls
+  316  cd /mnt/n7fs/ens/tp_cregut/eclipse
+  317  ./eclipse-jee-photon-4.8/
+  318  ls
+  319  cd ..
+  320  ls
+  321  cd eclipse-gls
+  322  ls
+  323  ./eclipse 
+  324  code .
+  325  cd ..
+  326  java linda.whiteboard.Whiteboard //localhost:4000/kamal
+  327  javac ./linda/shm/*.java
+  328  javac ./linda/whiteboard/*.java
+  329  javac ./linda/server/*.java
+  330  java linda.server.CreateServer kamal
+  331  code .
+  332  rm *.class
+  333  rm ./*.class
+  334  rm ./*/*.class
+  335  rm ./*/*/*.class
+  336  rm ./*/*/*/*.class
+  337  /mnt/n7fs/ens/tp_pantel/tina/bin/nd Enigme.net
+  338  /mnt/n7fs/ens/tp_cregut/eclipse-gls/eclipse
+  339  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz -p
+  340  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz digest.txt error.txt -p
+  341  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz digest.txt error.txt -C
+  342  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz digest.txt error.txt -Cm n
+  343  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz digest.txt error.txt -Cm 5
+  344  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz digest.txt error.txt -R
+  345  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz digest.txt error.txt -V
+  346  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz digest.txt error.txt -Vq
+  347  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz digest.txt error.txt -P
+  348  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz digest.txt error.txt -Q
+  349  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz digest.txt error.txt -D
+  350  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz digest.txt error.txt -c 5
+  351  /mnt/n7fs/ens/tp_pantel/tina/bin/selt -help
+  352  /mnt/n7fs/ens/tp_pantel/tina/bin/selt selt -p -S saisons.scn saisons.ktz -prelude saisons.ltl
+  353  /mnt/n7fs/ens/tp_pantel/tina/bin/selt -p -S Engime.scn Enigme.ktz -prelude Enigme.ltl
+  354  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz digest.txt error.txt -c 10
+  355  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz digest.txt error.txt -c 20
+  356  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz digest.txt error.txt -c 30
+  357  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz digest.txt error.txt -c 40
+  358  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz digest.txt error.txt -c 50
+  359  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz digest.txt error.txt -c 60
+  360  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz digest.txt error.txt -c 70
+  361  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz digest.txt error.txt -c 100
+  362  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz digest.txt error.txt -c 1000
+  363  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz digest.txt error.txt -c 10000
+  364  /mnt/n7fs/ens/tp_pantel/tina/bin/selt selt -p -S saisons.scn saisons.ktz -prelude saisons.ltl
+  365  /mnt/n7fs/ens/tp_pantel/tina/bin/selt -p -S Engime.scn Enigme.ktz -prelude Enigme.ltl
+  366  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz digest.txt error.txt -c 1000
+  367  /mnt/n7fs/ens/tp_pantel/tina/bin/selt -p -S Engime.scn Enigme.ktz -prelude Enigme.ltl
+  368  /mnt/n7fs/ens/tp_pantel/tina/bin/nd Enigme.net
+  369  /mnt/n7fs/ens/tp_pantel/tina/bin/tina
+  370  /mnt/n7fs/ens/tp_pantel/tina/bin/tina -help
+  371  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz digest.txt error.txt -c 100
+  372  /mnt/n7fs/ens/tp_pantel/tina/bin/selt -p -S Engime.scn Enigme.ktz -prelude Enigme.ltl
+  373  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz digest.txt error.txt -c 200
+  374  /mnt/n7fs/ens/tp_pantel/tina/bin/selt -p -S Engime.scn Enigme.ktz -prelude Enigme.ltl
+  375  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz digest.txt error.txt -c 300
+  376  /mnt/n7fs/ens/tp_pantel/tina/bin/selt -p -S Engime.scn Enigme.ktz -prelude Enigme.ltl
+  377  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz digest.txt error.txt -c 400
+  378  /mnt/n7fs/ens/tp_pantel/tina/bin/selt -p -S Engime.scn Enigme.ktz -prelude Enigme.ltl
+  379  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz digest.txt error.txt -c 500
+  380  /mnt/n7fs/ens/tp_pantel/tina/bin/selt -p -S Engime.scn Enigme.ktz -prelude Enigme.ltl
+  381  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz digest.txt error.txt -c 600
+  382  /mnt/n7fs/ens/tp_pantel/tina/bin/selt -p -S Engime.scn Enigme.ktz -prelude Enigme.ltl
+  383  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz digest.txt error.txt -c 700
+  384  /mnt/n7fs/ens/tp_pantel/tina/bin/selt -p -S Engime.scn Enigme.ktz -prelude Enigme.ltl
+  385  svn add enigme.xtext
+  386  svn commit -m "ajout de xtext qui respect l'exemple enigme"
+  387  svn update
+  388  svn add enigme2petrinet.atl 
+  389  svn add enigme2ltl.mtl 
+  390  svn commit -m "ajout de transfprmation vers petrinet et vers ltl"
+  391  javac Enigme.java 
+  392  java Enigme 
+  393  rm *.class
+  394  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz digest.txt error.txt -c 700
+  395  /mnt/n7fs/ens/tp_pantel/tina/bin/selt -p -S Engime.scn Enigme.ktz -prelude Enigme.ltl
+  396  /mnt/n7fs/ens/tp_cregut/eclipse-gls/eclipse
+  397  svn update
+  398  /mnt/n7fs/ens/tp_cregut/eclipse-gls/eclipse
+  399  svn update
+  400  javac Enigme.java 
+  401  java Enigme 
+  402  /mnt/n7fs/ens/tp_pantel/tina/bin/nd Enigme.net
+  403  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz digest.txt error.txt -c 700
+  404  /mnt/n7fs/ens/tp_pantel/tina/bin/selt -p -S Engime.scn Enigme.ktz -prelude Enigme.ltl
+  405  /mnt/n7fs/ens/tp_pantel/tina/bin/nd Enigme.net
+  406  /mnt/n7fs/ens/tp_cregut/eclipse-gls/eclipse
+  407  /mnt/n7fs/ens/tp_pantel/tina/bin/nd Enigme.net
+  408  /mnt/n7fs/ens/tp_cregut/eclipse-gls/eclipse
+  409  code .
+  410  code .
+  411  cd ..
+  412  java linda.server.CreateServer aaa
+  413  cd ..
+  414  javac ./*.java
+  415  javac ./linda/*.java
+  416  javac ./linda//*/*.java
+  417  javac ./linda/*/*.java
+  418  javac ./linda/*/*/*.java
+  419  javac ./linda/*/*/*/*.java
+  420  java linda.nombrepremiers.ErastoLinda 7
+  421  javac ./linda/*/*/*/*.java
+  422  javac ./linda/*/*/*.java
+  423  java linda.nombrepremiers.ErastoLinda 7
+  424  javac ./linda/*/*.java
+  425  java linda.nombrepremiers.ErastoLinda 7
+  426  java linda.nombrepremiers.ErastoLinda 9
+  427  java linda.nombrepremiers.ErastoLinda 17
+  428  java linda.nombrepremiers.ErastoLinda 1254
+  429  java linda.nombrepremiers.ErastoLinda 8
+  430  java linda.nombrepremiers.ErastoLinda 9
+  431  java linda.nombrepremiers.ErastoLinda 18
+  432  java linda.nombrepremiers.ErastoLinda 16
+  433  javac ./linda/*/*.java
+  434  java linda.nombrepremiers.ErastoLinda 16
+  435  java linda.nombrepremiers.ErastoLinda 9
+  436  java linda.nombrepremiers.ErastoLinda 8
+  437  java linda.nombrepremiers.ErastoLinda 1254
+  438  java linda.nombrepremiers.ErastoLinda 125401
+  439  javac ./linda/*/*.java
+  440  java linda.nombrepremiers.ErastoLinda 1254
+  441  java linda.nombrepremiers.ErastoLinda 12554
+  442  java linda.nombrepremiers.ErastoLinda 125540
+  443  java linda.search.basic.Main 'alcool' /usr/share/dict/french
+  444  javac ./linda/*/*.java
+  445  javac ./linda/*/*/*.java
+  446  java linda.search.basic.Main 'alcool' /usr/share/dict/french
+  447  javac ./linda/*/*/*.java
+  448  java linda.whiteboard.Whiteboard //localhost:4000/aaa
+  449  /mnt/n7fs/ens/tp_pantel/tina/bin/nd Enigme.net
+  450  /mnt/n7fs/ens/tp_pantel/tina/bin/nd Enigme.net
+  451  /mnt/n7fs/ens/tp_cregut/eclipse-gls/eclipse
+  452  /mnt/n7fs/ens/tp_pantel/tina/bin/nd Enigme.net
+  453  /mnt/n7fs/ens/tp_cregut/eclipse-gls/eclipse
+  454  /mnt/n7fs/ens/tp_pantel/tina/bin/nd Enigme.net
+  455  /mnt/n7fs/ens/tp_cregut/eclipse-gls/eclipse
+  456  /mnt/n7fs/ens/tp_pantel/tina/bin/nd Enigme.net
+  457  /mnt/n7fs/ens/tp_cregut/eclipse-gls/eclipse
+  458  /mnt/n7fs/ens/tp_pantel/tina/bin/nd Enigme.net
+  459  /mnt/n7fs/ens/tp_pantel/tina/bin/nd Enigme.net
+  460  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz digest.txt error.txt -c 700
+  461  /mnt/n7fs/ens/tp_pantel/tina/bin/selt -p -S Engime.scn Enigme.ktz -prelude Enigme.ltl
+  462  javac Enigme.java 
+  463  java Enigme 
+  464  svn add enigme.java
+  465  svn commit -m "mise à jour de xtext et 2petrinet"
+  466  svn update
+  467  rm *.class
+  468  /mnt/n7fs/ens/tp_pantel/tina/bin/nd Enigme.net
+  469  /mnt/n7fs/ens/tp_pantel/tina/bin/tina Enigme.net Enigme.ktz digest.txt error.txt -c 700
+  470  /mnt/n7fs/ens/tp_pantel/tina/bin/selt -p -S Engime.scn Enigme.ktz -prelude Enigme.ltl
+  471  javac Enigme.java 
+  472  java Enigme 
+  473  rm *.class
+  474  svn add enigme.ecore 
+  475  svn commit -m "mise à jour de xtext et 2petrinet, ajout de ecore"
+  476  svn update
+  477  svn commit -m "mise à jour de xtext et 2petrinet, ajout de ecore"
+  478  svn update
+  479  /mnt/n7fs/ens/tp_cregut/eclipse-gls/eclipse
+  480  svn add game.ecore 
+  481  svn add game.ocl 
+  482  svn add game.xtext 
+  483  svn add game2ltl.mtl 
+  484  svn add game2petrinet.atl 
+  485  svn add gameClassDiagram.jpg 
+  486  svn add game2Java.mtl 
+  487  svn add game.odesign 
+  488  svn commit "ajout de odesign Sirius de metamodèle Game"
+  489  svn commit -m "ajout de odesign Sirius de metamodèle Game"
+  490  svn update
+  491  svn commit -m "ajout de odesign Sirius de metamodèle Game"
+  492  svn add rapport.pdf 
+  493  svn commit -m "ajout du rapport"
+  494  svn commit -m "mise à jour du rapport"
+  495  svn update
+  496  svn commit -m "mise à jour du rapport"
+  497  svn update
+  498  dune runtest
+  499  code 
+  500  code .
+  501  history > history.txt
+  502  /mnt/n7fs/local/sbin/autodiag
+  503  code .
+  504  make
+  505  ./main 100 4
+  506  ./main 200 4
+  507  make
+  508  setenv OMP NUM THREADS
+  509  setenv OMP NUM THREADS 4
+  510  setenv OMP_NUM_THREADS 4
+  511  export OMP_NUM_THREADS=4
+  512  make
+  513  ./main 4000 4
+  514  ./main 100 4
+  515  export OMP_NUM_THREADS=2
+  516  ./main 100 4
+  517  make
+  518  ./main 100 4
+  519  export OMP_NUM_THREADS=2
+  520  make
+  521  ./main 100 4
+  522  export OMP_NUM_THREADS=4
+  523  make
+  524  ./main 100 4
+  525  export OMP_NUM_THREADS=4
+  526  make
+  527  ./main 100 4
+  528  make
+  529  ./main 100 4
+  530  export OMP_NUM_THREADS=2
+  531  make
+  532  ./main 100 4
+  533  export OMP_NUM_THREADS=4
+  534  make
+  535  ./main 100 4
+  536  export OMP_NUM_THREADS=4
+  537  make
+  538  ./main 100 4
+  539  export OMP_NUM_THREADS=2
+  540  make
+  541  ./main 100 4
+  542  export OMP_NUM_THREADS=1
+  543  make
+  544  ./main 100 4
+  545  export OMP_NUM_THREADS=2
+  546  make
+  547  ./main 100 4
+  548  export OMP_NUM_THREADS=2
+  549  make
+  550  export OMP_NUM_THREADS=2
+  551  make
+  552  export OMP_NUM_THREADS=2
+  553  ./main 100 4
+  554  make main_dbg
+  555  ./main 100 4
+  556  export OMP_NUM_THREADS=4
+  557  make main_dbg
+  558  ./main 100 4
+  559  export OMP_NUM_THREADS=4
+  560  make main_dbg
+  561  export OMP_NUM_THREADS=4
+  562  make main_dbg
+  563  export OMP_NUM_THREADS=4
+  564  make main_dbg
+  565  ./main 100 4
+  566  export OMP_NUM_THREADS=4
+  567  make main_dbg
+  568  ./main 100 4
+  569  export OMP_NUM_THREADS=4
+  570  make main_dbg
+  571  ./main 100 4
+  572  export OMP_NUM_THREADS=2
+  573  make main_dbg
+  574  ./main 100 4
+  575  ./main 100 5
+  576  export OMP_NUM_THREADS=4
+  577  ./main 100 4
+  578  make main_dbg
+  579  ./main 100 5
+  580  export OMP_NUM_THREADS=4
+  581  make main_dbg
+  582  ./main 100 5
+  583  ./main 100 4
+  584  make main_dbg
+  585  ./main 100 4
+  586  export OMP_NUM_THREADS=4
+  587  make main_dbg
+  588  ./main 100 4
+  589  export OMP_NUM_THREADS=4
+  590  make main_dbg
+  591  ./main 100 4
+  592  export OMP_NUM_THREADS=4
+  593  make main_dbg
+  594  ./main 100 4
+  595  ./main 1000 4
+  596  export OMP_NUM_THREADS=4
+  597  make main_dbg
+  598  ./main 100 4
+  599  make main_dbg
+  600  ./main 100 4
+  601  make main_dbg
+  602  ./main 100 4
+  603  make main_dbg
+  604  ./main 100 4
+  605  make main_dbg
+  606  ./main 100 4
+  607  make main_dbg
+  608  ./main 100 4
+  609  make main_dbg
+  610  ./main 100 4
+  611  make main_dbg
+  612  ./main 100 4
+  613  make main_dbg
+  614  ./main 100 4
+  615  export OMP_NUM_THREADS=4
+  616  make main_dbg
+  617  ./main 100 4
+  618  make main_dbg
+  619  ./main 100 4
+  620  make main_dbg
+  621  ./main 100 4
+  622  ./main 100 40 
+  623  code 
+  624  code .
+  625  export OMP_NUM_THREADS=4
+  626  make main_dbg
+  627  make
+  628  ./main 3 4
+  629  make
+  630  ./main 3 4
+  631  make
+  632  ./main 3 4
+  633  make
+  634  ./main 3 4
+  635  make
+  636  ./main 3 4
+  637  ./main 2 4
+  638  ./main 3 4
+  639  make
+  640  ./main 3 4
+  641  ./main 2 4
+  642  make
+  643  ./main 2 4
+  644  make
+  645  ./main 2 4
+  646  ./main 3 4
+  647  ./main 2 4
+  648  make
+  649  ./main 2 4
+  650  ./main 3 4
+  651  make
+  652  ./main 3 4
+  653  ./main 2 4
+  654  make
+  655  ./main 2 4
+  656  ./main 3 4
+  657  ./main 4 4
+  658  ./main 5 4
+  659  make
+  660  ./main 5 4
+  661  ./main 5 6
+  662  ./main 5 2
+  663  ./main 5 1
+  664  ./main 5 4
+  665  make
+  666  ./main 5 4
+  667  make
+  668  ./main 5 4
+  669  make
+  670  ./main 5 4
+  671  make
+  672  ./main 5 4
+  673  ./main 3 4
+  674  ./main 20 4
+  675  make
+  676  ./main 20 4
+  677  make
+  678  ./main 20 4
+  679  make
+  680  ./main 20 4
+  681  make
+  682  ./main 20 4
+  683  make
+  684  ./main 20 4
+  685  ./main 3 4
+  686  make
+  687  ./main 3 4
+  688  ./main 20 4
+  689  ./main 3 4
+  690  make
+  691  ./main 3 4
+  692  ./main 20 4
+  693  make
+  694  ./main 20 4
+  695  make
+  696  ./main 20 4
+  697  make
+  698  ./main 20 4
+  699  make
+  700  ./main 20 4
+  701  make
+  702  ./main 20 4
+  703  source environment.sh 
+  704  ./pack.sh 
+  705  code .
+  706  history > history.txt

@@ -1,0 +1,34 @@
+import '../model/generated/ENIGMA.ecore'
+
+package eNIGMA
+
+context Joueur
+ -- Exigence 3
+inv limitePositive('limite négative'):
+	self.limite >=0
+-- Exigence 6
+inv capaciteMaxDepassee('capacité max dépassée'):
+	self.limite >= self.objets->iterate(o : Objet; sum : Integer = 0 | sum + o.taille*o.occurrence)
+-- Exigence 12
+inv connaissanceInvisiblePossede('Une connaissance invisible est possédée par le joueur'):
+	self.connaissances->select(c : Connaissance | c.etatv = EtatVisibilite::nvisible)->isEmpty()
+-- Exigence 13 et 15
+inv objetInvisiblePossede('Un objet invisible est possédé par le joueur'):
+	self.objets->select(o : Objet | o.etatv = EtatVisibilite::nvisible)->size()<=0
+
+context Lieu
+-- Exigence 17
+-- inv cheminObligatoireUnique('Il y a plus d\'un chemin obligatoire à partir de ce lieu '+self.name):
+--	self.chemins->collect(c : Chemin | c.etato = EtatObligation::obligatoire)->size()<=1
+
+-- Exigence 26
+inv personneObligatoireUnique('Il y a plus d\'une seule personne obligatoire dans le lieu '+self.name):
+	self.personnes->collect(p : Personne | p.etato = EtatObligation::obligatoire)->size()<=1
+	
+
+context Objet
+-- Inspiré par l'exigence 4 
+inv taillePositive('taille objet négative'):
+	self.taille >=0
+
+endpackage

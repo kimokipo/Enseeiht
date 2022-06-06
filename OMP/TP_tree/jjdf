@@ -1,0 +1,10 @@
+3 Partie 2 : réduire les frais généraux de planification des tâches
+Dans les cas où il vaut la peine de paralléliser le parcours de l'arbre, le nombre de nœuds dans l'arbre est beaucoup plus grand
+que le nombre de threads de travail. Considérant que dans la partie 1, nous avons créé une tâche pour chaque nœud de l'arbre,
+avons-nous vraiment besoin de toutes ces tâches ? Est-il probable que ce nombre énorme de tâches surcharge la planification
+système et ralentit l'exécution ?
+Pensez à un cas où le nombre de tâches générées est limité en fonction du nombre de travail
+fils. Ceci peut être réalisé grâce à la condition if de la construction de tâche en identifiant une couche dans le
+arbre tel que les nœuds au-dessus de la couche sont traités en tâches différées et les nœuds en dessous sont traités en tâches non différées
+Tâches.
+Implémentez cette version et refaites les tests effectués dans la partie 1 et voyez si quelque chose a changé. 

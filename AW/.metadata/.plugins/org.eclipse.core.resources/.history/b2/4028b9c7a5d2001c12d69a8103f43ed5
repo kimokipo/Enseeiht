@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<br> <a href="ajoutCampagne.html">ajouter une campagne</a> </br>
+
+<br> <a href="listerCampagnes.jsp">Voir les campagnes</a> </br>
+
+<br> <a href="listerGroupes.jsp">Voir les groupes</a> </br>
+
+<br> <a href="listerPosts.jsp">Voir les posts</a> </br>
+
+
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<form action= "Controler" method="get">
+<center>
+nom <input type="text" name="nom"><br/>
+<br/>
+nombre de membres <input type="text" name="nombre_membres"><br/>
+theme <input type="text" name="theme"><br/>
+type <input type="text" name="type"><br/>
+reglementation <input type="text" name="reglementation"><br/>
+url <input type="text" name="url"><br/>
+frequence des posts <input type="text" name="frequence_posts"><br/>
+format <input type="text" name="format"><br/>
+lieu <input type="text" name="lieu"><br/>
+
+<input type="hidden" name="op" value="ajoutGroup">
+<input type="submit" name="ajouter" value="add">
+ <a href="managerConnect.html">Retour au Menu</a>
+</center>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+grammar fr.n7.ENIGME with org.eclipse.xtext.common.Terminals
+
+generate eNIGME "http://www.n7.fr/ENIGME"
+
+Jeu :
+	'jeu' name = ID '{'
+		jeuelement+= JeuElement*
+	'}';
+
+JeuElement : 
+	Territoire | Joueur | Objet | Choix | Connaissance | Lieu | Reponse | Action | Interaction | Personne | Chemin | Condition | Qualification
+;
+Joueur :
+    'joueur' name = ID '{'
+        'limite' limite = INT
+        'objets' '{'
+            objets += [Objet]*
+        '}'
+        'connaissances' '{'
+            connaissances += [Connaissance]*
+        '}'
+    '}';
+Connaissance:
+    'connaissance' name = ID nomConnaissance = STRING
+    qualification = [Qualification]
+    // HADCHI TDBL
+    'etat' etatv = EtatVisibilite etatp = EtatPossession;
+    
+Objet :
+    'objet' name = ID nomObjet = STRING "occurrence" occurrence = INT ',' 'de' 'taille' taille = INT
+    // HADCHI TDBL
+	'etat' etatv = EtatVisibilite etatp = EtatPossession;
+Territoire :
+    'territoire' name = ID '{'
+    	// HADCHI TBDL
+        'depart' lieuDebut = Lieu
+    	// HADCHI TDBL
+		'milieu' '{'
+			lieuxintermediaires += Lieu*
+		'}'
+    	// HADCHI TDBL
+        'fin' '{'
+        	lieuxFin += Lieu*
+        '}'
+        'chemins' '{' 
+            chemins += Chemin* 
+        '}'
+    '}';
+Choix:
+    'choix' name = ID '{'
+        reponses += [Reponse]*
+        'conditions' '{'
+        	conditions += [Condition]*
+        '}' 
+    '}';
+Interaction :
+    'interaction' name = ID '{' 
+        choix = [Choix]
+		choixFin = [Choix]
+    '}';
+Personne :
+	// HADCHI TDBL
+    'personne' name = ID etato = EtatObligation conditiono = [Condition] etatv = EtatVisibilite conditionv = [Condition] '{'
+        texte = [Qualification]
+        (interaction = [Interaction])? 
+    '}';
+Lieu :
+    'lieu' name = ID '{'
+		('personnes' '{'
+			personnes += Personne*
+		'}')?
+	'}';
+		
+Chemin :
+	// HADCHI TBDL
+    'chemin' etatc = EtatChemin conditionc = [Condition] etato = EtatObligation conditiono = [Condition] etatv = EtatVisibilite conditionv = [Condition] 'de' precedent = [Lieu] 'a' suivant = [Lieu];
+Qualification :
+    id = INT qualification = STRING;
+Action:
+    'action' name = ID '{'
+     	'objets' 'c' '{'
+     		objetsconsommables += [Objet]*
+     	'}'
+     	'objets' 'a' '{'
+     		objetsattribuables += [Objet]*
+     	'}'
+     	'connaissances' 'a' '{'
+     		connaissancesattribuables += [Connaissance]*
+     	'}'
+    '}';
+Reponse :
+    'reponse' '>>' name = ID etat = EtatReponse 'de' 'qualification' texte = [Qualification] 'avec' action = [Action];
+Condition : 
+	'condition' name = ID '{'
+		'obj' '{' 
+			objetsRequis += [Objet]* 
+		'}' 
+		'con' '{' 
+			connaissancesRequises += [Connaissance]*
+		'}'
+	'}';
+// HADCHI KAML LT7T TBDL
+enum EtatReponse returns EtatReponse: 
+	bonne = 'bonne' | mauvaise = 'mauvaise';
+enum EtatPossession returns EtatPossession:
+	possede = 'possede' | npossede = 'npossede';
+enum EtatVisibilite returns EtatVisibilite:
+    visible = 'visible' | nvisible = 'nvisible';
+enum EtatObligation returns EtatObligation:
+    obligatoire = 'obligatoire' | nobligatoire = 'nobligatoire';
+enum EtatChemin returns EtatChemin:
+    ouvert = 'ouvert' | ferme = 'ferme'; 

@@ -1,0 +1,3 @@
+[] <> (Echec \/ Succes);	# Soit on aura Succes ou Echec
+- <> (Echec /\ Succes);	# Ipossible d'avoir au mème temps Echec et Succes
+[] <> ((Succes /\ (- <> Echec)) \/ ((- <> Succes) /\ Echec)) # Soit on aura Succes avec non Echec ou non Succes avec Echec

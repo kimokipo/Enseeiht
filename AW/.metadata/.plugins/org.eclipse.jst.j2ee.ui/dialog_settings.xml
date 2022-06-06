@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="J2EE_EXPORT_OVERWRITE" value="true"/>
+	<item key="J2EE_EXPORT_SOURCE" value="false"/>
+	<list key="MRU_RUNTIME_STORE">
+		<item value="NULL_RUNTIME"/>
+	</list>
+	<list key="J2EE_EXPORT_JST_WEB">
+		<item value="/home/khammi/nosave/EAP-7.0.0/standalone/deployments/ProjetAppWeb.war"/>
+		<item value="/home/khammi/nosave/EAP-7.0.0/standalone/deployments/Pub7.war"/>
+		<item value="/home/khammi/nosave/EAP-7.0.0/standalone/deployments/Annuaire1.war"/>
+		<item value="/home/khammi/nosave/EAP-7.0.0/standalone/deployments/Calculatri.war"/>
+		<item value="Annuaire1.war"/>
+	</list>
+</section>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<br> <a href="ajoutCampagne.html">ajouter une campagne</a> </br>
+
+<br> <a href="Controler?op=listerCampagnes">Voir les campagnes</a> </br>
+
+<br> <a href="ajoutGroup.html">ajouter un groupe</a> </br>
+
+<br> <a href="Controler?op=listerGroupes">Voir les groupes</a> </br>
+
+<br> <a href="ajoutPost.html">ajouter un post</a> </br>
+
+<br> <a href="Controler?op=listerPosts">Voir les posts</a> </br>
+
+<br> <a href="ajoutManager.html">ajouter un manager</a> </br>
+
+<br> <a href="Controler?op=associerPostCampagne">associer un post à une campagne</a> </br>
+
+<br> <a href="Controler?op=associerManagerGroupe">associer un manager à un groupe</a> </br>
+
+<br> <a href="ajoutReleve.jsp">ajouter un releve</a> </br>
+
+<br> <a href="Controler?op=relevecampagne">voir releve campagne</a> </br>
+
+<br> <a href="Controler?op=deconnecter">Se déconnecter</a> </br>
+
+</body>
+</html>

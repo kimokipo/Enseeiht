@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value=""/>
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="id=&quot;comment&quot;"/>
+			<item value="id=&quot;sel1&quot; placeholder=&quot;Instruments&quot;"/>
+			<item value="id=&quot;sel1&quot;"/>
+			<item value="placeholder=&quot;Instruments&quot;"/>
+			<item value="post"/>
+			<item value="serv"/>
+			<item value="pub7.jpeg"/>
+			<item value="&lt;/form"/>
+			<item value="&lt;form"/>
+			<item value="form"/>
+			<item value="connectionManager.html"/>
+			<item value="connectionUser.html"/>
+			<item value="connectionUser"/>
+			<item value="&lt;&lt;&lt;&lt;"/>
+			<item value="&gt;&gt;&gt;"/>
+		</list>
+		<list key="replacehistory">
+			<item value=""/>
+			<item value="images/pub7.jpeg"/>
+			<item value="connectionManager.jsp"/>
+			<item value="connectionUser.jsp"/>
+			<item value="Calcul"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="60"/>
+		<item key="DIALOG_Y_ORIGIN" value="222"/>
+		<item key="DIALOG_WIDTH" value="369"/>
+		<item key="DIALOG_HEIGHT" value="427"/>
+		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>
+	</section>
+</section>

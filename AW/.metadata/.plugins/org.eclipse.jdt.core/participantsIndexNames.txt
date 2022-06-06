@@ -1,0 +1,11 @@
+INDEX VERSION 1.131
+/home/khammi/AW/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1326194437.index
+/ProjetAppWeb/src
+/home/khammi/AW/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/4255616464.index
+/Pub7/src
+/home/khammi/AW/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3877767670.index
+/Calculatrice/src
+/home/khammi/AW/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/167639475.index
+/Annuaire1/src
+/home/khammi/AW/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1994474110.index
+/ProjetAppWeb/src

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<br> <a href="Controler?op=listerCampagnes">Voir les campagnes</a> </br>
+
+<br> <a href="Controler?op=listerGroupes">Voir les groupes</a> </br>
+
+<br> <a href="Controler?op=listerPosts">Voir les posts</a> </br>
+
+<br> <a href="Controler?op=relevecampagne">voir releve campagne</a> </br>
+
+<br> <a href="Controler?op=deconnecter">Se déconnecter</a> </br>
+
+</body>
+</html>
