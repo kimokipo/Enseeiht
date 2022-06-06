@@ -1,0 +1,8 @@
+
+tar -xvf tps_C.tar
+mkdir Sources Executables
+mv TP[123]/*.c Sources
+mv TP[123]/* Executables
+rm -R TP[123]
+mv TPS_C Progs_C
+tar -cvf Progs_C.tar Progs_C

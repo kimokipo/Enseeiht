@@ -1,0 +1,20 @@
+[GENERATED OBJECT FILE]
+b__pagerank.o
+[PROJECT FILES]
+/home/khammi/nosave (2)/pagerank.gpr
+20201222131834
+[BOUND OBJECT FILES]
+/home/khammi/nosave (2)/google_naive.o
+/home/khammi/nosave (2)/pagerank.o
+[GENERATED SOURCE FILES]
+b__pagerank.ads
+b__pagerank.adb
+b__pagerank.ali
+[RESULTING OPTIONS]
+-L/home/khammi/nosave (2)/
+-L/home/khammi/nosave (2)/
+-L/applications/gnat/lib/gcc/x86_64-pc-linux-gnu/8.3.1/adalib/
+-static
+-static-libgcc
+/applications/gnat/lib/gcc/x86_64-pc-linux-gnu/8.3.1/adalib/libgnat.a
+-ldl

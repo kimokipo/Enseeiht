@@ -1,0 +1,157 @@
+with Ada.Text_IO;          use Ada.Text_IO;
+with Ada.Integer_Text_IO;  use Ada.Integer_Text_IO;
+with Ada.Command_Line;     use Ada.Command_Line;
+with SDA_Exceptions;       use SDA_Exceptions;
+with Alea;
+with TH;
+-- Ã‰valuer la qualitÃ© du gÃ©nÃ©rateur alÃ©atoire et les SDA.
+procedure Evaluer_Alea_TH is
+
+
+   -- Afficher l'usage.
+   procedure Afficher_Usage is
+   begin
+      New_Line;
+      Put_Line ("Usage : " & Command_Name & " Borne Taille");
+      New_Line;
+      Put_Line ("   Borne  : les nombres sont tirÃ©s dans l'intervalle 1..Borne");
+      Put_Line ("   Taille : la taille de l'Ã©chantillon");
+      New_Line;
+   end Afficher_Usage;
+
+
+   -- Afficher le Nom et la Valeur d'une variable.
+   -- La Valeur est affichÃ©e sur la Largeur_Valeur prÃ©cisÃ©e.
+   procedure Afficher_Variable (Nom: String; Valeur: in Integer; Largeur_Valeur: in Integer := 1) is
+   begin
+      Put (Nom);
+      Put (" : ");
+      Put (Valeur, Largeur_Valeur);
+      New_Line;
+   end Afficher_Variable;
+
+   -- Ã‰valuer la qualitÃ© du gÃ©nÃ©rateur de nombre alÃ©atoire Alea sur un
+   -- intervalle donnÃ© en calculant les frÃ©quences absolues minimales et
+   -- maximales des entiers obtenus lors de plusieurs tirages alÃ©atoires.
+   --
+   -- ParamÃ¨tres :
+   -- 	  Borne: in Entier	-- le nombre alÃ©atoire est dans 1..Borne
+   -- 	  Taille: in Entier -- nombre de tirages (taille de l'Ã©chantillon)
+   -- 	  Min, Max: out Entier -- frÃ©quence minimale et maximale
+   --
+   -- NÃ©cessite :
+   --    Borne > 1
+   --    Taille > 1
+   --
+   -- Assure : -- poscondition peu intÃ©ressante !
+   --    0 <= Min Et Min <= Taille
+   --    0 <= Max Et Max <= Taille
+   --    Min + Max <= Taille
+   --    Min <= Moyenne Et Moyenne <= Max
+   --
+   -- Remarque : On ne peut ni formaliser les 'vraies' postconditions,
+   -- ni Ã©crire de programme de test car on ne maÃ®trise par le gÃ©nÃ©rateur
+   -- alÃ©atoire.  Pour Ã©crire un programme de test, on pourrait remplacer
+   -- le gÃ©nÃ©rateur par un gÃ©nÃ©rateur qui fournit une sÃ©quence connue
+   -- d'entiers et pour laquelle on pourrait dÃ©terminer les donnÃ©es
+   -- statistiques demandÃ©es.
+   -- Ici, pour tester on peut afficher les nombres alÃ©atoires et refaire
+   -- les calculs par ailleurs pour vÃ©rifier que le rÃ©sultat produit est
+   -- le bon.
+   procedure Calculer_Statistiques (
+                                    Borne    : in Integer;  -- Borne supÃ©rieur de l'intervalle de recherche
+                                    Taille   : in Integer;  -- Taille de l'Ã©chantillon
+                                    Min, Max : out Integer  -- min et max des frÃ©quences de l'Ã©chantillon
+                                   ) with
+     Pre => Borne > 1 and Taille > 1,
+     Post => 0 <= Min and Min <= Taille
+     and 0 <= Max and Max <= Taille
+     and Min + Max <= Taille
+   is
+      package Mon_Alea is
+        new Alea (1, Borne);
+      use Mon_Alea;
+      function Hacher_identite(Cle:integer)return integer is
+      begin
+         return Cle;
+      end Hacher_identite;
+      package TH_integer_integer is
+        new TH(1000,integer,integer,Hacher_identite);
+      use TH_integer_integer;
+      Number :integer; --Nombre généré entre 1 et Borne à chaque éteration.
+      TH1:T_TH;  --La Sda des nombres générés.
+      TH2:T_TH;  --La Sda des frequences non nuls des nombres générés.
+      --Calculer le Max et le Min à partir de la frequence Cle.
+      procedure Comparer(Cle:in integer;Donnee:in integer) is
+
+      begin
+         if Cle>Max then
+               Max:=Cle;    --Modifier la valeure de Max puisque Cle est supérieure à lui.
+         end if;
+         if Cle<Min then
+            Min:=Cle;    --Modifier la valeure de Min puisque Cle est inférieure à lui.
+         end if;
+      end Comparer;
+      s:integer;  --la frequence d'un nombre généré.
+      i:integer;  --Entier qui peut étre généré entre 1 et Borne.
+      --Calculer la frequence à partir d'une donnée Donnee.
+      procedure Sommer(Cle:in integer;Donnee:in integer)is
+      begin
+         if Donnee=i then
+            s:=s+1;   --Incrementer s par 1 puisque on a trouvé une autre présente du nombre généré Donnee.
+         end if;
+      end Sommer;
+      --Calculer le Max et le Min à partir d'une Sda.
+      procedure Comparer is
+        new Pour_Chaque(Comparer);
+      --Calculer la frequence d'un nombre généré dans une Sda.
+      procedure Sommer is
+         new Pour_Chaque(Sommer);
+
+   begin
+      Initialiser(TH1);  --Initialiser TH1.
+      --Générer et Enregistrer Taille nombres aléatoires dans TH1.
+      for j in 1..Taille loop
+         Get_Random_Number(Number);
+         Enregistrer (TH1,j,Number);
+      end loop;
+      Initialiser(TH2);  --Initialiser TH2.
+      i:=1;  --Initialiser i par 1.
+      while i<=Borne loop
+         s:=0; --Initialiser s par 0 pour chaque éteration.
+         Sommer(TH1);  --Calculer la frequence d'un nombre i entre 1 et Borne dans TH1.
+         if s>0 then
+            Enregistrer(TH2,s,i); --Enregistrer la frequence non nulle dans TH2.
+         end if;
+         i:=i+1;  --Incrementer i par 1.
+      end loop;
+      Min:=Taille; --Initialiser Min par Taille.
+      Max:=1; -- Initialiser Max par 1.
+      Comparer(TH2);  --Calculer le Max et le Min à partir de TH2.
+   end Calculer_Statistiques;
+
+
+   Min, Max: Integer; -- frÃ©quence minimale et maximale d'un Ã©chantillon
+   Borne: Integer;    -- les nombres alÃ©atoire sont tirÃ©s dans 1..Borne
+   Taille: integer;   -- nombre de tirages alÃ©atoires
+begin
+   if Argument_Count /= 2 then
+      Afficher_Usage;
+   else
+      -- RÃ©cupÃ©rer les arguments de la ligne de commande
+      Borne := Integer'Value (Argument (1));
+      Taille := Integer'Value (Argument (2));
+
+      -- Afficher les valeur de Borne et Taille
+      Afficher_Variable ("Borne ", Borne);
+      Afficher_Variable ("Taille", Taille);
+
+      Calculer_Statistiques (Borne, Taille, Min, Max);
+
+      -- Afficher les frÃ©quence Min et Max
+      Afficher_Variable ("Min", Min);
+      Afficher_Variable ("Max", Max);
+   end if;
+exception
+      when Constraint_Error => Afficher_Usage;  --Afficher l'usage puisque l'exception Constraint_Error est levée.
+end Evaluer_Alea_TH;

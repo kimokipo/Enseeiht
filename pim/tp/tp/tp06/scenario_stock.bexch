@@ -1,0 +1,20 @@
+[GENERATED OBJECT FILE]
+b__scenario_stock.o
+[PROJECT FILES]
+/home/khammi/pim/tp/tp/tp06/tp4.gpr
+20201021162753
+[BOUND OBJECT FILES]
+/home/khammi/pim/tp/tp/tp06/stocks_materiel.o
+/home/khammi/pim/tp/tp/tp06/scenario_stock.o
+[GENERATED SOURCE FILES]
+b__scenario_stock.ads
+b__scenario_stock.adb
+b__scenario_stock.ali
+[RESULTING OPTIONS]
+-L/home/khammi/pim/tp/tp/tp06/
+-L/home/khammi/pim/tp/tp/tp06/
+-L/applications/gnat/lib/gcc/x86_64-pc-linux-gnu/8.3.1/adalib/
+-static
+-static-libgcc
+/applications/gnat/lib/gcc/x86_64-pc-linux-gnu/8.3.1/adalib/libgnat.a
+-ldl

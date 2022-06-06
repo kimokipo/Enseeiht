@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<Locations >
+  <Project>
+    <vfs_file />
+    <file_marker column=" 1" line=" 17" >
+      <vfs_project />
+      <vfs_file>/home/khammi/pim/tp/tp/tp10/alea.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 9" line=" 11" >
+      <vfs_project />
+      <vfs_file>/home/khammi/pim/tp/tp/tp10/alea.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 6" line=" 4" >
+      <vfs_project />
+      <vfs_file>/home/khammi/pim/tp/tp/tp10/evaluer_alea_lca.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 7" line=" 111" >
+      <vfs_project />
+      <vfs_file>/home/khammi/pim/tp/tp/tp10/lca.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 9" line=" 11" >
+      <vfs_project />
+      <vfs_file>/home/khammi/pim/tp/tp/tp10/lca.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 13" line=" 18" >
+      <vfs_project />
+      <vfs_file>/home/khammi/pim/tp/tp/tp10/lca_sujet.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 9" line=" 256" >
+      <vfs_project />
+      <vfs_file>/home/khammi/pim/tp/tp/tp10/test_lca.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 9" line=" 4" >
+      <vfs_project />
+      <vfs_file>/home/khammi/pim/tp/tp/tp10/sda_exceptions.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 67" line=" 9" >
+      <vfs_project />
+      <vfs_file>/home/khammi/pim/tp/tp/tp10/th.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 19" line=" 120" >
+      <vfs_project />
+      <vfs_file>/home/khammi/pim/tp/tp/tp10/th.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 7" line=" 260" >
+      <vfs_project />
+      <vfs_file>/home/khammi/pim/tp/tp/tp10/test_th.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 13" line=" 15" >
+      <vfs_project />
+      <vfs_file>/home/khammi/pim/tp/tp/tp10/th_sujet.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project />
+      <vfs_file>/home/khammi/pim/tp/tp/tp10/exemple_unbounded_string.adb</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 6" line=" 4" >
+      <vfs_project />
+      <vfs_file>/home/khammi/pim/tp/tp/tp10/evaluer_alea_th.adb</vfs_file>
+    </file_marker>
+  </Project>
+  <Project >
+    <vfs_file >/home/khammi/pim/tp/tp/tp10/tp10.gpr</vfs_file>
+    <file_marker column=" 1" line=" 17">
+      <vfs_project >/home/khammi/pim/tp/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file >/home/khammi/pim/tp/tp/tp10/alea.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 9" line=" 11">
+      <vfs_project >/home/khammi/pim/tp/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file >/home/khammi/pim/tp/tp/tp10/alea.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 6" line=" 4">
+      <vfs_project >/home/khammi/pim/tp/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file >/home/khammi/pim/tp/tp/tp10/evaluer_alea_lca.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 7" line=" 111">
+      <vfs_project >/home/khammi/pim/tp/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file >/home/khammi/pim/tp/tp/tp10/lca.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 9" line=" 11">
+      <vfs_project >/home/khammi/pim/tp/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file >/home/khammi/pim/tp/tp/tp10/lca.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 13" line=" 18">
+      <vfs_project >/home/khammi/pim/tp/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file >/home/khammi/pim/tp/tp/tp10/lca_sujet.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 9" line=" 256">
+      <vfs_project >/home/khammi/pim/tp/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file >/home/khammi/pim/tp/tp/tp10/test_lca.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 9" line=" 4">
+      <vfs_project >/home/khammi/pim/tp/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file >/home/khammi/pim/tp/tp/tp10/sda_exceptions.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 67" line=" 9">
+      <vfs_project >/home/khammi/pim/tp/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file >/home/khammi/pim/tp/tp/tp10/th.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 19" line=" 120">
+      <vfs_project >/home/khammi/pim/tp/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file >/home/khammi/pim/tp/tp/tp10/th.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 7" line=" 260">
+      <vfs_project >/home/khammi/pim/tp/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file >/home/khammi/pim/tp/tp/tp10/test_th.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 13" line=" 15">
+      <vfs_project >/home/khammi/pim/tp/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file >/home/khammi/pim/tp/tp/tp10/th_sujet.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >/home/khammi/pim/tp/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file >/home/khammi/pim/tp/tp/tp10/exemple_unbounded_string.adb</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 6" line=" 4">
+      <vfs_project >/home/khammi/pim/tp/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file >/home/khammi/pim/tp/tp/tp10/evaluer_alea_th.adb</vfs_file>
+    </file_marker>
+  </Project>
+</Locations>

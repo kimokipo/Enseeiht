@@ -1,0 +1,77 @@
+File allumettes/ConfigurationException.java: 21 tokens, 16 lines
+File allumettes/Jeu.java: 23 tokens, 20 lines
+File allumettes/Arbitre.java: 338 tokens, 53 lines
+File allumettes/Strategie.java: 41 tokens, 9 lines
+File allumettes/StrategieClass.java: 413 tokens, 63 lines
+File allumettes/CoupInvalideException.java: 51 tokens, 29 lines
+File allumettes/Joueur.java: 79 tokens, 23 lines
+File allumettes/Procuration.java: 63 tokens, 27 lines
+File allumettes/OperationInterditException.java: 18 tokens, 16 lines
+File allumettes/JeuNonConfiant.java: 106 tokens, 32 lines
+File allumettes/Jouer.java: 330 tokens, 74 lines
+File allumettes/JeuConfiant.java: 9 tokens, 5 lines
+Total input: 12 files (12 new, 0 old), 1492 tokens
+
+allumettes/Arbitre.java: line 1-12 [33]
+allumettes/Joueur.java: line 1-9
+< package allumettes;
+< 
+< public class Arbitre {
+< 
+< 	private Joueur joueur1;
+< 
+< 	private Joueur joueur2;
+< 
+< 	public Arbitre(Joueur j1, Joueur j2) {
+< 		this.joueur1 = j1;
+< 		this.joueur2 = j2;
+< 	}
+---
+> package allumettes;
+> 
+> public class Joueur {
+> 	private String nom;
+> 	private Strategie strategie;
+> 	public Joueur(String nom, Strategie strategie){
+> 		this.nom = nom;
+> 		this.strategie = strategie;
+> 	}
+
+allumettes/Jouer.java: line 26-28 [31]
+allumettes/Jouer.java: line 29-31
+< 			String[] tab1 = args[i].split("@");
+< 			String Nom1 = tab1[0];
+< 			Strategie Strategie1 = new StrategieClass(tab1[1].toUpperCase(), Nom1);
+---
+> 			String[] tab2 = args[i+1].split("@");
+> 			String Nom2 = tab2[0];
+> 			Strategie Strategie2 = new StrategieClass(tab2[1].toUpperCase(), Nom2);
+
+allumettes/StrategieClass.java: line 4-10 [29]
+allumettes/Joueur.java: line 3-9
+< public class StrategieClass implements Strategie {
+< 	private String nom;
+< 	private String nomJoueur;
+< 	public StrategieClass(String nom, String nomJoueur){
+< 		this.nom = nom;
+< 		this.nomJoueur = nomJoueur;
+<  	}
+---
+> public class Joueur {
+> 	private String nom;
+> 	private Strategie strategie;
+> 	public Joueur(String nom, Strategie strategie){
+> 		this.nom = nom;
+> 		this.strategie = strategie;
+> 	}
+
+allumettes/Arbitre.java: line 28-30 [24]
+allumettes/Arbitre.java: line 30-32
+< 				if (prise == -1) {
+< 					System.out.println(courant.getNom() + " prend -1 allumette.");
+< 				}else if (prise == 0) {
+---
+> 				}else if (prise == 0) {
+> 					System.out.println(courant.getNom() + " prend 0 allumette.");
+> 				}else if (prise == 1) {
+

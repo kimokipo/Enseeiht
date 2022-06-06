@@ -1,0 +1,2 @@
+test_lca.adb:256:17: warning: variable "Inutile" is assigned but never read
+test_lca.adb:279:35: warning: formal parameter "Cle" is not referenced

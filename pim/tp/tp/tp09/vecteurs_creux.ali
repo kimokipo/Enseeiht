@@ -1,0 +1,165 @@
+V "GNAT Lib v2019"
+A -gnatA
+A -gnatwa
+A -gnata
+A -g
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_FLOATING_POINT
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_RECURSION
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U vecteurs_creux%b	vecteurs_creux.adb	23624c04 NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.float_text_io%s	a-flteio.ads		a-flteio.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W ada.unchecked_deallocation%s
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U vecteurs_creux%s	vecteurs_creux.ads	721c2d47 EE NE OO PK
+
+D ada.ads		20190518041255 76789da1 ada%s
+D a-except.ads		20190518041255 291912d5 ada.exceptions%s
+D a-flteio.ads		20190518041255 e18a47a0 ada.float_text_io%s
+D a-inteio.ads		20190518041256 f64b89a4 ada.integer_text_io%s
+D a-ioexce.ads		20190518041254 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20190518041255 119b8fb3 ada.streams%s
+D a-tags.ads		20190518041256 491b781d ada.tags%s
+D a-textio.ads		20190518041256 aef4d56d ada.text_io%s
+D a-tiflio.ads		20190518041254 bf196650 ada.text_io.float_io%s
+D a-tiinio.ads		20190518041254 390edddb ada.text_io.integer_io%s
+D a-unccon.ads		20190518041255 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041255 eff36322 ada.unchecked_deallocation%s
+D interfac.ads		20190518041254 5ab55268 interfaces%s
+D i-cstrea.ads		20190518041254 e53d8b8e interfaces.c_streams%s
+D system.ads		20190518041255 4635ec04 system%s
+D s-assert.ads		20190518041255 cd8d2c94 system.assertions%s
+D s-crtl.ads		20190518041254 0ebbdb71 system.crtl%s
+D s-exctab.ads		20190518041255 54135002 system.exception_table%s
+D s-ficobl.ads		20190518041256 078245e4 system.file_control_block%s
+D s-parame.ads		20190518041256 48ec542b system.parameters%s
+D s-secsta.ads		20190518041256 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041255 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041256 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041256 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041256 2dc34a04 system.storage_elements%s
+D s-traent.ads		20190518041254 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041255 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041255 1b7d22d2 system.wch_con%s
+D vecteurs_creux.ads	20201109110354 721c2d47 vecteurs_creux%s
+D vecteurs_creux.adb	20201121095824 07b81908 vecteurs_creux%b
+G a e
+G c Z s b [initialiser vecteurs_creux 12 19 none]
+G c Z s b [detruire vecteurs_creux 17 19 none]
+G c Z s b [est_nul vecteurs_creux 21 18 none]
+G c Z s b [composante_recursif vecteurs_creux 25 18 none]
+G c Z s b [composante_iteratif vecteurs_creux 30 18 none]
+G c Z s b [modifier vecteurs_creux 35 19 none]
+G c Z s b [sont_egaux_recursif vecteurs_creux 43 18 none]
+G c Z s b [sont_egaux_iteratif vecteurs_creux 47 18 none]
+G c Z s b [additionner vecteurs_creux 52 19 none]
+G c Z s b [norme2 vecteurs_creux 56 18 none]
+G c Z s b [produit_scalaire vecteurs_creux 60 18 none]
+G c Z s b [afficher vecteurs_creux 64 19 none]
+G c Z s b [nombre_composantes_non_nulles vecteurs_creux 72 18 none]
+G c Z s s [t_celluleIP vecteurs_creux 82 14 none]
+G c Z b b [free vecteurs_creux 9 14 none]
+X 1 ada.ads
+16K9*Ada 20e8 30|1r6 1r39 2r6 2r39 3r6 3r39 4r6 10r10
+X 3 a-flteio.ads
+20K13*Float_Text_IO[9|46] 30|3w10 3r43
+X 4 a-inteio.ads
+18K13*Integer_Text_IO[10|46] 30|2w10 2r43
+X 8 a-textio.ads
+57K13*Text_IO 727e16 30|1w10 1r43
+86I12*Field{integer}
+465U14*Put 30|187s10 190s10 192s10 194s10
+X 9 a-tiflio.ads
+82U14*Put 30|193s10[3|20]
+84i7 Fore{8|86I12} 30|193r29[3|20]
+85i7 Aft{8|86I12} 30|193r40[3|20]
+86i7 Exp{8|86I12} 30|193r50[3|20]
+X 10 a-tiinio.ads
+80U14*Put 30|191s10[4|18]
+X 12 a-uncdea.ads
+20u15*Unchecked_Deallocation 30|4w10 10r14
+X 29 vecteurs_creux.ads
+6K9*Vecteurs_Creux 78E14 93l5 93e19 30|6b14 214l5 214t19
+8P14*T_Vecteur_Creux 12r40 17r39 21r34 25r46 30r46 35r40 43r51 47r51 52r44
+. 52r69 56r33 60r47 64r33 72r55 80c14 86r35 30|10r49 13r35 19r34 30r29 36r41
+. 48r41 49r16 67r35 84r46 104r46 105r17 106r16 138r39 138r64 162r28 172r42
+. 184r28 202r50
+12U19*Initialiser 12<32 30|13b14 16l8 16t19
+12p32 V{8P14} 13r34 30|13b27 15m7
+17U19*Detruire 17=29 30|19b14 24s10 27l8 27t16
+17p29 V{8P14} 30|19b24 21r18 24r19 25m16
+21V18*Est_Nul{boolean} 13s25 21>27 30|21s10 30b13 33l8 33t15 38s10
+21p27 V{8P14} 30|30b22 32r46
+25V18*Composante_Recursif{float} 25>39 25>64 39s25 30|36b13 43s17 45l8 45t27
+. 99s17 99s73 154s39 179s17 179s69
+25p39 V{8P14} 30|36b34 38r18 40r13 41r17 43r37
+25i64 Indice{integer} 26r29 30|36b59 40r26 43r51
+30V18*Composante_Iteratif{float} 30>39 30>64 30|48b13 64l8 64t27
+30p39 V{8P14} 30|48b34 51r10 54r20
+30i64 Indice{integer} 31r29 30|48b59 55r60
+35U19*Modifier 35=29 36>40 37>44 30|67b14 78s13 81l8 81t16 154s13
+35p29 V{8P14} 39r46 30|67b24 72r10 73m10 75r13 76r13 78r22
+36i40 Indice{integer} 38r24 39r49 30|68b24 73r28 75r27 78r36
+37f44 Valeur{float} 39r59 30|69b24 73r35 76r29 78r43
+43V18*Sont_Egaux_Recursif{boolean} 43>39 43>43 30|84b13 95s17 99s129 101l8
+. 101t27
+43p39 V1{8P14} 30|84b34 86r10 94r13 94r50 95r37 96r13 99r37 99r96 99r111
+. 99r149
+43p43 V2{8P14} 30|84b38 87r13 92r13 94r27 94r64 95r52 96r27 99r40 99r55 99r93
+. 99r164
+47V18*Sont_Egaux_Iteratif{boolean} 47>39 47>43 30|104b13 135l8 135t27
+47p39 V1{8P14} 30|104b34 108r10 117r19
+47p43 V2{8P14} 30|104b38 109r13 114r13 118r19
+52U19*Additionner 52=32 52>61 30|138b14 156s10 159l8 159t19
+52p32 V1{8P14} 30|138b27 141r10 145m13 151r13 152r13 152r30 154m22 154r59
+. 156r22
+52p61 V2{8P14} 30|138b56 142r13 145r18 147r13 151r29 152r46 154r25 154r62
+. 154r77 156r37
+56V18*Norme2{float} 56>26 30|162b13 167s37 169l8 169t14
+56p26 V{8P14} 30|162b21 164r10 167r18 167r45
+60V18*Produit_Scalaire{float} 60>36 60>40 30|172b13 177s47 179s121 181l8
+. 181t24
+60p36 V1{8P14} 30|172b31 174r10 176r13 177r17 177r64 179r37 179r92 179r107
+. 179r138
+60p40 V2{8P14} 30|172b35 174r21 176r27 177r31 177r79 179r40 179r55 179r89
+. 179r153
+64U19*Afficher 64>29 30|184b14 197s10 199l8 199t16
+64p29 V{8P14} 30|184b24 186r10 191r15 193r15 197r20
+72V18*Nombre_Composantes_Non_Nulles{integer} 72>49 73r25 30|32s16 202b13
+. 207s17 209s21 211l8 211t37
+72p49 V{8P14} 30|202b44 204r10 206r13 207r47 209r52
+78R14 T_Cellule 80r40 82c14 91e27 30|10r38 73r17
+84i25*Indice{integer} 30|40r19 55r50 75r19 94r20 94r34 96r20 96r34 99r47
+. 99r103 119r28 119r49 151r20 151r36 154r32 154r69 176r20 176r34 179r47 179r99
+. 191r21
+85f25*Valeur{float} 30|41r23 59r31 76m19 94r57 94r71 99r62 99r118 119r72
+. 119r93 152m20 152r37 152r53 154r84 167r24 177r24 177r38 179r62 179r114
+. 193r21 206r19
+86p25*Suivant{8P14} 30|24m25 43r43 56r34 78m28 95r44 95r59 99r156 99r171
+. 120r36 121r36 156m29 156r44 167r51 177r71 177r86 179r145 179r160 197r26
+. 207r53 209r58
+X 30 vecteurs_creux.adb
+9U14 Free[12|20] 25s10
+49p7 cursor{29|8P14} 54m10 55r16 55r39 56m13 56r23 58r13 59r20
+105p7 cursor1{29|8P14} 117m10 119r16 119r60 120m13 120r24 122r16
+106p7 cursor2{29|8P14} 118m10 119r37 119r81 121m13 121r24 123r19 128r19
+

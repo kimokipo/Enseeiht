@@ -1,0 +1,17 @@
+2.1
+	Daprès les figures, on remarque que les amplitudes de la DSP du signal modulé sur porteuse sont la moitiée des amplitudes de la DSP de l’enveloppe complexe associée. ce qui nous donne la relation des puissances : Px = PXe/2.
+2.2
+	On constate depuis les courbes des TEB en fonction de Eb/N0 de la chaine de transmission sur porteuse et la chaine passe-bas équivalente que se sont identiques.
+
+3.1
+	Pour TEB = 10^-2, la valeur de Eb/N0 nécessaire pour transmettre les bits est : 
+		8db pour la chaine 4-ASK
+		4.3db pour la chaine QPSK
+		4db pour la chaine 8-PSK
+		6 db pour la chaine 16-QAM
+	donc l'ordre croissant des chaines les plus efficaces en puissance est :
+		4-ASK  ->  16-QAM  ->  QPSK  ->  8-PSK
+3.2
+	Comme l'efficacité en puissance est l'opposé de l'efficacité spectrale alors l'ordre croissant des chaines les plus efficaces spectralement est :
+		8-PSK  ->  QPSK  ->  16-QAM  ->  4-ASK
+

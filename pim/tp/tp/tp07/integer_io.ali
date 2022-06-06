@@ -1,0 +1,101 @@
+V "GNAT Lib v2019"
+A -gnatA
+A -gnatwa
+A -gnata
+A -g
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_IO
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U integer_io%b		integer_io.adb		82f29052 NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.characters%s	a-charac.ads		a-charac.ali
+W ada.characters.handling%s  a-chahan.adb	a-chahan.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W piles%s		piles.adb		piles.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U integer_io%s		integer_io.ads		c898b8a6 EE NE OO PK
+
+D ada.ads		20190518041255 76789da1 ada%s
+D a-charac.ads		20190518041255 2d3ec45b ada.characters%s
+D a-chahan.ads		20190518041255 1601a50f ada.characters.handling%s
+D a-except.ads		20190518041255 291912d5 ada.exceptions%s
+D a-ioexce.ads		20190518041254 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20190518041255 119b8fb3 ada.streams%s
+D a-tags.ads		20190518041256 491b781d ada.tags%s
+D a-textio.ads		20190518041256 aef4d56d ada.text_io%s
+D a-unccon.ads		20190518041255 0e9b276f ada.unchecked_conversion%s
+D integer_io.ads	20201019144711 c898b8a6 integer_io%s
+D integer_io.adb	20201019144711 0a25c7d9 integer_io%b
+D interfac.ads		20190518041254 5ab55268 interfaces%s
+D i-cstrea.ads		20190518041254 e53d8b8e interfaces.c_streams%s
+D piles.ads		20201019144711 f8ba9f4f piles%s
+D piles.adb		20201019144711 f5008280 piles%b
+D system.ads		20190518041255 4635ec04 system%s
+D s-assert.ads		20190518041255 cd8d2c94 system.assertions%s
+D s-crtl.ads		20190518041254 0ebbdb71 system.crtl%s
+D s-exctab.ads		20190518041255 54135002 system.exception_table%s
+D s-ficobl.ads		20190518041256 078245e4 system.file_control_block%s
+D s-parame.ads		20190518041256 48ec542b system.parameters%s
+D s-secsta.ads		20190518041256 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041255 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041256 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041256 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041256 2dc34a04 system.storage_elements%s
+D s-traent.ads		20190518041254 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041255 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041255 1b7d22d2 system.wch_con%s
+G a e
+G c Z s b [afficher integer_io 8 15 none]
+G c Z s b [saisir integer_io 15 15 none]
+G c Z b b [consommer_blancs integer_io 59 15 none]
+G r i none [afficher integer_io 8 15 none] [piles standard 7 9 none]
+X 1 ada.ads
+16K9*Ada 20e8 11|1r6 1r36 2r6 2r36
+X 2 a-charac.ads
+16K13*Characters 18e19 11|2r10 2r40
+X 3 a-chahan.ads
+36K24*Handling 159e28 11|2w21 2r51
+50V13*Is_Digit{boolean} 11|89s12 100s48
+X 8 a-textio.ads
+57K13*Text_IO 727e16 11|1w10 1r40
+273U14*Skip_Line 11|68s17
+381U14*Get 11|70s17 98s17
+392U14*Put 11|48s13
+406U14*Look_Ahead 11|64s9 74s13 99s17
+X 10 integer_io.ads
+4K9*Integer_IO 19l5 19e15 11|6b14 108l5 108t15
+8U15*Afficher 8>25 11|9b15 54t8
+8i25 N{integer} 9r16 11|9b25 23r19
+15U15*Saisir 15<23 11|81b15 105t8
+15i23 N{integer} 16r17 16r32 11|81b23 91m13 95m17 95r22 103m13
+X 11 integer_io.adb
+11K17 Pile_Integer[14|7] 13r13
+15i9 Nombre{integer} 23m9 26r24 33m13 33r23 34r19 36r24
+16i9 Chiffre{integer} 26m13 30r32 42m13 45r62
+17r9 Chiffres{14|9R10[11]} 22m22 29r44 30m22 30r22 37r38 42r32 51m22 51r22
+. 52r29
+18e9 Caractere{character} 45m13 48r18
+59U15 Consommer_Blancs 59b15 59<33 78t8 87s9
+59e33 Prochain_Caractere{character} 60r17 64m21 65r36 70m22 74m25 77r45
+62b9 Fin_De_Ligne{boolean} 64m41 65r15 67r16 74m45 77r28
+82e9 C{character} 87m27 89r22 94r43 98m22 99m29 100r58
+83b9 Fin_De_Ligne{boolean} 99m32 100r23
+84i9 Chiffre{integer} 94m17 95r31
+X 14 piles.ads
+7k9*Piles 11|3w6 12r17 14|58e10
+9R10 T_Pile 11|17r20[11]
+14U15 Initialiser 11|22s9[11]
+19V14 Est_Vide{boolean} 11|37s28[11] 52s19[11]
+23V14 Est_Pleine{boolean} 11|29s32[11]
+27V14 Sommet{integer} 11|42s24[11]
+32U15 Empiler 11|30s13[11]
+38U15 Depiler 11|51s13[11]
+

@@ -1,0 +1,17 @@
+1-1.
+Les instants optimaux d’échantillonnage (permettant d’échantillonner
+sans interférences entre symboles) sont obtenues:
+
+- à partir du tracé de g en prenant l'instant qui le maximise ou le minimise.
+- à partir du tracé du diagramme de l’oeil en sortie du filtre de réception en prenant les instants qui ont 2 images au plus (par exemple 8).
+
+1-2.
+Le taux d’erreur binaire de la transmission n’est plus nul lorqu’on échantillonne à n0 + m*Ns, avec n0 = 3 car on a bien g(n0 - Ns) = 0, mais puisque 0 < n0 < Ns alors g(n0 + Ns) != 0.
+
+
+
+2-1.
+Le critére de Nyquist peut étre vérifié sur cette chaine de transmission pour BW1 = 4000 Hz, car le support de |Hc(f)| est plus grand que le support de |H(f)Hr(f)| (fc1 = BW1 = 4000 Hz > Rs/2 = 1500 Hz). Ce qui permet à la somme des transfomées de fourier des (g(t - k*Ts + t0) / g(t0)) d'étre une constante. Ce n'est pas le cas pour BW2 = 1000 Hz car (fc = BW2 = 1000 Hz < Rs/2 = 1500 Hz), du coup une partie du tracé de |H(f)Hr(f)| ne s'ajoute pas à la somme, et donc cette dernière ne sera pas constante.
+
+2-2.
+Le critére de Nyquist peut étre vérifié sur cette chaine de transmission pour BW1 = 4000 Hz car d'après le tracé de diagramme de l’oeil à la sortie du filtre de réception, on a des instants optimaux qui ont juste deux images au plus. Tandis que pour BW2 = 1000 Hz, tous les points du diagramme de l'oeil ont plus que 2 images.

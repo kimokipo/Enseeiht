@@ -1,0 +1,52 @@
+with Ada.Text_IO;           use Ada.Text_IO;
+with Ada.Integer_Text_IO;   use Ada.Integer_Text_IO;
+with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
+with TH;
+procedure th_sujet is
+   function Avec_Guillemets (S: Unbounded_String) return String is
+   begin
+      return '"' & To_String (S) & '"';
+   end;
+   function "&" (Left: String; Right: Unbounded_String) return String is
+   begin
+      return Left & Avec_Guillemets (Right);
+   end;
+   function "+" (Item : in String) return Unbounded_String
+                 renames To_Unbounded_String;
+   procedure Afficher (S : in Unbounded_String; N: in Integer) is
+   begin
+      Put (Avec_Guillemets (S));
+      Put (" : ");
+      Put (N, 1);
+      New_Line;
+   end Afficher;
+   function Hacher_string(S: Unbounded_String;capacite:integer) return integer is
+      reste : integer;
+   begin
+      reste:= (Length(S)-2) mod capacite;
+      if reste >0 then
+         return reste;
+      else
+         return capacite;
+      end if;
+   end;
+   package TH_String_Integer is
+     new TH (Capacite=>11, T_Cle => Unbounded_String, T_Donnee => Integer,Hacher=> Hacher_string);
+   use TH_String_Integer;
+
+   procedure Afficher is
+     new Pour_Chaque (Afficher);
+
+   TH : T_TH;
+begin
+    Initialiser (TH);
+  -- Enregistrer(TH,+("un"),1);
+   --Enregistrer (TH,+("deux"),2);
+   --Enregistrer (TH,+("trois"),3);
+   --Enregistrer(TH,+("quatre"),4);
+   --Enregistrer (TH,+("cinq"),5);
+   --Enregistrer(TH,+("quatre-vingt-dix-neuf"),99);
+   --Enregistrer (TH,+("vingt-et-un"),21);
+   --Afficher(TH);
+    Vider(TH);
+end th_sujet;

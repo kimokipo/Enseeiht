@@ -1,0 +1,1 @@
+pagerank.adb:17:04: warning: variable "Nbr_Totale" is never read and never assigned

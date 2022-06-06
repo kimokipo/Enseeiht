@@ -1,0 +1,33 @@
+{
+  "name": "facebook-group-scraper",
+  "version": "1.0.0",
+  "description": "Scrapes Facebook Groups",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node test.js",
+    "shearch": "node shearch.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pierreminiggio/facebook-group-scraper.git"
+  },
+  "author": "Kamal HAMMI",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pierreminiggio/facebook-group-scraper/issues"
+  },
+  "homepage": "https://github.com/pierreminiggio/facebook-group-scraper#readme",
+  "dependencies": {
+    "@pierreminiggio/async-foreach": "github:pierreminiggio/async-foreach",
+    "@pierreminiggio/puppeteer-page-scroller": "github:pierreminiggio/puppeteer-page-scroller",
+    "fs": "0.0.1-security",
+    "http": "0.0.1-security",
+    "mysql": "^2.18.1",
+    "puppeteer": "^5.5.0",
+    "puppeteer-core": "^10.0.0",
+    "scroller": "0.0.3"
+  },
+  "devDependencies": {}
+}

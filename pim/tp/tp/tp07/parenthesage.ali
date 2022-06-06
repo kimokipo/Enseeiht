@@ -1,0 +1,94 @@
+V "GNAT Lib v2019"
+M P W=b
+A -gnatA
+A -gnatwa
+A -gnata
+A -g
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U parenthesage%b	parenthesage.adb	f9c7dcca NE OO SU
+W ada%s			ada.ads			ada.ali
+Z ada.text_io%s		a-textio.adb		a-textio.ali
+W piles%s		piles.adb		piles.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+D ada.ads		20190518041255 76789da1 ada%s
+D a-except.ads		20190518041255 291912d5 ada.exceptions%s
+D a-ioexce.ads		20190518041254 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20190518041255 119b8fb3 ada.streams%s
+D a-tags.ads		20190518041256 491b781d ada.tags%s
+D a-textio.ads		20190518041256 aef4d56d ada.text_io%s
+D a-unccon.ads		20190518041255 0e9b276f ada.unchecked_conversion%s
+D interfac.ads		20190518041254 5ab55268 interfaces%s
+D i-cstrea.ads		20190518041254 e53d8b8e interfaces.c_streams%s
+D parenthesage.adb	20201021174034 017d4385 parenthesage%b
+D piles.ads		20201019144711 f8ba9f4f piles%s
+D piles.adb		20201019144711 f5008280 piles%b
+D system.ads		20190518041255 4635ec04 system%s
+D s-assert.ads		20190518041255 cd8d2c94 system.assertions%s
+D s-crtl.ads		20190518041254 0ebbdb71 system.crtl%s
+D s-exctab.ads		20190518041255 54135002 system.exception_table%s
+D s-ficobl.ads		20190518041256 078245e4 system.file_control_block%s
+D s-parame.ads		20190518041256 48ec542b system.parameters%s
+D s-secsta.ads		20190518041256 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041255 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041256 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041256 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041256 2dc34a04 system.storage_elements%s
+D s-traent.ads		20190518041254 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041255 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041255 1b7d22d2 system.wch_con%s
+G a e
+G c Z b b [parenthesage standard 3 11 none]
+G r i none [parenthesage standard 3 11 none] [piles standard 7 9 none]
+X 10 parenthesage.adb
+3U11*Parenthesage 3b11 151l5 151t17
+8V14 Index{integer} 8b14 8>21 8>40 9r32 9r54 10r23 10r64 23l9 23t14 30s28
+. 31s28 32s28 33s28 34s28 35s28 36s28 37s28 38s28 69s13 72s16 73s56 73s82
+8a21 Meule{string} 9r17 9r70 10r38 10r57 12r21 13r28 15r17 16r13
+8e40 Aiguille{character} 10r80 16r22
+12i7 i{integer} 15r14 16r19 17r24 20m10 20r13
+13i7 resultat{integer} 17m13 22r14
+27U15 Tester_Index 27b15 39t8 149s5
+28a9 ABCDEF{string} 30r35 31r35 32r35 33r35 34r35 35r35 36r35 37r35 38r35
+52U15 Verifier_Parenthesage 52b15 52>38 52<58 52<82 93l9 93t30 104s9 107s9
+. 110s9 114s9 118s9 122s9 126s9 130s9 133s9 136s9 140s9 143s9
+52a38 Chaine{string} 57r36 60r23 68r16 69r28 70r35 72r31 73r71
+52b58 Correct{boolean} 67m7 77m19 85r73 86m12
+52i82 Indice_Erreur{integer} 78m19 87m12
+53a9 Ouvrants{string} 69r19 73r88
+54a7 Fermants{string} 72r22 73r62
+56K13 Pile_Caractere_3[11|7] 58r11 62r23
+59K13 Pile_Integer[11|7] 61r13 63r22
+62r7 Pile_Ouvrants{11|9R10[56]} 65m19 70m21 70r21 73r32 73r104 74m75 74r75
+. 85r54
+63r7 Pile_Indices{11|9R10[59]} 66m20 71m21 71r21 73r138 75m75 75r75 85r23
+. 87r36
+68i11 i{integer} 69r35 70r42 71r34 72r38 73r78 78r34
+97U15 Tester_Verifier_Parenthesage 97b15 146l9 146t37 150s5
+98a9 Exemple1{string} 133r32
+99a9 Exemple2{string} 136r32 140r32 143r32
+101i9 Indice{integer} 104m52 107m52 110m53 112r24 114m53 116r24 118m52 120r24
+. 122m48 124r24 126m50 128r24 130m45 133m51 136m51 138r24 140m59 143m59 145r24
+102b9 Correct{boolean} 104m43 105r24 107m43 108r24 110m44 111r28 114m44 115r28
+. 118m43 119r28 122m39 123r28 126m41 127r28 130m36 131r24 133m42 134r24 136m42
+. 137r28 140m50 141r24 143m50 144r28
+X 11 piles.ads
+4i5 Capacite{integer} 10|57r24
+5+10 T_Element 10|57r49
+7k9*Piles 10|1w6 57r17 60r17 11|58e10
+9R10 T_Pile 10|62r40[56] 63r35[59]
+14U15 Initialiser 10|65s7[56] 66s7[59]
+19V14 Est_Vide{boolean} 10|73s23[56] 73s129[59] 85s14[59] 85s45[56]
+27V14 Sommet{character} 10|73s97[56] 87s29[59]
+32U15 Empiler 10|70s13[56] 71s13[59]
+38U15 Depiler 10|74s67[56] 75s67[59]
+

@@ -1,0 +1,265 @@
+import javax.swing.*;
+import java.awt.*;
+import javax.swing.event.*;
+import java.awt.event.*;
+import java.util.*;
+
+/** Programmation de l'interface du maitre du jeu avec une interface graphique Swing.
+  *
+  *
+  * @author    Kamal Hammi
+  * @version    $Version: 1.0 $
+  */
+
+public class  MaitreJeuSwing {
+
+    
+    
+
+// Choix de rÃ©alisation :
+// ----------------------
+//
+
+    private ModeleMaitreJeu modele;    // le modÃ¨le du maitre de jeu.
+
+//  Les Ã©lÃ©ments de la vue (IHM)
+//  ----------------------------
+
+    /** FenÃªtre principale */
+    private JFrame fenetre;
+
+    private  HashMap<ModeleFichePersonnage,FichePersonnageSwing> listModeleFichesSwing = new HashMap<ModeleFichePersonnage,FichePersonnageSwing>();
+	
+    /** Bouton pour Modifier l'image du joueur */
+    private final JButton boutonModifierImage = new JButton("Modifier");
+
+    private final JButton boutonCreerFiche = new JButton("Creer fiche");
+	
+    private final JButton boutonOK = new JButton("OK");
+    /** Bouton pour Imprimer la fiche */
+    private final JButton boutonImprimerFiche = new JButton("Imprimer fiche");
+
+    private JTextField nomTexte = new JTextField(6);
+    private JTextField roleTexte = new JTextField(6);
+    private JTextField vitalite = new JTextField(6);
+    private JLabel vieValeur = new JLabel();
+    /** Image du jouer */
+    private final JLabel image= new JLabel();
+
+    private JTextField capacite = new JTextField(6);
+    private JTextField ajouterInventaire = new JTextField(6);
+    private JTextField supprimerInventaire = new JTextField(6);
+
+    private Container contenu21 = new Container();
+    private JLabel contenu22 = new JLabel();
+// Le constructeur
+// ---------------
+
+    /** Construire l'interface du maitre du jeu */
+    public MaitreJeuSwing() {
+        this(new ModeleMaitreJeu());
+    }
+
+    /** Construire l'interface du maitre du jeu */
+    public MaitreJeuSwing(ModeleMaitreJeu modele) {
+        // Initialiser le modÃ¨le
+        this.modele = modele;
+
+        final JLabel nom = new JLabel("Nom");
+         
+        final JLabel role = new JLabel("Role");
+    
+        final JLabel vie = new JLabel("Vie");
+        
+        final JLabel capacites = new JLabel("Capacités");
+        final JLabel inventaire= new JLabel("Inventaire");
+        
+        
+
+        // Construire la vue (prÃ©sentation)
+        //    DÃ©finir la fenÃªtre principale
+        this.fenetre = new JFrame("Joueur");
+        this.fenetre.setLocation(100, 200);
+
+        Container contenuPrincipale = this.fenetre.getContentPane();
+
+        Container contenuHaut = new Container();
+        Container contenuBas = new Container();
+
+        contenuPrincipale.setLayout (new GridLayout(2,1));
+
+        contenuPrincipale.add(contenuHaut);
+        contenuPrincipale.add(contenuBas);
+
+        contenuHaut.setLayout (new GridLayout(1,2));
+
+        Container contenu1 = new Container();
+        Container contenu2 = new Container();
+
+        contenuHaut.add(contenu1);
+        contenuHaut.add(contenu2);
+
+        contenu1.setLayout (new GridLayout(5,1));    
+        contenu2.setLayout (new GridLayout(5,1));
+
+        contenu1.add(image);
+        contenu1.add(boutonModifierImage);
+
+        Container contenu11 = new Container();
+        Container contenu12 = new Container();
+
+        contenu1.add(contenu11);
+        contenu1.add(contenu12);
+
+        contenu11.setLayout (new GridLayout(1,2));
+        contenu12.setLayout (new GridLayout(1,2));
+
+        contenu11.add(nom);
+        contenu11.add(nomTexte);
+        contenu12.add(role);
+        contenu12.add(roleTexte);
+
+        contenu1.add(boutonImprimerFiche);
+
+        Container contenuVie = new Container();
+        contenuVie.setLayout (new GridLayout(1,2));
+
+        contenuVie.add(vie);
+        contenuVie.add(vieValeur);
+        contenu2.add(contenuVie );
+
+        contenu2.add(capacites);
+        
+        contenu2.add(contenu21);
+        contenu2.add(inventaire);
+        contenu2.add(contenu22);
+
+
+        // ContenuBas
+	Container contenuBas1 = new Container();
+
+	contenuBas.setLayout(new GridLayout(2,1));
+	contenuBas.add(contenuBas1);
+
+	Container contenuBas2 = new Container ();
+	contenuBas.add(contenuBas2);
+
+	contenuBas2.setLayout (new GridLayout(1,2));
+
+	contenuBas2.add(boutonOK);
+	contenuBas2.add(boutonCreerFiche);
+
+        contenuBas1.setLayout (new GridLayout(4,2));
+
+        contenuBas1.add(new JLabel("Modifier la vitalité"));
+        contenuBas1.add(vitalite);
+
+        contenuBas1.add(new JLabel("Ajouter capacité"));
+        contenuBas1.add(capacite);
+
+	contenuBas1.add(new JLabel("Ajouter à l’inventaire"));
+        contenuBas1.add(ajouterInventaire);
+
+        contenuBas1.add(new JLabel ("Supprimer de l’inventaire"));
+        contenuBas1.add(supprimerInventaire);
+
+        // Construire le contrÃ´leur (gestion des Ã©vÃ©nements)
+        this.boutonModifierImage.addActionListener(new ActionModifierImage());
+
+	this.boutonOK.addActionListener(new ActionModifier());
+
+	this.boutonCreerFiche.addActionListener(new ActionCreerFiche());
+
+        this.fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        // afficher la fenÃªtre
+        this.fenetre.pack();            // redimmensionner la fenÃªtre
+        this.fenetre.setVisible(true);    // l'afficher
+	}
+
+// Quelques rÃ©actions aux interactions de l'utilisateur
+// ----------------------------------------------------
+    public class ActionModifierImage implements ActionListener {
+        public void actionPerformed(ActionEvent evt) {
+            modifierImage();
+        }
+    }
+	
+    public class ActionModifier implements ActionListener {
+        public void actionPerformed(ActionEvent evt) {
+            modifierVie();
+	    modifierCapacites();
+	    modifierInventaire();
+	    
+        }
+    }
+
+     public class ActionCreerFiche implements ActionListener {
+        public void actionPerformed(ActionEvent evt) {
+		ModeleFichePersonnage modeleFiche = new ModeleFichePersonnage(nomTexte.getText(),roleTexte.getText(),
+		vitalite.getText(),modele.getInventaire());
+		for(Map.Entry<String,JTextField> e : modele.getCapacites().entrySet()){
+		    modeleFiche.ajouterCapacite(e.getKey(),e.getValue().getText());
+		}
+		for(Map.Entry<ModeleFichePersonnage,FichePersonnageSwing> e : listModeleFichesSwing.entrySet()){
+			if(e.getKey().estEgale(modeleFiche) | e.getKey().getNom().equals(nomTexte.getText())){
+				e.getValue().getfenetre().setVisible(false);
+				break;
+			}
+		}
+		
+		listModeleFichesSwing.put(modeleFiche,new FichePersonnageSwing(modeleFiche));		
+            
+        }
+    }
+
+
+	
+    /** Modifier l’image du joueur. */
+    public void modifierImage() {
+        // Mettre Ã  jour l’image
+    }
+
+    public void modifierVie(){
+	if(!vieValeur.getText().equals(vitalite.getText())){
+		vieValeur.setText(vitalite.getText());
+    	}
+    }
+
+    public void modifierCapacites() {
+	if(!capacite.getText().equals("")){
+		modele.ajouterCapacite(capacite.getText());
+		contenu21.removeAll();
+		contenu21.setLayout (new GridLayout(modele.getCapacites().size(),2));
+		for(Map.Entry<String,JTextField> e : modele.getCapacites().entrySet()){
+		    contenu21.add(new JLabel(e.getKey()));
+		    contenu21.add(e.getValue());
+		}
+	}
+    }
+
+	
+    public void modifierInventaire(){
+	if(!ajouterInventaire.getText().equals("")){
+		modele.ajouterInventaire(ajouterInventaire.getText());
+		
+    	}
+	if (!supprimerInventaire.getText().equals("")){
+		modele.supprimerInventaire(supprimerInventaire.getText());
+	}
+	contenu22.setText(modele.getInventaire());
+    }
+
+// La mÃ©thode principale
+// ---------------------
+
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new MaitreJeuSwing();
+            }
+        });
+    }
+
+}
+

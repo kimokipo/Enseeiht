@@ -1,0 +1,20 @@
+function [C_estime,R_estime]= estimation_2(x_donnees_bruitees,y_donnees_bruitees,n_tests)
+n=length(x_donnees_bruitees);
+G_x=mean(x_donnees_bruitees);
+G_y=mean(y_donnees_bruitees);
+distances_G=sqrt((x_donnees_bruitees-G_x).^2+(y_donnees_bruitees-G_y).^2);
+R_moyen=mean(distances_G);
+trand=rand(n_tests,1);
+C_x=(G_x-R_moyen/2)*trand+(G_x+R_moyen/2)*(1-trand);
+C_y=(G_y-R_moyen/2)*trand+(G_y+R_moyen/2)*(1-trand);
+R=R_moyen*(0.5+trand);
+X_c=repmat(C_x,1,n);
+Y_c=repmat(C_y,1,n);
+X_p=repmat(x_donnees_bruitees,n_tests,1);
+Y_p=repmat(y_donnees_bruitees,n_tests,1);
+distances=(sqrt((X_c-X_p).^2+(Y_c-Y_p).^2)-R).^2
+somme=sum(distances);
+[m,i]=min(somme);
+C_estime=[C_x(i),C_y(i)];
+R_estime=R(i);
+end

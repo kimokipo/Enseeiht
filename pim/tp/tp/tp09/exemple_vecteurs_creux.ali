@@ -1,0 +1,98 @@
+V "GNAT Lib v2019"
+M P W=b
+A -gnatA
+A -gnatwa
+A -gnata
+A -g
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_FLOATING_POINT
+RV NO_IO
+RV NO_DEFAULT_INITIALIZATION
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U exemple_vecteurs_creux%b  exemple_vecteurs_creux.adb  745f2a7e NE OO SU
+W ada%s			ada.ads			ada.ali
+W ada.float_text_io%s	a-flteio.ads		a-flteio.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+W vecteurs_creux%s	vecteurs_creux.adb	vecteurs_creux.ali
+
+D ada.ads		20190518041255 76789da1 ada%s
+D a-except.ads		20190518041255 291912d5 ada.exceptions%s
+D a-flteio.ads		20190518041255 e18a47a0 ada.float_text_io%s
+D a-ioexce.ads		20190518041254 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20190518041255 119b8fb3 ada.streams%s
+D a-tags.ads		20190518041256 491b781d ada.tags%s
+D a-textio.ads		20190518041256 aef4d56d ada.text_io%s
+D a-tiflio.ads		20190518041254 bf196650 ada.text_io.float_io%s
+D a-unccon.ads		20190518041255 0e9b276f ada.unchecked_conversion%s
+D exemple_vecteurs_creux.adb  20201120202127 493d95f4 exemple_vecteurs_creux%b
+D interfac.ads		20190518041254 5ab55268 interfaces%s
+D i-cstrea.ads		20190518041254 e53d8b8e interfaces.c_streams%s
+D system.ads		20190518041255 4635ec04 system%s
+D s-assert.ads		20190518041255 cd8d2c94 system.assertions%s
+D s-crtl.ads		20190518041254 0ebbdb71 system.crtl%s
+D s-exctab.ads		20190518041255 54135002 system.exception_table%s
+D s-ficobl.ads		20190518041256 078245e4 system.file_control_block%s
+D s-parame.ads		20190518041256 48ec542b system.parameters%s
+D s-secsta.ads		20190518041256 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041255 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041256 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041256 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041256 2dc34a04 system.storage_elements%s
+D s-traent.ads		20190518041254 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041255 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041255 1b7d22d2 system.wch_con%s
+D vecteurs_creux.ads	20201109110354 721c2d47 vecteurs_creux%s
+G a e
+G c Z b b [exemple_vecteurs_creux standard 6 11 none]
+G r c none [exemple_vecteurs_creux standard 6 11 none] [initialiser vecteurs_creux 12 19 none]
+G r c none [exemple_vecteurs_creux standard 6 11 none] [afficher vecteurs_creux 64 19 none]
+G r c none [exemple_vecteurs_creux standard 6 11 none] [est_nul vecteurs_creux 21 18 none]
+G r c none [exemple_vecteurs_creux standard 6 11 none] [detruire vecteurs_creux 17 19 none]
+G r c none [exemple_vecteurs_creux standard 6 11 none] [nombre_composantes_non_nulles vecteurs_creux 72 18 none]
+G r c none [exemple_vecteurs_creux standard 6 11 none] [norme2 vecteurs_creux 56 18 none]
+G r c none [exemple_vecteurs_creux standard 6 11 none] [composante_iteratif vecteurs_creux 30 18 none]
+G r c none [exemple_vecteurs_creux standard 6 11 none] [composante_recursif vecteurs_creux 25 18 none]
+G r c none [exemple_vecteurs_creux standard 6 11 none] [modifier vecteurs_creux 35 19 none]
+G r c none [exemple_vecteurs_creux standard 6 11 none] [produit_scalaire vecteurs_creux 60 18 none]
+G r c none [exemple_vecteurs_creux standard 6 11 none] [additionner vecteurs_creux 52 19 none]
+G r c none [exemple_vecteurs_creux standard 6 11 none] [sont_egaux_iteratif vecteurs_creux 47 18 none]
+G r c none [exemple_vecteurs_creux standard 6 11 none] [sont_egaux_recursif vecteurs_creux 43 18 none]
+X 1 ada.ads
+16K9*Ada 20e8 10|1r6 1r29 2r6 2r29
+X 3 a-flteio.ads
+20K13*Float_Text_IO[8|46] 10|2w10 2r33
+X 7 a-textio.ads
+57K13*Text_IO 727e16 10|1w10 1r33
+264U14*New_Line 10|14s4
+508U14*Put_Line 10|11s4 32s4
+X 10 exemple_vecteurs_creux.adb
+6U11*Exemple_Vecteurs_Creux 6b11 34l5 34t27
+7f4 n{float} 26m4 28r32
+8p4 V{27|8P14} 12m16 12r16 13r13 15r27 16m13 16r13 17r48 18r25 19r38 20r38
+. 21m13 21r13 22r38 23m13 23r13 24r38 25r25 25r45 25r47 26r15 27m16 27r16
+. 27r18 28r25 29r38 29r40 30r38 30r40 31m13 31r13
+9f4 Epsilon{float}
+X 27 vecteurs_creux.ads
+6K9*Vecteurs_Creux 10|3w6 3r29 27|93e19
+8P14*T_Vecteur_Creux 10|8r8
+12U19*Initialiser 10|12s4
+17U19*Detruire 10|16s4 31s4
+21V18*Est_Nul{boolean} 10|15s19
+25V18*Composante_Recursif{float} 10|20s18
+30V18*Composante_Iteratif{float} 10|19s18 22s18 24s18
+35U19*Modifier 10|21s4 23s4
+43V18*Sont_Egaux_Recursif{boolean} 10|30s18
+47V18*Sont_Egaux_Iteratif{boolean} 10|29s18
+52U19*Additionner 10|27s4
+56V18*Norme2{float} 10|18s18 25s18 26s8 28s18
+60V18*Produit_Scalaire{float} 10|25s28
+64U19*Afficher 10|13s4
+72V18*Nombre_Composantes_Non_Nulles{integer} 10|17s18
+

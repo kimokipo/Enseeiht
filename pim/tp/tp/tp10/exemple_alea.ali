@@ -1,0 +1,95 @@
+V "GNAT Lib v2019"
+M P W=b
+A -gnatA
+A -gnatwa
+A -gnata
+A -g
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_EXCEPTIONS
+RV NO_IO
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U exemple_alea%b	exemple_alea.adb	5b025d1b NE OO SU
+W ada%s			ada.ads			ada.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+W ada.numerics%s	a-numeri.ads		a-numeri.ali
+Z ada.numerics.discrete_random%s
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W alea%s		alea.adb		alea.ali
+W system%s		system.ads		system.ali
+Z system.random_numbers%s  s-rannum.adb		s-rannum.ali
+
+D ada.ads		20190518041255 76789da1 ada%s
+D a-except.ads		20190518041255 291912d5 ada.exceptions%s
+D a-inteio.ads		20190518041256 f64b89a4 ada.integer_text_io%s
+D a-ioexce.ads		20190518041254 e4a01f64 ada.io_exceptions%s
+D a-numeri.ads		20190518041254 bb51c45a ada.numerics%s
+D a-nudira.ads		20190518041254 71e55def ada.numerics.discrete_random%s
+D a-nudira.adb		20190518041254 72908cdb ada.numerics.discrete_random%b
+D a-stream.ads		20190518041255 119b8fb3 ada.streams%s
+D a-tags.ads		20190518041256 491b781d ada.tags%s
+D a-textio.ads		20190518041256 aef4d56d ada.text_io%s
+D a-tiinio.ads		20190518041254 390edddb ada.text_io.integer_io%s
+D a-unccon.ads		20190518041255 0e9b276f ada.unchecked_conversion%s
+D alea.ads		20201116122057 9fe1c6b1 alea%s
+D alea.adb		20201116122057 ca5296b2 alea%b
+D exemple_alea.adb	20201116122057 9c5cc763 exemple_alea%b
+D interfac.ads		20190518041254 5ab55268 interfaces%s
+D i-cstrea.ads		20190518041254 e53d8b8e interfaces.c_streams%s
+D system.ads		20190518041255 4635ec04 system%s
+D s-crtl.ads		20190518041254 0ebbdb71 system.crtl%s
+D s-exctab.ads		20190518041255 54135002 system.exception_table%s
+D s-ficobl.ads		20190518041256 078245e4 system.file_control_block%s
+D s-imguns.ads		20190518041255 9ff43cf7 system.img_uns%s
+D s-parame.ads		20190518041256 48ec542b system.parameters%s
+D s-rannum.ads		20190518041255 99ade2f2 system.random_numbers%s
+D s-rannum.adb		20190518041256 20ba1217 system.random_numbers%b
+D s-ransee.ads		20190518041256 01a57b33 system.random_seed%s
+D s-secsta.ads		20190518041256 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041255 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041256 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041256 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041256 2dc34a04 system.storage_elements%s
+D s-traent.ads		20190518041254 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041255 34867c83 system.unsigned_types%s
+D s-valuns.ads		20190518041256 35067db9 system.val_uns%s
+D s-wchcon.ads		20190518041255 1b7d22d2 system.wch_con%s
+G a e
+G c Z b b [exemple_alea standard 6 11 none]
+G r i none [exemple_alea standard 6 11 none] [alea standard 5 9 none]
+X 1 ada.ads
+16K9*Ada 20e8 15|1r6 1r33 2r6 2r33
+X 3 a-inteio.ads
+18K13*Integer_Text_IO[11|46] 15|2w10 2r37
+X 7 a-nudira.adb
+53V16 Random[24|83]{integer} 25|392b13[14|7[15|8]]
+X 10 a-textio.ads
+57K13*Text_IO 727e16 15|1w10 1r37
+264U14*New_Line 15|19s17
+508U14*Put_Line 15|15s9
+X 11 a-tiinio.ads
+80U14*Put 15|18s17[3|18]
+X 13 alea.ads
+5k9*Alea 13e9 15|3w6 9r21
+11U19 Get_Random_Number 15|17s17[8]
+X 15 exemple_alea.adb
+6U11*Exemple_Alea 6b11 21l5 21t17
+8K17 Mon_Alea[13|5] 10r13
+12i9 Nombre{integer} 17m36 18r22
+16i13 I{integer}
+X 16 interfac.ads
+74M9*Unsigned_32
+77M9*Unsigned_64
+X 24 s-rannum.ads
+75V13*Random{16|74M9} 25|221i21
+76V13*Random{16|77M9} 25|221i21
+

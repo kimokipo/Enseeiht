@@ -1,0 +1,3 @@
+test_abr.adb:18:07: warning: variable "Donnee" is assigned but never read
+test_abr.adb:272:07: warning: variable "Inutile" is assigned but never read
+test_abr.adb:295:25: warning: formal parameter "Cle" is not referenced

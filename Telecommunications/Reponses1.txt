@@ -1,0 +1,11 @@
+1) Le classement des modulateurs bande de base étudiés par ordre d’efficacité spectrale croissante est :
+modulateur 3, modulateur 2, modulateur 1, modulateur 4.
+
+2) Les éléments d’un modulateur bande de base qui agissent sur l’efficacité spectrale obtenue pour la transmission sont :
+M et k (eta = log2(M) / k). 
+eta est décroissant par rapport à k.
+eta est croissant par rapport à M.
+Le résultat de 1) est due à :
+k4 < k1, M4 = M1 = 2.
+k2 > 2 * k1, M2 = 4 = 2*M1.
+k2 = k3, M2 = 4 > M3 = 2.

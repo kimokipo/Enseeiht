@@ -1,0 +1,35 @@
+with Ada.Text_IO;           use Ada.Text_IO;
+with Ada.Integer_Text_IO;   use Ada.Integer_Text_IO;
+with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
+with LCA;
+procedure lca_sujet is
+	package LCA_String_Integer is
+		new LCA (T_Cle => Unbounded_String, T_Donnee => Integer);
+        use LCA_String_Integer;
+        function Avec_Guillemets (S: Unbounded_String) return String is
+	begin
+		return '"' & To_String (S) & '"';
+	end;
+	function "&" (Left: String; Right: Unbounded_String) return String is
+	begin
+		return Left & Avec_Guillemets (Right);
+	end;
+	function "+" (Item : in String) return Unbounded_String
+		renames To_Unbounded_String;
+	procedure Afficher (S : in Unbounded_String; N: in Integer) is
+	begin
+		Put (Avec_Guillemets (S));
+		Put (" : ");
+		Put (N, 1);
+		New_Line;
+	end Afficher;
+        procedure Afficher is
+		new Pour_Chaque (Afficher);
+        LCA: T_LCA;
+begin
+   Initialiser(LCA);
+   Enregistrer (LCA,+("un"),1);
+   Enregistrer (LCA,+("deux"),2);
+   Afficher(LCA);
+   Vider(LCA);
+end lca_sujet;

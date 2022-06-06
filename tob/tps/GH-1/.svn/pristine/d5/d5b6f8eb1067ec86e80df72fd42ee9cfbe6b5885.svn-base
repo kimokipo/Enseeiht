@@ -1,0 +1,11 @@
+package Jeu.Interfaces;
+
+public interface Statistique {
+
+    String getNom();
+
+    void setValeur(String valeur);
+
+    String getValeur();
+
+}

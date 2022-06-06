@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE why3session PUBLIC "-//Why3//proof session v5//EN"
+"http://why3.lri.fr/why3session.dtd">
+<why3session shape_version="5">
+<prover id="0" name="CVC3" version="2.4.1" timelimit="5" steplimit="0" memlimit="1000"/>
+<prover id="1" name="Alt-Ergo" version="2.0.0" timelimit="5" steplimit="0" memlimit="1000"/>
+<prover id="2" name="Z3" version="4.4.1" timelimit="5" steplimit="0" memlimit="1000"/>
+<file proved="true">
+<path name=".."/>
+<path name="why3_exercice_4.mlw"/>
+<theory name="Somme" proved="true">
+ <goal name="VC puissance" expl="VC for puissance" proved="true">
+ <proof prover="0"><result status="valid" time="0.00"/></proof>
+ <proof prover="1"><result status="valid" time="0.00" steps="1"/></proof>
+ <proof prover="2"><result status="valid" time="0.01"/></proof>
+ <transf name="split_vc" proved="true" >
+  <goal name="VC puissance.0" expl="loop invariant init" proved="true">
+  <proof prover="1"><result status="valid" time="0.00" steps="1"/></proof>
+  </goal>
+  <goal name="VC puissance.1" expl="loop variant decrease" proved="true">
+  <proof prover="1"><result status="valid" time="0.00" steps="1"/></proof>
+  </goal>
+  <goal name="VC puissance.2" expl="loop invariant preservation" proved="true">
+  <proof prover="1"><result status="valid" time="0.00" steps="1"/></proof>
+  </goal>
+  <goal name="VC puissance.3" expl="postcondition" proved="true">
+  <proof prover="1"><result status="valid" time="0.00" steps="1"/></proof>
+  </goal>
+ </transf>
+ </goal>
+</theory>
+</file>
+</why3session>

@@ -1,0 +1,10 @@
+Dans l'archive, vous trouverez :
+	- Le projet GPS pagerank.gpr
+	- Le programme principal pagerank.adb
+	- Le module d'implantation naive des matrices google_naive.ads et google_naive.adb
+	- Le module d'implantation creuse des matrices google_creuse.ads et google_creuse.adb
+
+Le programme est capable de calculer les vecteurs poids et indices du fichier .net et de les ecrire dans des fichiers .p et .ord
+Il est possible de changer la précision en changeant la constante Precision de la ligne 15 de pagerank.adb
+
+Il faut allouer une mémoire stack de 48Mo pour faire fonctionner le programme sur le fichier brainlink.net avec l'implantation naive, et nous nous sommes rendus compte que la correction note les indices de 1 à 10000 au lieu de 0 à 9999 comme indiqué dans le sujet.

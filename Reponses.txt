@@ -1,0 +1,36 @@
+Question 4 :
+
+La matrice H est de taille p*n.
+Comme p > n, le rang de H sera au plus de n.
+
+Montrons que H'H et HH' ont le même nombre de valeurs propres non nulles, le rang de H.
+
+Tout d'abord, (HH')' = (H')'(H)' = HH' et (H'H)' = (H)'(H')' = H'H.
+Donc les matrices H'H et HH' sont symétriques.
+De plus, pour une matrice symétrique, les vecteurs propres forment une famille génératrice orthogonale de l'espace image.
+Ainsi, le nombre de valeur propres non nulle est égal au rang de la matrice.
+Enfin, x appartient à Ker(H'H) <=> <x, H'Hx> = 0 <=> <Hx,Hx> = 0 <=> ||Hx|| = 0 <=> x appartient à Ker(H)
+En faisant de même pour HH', et par application du théorème du rang, on voit que H, HH' et H'H sont de même rang.
+
+HH' et H'H ont donc le même nombre de valeurs propres non nulles.
+
+Soit Yi un vecteur propre de H'H de valeur propre li non nulle.
+Alors, (HH')HYi = H(H'HYi) = H(li.Yi) = li.HYi
+Ainsi, HYi est un vecteur propre de HH' pour la valeur propre li. (HYi est non nul car Yi est non nul, et H'HYi et non nul).
+
+Ainsi, on peut construire les éléments propres de HH' à partir de ceux de H'H.
+
+
+Question 5 :
+
+Il n'y a pas de quesions dans les commentaires du code.
+
+
+Question 6 :
+
+Pour calculer l'ACP, il faut les plus grandes valeurs propres et les vecteurs propres associés. Comme tous les éléments propres ne sont pas nécessaires, eig est superflu puisqu'il les renvoit tous non triés. Au contraire, la méthode des puissances itérées va renvoyer les plus grands éléments propres dans l'ordre.
+
+
+Question 7 :
+
+Pour obtenir la meilleur efficatité en temps et en mémoire, il fuat utiliser la méthode des puissances itérées sur A'A, car c'est la plus petite des deux matrices, on a p>>n et A'A de taille n*n, AA' de taille p*p.

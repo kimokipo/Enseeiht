@@ -1,0 +1,1 @@
+Dans cette troizième et dernière itération, j'ai réussis à faire la partie qui consiste à ajouter ou suprimer des statistiques dans le code, sous la mème forme que les capacités. Les composants correspondants s'ajoutent en bas de l'interface.

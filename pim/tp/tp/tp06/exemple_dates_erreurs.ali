@@ -1,0 +1,75 @@
+V "GNAT Lib v2019"
+M P W=b
+A -gnatA
+A -gnatwa
+A -gnata
+A -g
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_IO
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U exemple_dates_erreurs%b  exemple_dates_erreurs.adb  8cbad017 NE OO SU
+W ada%s			ada.ads			ada.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W dates%s		dates.adb		dates.ali
+Z interfaces%s		interfac.ads		interfac.ali
+Z system%s		system.ads		system.ali
+Z system.img_enum_new%s	s-imenne.adb		s-imenne.ali
+
+D ada.ads		20190518041255 76789da1 ada%s
+D a-except.ads		20190518041255 291912d5 ada.exceptions%s
+D a-ioexce.ads		20190518041254 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20190518041255 119b8fb3 ada.streams%s
+D a-tags.ads		20190518041256 491b781d ada.tags%s
+D a-textio.ads		20190518041256 aef4d56d ada.text_io%s
+D a-unccon.ads		20190518041255 0e9b276f ada.unchecked_conversion%s
+D dates.ads		20201019144710 eb2212bb dates%s
+D exemple_dates_erreurs.adb  20201020163125 c96c17c1 exemple_dates_erreurs%b
+D interfac.ads		20190518041254 5ab55268 interfaces%s
+D i-cstrea.ads		20190518041254 e53d8b8e interfaces.c_streams%s
+D system.ads		20190518041255 4635ec04 system%s
+D s-crtl.ads		20190518041254 0ebbdb71 system.crtl%s
+D s-exctab.ads		20190518041255 54135002 system.exception_table%s
+D s-ficobl.ads		20190518041256 078245e4 system.file_control_block%s
+D s-imenne.ads		20190518041255 614c06c0 system.img_enum_new%s
+D s-parame.ads		20190518041256 48ec542b system.parameters%s
+D s-secsta.ads		20190518041256 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041255 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041256 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041256 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041256 2dc34a04 system.storage_elements%s
+D s-traent.ads		20190518041254 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041255 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041255 1b7d22d2 system.wch_con%s
+G a e
+G c Z b b [exemple_dates_erreurs standard 6 11 none]
+G r c none [exemple_dates_erreurs standard 6 11 none] [initialiser dates 30 15 none]
+G r c none [exemple_dates_erreurs standard 6 11 none] [afficher dates 39 15 none]
+G r c none [exemple_dates_erreurs standard 6 11 none] [le_mois dates 44 14 none]
+X 1 ada.ads
+16K9*Ada 20e8 9|1r6 2r6
+X 6 a-textio.ads
+57K13*Text_IO 727e16 9|1w10 2r10
+264U14*New_Line 9|16s5 20s5 26s5 33s5 39s5
+465U14*Put 9|24s5 25s5 37s5
+508U14*Put_Line 9|42s9 44s9
+X 8 dates.ads
+7K9*Dates 70e10 9|3w6 4r5
+9E10*T_Mois 10e66 9|8r20 23r21 25r10
+10n38*OCTOBRE{9E10} 9|12r31
+12R10*T_Date 68e19 9|7r16 9r18
+30U15*Initialiser 9|12s5
+39U15*Afficher 9|15s5 32s5 38s5
+44V14*Le_Mois{9E10} 9|23s34
+X 9 exemple_dates_erreurs.adb
+6U11*Exemple_Dates_Erreurs 6b11 47l5 47t26
+7r5 Une_Date{8|12R10} 12m18 15r15 23r43 32r15 36r19 41r21
+8e5 Mois_Suivant{8|9E10} 23m5 25r24
+9r5 Autre_Date{8|12R10} 36m5 38r15 41r8
+

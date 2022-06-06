@@ -1,0 +1,19 @@
+=====[ Relecture du code ]======================================================
+
+Remarque : n points de pénalité ==> n points perdus sur la note.
+
+Fichier LISEZ-MOI.txt :
+
+Commentaire de documentation :
+
+Forme :
+    * choix des identifiants		-1
+	en particulier les paramètres de creerCercle (voir retour fait aux étudiants)
+
+Test unitaires :
+
+Autres erreurs :
+
+Total pénalités : 1pt.
+
+--------------------------------------------------------------------------------

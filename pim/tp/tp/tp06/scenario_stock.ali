@@ -1,0 +1,57 @@
+V "GNAT Lib v2019"
+M P W=b
+A -gnatA
+A -gnatwa
+A -gnata
+A -g
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U scenario_stock%b	scenario_stock.adb	55befc33 NE OO SU
+W stocks_materiel%s	stocks_materiel.adb	stocks_materiel.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+D ada.ads		20190518041255 76789da1 ada%s
+D a-unccon.ads		20190518041255 0e9b276f ada.unchecked_conversion%s
+D scenario_stock.adb	20201021164340 7ba7e1d7 scenario_stock%b
+D stocks_materiel.ads	20201020182052 2e191de4 stocks_materiel%s
+D system.ads		20190518041255 4635ec04 system%s
+D s-assert.ads		20190518041255 cd8d2c94 system.assertions%s
+D s-exctab.ads		20190518041255 54135002 system.exception_table%s
+D s-stalib.ads		20190518041256 09bd3940 system.standard_library%s
+G a e
+G c Z b b [scenario_stock standard 6 11 none]
+G r c none [scenario_stock standard 6 11 none] [creer stocks_materiel 33 15 none]
+G r c none [scenario_stock standard 6 11 none] [nb_materiels stocks_materiel 48 14 none]
+G r c none [scenario_stock standard 6 11 none] [enregistrer stocks_materiel 67 15 none]
+G r c none [scenario_stock standard 6 11 none] [nb_mat_panne stocks_materiel 76 13 none]
+G r c none [scenario_stock standard 6 11 none] [mise_a_jour stocks_materiel 78 14 none]
+G r c none [scenario_stock standard 6 11 none] [supprimer stocks_materiel 79 14 none]
+G r c none [scenario_stock standard 6 11 none] [afficher stocks_materiel 81 14 none]
+G r c none [scenario_stock standard 6 11 none] [supprimer_panne stocks_materiel 83 14 none]
+X 3 scenario_stock.adb
+6U11*Scenario_Stock 6b11 37l5 37t19
+8r5 Mon_Stock{4|22R10} 11m12 12r34 15m18 15r18 16r34 18m18 18r18 19r34 21m18
+. 21r18 22r34 24m18 24r18 25r33 26r32 27m17 27r17 28r32 29m14 29r14 30r33
+. 31r13 32m20 32r20 33r32 34r33
+X 4 stocks_materiel.ads
+5K9*Stocks_Materiel 3|1w6 1r32 4|94e20
+10n23*UNITE_CENTRALE{10E10} 3|15r35 24r35
+10n47*ECRAN{10E10} 3|18r35
+10n63*IMPRIMANTE{10E10} 3|21r35
+11n31*Panne{11E9} 3|27r32
+22R10*T_Stock 3|8r17 4|93e19
+33U15*Creer 3|11s5
+48V14*Nb_Materiels{integer} 3|12s20 16s20 19s20 22s20 25s19 30s19 34s19
+67U15*Enregistrer 3|15s5 18s5 21s5 24s5
+76V13*Nb_Mat_Panne{integer} 3|26s19 28s19 33s19
+78U14*mise_a_jour 3|27s4
+79U14*supprimer 3|29s4
+81U14*afficher 3|31s4
+83U14*supprimer_panne 3|32s4
+

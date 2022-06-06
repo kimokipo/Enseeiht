@@ -1,0 +1,104 @@
+V "GNAT Lib v2019"
+A -gnatA
+A -gnatwa
+A -gnata
+A -g
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_IO
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U dates%b		dates.adb		414b01c7 NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U dates%s		dates.ads		eb2212bb EE NE OO PK
+
+D ada.ads		20190518041255 76789da1 ada%s
+D a-except.ads		20190518041255 291912d5 ada.exceptions%s
+D a-inteio.ads		20190518041256 f64b89a4 ada.integer_text_io%s
+D a-ioexce.ads		20190518041254 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20190518041255 119b8fb3 ada.streams%s
+D a-tags.ads		20190518041256 491b781d ada.tags%s
+D a-textio.ads		20190518041256 aef4d56d ada.text_io%s
+D a-tiinio.ads		20190518041254 390edddb ada.text_io.integer_io%s
+D a-unccon.ads		20190518041255 0e9b276f ada.unchecked_conversion%s
+D dates.ads		20201019144710 eb2212bb dates%s
+D dates.adb		20201019144710 f2d64fb5 dates%b
+D interfac.ads		20190518041254 5ab55268 interfaces%s
+D i-cstrea.ads		20190518041254 e53d8b8e interfaces.c_streams%s
+D system.ads		20190518041255 4635ec04 system%s
+D s-assert.ads		20190518041255 cd8d2c94 system.assertions%s
+D s-crtl.ads		20190518041254 0ebbdb71 system.crtl%s
+D s-exctab.ads		20190518041255 54135002 system.exception_table%s
+D s-ficobl.ads		20190518041256 078245e4 system.file_control_block%s
+D s-parame.ads		20190518041256 48ec542b system.parameters%s
+D s-secsta.ads		20190518041256 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041255 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041256 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041256 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041256 2dc34a04 system.storage_elements%s
+D s-traent.ads		20190518041254 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041255 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041255 1b7d22d2 system.wch_con%s
+G a e
+G c Z s b [initialiser dates 30 15 none]
+G c Z s b [afficher dates 39 15 none]
+G c Z s b [le_mois dates 44 14 none]
+G c Z s b [le_jour dates 49 14 none]
+G c Z s b [l_annee dates 54 14 none]
+G c Z s s [t_dateIP dates 59 10 none]
+G c Z b b [afficher_deux_positions dates 29 15 none]
+X 1 ada.ads
+16K9*Ada 20e8 11|3r6 4r6 5r6 6r6
+X 3 a-inteio.ads
+18K13*Integer_Text_IO[8|46] 11|5w10 6r10
+X 7 a-textio.ads
+57K13*Text_IO 727e16 11|3w10 4r10
+392U14*Put 11|40s9 42s9
+X 8 a-tiinio.ads
+80U14*Put 11|33s9[3|18] 34s9[3|18]
+X 10 dates.ads
+7K9*Dates 59E10 70l5 70e10 11|8b14 66l5 66t10
+9E10*T_Mois 10e66 32r41 44r48 62r20 11|12r41 41r34 54r47
+9n21*JANVIER{9E10}
+9n30*FEVRIER{9E10}
+9n39*MARS{9E10}
+9n45*AVRIL{9E10}
+9n52*MAI{9E10}
+9n57*JUIN{9E10}
+9n63*JUILLET{9E10}
+10n21*AOUT{9E10}
+10n27*SEPTEMBRE{9E10}
+10n38*OCTOBRE{9E10}
+10n47*NOVEMBRE{9E10}
+10n57*DECEMBRE{9E10}
+12R10*T_Date 30r41 39r35 44r33 49r33 54r33 59c10 68e19 11|10r41 37r35 48r33
+. 54r32 60r33
+30U15*Initialiser 30<29 31>29 32>29 33>29 11|10b15 18l9 18t20
+30r29 Date{12R10} 36r26 36r52 36r78 11|10b29 15m9 16m9 17m9
+31i29 Jour{integer} 35r31 35r45 36r34 11|11b29 15r22
+32e29 Mois{9E10} 36r60 11|12b29 16r22
+33i29 Annee{integer} 35r16 36r86 11|13b29 17r23
+39U15*Afficher 39>25 11|37b15 45l9 45t17
+39r25 Date{12R10} 11|37b25 39r34 41r46 43r34 44r34
+44V14*Le_Mois{9E10} 36s43 44>23 11|54b14 57l9 57t16
+44r23 Date{12R10} 11|54b22 56r16
+49V14*Le_Jour{integer} 36s17 49>23 11|48b14 51l9 51t16
+49r23 Date{12R10} 11|48b23 50r16
+54V14*L_Annee{integer} 36s69 54>23 11|60b14 63l9 63t16
+54r23 Date{12R10} 11|60b23 62r16
+61i13*Jour{integer} 11|15m14 39r39 50r21
+62e13*Mois{9E10} 11|16m14 41r51 56r21
+63i13*Annee{integer} 11|17m14 43r39 44r39 62r21
+X 11 dates.adb
+29U15 Afficher_Deux_Positions 29b15 29>40 35l9 35t32 39s9 41s9 43s9 44s9
+29i40 Nombre{integer} 30r16 33r14 34r14
+

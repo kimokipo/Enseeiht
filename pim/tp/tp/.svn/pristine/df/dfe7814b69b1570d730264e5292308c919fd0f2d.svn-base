@@ -1,0 +1,126 @@
+with Ada.Text_IO;            use Ada.Text_IO;
+with Ada.Unchecked_Deallocation;
+with SDA_Exceptions; 		use SDA_Exceptions;
+package body LCA is
+
+   procedure Free is
+     new Ada.Unchecked_Deallocation (Object => T_Cellule, Name => T_LCA);
+
+
+   procedure Initialiser(Sda: out T_LCA) is
+   begin
+      Sda:=Null; --Initialiser la Sda par l'adresse Null.
+   end Initialiser;
+
+
+   function Est_Vide (Sda : T_LCA) return Boolean is
+   begin
+      return Sda=Null;  --Vérifier Sda est l'adresse Null.
+   end;
+
+
+   function Taille (Sda : in T_LCA) return Integer is
+      cursor:T_LCA; --Variable cursor auxiliaire.
+      Taille:integer:=0; --Notre counteur.
+   begin
+      cursor:=Sda;  --Initialiser cursor par Sda.
+      while cursor/=null loop
+         Taille:=Taille+1;   --Incrementer Taille puisque cursor est différent de Null.
+         cursor:=cursor.all.Suivant;  --Passer au pointeur suivant.
+      end loop;
+      return Taille; --Retourner la taille car on a parcouri toute notre Sda.
+   end Taille;
+
+
+   procedure Enregistrer (Sda : in out T_LCA ; Cle : in T_Cle ; Donnee : in T_Donnee) is
+
+   begin
+      if Sda=Null then
+         Sda:=new T_Cellule'(Cle,Donnee,Null); -- Allouer une Cellule à Sda rempli par Cle Donnee et Null.
+      else
+         if Sda.all.Cle=Cle then
+            Sda.all.Donnee:=Donnee;  --Actualiser la donnée de Sda par Donnee puique sa clée est Cle.
+         else
+            Enregistrer(Sda.all.Suivant,Cle,Donnee); --Enregistrer Cle Donnee dans le pointeur suivant.
+         end if;
+      end if;
+   end Enregistrer;
+
+
+   function Cle_Presente (Sda : in T_LCA ; Cle : in T_Cle) return Boolean is
+
+   begin
+
+      if Sda=Null then
+         return False;  --Retourner False car Sda est Null.
+      else
+         if Sda.all.Cle=Cle then
+            return True; --Retourner True car la clée Cle est présente.
+         else
+            return Cle_Presente(Sda.all.Suivant,Cle);  --Savoir si la clée Cle est présente dans le pointeur suivant.
+         end if;
+      end if;
+   end;
+
+
+   function La_Donnee (Sda : in T_LCA ; Cle : in T_Cle) return T_Donnee is
+      cursor:T_LCA; --Variable cursor auxiliaire.
+   begin
+      cursor:=Sda; -- Initialiser cursor par Sda.
+      while cursor /= Null and then cursor.all.Cle/=Cle loop
+         cursor:=cursor.all.Suivant;  --Passer au pointeur suivant puisque la clée du cursor est différent de Cle.
+      end loop;
+      if cursor/=Null then
+         return cursor.all.Donnee; -- Rtourner la donnée du cursor car la clée du cursor est bien Cle.
+      end if;
+      raise Cle_Absente_Exception;  --Lever l'exception Cle_Absente_Exception car la clée Cle n'est pas présente dans Sda.
+   end;
+
+   procedure Supprimer (Sda : in out T_LCA ; Cle : in T_Cle) is
+      cursor:T_LCA; --Variable cursor auxiliaire.
+
+   begin
+      if Sda=Null then
+         raise Cle_Absente_Exception;     --Lever l'exception Cle_Absente_Exception car la clée Cle n'est pas présente dans Sda
+      else                                --puisque cette dérnière est Null.
+         if Sda.all.Cle=Cle then
+            cursor:=Sda;    --Affecter à cursor Sda.
+            Sda:=Sda.all.Suivant;  --Passer au pointeur suivant de Sda.
+            Free(cursor);    --Libérer cursor et donc Sda d'avant.
+         else
+            Supprimer(Sda.all.Suivant,Cle);  --Supprimer la clée Cle dans le pointeur suivant car elle est différente de la clée de Sda.
+         end if;
+      end if;
+
+   end;
+
+
+   procedure Vider (Sda : in out T_LCA) is
+   begin
+      if Est_Vide(Sda) then
+         Null;   --Faire rien puisque Sda est vide.
+      else
+         Vider(Sda.all.Suivant);   --Vidr le pointeur suivant.
+         Free (Sda); --Libérer Sda .
+      end if;
+   end Vider;
+
+
+   procedure Pour_Chaque (Sda : in T_LCA) is
+
+   begin
+      if Est_Vide(Sda) then
+         null;   --Faire rien puisque Sda est vide.
+      else
+         begin     --Commencer un nouveau bolc puisue on peut avoir une exception.
+            Traiter (Sda.all.Cle,Sda.all.Donnee); --Appliquer un traitement au couple (Cle,Donnee).
+            Pour_Chaque(Sda.all.Suivant);  --Appliquer le traitement aux couples du pointeur suivant.
+         exception
+            when others =>
+               Pour_Chaque(Sda.all.Suivant);     --Continuer à appliquer le traitement aux couples suivants
+         end ;                                   --puisque une exception est levée due à l'échoue de traitement du couple actuel.
+      end if;
+   end Pour_Chaque;
+
+
+end LCA;

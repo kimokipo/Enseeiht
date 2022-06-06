@@ -1,0 +1,7 @@
+./allumettes/RapideTest.java:23: error: constructor JeuNonConfiant in class JeuNonConfiant cannot be applied to given types;
+		jeu = new JeuNonConfiant();
+		      ^
+  required: int
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+1 error

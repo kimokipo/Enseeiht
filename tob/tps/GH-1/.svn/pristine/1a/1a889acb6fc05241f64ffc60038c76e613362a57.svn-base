@@ -1,0 +1,52 @@
+package de;
+
+import java.awt.*;
+
+import javax.swing.*;
+
+public class DeSwing {
+	
+	private final JFrame fenetre;
+	private final JButton btnLancerDe = new JButton("Lancer le dé");
+	private final JButton btnChangerTailleDe = new JButton("Nombre de faces");
+	private final JTextField nbFaceTxt = new JTextField(6);
+	private final LancerleDe modele;
+	
+	
+	public DeSwing(LancerleDe modele) {
+		this.fenetre = new JFrame("De");
+		this.fenetre.setLocation(400,500);
+		
+		this.modele = modele;
+		
+		configurerVues();
+        configurerActions();
+        majVues();
+		
+		btnLancerDe.addActionListener(e -> getValeur());
+		this.fenetre.pack();
+		this.fenetre.setVisible(true);
+	}
+	
+	private void configurerVues() {
+		JPanel contenuPrincipal = new JPnael();
+		contenuPrincipal.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        this.fenetre.setContentPane(contenuPrincipal);
+        Container contenuAffichage = new Container();
+    	Container contenuBtn = new Container();
+    	
+    	contenuBtn.setLayout(new FlowLayout());
+    	contenuBtn.add(nbFaceTxt);
+    	contenuBtn.add(btnChangerTailleDe);
+    	contenuBtn.add(btnLancerDe);
+    	
+    	JLabel valeur = new JLabel();
+    	valeur.add(modele.getValeur()); 
+        contenuAffichage.add(modele.getValeur());
+        
+	}
+	
+	public void getValeur() {
+		modele.getValeur();
+	}
+}

@@ -1,0 +1,87 @@
+% Compte-rendu minimal du mini-projet SDA : LCA et TH
+% Auteur : HAMMI Kamal
+% Groupe de TP : H-3
+
+
+**Consigne :** Vous devez écrire vos réponse à la place des ... en laissant
+une ligne vide avant et deux après votre réponse.
+
+**Remarque :** Ce document utilise le langage Markdown. On peut en engendrer
+une version PDF en faisant par exemple :
+
+~~~
+pandoc --toc -N -o LISEZ-MOI.pdf LISEZ-MOI.txt
+~~~
+
+
+# Exercice 1
+
+## Question 1.4
+
+**Indiquer les inconvénients/avantages d'une implantation par listes chaînées
+d'une SDA.**
+
+La SDA joue bien le rôle d'un dictionnaire en stockant des Données
+avec leurs Clées, mais on ne peut pas enregistrer une clée seulement sans enregistrer sa donnee associée et vice vers ça.
+
+
+# Évaluation expérimentale.
+
+## Performance comparée de LCA et TH
+
+Indiquer ici les résultats obtenus.
+
+time ./evaluer_alea_lca 10 1000
+Borne  : 10
+Taille : 1000
+Min : 84
+Max : 120
+
+real	0m1,439s
+user	0m1,435s
+sys	0m0,004s
+
+time ./evaluer_alea_th 10 1000
+Borne  : 10
+Taille : 1000
+Min : 94
+Max : 112
+
+real	0m2,932s
+user	0m2,927s
+sys	0m0,004s
+
+On remarque que le temps d'execution (user) pour LCA est plus petit que celui pour TH, donc LCA est plus performant que TH.
+
+## Qualité du générateur aléatoire
+
+Indiquer les conclusions quant à la qualité du générateur aléatoire.
+
+On a Max-Min=36 (LCA) et 20 (TH) et qui sont tous trés petits devant Taille =1000, donc le générateur est de qualitée. 
+
+
+# Principales difficultés rencontrées
+
+Indiquer ici les principales difficultés rencontrées lors de la réalisation de
+ce projet et comment elles ont été surmontées ou contournéeS.
+
+J'ai pas utilisé la procedure de LCA Vider dans la procedure Vider de TH, en fait j'ai utilisé la fonction Taille de TH; Ce que m'a levé une exception lors de l'éxecution du test_th et th_sujet, mais j'ai reussi enfin à voir ce truc là et introduire la procedure en question. 
+
+
+# Informations complémentaires
+
+Indiquer ici les informations qui pourraient aider à la compréhension du
+travail réalisé.
+
+Cette partie peut être vide.
+
+...
+
+
+
+# Bilan personnel
+
+Quel bilan personnel tirez vous de ce mini-projet ?
+
+Il y a une grande difference entre mon comportement avec ce mini-projet 2 et mon comportement avec le mini-projet 1.
+

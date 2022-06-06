@@ -1,0 +1,12 @@
+/** Définition du « modèle » du jeu du Morpion.
+  * @author	Alexandre FRAY
+  */
+public interface LancerDe {
+
+	// Les différents états possibles du dé
+	enum Etat {1, 2, 3, 4, 5, 6 };
+
+	/** Obtenir le numéro du dé */
+	Etat getValeur();
+
+}

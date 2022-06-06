@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE why3session PUBLIC "-//Why3//proof session v5//EN"
+"http://why3.lri.fr/why3session.dtd">
+<why3session shape_version="5">
+<prover id="0" name="Coq" version="8.9.1" timelimit="0" steplimit="0" memlimit="0"/>
+<prover id="1" name="Alt-Ergo" version="2.0.0" timelimit="5" steplimit="0" memlimit="1000"/>
+<file>
+<path name=".."/>
+<path name="enquete.mlw"/>
+<theory name="Enquete">
+ <goal name="com1">
+ <proof prover="1"><result status="unknown" time="0.01"/></proof>
+ </goal>
+ <goal name="com2">
+ <proof prover="1"><result status="unknown" time="0.01"/></proof>
+ </goal>
+ <goal name="com3">
+ <proof prover="1"><result status="unknown" time="0.01"/></proof>
+ </goal>
+ <goal name="com4">
+ <proof prover="1"><result status="unknown" time="0.00"/></proof>
+ </goal>
+ <goal name="com5">
+ <proof prover="1"><result status="unknown" time="0.00"/></proof>
+ </goal>
+ <goal name="com6" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="7"/></proof>
+ </goal>
+ <goal name="com7">
+ <proof prover="1"><result status="unknown" time="0.01"/></proof>
+ </goal>
+ <goal name="com8">
+ <proof prover="1"><result status="unknown" time="0.01"/></proof>
+ </goal>
+ <goal name="dedu1" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="dedu2" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="8"/></proof>
+ </goal>
+ <goal name="dedu3" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="dedu4" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="dedu5" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="dedu6" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="8"/></proof>
+ </goal>
+ <goal name="dedu7" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="dedu8" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="dedu9" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="dedu10">
+ <proof prover="1"><result status="unknown" time="0.00"/></proof>
+ </goal>
+ <goal name="dedu11" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="dedu12" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="dedu13" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="dedu14" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="dedu15" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="dedu16" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="dedu17" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="dedu18" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="dedu19" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="dedu20" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="8"/></proof>
+ </goal>
+ <goal name="dedu21" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="dedu22" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="dedu23" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="dedu24" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="8"/></proof>
+ </goal>
+ <goal name="ment1" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="ment2" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="ment3" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="ment4" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="ment5" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="ment6" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="ment7" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="ment8" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="ment9" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="ment10" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="ment11" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="ment12" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="ment13" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="ment14" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="ment15" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="ment16">
+ <proof prover="1"><result status="unknown" time="0.01"/></proof>
+ </goal>
+ <goal name="ment17" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="ment18" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="ment19" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="ment20" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="ment21" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="ment22" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="ment23" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="ment24" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="6"/></proof>
+ </goal>
+ <goal name="coup1" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="coup2" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="coup3" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="coup4" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="coup5" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="coup6">
+ <proof prover="1"><result status="unknown" time="0.00"/></proof>
+ </goal>
+ <goal name="coup7" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="coup8" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="coup9" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="coup10" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="coup11" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="coup12" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="coup13" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="coup14" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="coup15" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="coup16" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="coup17" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="coup18" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="8"/></proof>
+ </goal>
+ <goal name="coup19" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="coup20" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="coup21" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="coup22">
+ <proof prover="1"><result status="unknown" time="0.01"/></proof>
+ </goal>
+ <goal name="coup23" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="coup24" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="innc1" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="innc2">
+ <proof prover="0" obsolete="true" edited="enquete_Enquete_innc2_1.v"><result status="unknown" time="0.00" steps="0"/></proof>
+ <proof prover="1"><result status="unknown" time="0.00"/></proof>
+ </goal>
+ <goal name="innc3" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="innc4" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="innc5" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="innc6" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="innc7" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="innc8" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="innc9">
+ <proof prover="1"><result status="unknown" time="0.00"/></proof>
+ </goal>
+ <goal name="innc10" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="6"/></proof>
+ </goal>
+ <goal name="innc11" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="innc12" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="innc13">
+ <proof prover="1"><result status="unknown" time="0.00"/></proof>
+ </goal>
+ <goal name="innc14">
+ <proof prover="1"><result status="unknown" time="0.00"/></proof>
+ </goal>
+ <goal name="innc15" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="innc16" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="innc17" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="innc18" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="innc19" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="innc20" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="innc21" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="innc22" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="innc23" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+ <goal name="innc24" proved="true">
+ <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+ </goal>
+</theory>
+</file>
+</why3session>

@@ -1,0 +1,135 @@
+V "GNAT Lib v2019"
+A -gnatA
+A -gnatwa
+A -gnata
+A -g
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_IO
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U th%b			th.adb			c4cefb55 NE OO PK GE IU
+W ada%s			ada.ads			ada.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W ada.unchecked_deallocation%s
+W lca%s			lca.adb			lca.ali
+W sda_exceptions%s	sda_exceptions.ads	sda_exceptions.ali
+
+U th%s			th.ads			a5fd5b74 BN EE NE OO PK GE
+W ada%s			ada.ads			ada.ali
+Z ada.text_io%s		a-textio.adb		a-textio.ali
+Z ada.unchecked_deallocation%s
+W lca%s			lca.adb			lca.ali
+W sda_exceptions%s	sda_exceptions.ads	sda_exceptions.ali
+
+D ada.ads		20190518041255 76789da1 ada%s
+D a-except.ads		20190518041255 291912d5 ada.exceptions%s
+D a-ioexce.ads		20190518041254 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20190518041255 119b8fb3 ada.streams%s
+D a-tags.ads		20190518041256 491b781d ada.tags%s
+D a-textio.ads		20190518041256 aef4d56d ada.text_io%s
+D a-unccon.ads		20190518041255 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041255 eff36322 ada.unchecked_deallocation%s
+D interfac.ads		20190518041254 5ab55268 interfaces%s
+D i-cstrea.ads		20190518041254 e53d8b8e interfaces.c_streams%s
+D lca.ads		20201119163941 d0c6232f lca%s
+D lca.adb		20201120080712 23437828 lca%b
+D sda_exceptions.ads	20201116122057 58fab764 sda_exceptions%s
+D system.ads		20190518041255 4635ec04 system%s
+D s-crtl.ads		20190518041254 0ebbdb71 system.crtl%s
+D s-exctab.ads		20190518041255 54135002 system.exception_table%s
+D s-ficobl.ads		20190518041256 078245e4 system.file_control_block%s
+D s-parame.ads		20190518041256 48ec542b system.parameters%s
+D s-secsta.ads		20190518041256 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041255 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041256 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041256 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041256 2dc34a04 system.storage_elements%s
+D s-traent.ads		20190518041254 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041255 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041255 1b7d22d2 system.wch_con%s
+D th.ads		20201119213143 2dc1cf3f th%s
+D th.adb		20201122162147 2034166e th%b
+G a e
+G c Z s b [th standard 11 9 none]
+X 1 ada.ads
+16K9*Ada 20e8 28|1r6 1r34 2r6
+X 6 a-textio.ads
+57K13*Text_IO 727e16 28|1w10 1r38
+X 8 a-uncdea.ads
+20u15*Unchecked_Deallocation 28|2w10
+X 11 lca.ads
+9k9*LCA 76e8 27|2w6 14r10 28|4w6
+11P14 T_LCA 27|70r40[13]
+14U19 Initialiser 28|12s11[27|13]
+19V18 Est_Vide{boolean} 28|21s18[27|13] 118s23[27|13]
+23V18 Taille{integer} 28|36s35[27|13]
+30U19 Enregistrer 28|52s7[27|13]
+39U19 Supprimer 28|89s13[27|13]
+45V18 Cle_Presente{boolean} 28|60s13[27|13]
+50V18 La_Donnee{27|8+9} 28|73s20[27|13]
+54U19 Vider 28|102s13[27|13]
+61u19 Pour_Chaque 28|111r18[27|13]
+X 13 sda_exceptions.ads
+2K9*SDA_Exceptions 6e19 27|1w6 1r26 28|3w6 3r37
+4X9*Cle_Absente_Exception 28|75r18 78r13 85r16 91r18
+X 27 th.ads
+6i4 Capacite{integer} 70r27 28|11r19 20r19 34r19 48r31 50r17 59r19 71r19
+. 87r19 101r22 116r22
+7+9 T_Cle 10r30 14r14 36r56 45r54 51r52 56r49 65r40 28|45r56 56r52 68r49
+. 81r54
+8+9 T_Donnee 14r20 36r76 56r63 65r58 28|45r76 68r63
+10V18 Hacher{integer} 10>26 28|48s15
+10*26 Cle{7+9}
+11k9*TH 6z4 7z9 8z9 10z18 70E9 72l5 72e7 28|5b14 130l5 130t7
+13K12*LCA1[11|9] 15r8 28|36r30 111r13
+17A9*T_TH(11|11P14[13]) 20r35 25r29 29r30 36r40 45r38 51r36 56r33 60r34 66r36
+. 70c9 28|8r35 17r29 29r30 45r40 56r36 68r33 81r38 98r34 108r36
+20U14*Initialiser 20<26 28|8b14 14l8 14t19
+20a26 Sda{17A9} 21r24 28|8b26 12m23 12r23
+25V13*Est_Vide{boolean} 21s14 25>23 31s32 61s14 28|17b13 26l8 26t16 113s10
+25a23 Sda{17A9} 28|17b23 21r27
+29V13*Taille{integer} 29>21 46s15 46s30 28|29b13 42l8 42t14
+29a21 Sda{17A9} 31r42 28|29b21 36r42
+36U14*Enregistrer 36=27 36>47 36>64 28|45b14 53l8 53t19
+36a27 Sda{17A9} 37r28 37r59 28|45b27 52m19 52r19
+36*47 Cle{7+9} 37r33 37r64 28|45b47 48r22 52r30
+36*64 Donnee{8+9} 37r71 28|45b64 52r34
+45U14*Supprimer 45=25 45>45 28|81b14 95l8 95t17
+45a25 Sda{17A9} 46r23 46r38 47r28 28|81b25 84r27 89m23 89r23
+45*45 Cle{7+9} 47r33 28|81b45 84r31 89r30
+51V13*Cle_Presente{boolean} 37s14 47s14 51>27 51>43 28|56b13 65l8 65t20 84s14
+51a27 Sda{17A9} 28|56b27 60r26
+51*43 Cle{7+9} 28|56b43 60r33
+56V13*La_Donnee{8+9} 37s48 56>24 56>40 28|68b13 79l8 79t17
+56a24 Sda{17A9} 28|68b24 73r30
+56*40 Cle{7+9} 28|68b40 73r37
+60U14*Vider 60=21 28|98b14 105l8 105t13
+60a21 Sda{17A9} 61r24 28|98b21 102m19 102r19
+65U22 Traiter 65>31 65>47 28|111r31
+65*31 Cle{7+9}
+65*47 Donnee{8+9}
+66u14*Pour_Chaque 66>27 28|108b14 127l8 127t19
+66a27 Sda{17A9} 28|108b27 113r19 118r32 119r31
+X 28 th.adb
+11i11 i{integer} 12r27
+20i11 i{integer} 21r31
+31i7 Taille{integer} 33m7 36m13 36r21 39r14
+34i11 i{integer} 36r46
+46i7 reste{integer} 48m7 49r10 50m10 52r23
+59i11 i{integer} 60r30
+71i11 i{integer} 73r34
+87i11 i{integer} 89r27
+101i14 i{integer} 102r23
+110U17 Pour_Chaque[11|61] 119s19
+116i14 i{integer} 118r36 119r35
+

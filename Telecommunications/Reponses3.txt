@@ -1,0 +1,35 @@
+2
+1. Le  TEB  théorique  de  la  chaine de référence est :
+    TEB_théorique = Q(sqrt(2*Eb/N0))/log2(M)
+cette expression est la bonne car dans ce cas on a V = 1
+
+
+3.1
+1. A partir du tracé du diagramme de l’oeil de la chaine 1 sans bruit, les instants optimaux d’échantilllonnage t0+m*Ts sont tels que Ts/2 < t0 < Ts, puisque ils vérifient le critère de Nyquist. Pour ce t0 ona g(t0+m*Ts) = 0.
+
+2. Le seuil optimal à utiliser ici pour la décision est 0.
+
+
+3.2
+2. La chaine la plus efficace en puissance parmi la chaine 1 et la chaine de référence est la chaine de référence, puisque la courbe de TEB de la chaine de référence en fonction de Eb/N0 est en dessous de celle de la chaine 1.
+
+3. Puique l'efficacité spectrale et l'efficacité en puissance sont opposées, alors la chaine la plus efficace specralement est la chaine 1.
+
+
+4.1
+1. A partir du tracé du diagramme de l’oeil de la chaine 2 sans bruit, les instants optimaux d’échantilllonnage t0+m*Ts sont tels que t0 = Ts, puisque ils vérifient le critère de Nyquist. Pour ce t0 ona g(t0+m*Ts) = 0.
+
+2. Les seuils optimaux à utiliser ici pour la décision sont : z_m <= -2*g(t0) ==> a_m = -3,
+                                                             -2*g(t0) < z_m <= 0 ==> a_m = -1,
+                                                              0 < z_m <= 2*g(t0) ==> a_m = +1,
+                                                              z_m > 2*g(t0) ==> a_m = +3.
+
+
+4.2
+1. Les tracés du TES simulé  et  du  TES  théorique pour la chaine 2 sont differents, car la distance entre les symboles qui correspond à 01 et 10 est de 2, et cette transition entre ces deux bi-bits risque d'avoir l'erreure sur les deux bits au lieu d'un seul( les 01 et 10 sont à coté et la transition entre les deux change 0 à gauche en 1 et 1 à droite en 0).
+
+2. Les tracés du TEB simulé  et  du  TEB  théorique pour la chaine 2 sont differents, due à la mème cause donnée à la question précédente.
+
+3. La chaine la plus efficace en puissance parmi la chaine 2 et la chaine de référence est la chaine de référence, puisque la courbe de TEB de la chaine de référence en fonction de Eb/N0 est en dessous de celle de la chaine 2.
+
+4. Puique l'efficacité spectrale et l'efficacité en puissance sont opposées, alors la chaine la plus efficace specralement est la chaine 2.

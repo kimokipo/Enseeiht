@@ -1,0 +1,63 @@
+package allumettes;
+import java.util.InputMismatchException;
+
+public class StrategieClass implements Strategie {
+	private String nom;
+	private String nomJoueur;
+	public StrategieClass(String nom, String nomJoueur){
+		this.nom = nom;
+		this.nomJoueur = nomJoueur;
+ 	}
+	public int getPrise(Jeu jeu) throws CoupInvalideException, OperationInterditException{
+		int PRISE_MAX = Jeu.PRISE_MAX;
+		if (nom.equals("HUMAIN")){
+			boolean reussi = false;
+			int prise =0;
+			do{
+				try{
+					System.out.print(this.nomJoueur + ", combien d'allumettes ? ");
+					
+					String tricher = scanner.nextLine();
+					if (tricher.equals("triche")){
+						jeu.retirer(1);
+						System.out.println("[Une allumette en moins, plus que " + jeu.getNombreAllumettes() + ". Chut !]");
+					}else{
+						prise = Integer.parseInt(tricher);
+						reussi = true;
+					}
+				}catch(NumberFormatException e){
+					System.out.println("Vous devez donner un entier.");
+				}
+			}while (!reussi);
+			return prise;
+		}else if (nom.equals("TRICHEUR")){
+			System.out.println("[Je triche ...]");
+			int rest = (jeu.getNombreAllumettes()-2)%PRISE_MAX;
+			int q = (jeu.getNombreAllumettes()-2-rest)/PRISE_MAX;
+			for (int k=0;k<q;k++){
+				jeu.retirer(PRISE_MAX);
+			}
+			if (rest!=0){
+				jeu.retirer(rest);
+			}
+			System.out.println("[Allumettes restantes : 2]");
+			return 1;
+		}else if (nom.equals("RAPIDE")){
+			for (int i =0;i<PRISE_MAX;i++){
+				if (jeu.getNombreAllumettes() >= (PRISE_MAX-i)){
+					return PRISE_MAX-i;
+				}
+			}
+		}else if (nom.equals("EXPERT")){
+			if (jeu.getNombreAllumettes() % (PRISE_MAX+1) == 1){
+				return 1;
+			}
+			return (jeu.getNombreAllumettes() % (PRISE_MAX+1) != 0) ? jeu.getNombreAllumettes() % (PRISE_MAX+1)-1 : PRISE_MAX;
+		}else if (nom.equals("NAIF")){
+			return r.nextInt(PRISE_MAX-1)+1;
+		}else{
+			throw new IllegalArgumentException("le nom de la strategie donnée n'est pas valide");
+		}
+		return 1;
+	}
+}

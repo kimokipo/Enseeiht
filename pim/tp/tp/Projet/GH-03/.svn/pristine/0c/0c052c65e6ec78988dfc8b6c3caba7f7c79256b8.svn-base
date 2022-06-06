@@ -1,0 +1,192 @@
+Auteurs : Basile GROS, Kamal HAMMI
+Groupe : GH-03
+
+
+
+Raffinage programme principal
+
+Types créés :
+T_Google : matrice des liens entre pages
+T_Colonne : le vecteur des Poids des pages
+T_Colonne_Indices : vecteur des indices des pages
+T_Element : Flottant de précision variable
+
+R0 : Utiliser l’algorithme PageRank sur un fichier *.net
+
+R1 : Comment utiliser l’algorithme PageRank sur un fichier *.net ?
+        Lire et comprendre la commande
+        Calculer le pagerank de chaque Page du fichier *.net
+        Trier dans l’ordre décroissant les poids des pages et leur identifiant (Quicksort)
+        Générer les fichiers
+        Gérer les exceptions
+
+
+
+R2 : Comment lire et comprendre la commande ?
+        Déclarer les exceptions
+        Savoir le nombre d’arguments dans la commande
+        Extraire les arguments
+        Lever les exceptions nécessaires
+        Charger le bon module
+        Nombre_Pages :=  premier élément du fichier	--Nombre_Pages : out Integer
+        Calculer la matrice S
+
+
+R3 : Comment déclarer les exceptions ?
+        Exception  : Pas_D_Argument_Erreur
+        Exception : Iterations_Negatif_Erreur
+        Exception : Alpha_Hors_Borne_Erreur
+
+R3 : Comment extraire les arguments ?
+-- Ici comme on ne raffine que pour l’implantation naive, on a remplacé l'instantiation du bon module par le booléen “Naive”
+        Si le premier argument = “-P” ou “-p” alors		-- Iterations : out Integer, Alpha : out T_Element, Naive : Booléen out
+                Naive := True
+                si le deuxième Argument = “-I” ou “-i” alors
+                         Iterations := troisieme argument 	
+                         Si le quatrième argument = “-A” ou ”-a” alors 
+                                Alpha := cinquième argument
+                                charger le sixième argument (Fichier)
+                         Sinon
+                                Alpha := 0.85			
+                                charger le quatrième argument (Fichier)
+                         Fin Si
+                Sinon si le deuxième Argument = “-A” ou “-a” alors 
+                        Iterations := 150 	
+                        Alpha := le troisieme argument
+                        charger le quatrième argument (Fichier)
+                Sinon 
+                        Iterations := 150 		
+                        Alpha := 0.85	
+                        charger le deuxième argument (Fichier)
+                Fin Si
+        Sinon si le premier argument = “-I” ou “-i” alors
+                Naive := False
+                Iterations := deuxième argument	
+                Si le troisieme argument = “-A” ou ”-a” alors 
+                        Alpha :=  quatrième argument		
+                        charger le cinquième argument (Fichier)
+                Sinon
+                        Alpha := 0.85		
+                        charger le troisieme argument (Fichier)
+                Fin Si
+        Sinon si le premier argument = “-A” ou ”-a” alors 
+                Naive := False
+                Iterations := 150	
+                Alpha :=  deuxième argument
+                charger le troisieme argument (Fichier)
+        Sinon
+                Naive := False
+                Iterations:=150		
+                Alpha := 0.85		
+                charger le premier argument (Fichier)
+        Fin Si
+
+R3 : Comment lever les exceptions nécessaires ?
+        Si Argument_Count < 1 alors
+                Lever Pas_D_Argument_Erreur
+        Sinon si i I < 0 alors
+	        Lever  I_Negatif_Erreur
+        Sinon si  Alpha < 0 ou Alpha > 1 alors
+ 	        Lever  A_Hors_Borne_Erreur 
+        Fin si
+
+R3 : Comment calculer la matrice S ?
+        Créer une matrice H de flottants égaux à 0.0    	--H : out T_Google
+        Tant que le fichier n’est pas fini
+                lire l’entier Element1 dans Fichier
+                Element1 : = Element +1 -- en Ada les indices commencent à 1
+                lire l’entier Element2 dans le Fichier
+                Element2 := Element2 j+1 -- en Ada les indices commencent à 1
+                H(Element1 ,Element2 ) := 1					--H : out 
+        Fin Tant que
+        Pour i = 1 à Nombre_Pages
+                Nombre_Connexion := 0
+                Pour j = 1 à Nombre_Pages
+                        Si H(i,j) = 1 alors
+                                Nombre_Connexion := Nombre_Connexion + 1
+                        Sinon
+                                Rien
+                        Fin SI
+                Fin Pour
+                Si Nombre_Connexion != 0 alors
+                        Pour j = 1 à Nombre_Pages
+                                H(i,j) := H(i,j)/Nombre_Connexion		--H : in out
+                        Fin Pour
+                Sinon
+                        Pour j = 1 à Nombre_Pages
+                                H(i,j) := 1/Nombre_Pages				--H : in out
+                        Fin Pour
+                Fin Si
+        Fin Pour
+
+R2 : Comment calculer le pagerank de chaque Page du fichier *.net ?
+        Initialiser les poids
+        Pour le nombre d’iterations voulues ( Iterations )
+                Calculer le poids des pages
+        Fin Pour
+
+
+R3 : Comment initialiser les poids ?
+        Créer une Matrice des Poids de Taille N 	 --Poids : out T_Colonne
+        Pour i = 1 à Nombre_Pages
+                P(i) := 1/Nombre_Pages		--Poids : out
+        Fin Pour	
+
+R3 : Comment Calculer le poids des pages ?
+        Pour i = 1 à Nombre_Pages  			--Poids : in out , H : in 
+                Somme := 0
+                Pour j = 1 à Nombre_Pages
+                        Somme := Somme + Poids(j) * (Alpha*H(j,i) + (1 - Alpha)/Nombre_Pages)  
+ 	        Fin Pour   
+                Poids(i) := Somme
+        Fin pour
+
+R2 : Comment trier dans l’ordre décroissant les poids des pages et leur identifiant (Quicksort)
+        Créer une matrice d’indices des poids.  	 --Indices : out T_Colonne_Indice
+        Chaque fois que la matrice des poids subit une opération pour la trier, faire de même sur la matrice des indices  	   --Indices : in out, Poids : in out
+
+R3 : Comment créer une matrice d’indices des poids (Indices) ?
+        Pour i = 0 à N-1			--Indices : out 
+                Indices(i + 1) := i
+        Fin Pour	
+
+R2 : Générer les fichiers
+        Enlever le .net du nom du fichier et créer une copie en .ord et une en .p
+        Créer les fichiers.
+        Remplir le fichier .p
+        Remplir le fichier .ord
+
+R3 : Comment enlever le .net du nom du fichier et créer une copie en .ord et une en .p ?
+        Fichier_p := Fichier(1..(length(Fichier) - 4)) 		--Fichier_p : out Unbounded_String
+        Concaténer  ”.p” à Ficher_p				--Fichier_p : in
+        Fichier_ord := Fichier(1..(length(Fichier) - 4))	--Fichier_ord : out Unbounded String
+        Concaténer  ”.ord” à Ficher_ord			--Fichier_ord : in
+
+R3 : Comment remplir le fichier .p ?				--Fichier_p : in
+        Ecrire N dans le Fichier.p			
+        Ecrire “ “ dans le Fichier.p
+        Ecrire Alpha dans le Fichier.p
+        Ecrire “ “ dans le Fichier.p
+        Ecrire I dans le Fichier.p
+        Passer à la ligne dans le Fichier.p
+        Pour i = 1 à Nombre_Pages
+                Ecrire P(i) dans le Fichier.p
+                Passer à la ligne dans le Fichier.p
+        Fin Pour
+
+R3 :  Comment remplir le fichier .ord ?			--Fichier_ord : in
+        Pour i = 1 à Nombre_Pages
+                Ecrire  Indices(i)  dans le Fichier .ord
+                Passer à la ligne dans le Fichier .ord
+        Fin Pour	
+
+
+R2 : Comment gérer les exceptions ?
+        Exceptions :
+                Pas_D_Argument_Erreur => Ecrire “Aucun argument n’a été rentré”
+                I_Negatif_Erreur => Ecrire “Le nombre d’itération doit être positif”
+                A_Hors_Borne_Erreur => Ecrire “Alpha doit être dans [0,1]”
+                ADA.IO_EXCEPTIONS.NAME_ERROR => Ecrire “Le nom du fichier donné est incorrect ou le fichier n’est pas présent”
+                ADA.CONSTRAINT_ERROR => Ecrire “Iterations doit être un entier et Alpha un nombre flottant”
+
+

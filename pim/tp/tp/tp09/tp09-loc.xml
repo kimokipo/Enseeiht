@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<Locations >
+  <Project>
+    <vfs_file>/home/khammi/pim/tp/tp/tp09/tp09.gpr</vfs_file>
+    <file_marker column=" 9" line=" 91" >
+      <vfs_project>/home/khammi/pim/tp/tp/tp09/tp09.gpr</vfs_project>
+      <vfs_file>/home/khammi/pim/tp/tp/tp09/vecteurs_creux.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 19" line=" 25" >
+      <vfs_project>/home/khammi/pim/tp/tp/tp09/tp09.gpr</vfs_project>
+      <vfs_file>/home/khammi/pim/tp/tp/tp09/vecteurs_creux.adb</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 9" line=" 1" >
+      <vfs_project>/home/khammi/pim/tp/tp/tp09/tp09.gpr</vfs_project>
+      <vfs_file>/home/khammi/pim/tp/tp/tp09/test_vecteurs_creux.adb</vfs_file>
+    </file_marker>
+  </Project>
+</Locations>

@@ -1,0 +1,64 @@
+V "GNAT Lib v2019"
+M P W=b
+A -gnatA
+A -gnatwa
+A -gnata
+A -g
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_IO
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U exemple_integer_io%b	exemple_integer_io.adb	f6683ffd NE OO SU
+W ada%s			ada.ads			ada.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W integer_io%s		integer_io.adb		integer_io.ali
+
+D ada.ads		20190518041255 76789da1 ada%s
+D a-except.ads		20190518041255 291912d5 ada.exceptions%s
+D a-ioexce.ads		20190518041254 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20190518041255 119b8fb3 ada.streams%s
+D a-tags.ads		20190518041256 491b781d ada.tags%s
+D a-textio.ads		20190518041256 aef4d56d ada.text_io%s
+D a-unccon.ads		20190518041255 0e9b276f ada.unchecked_conversion%s
+D exemple_integer_io.adb  20201019144711 90045236 exemple_integer_io%b
+D integer_io.ads	20201019144711 c898b8a6 integer_io%s
+D interfac.ads		20190518041254 5ab55268 interfaces%s
+D i-cstrea.ads		20190518041254 e53d8b8e interfaces.c_streams%s
+D system.ads		20190518041255 4635ec04 system%s
+D s-crtl.ads		20190518041254 0ebbdb71 system.crtl%s
+D s-exctab.ads		20190518041255 54135002 system.exception_table%s
+D s-ficobl.ads		20190518041256 078245e4 system.file_control_block%s
+D s-parame.ads		20190518041256 48ec542b system.parameters%s
+D s-secsta.ads		20190518041256 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041255 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041256 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041256 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041256 2dc34a04 system.storage_elements%s
+D s-traent.ads		20190518041254 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041255 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041255 1b7d22d2 system.wch_con%s
+G a e
+G c Z b b [exemple_integer_io standard 5 11 none]
+G r c none [exemple_integer_io standard 5 11 none] [afficher integer_io 8 15 none]
+G r c none [exemple_integer_io standard 5 11 none] [saisir integer_io 15 15 none]
+X 1 ada.ads
+16K9*Ada 20e8 8|1r6 1r23
+X 6 a-textio.ads
+57K13*Text_IO 727e16 8|1w10 1r27
+264U14*New_Line 8|10s5 14s5 18s5 27s13
+273U14*Skip_Line 8|30s13
+465U14*Put 8|8s5 12s5 16s5 22s9 25s13
+508U14*Put_Line 8|29s13
+X 8 exemple_integer_io.adb
+5U11*Exemple_Integer_IO 5b11 34l5 34t23
+6i5 Nombre{integer} 23m17 24r12 26r23 32r19
+X 9 integer_io.ads
+4K9*Integer_IO 8|2w6 2r23 9|19e15
+8U15*Afficher 8|9s5 13s5 17s5 26s13
+15U15*Saisir 8|23s9
+

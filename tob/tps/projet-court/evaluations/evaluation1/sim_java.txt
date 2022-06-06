@@ -1,0 +1,285 @@
+File allumettes/ConfigurationException.java: 21 tokens, 16 lines
+File allumettes/Jeu.java: 23 tokens, 20 lines
+File allumettes/Arbitre.java: 293 tokens, 46 lines
+File allumettes/Strategie.java: 41 tokens, 9 lines
+File allumettes/StrategieTricheur.java: 128 tokens, 23 lines
+File allumettes/StrategieClass.java: 413 tokens, 63 lines
+File allumettes/CoupInvalideException.java: 51 tokens, 29 lines
+File allumettes/Joueur.java: 79 tokens, 23 lines
+File allumettes/StrategieHumain.java: 147 tokens, 31 lines
+File allumettes/Procuration.java: 67 tokens, 28 lines
+File allumettes/OperationInterditException.java: 18 tokens, 16 lines
+File allumettes/JeuNonConfiant.java: 117 tokens, 36 lines
+File allumettes/Jouer.java: 440 tokens, 94 lines
+File allumettes/StrategieNaif.java: 51 tokens, 13 lines
+File allumettes/StrategieRapide.java: 78 tokens, 19 lines
+File allumettes/JeuConfiant.java: 21 tokens, 7 lines
+File allumettes/StrategieExpert.java: 94 tokens, 16 lines
+Total input: 17 files (17 new, 0 old), 2082 tokens
+
+allumettes/StrategieClass.java: line 14-33 [104]
+allumettes/StrategieHumain.java: line 11-30
+< 			boolean reussi = false;
+< 			int prise =0;
+< 			do{
+< 				try{
+< 					System.out.print(this.nomJoueur + ", combien d'allumettes ? ");
+< 					
+< 					String tricher = scanner.nextLine();
+< 					if (tricher.equals("triche")){
+< 						jeu.retirer(1);
+< 						System.out.println("[Une allumette en moins, plus que " + jeu.getNombreAllumettes() + ". Chut !]");
+< 					}else{
+< 						prise = Integer.parseInt(tricher);
+< 						reussi = true;
+< 					}
+< 				}catch(NumberFormatException e){
+< 					System.out.println("Vous devez donner un entier.");
+< 				}
+< 			}while (!reussi);
+< 			return prise;
+< 		}else if (nom.equals("TRICHEUR")){
+---
+> 			boolean reussi = false;
+> 			int prise =0;
+> 			do{
+> 				try{
+> 					System.out.print(this.nomJoueur + ", combien d'allumettes ? ");
+> 					
+> 					String tricher = scanner.nextLine();
+> 					if (tricher.equals("triche")){
+> 						jeu.retirer(1);
+> 						System.out.println("[Une allumette en moins, plus que " + jeu.getNombreAllumettes() + ". Chut !]");
+> 					}else{
+> 						prise = Integer.parseInt(tricher);
+> 						reussi = true;
+> 					}
+> 				}catch(NumberFormatException e){
+> 					System.out.println("Vous devez donner un entier.");
+> 				}
+> 			}while (!reussi);
+> 			return prise;
+> 	}
+
+allumettes/StrategieTricheur.java: line 11-22 [85]
+allumettes/StrategieClass.java: line 34-45
+< 			System.out.println("[Je triche ...]");
+< 			int rest = (jeu.getNombreAllumettes()-2)%PRISE_MAX;
+< 			int q = (jeu.getNombreAllumettes()-2-rest)/PRISE_MAX;
+< 			for (int k=0;k<q;k++){
+< 				jeu.retirer(PRISE_MAX);
+< 			}
+< 			if (rest!=0){
+< 				jeu.retirer(rest);
+< 			}
+< 			System.out.println("[Allumettes restantes : 2]");
+< 			return 1;
+< 	}
+---
+> 			System.out.println("[Je triche ...]");
+> 			int rest = (jeu.getNombreAllumettes()-2)%PRISE_MAX;
+> 			int q = (jeu.getNombreAllumettes()-2-rest)/PRISE_MAX;
+> 			for (int k=0;k<q;k++){
+> 				jeu.retirer(PRISE_MAX);
+> 			}
+> 			if (rest!=0){
+> 				jeu.retirer(rest);
+> 			}
+> 			System.out.println("[Allumettes restantes : 2]");
+> 			return 1;
+> 		}else if (nom.equals("RAPIDE")){
+
+allumettes/StrategieClass.java: line 52-56 [55]
+allumettes/StrategieExpert.java: line 11-15
+< 			if (jeu.getNombreAllumettes() % (PRISE_MAX+1) == 1){
+< 				return 1;
+< 			}
+< 			return (jeu.getNombreAllumettes() % (PRISE_MAX+1) != 0) ? jeu.getNombreAllumettes() % (PRISE_MAX+1)-1 : PRISE_MAX;
+< 		}else if (nom.equals("NAIF")){
+---
+> 			if (jeu.getNombreAllumettes() % (PRISE_MAX+1) == 1){
+> 				return 1;
+> 			}
+> 			return (jeu.getNombreAllumettes() % (PRISE_MAX+1) != 0) ? jeu.getNombreAllumettes() % (PRISE_MAX+1)-1 : PRISE_MAX;
+> 	}
+
+allumettes/StrategieTricheur.java: line 1-10 [41]
+allumettes/StrategieHumain.java: line 1-10
+< package allumettes;
+< import java.util.InputMismatchException;
+< 
+< public class StrategieTricheur implements Strategie {
+< 	private String nomJoueur;
+< 	public StrategieTricheur(String nomJoueur){
+< 		this.nomJoueur = nomJoueur;
+<  	}
+< 	public int getPrise(Jeu jeu) throws CoupInvalideException, OperationInterditException{
+< 		int PRISE_MAX = Jeu.PRISE_MAX;
+---
+> package allumettes;
+> import java.util.InputMismatchException;
+> 
+> public class StrategieHumain implements Strategie {
+> 	private String nomJoueur;
+> 	public StrategieHumain(String nomJoueur){
+> 		this.nomJoueur = nomJoueur;
+>  	}
+> 	public int getPrise(Jeu jeu) throws CoupInvalideException, OperationInterditException{
+> 		int PRISE_MAX = Jeu.PRISE_MAX;
+
+allumettes/StrategieRapide.java: line 1-11 [37]
+allumettes/StrategieExpert.java: line 1-10
+< package allumettes;
+< import java.util.InputMismatchException;
+< 
+< public class StrategieRapide implements Strategie {
+< 	private String nomJoueur;
+< 	public StrategieRapide(String nomJoueur) {
+< 		this.nomJoueur = nomJoueur;
+<  	}
+< 
+< 	public int getPrise(Jeu jeu) {
+< 		int PRISE_MAX = Jeu.PRISE_MAX;
+---
+> package allumettes;
+> import java.util.InputMismatchException;
+> 
+> public class StrategieExpert implements Strategie {
+> 	private String nomJoueur;
+> 	public StrategieExpert(String nomJoueur){
+> 		this.nomJoueur = nomJoueur;
+>  	}
+> 	public int getPrise(Jeu jeu) {
+> 		int PRISE_MAX = Jeu.PRISE_MAX;
+
+allumettes/StrategieNaif.java: line 1-10 [37]
+allumettes/StrategieRapide.java: line 1-11
+< package allumettes;
+< import java.util.InputMismatchException;
+< 
+< public class StrategieNaif implements Strategie {
+< 	private String nomJoueur;
+< 	public StrategieNaif(String nomJoueur){
+< 		this.nomJoueur = nomJoueur;
+<  	}
+< 	public int getPrise(Jeu jeu) {
+< 		int PRISE_MAX = Jeu.PRISE_MAX;
+---
+> package allumettes;
+> import java.util.InputMismatchException;
+> 
+> public class StrategieRapide implements Strategie {
+> 	private String nomJoueur;
+> 	public StrategieRapide(String nomJoueur) {
+> 		this.nomJoueur = nomJoueur;
+>  	}
+> 
+> 	public int getPrise(Jeu jeu) {
+> 		int PRISE_MAX = Jeu.PRISE_MAX;
+
+allumettes/StrategieClass.java: line 46-50 [36]
+allumettes/StrategieRapide.java: line 12-16
+< 			for (int i =0;i<PRISE_MAX;i++){
+< 				if (jeu.getNombreAllumettes() >= (PRISE_MAX-i)){
+< 					return PRISE_MAX-i;
+< 				}
+< 			}
+---
+> 			for (int i =0;i<PRISE_MAX;i++){
+> 				if (jeu.getNombreAllumettes() >= (PRISE_MAX-i)){
+> 					return PRISE_MAX-i;
+> 				}
+> 			}
+
+allumettes/Jouer.java: line 52-56 [35]
+allumettes/Jouer.java: line 56-60
+< 		if (nom.equals("HUMAIN")){
+< 			return new StrategieHumain(nomJoueur);
+< 		}else if (nom.equals("TRICHEUR")){
+< 			return new StrategieTricheur(nomJoueur);
+< 		}else if (nom.equals("RAPIDE")){
+---
+> 		}else if (nom.equals("RAPIDE")){
+> 			return new StrategieRapide(nomJoueur);
+> 		}else if (nom.equals("EXPERT")){
+> 			return new StrategieExpert(nomJoueur);
+> 		}else if (nom.equals("NAIF")){
+
+allumettes/Arbitre.java: line 1-12 [33]
+allumettes/Joueur.java: line 1-9
+< package allumettes;
+< 
+< public class Arbitre {
+< 
+< 	private Joueur joueur1;
+< 
+< 	private Joueur joueur2;
+< 
+< 	public Arbitre(Joueur j1, Joueur j2) {
+< 		this.joueur1 = j1;
+< 		this.joueur2 = j2;
+< 	}
+---
+> package allumettes;
+> 
+> public class Joueur {
+> 	private String nom;
+> 	private Strategie strategie;
+> 	public Joueur(String nom, Strategie strategie){
+> 		this.nom = nom;
+> 		this.strategie = strategie;
+> 	}
+
+allumettes/StrategieHumain.java: line 1-9 [31]
+allumettes/StrategieNaif.java: line 1-9
+< package allumettes;
+< import java.util.InputMismatchException;
+< 
+< public class StrategieHumain implements Strategie {
+< 	private String nomJoueur;
+< 	public StrategieHumain(String nomJoueur){
+< 		this.nomJoueur = nomJoueur;
+<  	}
+< 	public int getPrise(Jeu jeu) throws CoupInvalideException, OperationInterditException{
+---
+> package allumettes;
+> import java.util.InputMismatchException;
+> 
+> public class StrategieNaif implements Strategie {
+> 	private String nomJoueur;
+> 	public StrategieNaif(String nomJoueur){
+> 		this.nomJoueur = nomJoueur;
+>  	}
+> 	public int getPrise(Jeu jeu) {
+
+allumettes/StrategieClass.java: line 4-10 [29]
+allumettes/Joueur.java: line 3-9
+< public class StrategieClass implements Strategie {
+< 	private String nom;
+< 	private String nomJoueur;
+< 	public StrategieClass(String nom, String nomJoueur){
+< 		this.nom = nom;
+< 		this.nomJoueur = nomJoueur;
+<  	}
+---
+> public class Joueur {
+> 	private String nom;
+> 	private Strategie strategie;
+> 	public Joueur(String nom, Strategie strategie){
+> 		this.nom = nom;
+> 		this.strategie = strategie;
+> 	}
+
+allumettes/Joueur.java: line 14-18 [24]
+allumettes/StrategieHumain.java: line 6-9
+< 	public void setStrategie(Strategie strategie){
+< 		this.strategie = strategie;
+< 	}	
+< 	
+< 	public int getPrise(Jeu jeu) throws CoupInvalideException, OperationInterditException{
+---
+> 	public StrategieHumain(String nomJoueur){
+> 		this.nomJoueur = nomJoueur;
+>  	}
+> 	public int getPrise(Jeu jeu) throws CoupInvalideException, OperationInterditException{
+

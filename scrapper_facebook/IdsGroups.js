@@ -1,0 +1,3 @@
+export default [
+    'https://www.facebook.com/groups/115529558483490','https://www.facebook.com/groups/554242324681455','https://www.facebook.com/groups/pamiers09','https://www.facebook.com/groups/940505369749635','https://www.facebook.com/groups/600575143897445','https://www.facebook.com/groups/mieuxvivrealatestedebuch','https://www.facebook.com/groups/1507191902900251','https://www.facebook.com/groups/2303991376506972','https://www.facebook.com/groups/1493925950778194'
+]

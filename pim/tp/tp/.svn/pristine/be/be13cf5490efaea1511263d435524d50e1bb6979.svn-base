@@ -1,0 +1,115 @@
+with Ada.Text_IO;            use Ada.Text_IO;
+with Ada.Unchecked_Deallocation;
+with SDA_Exceptions; 		use SDA_Exceptions;
+package body LCA is
+
+	procedure Free is
+		new Ada.Unchecked_Deallocation (Object => T_Cellule, Name => T_TH);
+
+
+	procedure Initialiser(Sda: out T_TH) is
+	begin
+		Sda:=Null;
+	end Initialiser;
+
+
+	function Est_Vide (Sda : T_TH) return Boolean is
+	begin
+		return Sda=Null;
+	end;
+
+
+	function Taille (Sda : in T_TH) return Integer is
+            cursor:T_TH:=Sda;
+            Taille:integer:=0;
+        begin
+           while cursor/=null loop
+                Taille:=Taille+1;
+                cursor:=cursor.all.Suivant;
+           end loop;
+           return Taille;
+	end Taille;
+
+
+	procedure Enregistrer (Sda : in out T_TH ; Cle : in T_Cle ; Donnee : in T_Donnee) is
+	     cursor:T_TH:=Sda;
+        begin
+            while cursor/=Null and then cursor.all.Cle/= Cle loop
+               cursor:=cursor.all.Suivant;
+	    end loop;
+            if cursor/=Null then
+                 cursor.all.Donnee:=Donnee;
+            end if;
+            if sda=Null then
+                sda:=new T_Cellule'(Cle,Donnee,Null);
+            elsif cursor=Null then
+                cursor:=new T_Cellule'(Cle,Donnee,Null);
+            end if;
+         end Enregistrer;
+
+
+	function Cle_Presente (Sda : in T_TH ; Cle : in T_Cle) return Boolean is
+	    cursor:T_TH:=Sda;
+        begin
+	     while cursor /=Null and then cursor.all.Cle/=Cle loop
+                 cursor:=cursor.all.Suivant;
+             end loop;
+             if cursor/=Null then
+                return True;
+             end if;
+             return False;
+        end;
+
+
+	function La_Donnee (Sda : in T_TH ; Cle : in T_Cle) return T_Donnee is
+	     cursor:T_TH:=Sda;
+        begin
+	     while cursor /= Null and then cursor.all.Cle/=Cle loop
+                 cursor:=cursor.all.Suivant;
+             end loop;
+             if cursor/=Null then
+                return cursor.all.Donnee;
+             end if;
+             raise Cle_Absente_Exception;
+        end;
+
+	procedure Supprimer (Sda : in out T_TH ; Cle : in T_Cle) is
+	     cursor:T_TH:=Sda;
+             cursor_suivant: T_LCA:=cursor.all.Suivant;
+        begin
+	     while cursor /= Null and then cursor.all.Cle/=Cle loop
+                 cursor:=cursor_Suivant;
+                 cursor_suivant:=cursor_suivant.all.Suivant;
+             end loop;
+             if cursor/=Null then
+                cursor:=cursor_suivant;
+             end if;
+             raise Cle_Absente_Exception;
+        end;
+
+
+	procedure Vider (Sda : in out T_TH) is
+	begin
+	       if Est_Vide(Sda) then
+                  Null;
+               else
+                    Vider(Sda.all.Suivant);
+                    Free (Sda);-- TODO : à changer
+               end if;
+	end Vider;
+
+
+	procedure Pour_Chaque (Sda : in T_TH) is
+	begin
+	       if Est_Vide(Sda) then
+                  null;
+               else
+                 begin
+                    Traiter (Sda.all.Cle,Sda.all.Donnee);
+                 end ;
+                 Pour_Chaque(Sda.all.Suivant);
+               end if;
+        end Pour_Chaque;
+
+
+end LCA;

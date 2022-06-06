@@ -1,0 +1,3 @@
+evaluer_alea_th.adb:4:06: warning: no entities of "SDA_Exceptions" are referenced
+evaluer_alea_th.adb:4:28: warning: use clause for package "SDA_Exceptions" has no effect
+evaluer_alea_th.adb:85:26: warning: formal parameter "Cle" is not referenced

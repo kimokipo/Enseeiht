@@ -1,0 +1,140 @@
+V "GNAT Lib v2019"
+M P W=b
+A -gnatA
+A -gnatwa
+A -gnata
+A -g
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_IO
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U utiliser_piles%b	utiliser_piles.adb	ff1e96d7 NE OO SU
+W ada%s			ada.ads			ada.ali
+W ada.characters%s	a-charac.ads		a-charac.ali
+W ada.characters.latin_1%s  a-chlat1.ads	a-chlat1.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W piles%s		piles.adb		piles.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.concat_3%s	s-conca3.adb		s-conca3.ali
+
+D ada.ads		20190518041255 76789da1 ada%s
+D a-charac.ads		20190518041255 2d3ec45b ada.characters%s
+D a-chlat1.ads		20190518041255 66457d31 ada.characters.latin_1%s
+D a-except.ads		20190518041255 291912d5 ada.exceptions%s
+D a-inteio.ads		20190518041256 f64b89a4 ada.integer_text_io%s
+D a-ioexce.ads		20190518041254 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20190518041255 119b8fb3 ada.streams%s
+D a-tags.ads		20190518041256 491b781d ada.tags%s
+D a-textio.ads		20190518041256 aef4d56d ada.text_io%s
+D a-tiinio.ads		20190518041254 390edddb ada.text_io.integer_io%s
+D a-unccon.ads		20190518041255 0e9b276f ada.unchecked_conversion%s
+D interfac.ads		20190518041254 5ab55268 interfaces%s
+D i-cstrea.ads		20190518041254 e53d8b8e interfaces.c_streams%s
+D piles.ads		20201019144711 f8ba9f4f piles%s
+D piles.adb		20201019144711 f5008280 piles%b
+D system.ads		20190518041255 4635ec04 system%s
+D s-assert.ads		20190518041255 cd8d2c94 system.assertions%s
+D s-conca3.ads		20190518041256 0b705ca5 system.concat_3%s
+D s-crtl.ads		20190518041254 0ebbdb71 system.crtl%s
+D s-exctab.ads		20190518041255 54135002 system.exception_table%s
+D s-ficobl.ads		20190518041256 078245e4 system.file_control_block%s
+D s-parame.ads		20190518041256 48ec542b system.parameters%s
+D s-secsta.ads		20190518041256 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041255 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041256 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041256 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041256 2dc34a04 system.storage_elements%s
+D s-traent.ads		20190518041254 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041255 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041255 1b7d22d2 system.wch_con%s
+D utiliser_piles.adb	20201021142820 395e2860 utiliser_piles%b
+G a e
+G c Z b b [utiliser_piles standard 8 11 none]
+G r i none [utiliser_piles standard 8 11 none] [piles standard 7 9 none]
+X 1 ada.ads
+16K9*Ada 20e8 31|2r6 2r34 3r6 3r34 4r6 5r5
+X 2 a-charac.ads
+16K13*Characters 18e19 31|4r10 5r9
+X 3 a-chlat1.ads
+18K24*Latin_1 296e27 31|4w21 5r20
+70e4*Apostrophe{character} 31|175r14 175r31
+X 5 a-inteio.ads
+18K13*Integer_Text_IO[10|46] 31|3w10 3r38
+X 9 a-textio.ads
+57K13*Text_IO 727e16 31|2w10 2r38
+264U14*New_Line 31|52s32 65s32 78s32 121s24 162s37 163s37 193s37 194s48 232s41
+. 233s41 234s52
+392U14*Put 31|28r70 183r50 203r50 208r50
+465U14*Put 31|162s9 163s9 175s9 193s9 194s9 232s9 233s9 234s9
+508U14*Put_Line 31|32s9 109s9 159s9 190s9 214s9
+X 10 a-tiinio.ads
+80U14*Put 31|100s13[5|18] 140s13[5|18]
+X 14 piles.ads
+4i5 Capacite{integer} 31|19r24 180r24
+5+10 T_Element 31|19r39 180r39
+7k9*Piles 58e10 31|1w6 19r17 88r17 135r17 180r17 201r17 206r17
+9R10 T_Pile 31|30r16[18] 107r14[87] 157r13[134] 188r12[179] 211r20[200] 212r20[205]
+14U15 Initialiser 31|34s9[18] 111s9[87] 160s9[134] 191s9[179] 222s9[200]
+. 223s9[205]
+19V14 Est_Vide{boolean} 31|35s24[18] 39s28[18] 48s28[18] 69s28[18] 72s28[18]
+. 75s24[18] 112s24[87] 128s24[87]
+23V14 Est_Pleine{boolean} 31|40s28[18] 49s24[18] 56s28[18] 62s24[18] 118s24[87]
+27V14 Sommet{character} 31|41s30[18] 45s30[18] 47s30[18] 57s30[18] 61s30[18]
+. 70s30[18] 73s30[18] 125s32[87]
+32U15 Empiler 31|38s9[18] 44s9[18] 46s9[18] 60s9[18] 116s13[87] 161s9[134]
+. 192s9[179] 227s13[200] 228s13[205] 238s13[200]
+38U15 Depiler 31|55s9[18] 68s9[18] 71s9[18] 74s9[18] 126s13[87]
+44U24 Afficher_Element 31|28r50[18]
+45u15 Afficher 31|28r40[18] 103r48[87] 143r48[134] 183r40[179] 184r51[179]
+. 203r40[200] 208r40[205] 209r51[205]
+X 31 utiliser_piles.adb
+8U11*Utiliser_Piles 8b11 250l5 250t19
+16U15 Utiliser_Pile_Caractere 16b15 79l9 79t32 245s5
+18K17 Pile_Caractere_3[14|7] 26r13
+28U19 Afficher_Pile[14|45] 52s9 65s9 78s9
+30r9 Pile{14|9R10[18]} 34m22 35r34 38m18 38r18 39r38 40r40 41r38 44m18 44r18
+. 45r38 46m18 46r18 47r38 48r38 49r36 52r24 55m18 55r18 56r40 57r38 60m18
+. 60r18 61r38 62r36 65r24 68m18 68r18 69r38 70r38 71m18 71r18 72r38 73r38
+. 74m18 74r18 75r34 78r24
+83U15 Utiliser_Pile_Entier 83b15 129l9 129t29 246s5
+85i9 Capacite{integer} 88r23 115r21 124r29
+87K17 Pile_Integer[14|7] 89r13 103r35
+98U19 Afficher_Entier 98b19 98>36 101l13 101t28 103r58
+98i36 N{integer} 100r18
+103U19 Afficher[14|45] 121s9
+107r9 P1{14|9R10[87]} 111m22 112r34 116m22 116r22 118r36 121r19 125r40 126m22
+. 126r22 128r34
+115i13 I{integer} 116r26
+124i13 I{integer} 125r28
+133U15 Illustrer_Surcharge 133b15 169l9 169t28 247s5
+134K17 Pile_Integer[14|7] 136r13 143r35
+138U19 Afficher 138b19 138>29 141l13 141t21 143r58 162s23
+138i29 N{integer} 140r18
+143U19 Afficher[14|45] 163s23
+157r9 P{14|9R10[134]} 160m22 161m18 161r18 163r33
+173U15 Afficher 173b15 173>24 176l9 176t17 184r61 209r61
+173e24 C{character} 175r27
+178U15 Illustrer_Plusieurs_Afficher_Pour_Meme_Pile 178b15 195l9 195t52 248s5
+179K17 PPC3[14|7] 181r13 183r35 184r46
+183U19 Afficher[14|45] 193s23
+184U19 Afficher_Apostrophe[14|45] 194s23
+188r9 P{14|9R10[179]} 191m22 192m18 192r18 193r33 194r44
+198U15 Illustrer_Plusieurs_Piles 198b15 241l9 241t34 249s5
+200K17 PPC1[14|7] 202r13 203r35 211r15
+203U19 Afficher[14|45] 232s25 240s9
+205K17 PPC2[14|7] 207r13 208r35 209r46 212r15
+208U19 Afficher[14|45] 233s25
+209U19 Afficher_Apostrophe[14|45] 234s25
+211r9 PC1{14|9R10[200]} 222m22 227m22 227r22 232r35 238m22 238r22 240r19
+212r9 PC2{14|9R10[205]} 223m22 228m22 228r22 233r35 234r46
+226e13 C{character} 227r27 228r27
+237e13 C{character} 238r27
+

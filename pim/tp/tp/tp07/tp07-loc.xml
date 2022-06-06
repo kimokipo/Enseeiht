@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<Locations >
+  <Project >
+    <file_marker column=" 24" line=" 6" >
+      <vfs_project>/home/khammi/pim/tp/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/khammi/pim/tp/tp/tp07/afficher_un_entier.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 13" >
+      <vfs_project>/home/khammi/pim/tp/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/khammi/pim/tp/tp/tp07/piles.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 29" line=" 9" >
+      <vfs_project>/home/khammi/pim/tp/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/khammi/pim/tp/tp/tp07/piles.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 10" >
+      <vfs_project>/home/khammi/pim/tp/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/khammi/pim/tp/tp/tp07/test_piles.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 18" line=" 239" >
+      <vfs_project>/home/khammi/pim/tp/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/khammi/pim/tp/tp/tp07/utiliser_piles.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 35" line=" 16" >
+      <vfs_project>/home/khammi/pim/tp/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/khammi/pim/tp/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 48" line=" 2" >
+      <vfs_project>/home/khammi/pim/tp/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/khammi/pim/tp/tp/tp07/afficher_un_entier.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 6" line=" 7" >
+      <vfs_project>/home/khammi/pim/tp/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/khammi/pim/tp/tp/tp07/exemple_integer_io.adb</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 27" line=" 9" >
+      <vfs_project>/home/khammi/pim/tp/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/khammi/pim/tp/tp/tp07/integer_io.adb</vfs_file>
+    </file_marker>
+  </Project>
+</Locations>

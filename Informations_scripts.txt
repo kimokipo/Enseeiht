@@ -1,0 +1,128 @@
+Script : 1_partage_publications
+    Besoin pour se lancer
+        -> Table : Campagne
+            -> Champ : id_campagne (rempli)
+            -> Champ : nom (nom de la campagne rempli)
+            -> Champ : contenu_post_mere (rempli)
+            -> Champ : id_segmentation (rempli)
+            
+        -> Table : segment_groupe
+            -> Champ : id_segment (rempli)
+            -> Champ id_groupe (rempli)
+            
+        -> Table : Groupe
+            -> Champ : id_groupe (rempli)
+            -> Champ : actif_supprime (soit egale au "actif")
+            
+        -> Table : campagne_groupe 
+            -> Champ : id_campagne (soit le meme que id_campagne donné au script)
+            -> Champ : id_segment (soit le meme que id_campagne donné au script)
+            -> Champ : statut_publication (soit différent du statut "posté")
+            -> Champ : traitement_publication (soit agale à "automatique")
+            
+        -> Table : Ambassadeur 
+            -> champ : id_utilisateur (de l'ambassadeur de partage)
+            -> Champ : login (de l'ambassadeur de partage)
+            -> Champ : mdp (de l'ambassadeur de partage)
+            -> Champ : authentification_facebook ("oui" ou "non")
+            -> Champ : cookies (soit rempli)
+    UNe fois le script terminé il rempli
+        -> Table : Post
+            -> Champ : id_post
+            -> Champ : url_post (dans un premier temps avec url du groupe)
+            -> Champ : id_campagne
+                Note : ajoute aussi l'url du post mère trouvé
+        -> Table : Post_partage 
+            -> Champ : id_post
+            -> Champ : statut ( avec le statut "en attente")
+            -> Champ : id_utilisateur (de l'ambassadeur de partage)
+            -> Champ : id_groupe
+            
+        -> Table : Post_mere
+            -> Champ : id_post
+            -> Champ : portee ( avec 0)
+            -> Champ : interaction ( avec 0)
+                Note : informations du post mere trouvé
+                
+        -> Table : campagne_groupe
+            -> Champ : statut_publication (soit "posté" soit "non trouvé")
+            -> Champ : traitement_publication ("manuelle" si le script n'arrive pas à partager dans le groupe)
+            
+         -> Table : Campagne
+            -> Champ : contenu_post_mere (celui du post mere trouvé)
+         
+         -> Table : campagne_segment
+            -> Champ : id_campagne
+            -> Champ : id_segment
+            -> Champ : lien_legende_post_partage (le lien de la legende trouvé dans le groupe privé de LalaChante)
+            -> Champ : legende_post_partage (la legende trouvé dans le groupe privé de LalaChante)
+            
+         -> Table : Groupe
+            -> Champ : nom (nom du groupe qui a été changé et que le script a détecté)
+            -> Champ : actif_supprime ("supprimé" si le groupe a été supprimé)
+            
+         -> Table : Ambassadeur 
+            -> Champ : authentification_facebook (avec "oui", si il était "non")
+            -> Champ : cookies (nouvelles cookies)
+        
+Script : 2_Cherche_publications
+    Besoin pour se lancer
+        -> Table : Campagne
+            -> Champ : id_campagne (rempli)
+            -> Champ : nom (nom de la campagne rempli)
+            -> Champ : contenu_post_mere (rempli)
+            -> Champ : id_segmentation (rempli)
+            
+        -> Table : Groupe
+            -> Champ : id_groupe (rempli)
+            -> Champ : actif_supprime (soit egale au "actif")
+            
+        -> Table : campagne_groupe
+            -> Champ : id_campagne (soit le meme que id_campagne donné au script)
+            -> Champ : statut_recherche (soit null)
+            -> Champ : traitement_publication (soit agale à "automatique")
+            
+        -> Table : Ambassadeur 
+            -> champ : id_utilisateur (de l'ambassadeur de recherche)
+            -> champ : id_utilisateur (de l'ambassadeur de partage)
+            -> Champ : login (de l'ambassadeur de recherche)
+            -> Champ : mdp (de l'ambassadeur de recherche)
+            -> Champ : authentification_facebook ("oui" ou "non")
+            -> Champ : cookies (soit rempli)
+    UNe fois le script terminé il rempli
+        -> Table : Post
+            -> Champ : id_post
+            -> Champ : url_post (par l'url du post trouvé )
+            -> Champ : id_campagne
+        -> Table : Post_partage 
+            -> Champ : id_post
+            -> Champ : statut ( avec le statut "accepté")
+            -> Champ : id_utilisateur (de l'ambassadeur de partage)
+            -> Champ : id_groupe (celui de groupe trouvé dedans)
+                Note : ajoute aussi l'url du post mère donné en paramètre si il n'était pas ajouté avant)
+            
+        -> Table : Post_mere
+            -> Champ : id_post ( si le post mère n'était pas ajouté)
+            -> Champ : portee ( avec 0)
+            -> Champ : interaction ( avec 0)
+                
+        -> Table : campagne_groupe
+            -> Champ : statut_recherche (soit "trouvé" si le post est trouvé dans le groupe, soit "cherché" si on a cherché dans le groupe mais le post n'est trouvé)
+            -> Champ : traitement_publication ("manuelle" si le script n'arrive pas à chercher dans le groupe)
+            
+         -> Table : Campagne
+            -> Champ : contenu_post_mere (celui du post mère donné en paramètre)
+         
+         -> Table : Recherche_campagne
+            -> Champ : id_campagne
+            -> Champ : id_recherche_campagne
+            -> Champ : statut_recherche ("terminé" si tous les groupes ont été cherché dedans)
+            -> Champ : date_recherche (date de recherche dans les groupes)
+            
+         -> Table : Groupe
+            -> Champ : actif_supprime ("supprimé" si le groupe a été supprimé)
+            
+         -> Table : Ambassadeur 
+            -> Champ : authentification_facebook (avec "oui", si il était "non")
+            -> Champ : cookies (nouvelles cookies)
+        

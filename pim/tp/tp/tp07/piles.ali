@@ -1,0 +1,82 @@
+V "GNAT Lib v2019"
+A -gnatA
+A -gnatwa
+A -gnata
+A -g
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_IO
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U piles%b		piles.adb		a34ec8a2 NE OO PK GE
+W ada%s			ada.ads			ada.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+
+U piles%s		piles.ads		f8ba9f4f BN EE NE OO PK GE
+
+D ada.ads		20190518041255 76789da1 ada%s
+D a-except.ads		20190518041255 291912d5 ada.exceptions%s
+D a-ioexce.ads		20190518041254 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20190518041255 119b8fb3 ada.streams%s
+D a-tags.ads		20190518041256 491b781d ada.tags%s
+D a-textio.ads		20190518041256 aef4d56d ada.text_io%s
+D a-unccon.ads		20190518041255 0e9b276f ada.unchecked_conversion%s
+D interfac.ads		20190518041254 5ab55268 interfaces%s
+D i-cstrea.ads		20190518041254 e53d8b8e interfaces.c_streams%s
+D piles.ads		20201019144711 f8ba9f4f piles%s
+D piles.adb		20201019144711 f5008280 piles%b
+D system.ads		20190518041255 4635ec04 system%s
+D s-crtl.ads		20190518041254 0ebbdb71 system.crtl%s
+D s-exctab.ads		20190518041255 54135002 system.exception_table%s
+D s-ficobl.ads		20190518041256 078245e4 system.file_control_block%s
+D s-parame.ads		20190518041256 48ec542b system.parameters%s
+D s-secsta.ads		20190518041256 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041255 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041256 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041256 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041256 2dc34a04 system.storage_elements%s
+D s-traent.ads		20190518041254 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041255 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041255 1b7d22d2 system.wch_con%s
+G a e
+G c Z s b [piles standard 7 9 none]
+X 1 ada.ads
+16K9*Ada 20e8 11|3r6 3r24
+X 6 a-textio.ads
+57K13*Text_IO 727e16 11|3w10 3r28
+392U14*Put 11|47s9 49s13
+465U14*Put 11|52s17 58s9
+X 10 piles.ads
+4i5 Capacite{integer} 50r38 11|23r31
+5+10 T_Element 27r47 32r59 44r57 50r51 11|27r47 33r59
+7k9*Piles 4z5 5z10 50E10 58l5 58e10 11|6b14 62l5 62t10
+9R10*T_Pile 14r39 19r34 23r36 27r32 32r38 38r38 45r35 52c10 56e19 11|9r39
+. 15r34 21r36 27r32 33r38 39r38 45r35
+14U15*Initialiser 14<28 11|9b15 12l9 12t20
+14r28 Pile{9R10} 15r27 11|9b28 11m9
+19V14*Est_Vide{boolean} 15s17 19>24 28s20 39s20 11|15b14 18l9 18t17 48s16
+19r24 Pile{9R10} 11|15b24 17r16
+23V14*Est_Pleine{boolean} 23>26 33s20 11|21b14 24l9 24t19
+23r26 Pile{9R10} 11|21b26 23r16
+27V14*Sommet{5+10} 27>22 34s17 11|27b14 30l9 30t15
+27r22 Pile{9R10} 28r30 11|27b22 29r16 29r31
+32U15*Empiler 32=24 32>46 11|33b15 37l9 37t16
+32r24 Pile{9R10} 33r32 34r25 11|33b24 35m9 35r24 36m9 36r24
+32*46 Element{5+10} 34r33 11|33b46 36r40
+38U15*Depiler 38=24 11|39b15 42l9 42t16
+38r24 Pile{9R10} 39r30 11|39b24 41m9 41r24
+44U24 Afficher_Element 44>42 11|50s13 53s17
+44*42 Un_Element{5+10}
+45u15*Afficher 45>25 11|45b15 59l9 59t17
+45r25 Pile{9R10} 11|45b25 48r26 50r31 51r25 53r35
+50A10 T_Tab_Elements(5+10)<integer> 54r24
+54a13 Elements{50A10} 11|29r21 36m14 50r36 53r40
+55i13 Taille{integer} 11|11m14 17r21 23r21 29r36 35m14 35r29 36r29 41m14
+. 41r29 51r30
+X 11 piles.adb
+51i17 I{integer} 53r50
+

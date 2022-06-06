@@ -1,0 +1,11 @@
+Début de la vérification...
+[ERROR] Cercle.java:10: Line has trailing spaces. [RegexpSingleline]
+[ERROR] Cercle.java:11:9: Commentaire Javadoc manquant. [JavadocVariable]
+[ERROR] Cercle.java:12: Line has trailing spaces. [RegexpSingleline]
+[ERROR] Cercle.java:13: La première ligne de la Javadoc doit se terminer avec un point. [JavadocStyle]
+[ERROR] Cercle.java:14: La première ligne de la Javadoc doit se terminer avec un point. [JavadocStyle]
+[ERROR] Cercle.java:15:41: Le commentaire Javadoc est placé au mauvais endroit. [InvalidJavadocPosition]
+[ERROR] Cercle.java:88: Line has trailing spaces. [RegexpSingleline]
+[ERROR] Cercle.java:101: Line has trailing spaces. [RegexpSingleline]
+[ERROR] Cercle.java:126:9: Commentaire Javadoc manquant. [MissingJavadocMethod]
+Vérification terminée.

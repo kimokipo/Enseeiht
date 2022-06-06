@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<Locations>
+  <Project>
+    <vfs_file />
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project />
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/scenario_stock.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 45" line=" 33" >
+      <vfs_project />
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/scenario_stock.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project />
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/stocks_materiel.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project />
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/scenario_stock.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project />
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/stocks_materiel.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project />
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/scenario_stock.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 47" line=" 34" >
+      <vfs_project />
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/scenario_stock.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project />
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/dates.adb</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 1" line=" 1" >
+      <vfs_project />
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/stocks_materiel.adb</vfs_file>
+    </file_marker>
+  </Project>
+</Locations>

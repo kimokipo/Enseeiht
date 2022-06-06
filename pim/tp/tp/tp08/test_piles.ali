@@ -1,0 +1,81 @@
+V "GNAT Lib v2019"
+M P W=b
+A -gnatA
+A -gnatwa
+A -gnata
+A -g
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_RECURSION
+RV NO_STANDARD_ALLOCATORS_AFTER_ELABORATION
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U test_piles%b		test_piles.adb		a505eaa0 NE OO SU
+W ada%s			ada.ads			ada.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+Z ada.text_io%s		a-textio.adb		a-textio.ali
+Z ada.unchecked_deallocation%s
+W piles%s		piles.adb		piles.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+D ada.ads		20190518041255 76789da1 ada%s
+D a-except.ads		20190518041255 291912d5 ada.exceptions%s
+D a-ioexce.ads		20190518041254 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20190518041255 119b8fb3 ada.streams%s
+D a-tags.ads		20190518041256 491b781d ada.tags%s
+D a-textio.ads		20190518041256 aef4d56d ada.text_io%s
+D a-unccon.ads		20190518041255 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041255 eff36322 ada.unchecked_deallocation%s
+D interfac.ads		20190518041254 5ab55268 interfaces%s
+D i-cstrea.ads		20190518041254 e53d8b8e interfaces.c_streams%s
+D piles.ads		20201104171257 a5951ce6 piles%s
+D piles.adb		20201104164221 46f89c4c piles%b
+D system.ads		20190518041255 4635ec04 system%s
+D s-assert.ads		20190518041255 cd8d2c94 system.assertions%s
+D s-crtl.ads		20190518041254 0ebbdb71 system.crtl%s
+D s-exctab.ads		20190518041255 54135002 system.exception_table%s
+D s-ficobl.ads		20190518041256 078245e4 system.file_control_block%s
+D s-parame.ads		20190518041256 48ec542b system.parameters%s
+D s-secsta.ads		20190518041256 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041255 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041256 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041256 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041256 2dc34a04 system.storage_elements%s
+D s-traent.ads		20190518041254 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041255 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041255 1b7d22d2 system.wch_con%s
+D test_piles.adb	20201104123354 0090f646 test_piles%b
+G a e
+G c Z b b [test_piles standard 4 11 none]
+G r i none [test_piles standard 4 11 none] [piles standard 6 9 none]
+X 11 piles.ads
+4+14 T_Element 27|7r28
+6k9*Piles 57e10 27|1w6 7r21
+8P14 T_Pile 27|12r51[6] 21r32[6] 35r25[6] 45r25[6]
+12U19 Initialiser 27|14s17[6] 23s17[6]
+17V18 Est_Vide{boolean} 27|24s32[6] 27s36[6] 30s36[6] 51s32[6]
+21V18 Sommet{character} 27|40s38[6] 49s38[6]
+27U19 Empiler 27|15s17[6] 16s17[6] 26s17[6] 39s17[6]
+32U19 Depiler 27|48s17[6] 50s17[6]
+X 27 test_piles.adb
+4U11*Test_Piles 4b11 59l5 59t15
+6K17 Pile_Caractere[11|6] 8r13
+12U19 Initialiser_Avec_OK 12b19 12<40 17l13 17t32 29s17 37s17 47s17
+12p40 Pile{11|8P14[6]} 14m30 15m26 16m26
+20U19 Tester_Est_Vide 20b19 31l13 31t28 56s9
+21p17 Pile1{11|8P14[6]} 23m30 23r30 24r42 26m26 26r26 27r46
+21p24 Pile2{11|8P14[6]} 29m38 29r38 30r46
+34U19 Tester_Empiler 34b19 41l13 41t27 57s9
+35p17 Pile1{11|8P14[6]} 37m38 37r38 39m26 39r26 40r46
+44U19 Tester_Depiler 44b19 52l13 52t27 58s9
+45p17 Pile1{11|8P14[6]} 47m38 47r38 48m26 48r26 49r46 50m26 50r26 51r42
+

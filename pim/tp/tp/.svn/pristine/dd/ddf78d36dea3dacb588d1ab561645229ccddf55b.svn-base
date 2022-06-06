@@ -1,0 +1,61 @@
+with Ada.Text_IO;           use Ada.Text_IO;
+with Ada.Integer_Text_IO;   use Ada.Integer_Text_IO;
+with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
+with TH;
+procedure th_sujet is
+   -- Retourner une chaÃ®ne avec des guillemets autour de S
+   function Avec_Guillemets (S: Unbounded_String) return String is
+   begin
+      return '"' & To_String (S) & '"';
+   end;
+
+   -- Utiliser & entre String Ã  gauche et Unbounded_String Ã  droite.  Des
+   -- guillemets sont ajoutÃ©es autour de la Unbounded_String
+   -- Il s'agit d'un masquage de l'opÃ©rteur & dÃ©fini dans Strings.Unbounded
+   function "&" (Left: String; Right: Unbounded_String) return String is
+   begin
+      return Left & Avec_Guillemets (Right);
+   end;
+
+
+   -- Surcharge l'opÃ©rateur unaire "+" pour convertir une String
+   -- en Unbounded_String.
+   -- Cette astuce permet de simplifier l'initialisation
+   -- de cles un peu plus loin.
+   function "+" (Item : in String) return Unbounded_String
+               renames To_Unbounded_String;
+
+
+   -- Afficher une Unbounded_String et un entier.
+   procedure Afficher (S : in Unbounded_String; N: in Integer) is
+   begin
+      Put (Avec_Guillemets (S));
+      Put (" : ");
+      Put (N, 1);
+      New_Line;
+   end Afficher;
+   --Déterminer la position convenable de la Cle S dans le tableau.
+   function Hacher_string(S: Unbounded_String;capacite:integer) return integer is
+      reste : integer; --le reste de la division entière de la taille de la clée S par la capacitée du tableau.
+   begin
+      reste:= (Length(S)-2) mod capacite; --calculer le reste
+      if reste >0 then
+         return reste; --retourner le reste puisque il est strictement positif.
+      else
+         return capacite; --Retourner la capacite puisque le reste est null et la position 0 n'éxiste pas dans le tableau.
+      end if;
+   end;
+   package TH_String_Integer is
+     new TH (Capacite=>11, T_Cle => Unbounded_String, T_Donnee => Integer,Hacher=> Hacher_string);
+   use TH_String_Integer;
+   --Afficher la Sda.
+   procedure Afficher is
+     new Pour_Chaque (Afficher);
+
+   Sda : T_TH; --Définir notre TH.
+begin
+   --Initialiser TH.
+
+      Initialiser(Sda);
+
+end th_sujet;

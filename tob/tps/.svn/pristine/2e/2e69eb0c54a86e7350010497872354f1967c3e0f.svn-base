@@ -1,0 +1,31 @@
+Les Q# font référence aux questions posées dans le fichier LISEZ-MOI.txt.
+Les pénalités '+' sont évaluées manuellement (enseignant de TP).
+Les pénalités '+' peuvent donner lieu à des pénalités définitives en V1 (si le travail est jugé insuffisant).
+
++ C3 : Qualité du source de l'application
+    + structuration : 
+	Ta solution pour les stratégies a l'air de fonctionner. Mais il ne sert à rien de faire une interface si tu n'as qu'une seule implémentation. De plus, tu traites l'ensemble des stratégies (rapide, expert, ...) dans cette même implémentation. Vois-tu le paradoxe ?
+    + redondance :
+	Il faut que tu factorises les parties de code suivantes :
+		- les if dans le corps de la méthode arbitrer() de la classe Arbitre.
+		- les instructions identiques pour chacun des Joueurs dans le main de la classe Jouer.
+
++ C9 : Constructeur sans nb initial d'allumettes
+
++ C13 : Impossible d'ajouter de nouvelles stratégies en ne modifiant que Jouer (cf Q2)
+
++ C13 : L'arbitre ne doit ni utiliser directement, ni tester la stratégie d'un joueur (instanceof, equals, etc)
+
++ C20 : Méthodes non courtes
+
++ Proxy : à réaliser.
+
++ L3 : Fichier LISEZ-MOI.txt
+    + Question 1 : réponse non correcte. Quel mécanisme t'empêche de faire de l'exception OperationInvalideException une exception vérifiée ?
+    + Question 2 : adapte la réponse à la question une fois que tu auras corrigé la structure de ton code sur les stratégies.
+
++ Autres remarques :
+    - ...
+
++ Correction sur les pénalités automatiques : 0
+

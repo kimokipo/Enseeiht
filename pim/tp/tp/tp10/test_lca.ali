@@ -1,0 +1,250 @@
+V "GNAT Lib v2019"
+M P W=b
+A -gnatA
+A -gnatwa
+A -gnata
+A -g
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_RECURSION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_ALLOCATORS_AFTER_ELABORATION
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U test_lca%b		test_lca.adb		7e985551 NE OO SU
+W ada%s			ada.ads			ada.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+Z ada.unchecked_deallocation%s
+W lca%s			lca.adb			lca.ali
+W sda_exceptions%s	sda_exceptions.ads	sda_exceptions.ali
+Z system%s		system.ads		system.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.concat_2%s	s-conca2.adb		s-conca2.ali
+Z system.concat_3%s	s-conca3.adb		s-conca3.ali
+Z system.concat_4%s	s-conca4.adb		s-conca4.ali
+Z system.exception_table%s  s-exctab.adb	s-exctab.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.img_int%s	s-imgint.adb		s-imgint.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+
+D ada.ads		20190518041255 76789da1 ada%s
+D a-charac.ads		20190518041255 2d3ec45b ada.characters%s
+D a-chlat1.ads		20190518041255 66457d31 ada.characters.latin_1%s
+D a-except.ads		20190518041255 291912d5 ada.exceptions%s
+D a-finali.ads		20190518041255 bf4f806b ada.finalization%s
+D a-inteio.ads		20190518041256 f64b89a4 ada.integer_text_io%s
+D a-ioexce.ads		20190518041254 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20190518041255 119b8fb3 ada.streams%s
+D a-string.ads		20190518041255 90ac6797 ada.strings%s
+D a-strmap.ads		20190518041255 e8bb714a ada.strings.maps%s
+D a-strunb.ads		20190518041255 1656705b ada.strings.unbounded%s
+D a-tags.ads		20190518041256 491b781d ada.tags%s
+D a-textio.ads		20190518041256 aef4d56d ada.text_io%s
+D a-tiinio.ads		20190518041254 390edddb ada.text_io.integer_io%s
+D a-unccon.ads		20190518041255 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041255 eff36322 ada.unchecked_deallocation%s
+D interfac.ads		20190518041254 5ab55268 interfaces%s
+D i-cstrea.ads		20190518041254 e53d8b8e interfaces.c_streams%s
+D lca.ads		20201119163941 d0c6232f lca%s
+D lca.adb		20201120080712 23437828 lca%b
+D sda_exceptions.ads	20201116122057 58fab764 sda_exceptions%s
+D system.ads		20190518041255 4635ec04 system%s
+D s-assert.ads		20190518041255 cd8d2c94 system.assertions%s
+D s-atocou.ads		20190518041256 b45c2d8d system.atomic_counters%s
+D s-conca2.ads		20190518041255 02a0d7d0 system.concat_2%s
+D s-conca3.ads		20190518041256 0b705ca5 system.concat_3%s
+D s-conca4.ads		20190518041256 7e642b20 system.concat_4%s
+D s-crtl.ads		20190518041254 0ebbdb71 system.crtl%s
+D s-exctab.ads		20190518041255 54135002 system.exception_table%s
+D s-ficobl.ads		20190518041256 078245e4 system.file_control_block%s
+D s-finmas.ads		20190518041255 7811a767 system.finalization_masters%s
+D s-finroo.ads		20190518041256 4ff27390 system.finalization_root%s
+D s-imgint.ads		20190518041254 02dbe0c2 system.img_int%s
+D s-memory.ads		20190518041255 597d6634 system.memory%s
+D s-parame.ads		20190518041256 48ec542b system.parameters%s
+D s-pooglo.ads		20190518041254 ede33ef8 system.pool_global%s
+D s-secsta.ads		20190518041256 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041255 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041256 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041256 09bd3940 system.standard_library%s
+D s-stalib.adb		20190518041254 f2fe2716 system.standard_library%b
+D s-stoele.ads		20190518041256 2dc34a04 system.storage_elements%s
+D s-stopoo.ads		20190518041255 b16154c2 system.storage_pools%s
+D s-stposu.ads		20190518041254 97a6219c system.storage_pools.subpools%s
+D s-stratt.ads		20190518041254 aedef97e system.stream_attributes%s
+D s-traent.ads		20190518041254 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041255 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041255 1b7d22d2 system.wch_con%s
+D test_lca.adb		20201116194752 b84ded88 test_lca%b
+G a e
+G c Z b b [test_lca standard 9 11 none]
+G r i none [test_lca standard 9 11 none] [lca standard 9 9 none]
+X 1 ada.ads
+16K9*Ada 20e8 49|1r6 1r33 2r6 2r33 4r6 4r33
+X 6 a-inteio.ads
+18K13*Integer_Text_IO[14|46] 49|2w10 2r37
+X 9 a-string.ads
+16K13*Strings 35e16 49|4r10 4r37
+X 11 a-strunb.ads
+82K21*Unbounded 756e26 49|4w18 4r45
+87R9*Unbounded_String<5|43R9> 739e14 49|12r35 16r38 24r44 34r48 39r36 53r47
+. 56r29 279r40 307r59 340r52
+92V13*Length{natural} 49|343s28
+103V13*To_Unbounded_String{87R9} 49|35r25 56s49
+116V13*To_String{string} 49|18s30 309s28
+X 13 a-textio.ads
+57K13*Text_IO 727e16 49|1w10 1r37
+264U14*New_Line 49|44s17 80s54 112s63 121s46 141s55 150s46 177s46 191s66
+. 211s46 226s66 239s70 259s70 283s25 292s57 298s17 312s33 324s85 330s17 346s33
+. 358s75 364s17
+465U14*Put 49|41s17 42s17 281s25 310s33 344s33
+508U14*Put_Line 49|79s33 112s17 120s25 141s17 146s25 174s25 191s17 207s25
+. 226s17 239s25 259s25 292s17 324s17 358s17 380s9
+X 14 a-tiinio.ads
+80U14*Put 49|43s17[6|18] 282s25[6|18] 311s33[6|18] 345s33[6|18]
+X 19 lca.ads
+6+14 T_Cle 49|12r26
+7+14 T_Donnee 49|12r53
+9k9*LCA 76e8 49|7w6 12r21
+11P14 T_LCA 49|69r60[11] 101r28[11] 110r28[11] 139r28[11] 170r36[11] 203r36[11]
+. 236r28[11] 255r28[11] 275r28[11] 303r28[11] 336r28[11]
+14U19 Initialiser 49|71s17[11]
+19V18 Est_Vide{boolean} 49|72s32[11] 85s44[11]
+23V18 Taille{integer} 49|73s32[11] 86s40[11]
+30U19 Enregistrer 49|76s25[11] 209s25[11]
+39U19 Supprimer 49|118s25[11] 148s25[11] 175s25[11] 242s25[11]
+45V18 Cle_Presente{boolean} 49|93s52[11] 124s48[11] 129s52[11] 153s52[11]
+. 157s48[11] 181s60[11] 183s56[11] 214s48[11]
+50V18 La_Donnee{integer} 49|89s48[11] 125s48[11] 158s48[11] 216s56[11] 218s56[11]
+. 262s36[11]
+54U19 Vider 49|104s17[11] 133s17[11] 162s17[11] 187s25[11] 222s25[11] 250s17[11]
+. 270s17[11] 297s17[11] 329s17[11] 363s17[11]
+61u19 Pour_Chaque 49|49r21[11] 289r29[11] 321r29[11] 355r29[11]
+X 21 sda_exceptions.ads
+2K9*SDA_Exceptions 6e19 49|3w6 3r37
+4X9*Cle_Absente_Exception 49|245r30 265r30
+X 22 system.ads
+67M9*Address
+X 34 s-memory.ads
+53V13*Alloc{22|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{22|67M9} 105i<c,__gnat_realloc>22
+X 41 s-stalib.adb
+93U14 Break_Start 94i<c,__gnat_break_start>22
+X 49 test_lca.adb
+9U11*Test_LCA 9b11 381l5 381t13
+11K17 LCA_String_Integer[19|9] 13r13
+16V18 Avec_Guillemets{string} 16b18 16>35 19t12 26s31 41s22
+16r35 S{11|87R9} 18r41
+24V19 "&"{string} 24b19 24>23 24>37 27t12 79s74 120s60 146s53 174s53 207s54
+24a23 Left{string} 26r24
+24r37 Right{11|87R9} 26r48
+34V19 "+"=35:25{11|87R9} 54s29 54s36 54s45 54s55 54s66 55s33 55s59
+34a23 Item{string}
+39U19 Afficher 39b19 39>29 39>54 45l13 45t21 49r34
+39r29 S{11|87R9} 41r39
+39i54 N{integer} 43r22
+48U19 Afficher[19|61] 80s33 121s25 150s25 177s25 211s25
+52i9 Nb_Cles{integer} 53r35 58r38 75r29 92r39 116r37 128r37 145r29 156r39
+. 179r37 193r29 213r37 228r29
+53a9 Cles(11|87R9) 76r48 79r76 89r69 93r76 118r46 120r62 124r72 125r69 129r76
+. 146r55 148r46 153r76 157r72 158r69 174r55 175r46 181r84 183r80 207r56 209r48
+. 214r72 216r77 218r77
+56r9 Inconnu{11|87R9} 242r46 262r57
+58a9 Donnees(integer) 76r58 89r81 125r81 158r81 218r89
+60i9 Somme_Donnees{integer} 296r40
+61i9 Somme_Donnees_Len4{integer} 362r40
+62i9 Somme_Donnees_Q{integer} 328r40
+69U19 Construire_Exemple_Sujet 69b19 69<45 69>67 97l13 97t37 103s17 114s17
+. 143s17 172s25 205s25 241s25 261s25 293s17 325s17 359s17
+69p45 Annuaire{19|11P14[11]} 71m30 72r42 73r40 76m38 80r43 85r54 86r48 89r59
+. 93r66
+69b67 Bavard{boolean} 78r28
+75i21 I{integer} 76r54 76r67 79r82 86r60 88r37 92r34
+88i29 J{integer} 89r75 89r90
+92i29 J{integer} 93r82
+100U19 Tester_Exemple_Sujet 100b19 105l13 105t33 370s9
+101p17 Annuaire{19|11P14[11]} 103m43 103r43 104m24 104r24
+109U19 Tester_Supprimer_Inverse 109b19 134l13 134t37 371s9
+110p17 Annuaire{19|11P14[11]} 114m43 114r43 118m36 118r36 121r35 124r62 125r59
+. 129r66 133m24 133r24
+116i21 I{integer} 118r52 120r68 123r37 128r34
+123i29 J{integer} 124r78 125r75 125r90
+128i29 J{integer} 129r82
+138U19 Tester_Supprimer 138b19 163l13 163t29 372s9
+139p17 Annuaire{19|11P14[11]} 143m43 143r43 148m36 148r36 150r35 153r66 157r62
+. 158r59 162m24 162r24
+145i21 I{integer} 146r61 148r52 152r37 156r34
+152i29 J{integer} 153r82
+156i29 J{integer} 157r78 158r75 158r90
+166U19 Tester_Supprimer_Un_Element 166b19 196l13 196t40 373s9
+169U27 Tester_Supprimer_Un_Element 169b27 169>56 188l21 188t48 194s25
+169i56 Indice{integer} 174r61 175r52 180r40
+170p25 Annuaire{19|11P14[11]} 172m51 172r51 175m36 175r36 177r35 181r74 183r70
+. 187m32 187r32
+179i29 J{integer} 180r36 181r90 183r86
+193i21 I{integer} 194r54
+199U19 Tester_Remplacer_Un_Element 199b19 232l13 232t40 374s9
+202U27 Tester_Remplacer_Un_Element 202b27 202>56 202>76 223l21 223t48 229s25
+202i56 Indice{integer} 207r62 209r54 215r40
+202i76 Nouveau{integer} 208r67 209r63 216r89
+203p25 Annuaire{19|11P14[11]} 205m51 205r51 209m38 209r38 211r35 214r62 216r67
+. 218r67 222m32 222r32
+213i29 J{integer} 214r78 215r36 216r83 218r83 218r98
+228i21 I{integer} 229r54
+235U19 Tester_Supprimer_Erreur 235b19 251l13 251t36 375s9
+236p17 Annuaire{19|11P14[11]} 241m51 241r51 242m36 242r36 250m24 250r24
+254U19 Tester_La_Donnee_Erreur 254b19 271l13 271t36 376s9
+255p17 Annuaire{19|11P14[11]} 261m51 261r51 262r47 270m24 270r24
+256i17 Inutile{integer} 262m25
+274U19 Tester_Pour_chaque 274b19 299l13 299t31 377s9
+275p17 Annuaire{19|11P14[11]} 293m42 293r42 295r25 297m23 297r23
+277i17 Somme{integer} 285m25 285r34 294m17 296r32
+279U27 Sommer 279b27 279>35 279>58 286t20 289r42
+279r35 Cle{11|87R9}
+279i58 Donnee{integer} 282r30 285r42
+288U27 Sommer[19|61] 295s17
+302U19 Tester_Pour_chaque_Somme_Si_Cle_Commence_Par_Q 302b19 331l13 331t59
+. 378s9
+303p17 Annuaire{19|11P14[11]} 325m42 325r42 327r25 329m23 329r23
+305i17 Somme{integer} 314m33 314r42 326m17 328r32
+307U27 Sommer_Cle_Commence_Par_Q 307b27 307>54 307>77 318t20 321r42
+307r54 Cle{11|87R9} 309r39
+307i77 Donnee{integer} 311r38 314r50
+320U27 Sommer[19|61] 327s17
+335U19 Tester_Pour_chaque_Somme_Len4_Erreur 335b19 365l13 365t49 379s9
+336p17 Annuaire{19|11P14[11]} 359m42 359r42 361r25 363m23 363r23
+338i17 Somme{integer} 348m33 348r42 360m17 362r32
+340U27 Sommer_Len4_Erreur 340b27 340>47 340>70 352t20 355r42
+340r47 Cle{11|87R9} 343r36
+340i70 Donnee{integer} 345r38 348r50
+341X25 Nouvelle_Exception 350r39
+354U27 Sommer[19|61] 361s17
+

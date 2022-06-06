@@ -1,0 +1,139 @@
+(* Utilisation d'outils de preuve automatique à travers la passerelle Why3 pour résoudre une énigme *)
+theory Enquete
+
+   (* Définition des 3 propositions : A, B, C qui représentent le fait que les accusés sont innocents *)
+   predicate a
+   predicate b
+   predicate c
+
+   predicate da = b /\(not c)
+   predicate db = a -> c
+   predicate dc = (not c) /\ ( a \/ b)
+   (*1*) 
+   predicate t = da /\ db /\ dc 
+   
+   goal com1 :  a /\ b /\ c  -> t
+   goal com2 :  a /\ b /\(not c)  -> t
+   goal com3 :  a /\ (not b) /\ c  -> t
+   goal com4 :  a /\ (not b) /\ (not c)  -> t
+   goal com5 :  (not a) /\ b /\ c  -> t
+   goal com6 :  (not a) /\ b /\ (not c)  -> t
+   goal com7 :  (not a) /\ (not b) /\ c  -> t
+   goal com8 :  (not a) /\(not b) /\(not c)  -> t 
+   (*2*)
+   predicate d1 =  (da /\ db) -> dc
+   predicate d2 =  (da /\ dc) -> db
+   predicate d3 =  (dc /\ db) -> da
+   
+   goal dedu1 :  a /\ b /\ c  ->  d1
+   goal dedu2 :  a /\ b /\(not c)  ->  d1
+   goal dedu3 :  a /\ (not b) /\ c  ->  d1
+   goal dedu4 :  a /\ (not b) /\ (not c)  ->  d1
+   goal dedu5 :  (not a) /\ b /\ c  ->  d1
+   goal dedu6 :  (not a) /\ b /\ (not c)  ->  d1
+   goal dedu7 :  (not a) /\ (not b) /\ c  ->  d1
+   goal dedu8 :  (not a) /\(not b) /\(not c)  -> d1
+   goal dedu9 :  a /\ b /\ c  -> d2
+   goal dedu10 :  a /\ b /\(not c)  -> d2
+   goal dedu11 :  a /\ (not b) /\ c  -> d2
+   goal dedu12 :  a /\ (not b) /\ (not c) -> d2
+   goal dedu13 :  (not a) /\ b /\ c  -> d2
+   goal dedu14 :  (not a) /\ b /\ (not c)  -> d2
+   goal dedu15 :  (not a) /\ (not b) /\ c  -> d2
+   goal dedu16 :  (not a) /\(not b) /\(not c)  -> d2
+   goal dedu17 :  a /\ b /\ c  -> d3
+   goal dedu18 :  a /\ b /\(not c)  -> d3
+   goal dedu19 :  a /\ (not b) /\ c  -> d3
+   goal dedu20 :  a /\ (not b) /\ (not c)  -> d3
+   goal dedu21 :  (not a) /\ b /\ c  -> d3
+   goal dedu22 :  (not a) /\ b /\ (not c)  -> d3
+   goal dedu23 :  (not a) /\ (not b) /\ c  -> d3
+   goal dedu24 :  (not a) /\(not b) /\(not c)  -> d3
+   (*3*)
+   predicate m1 = (not a) /\(not b) /\(not c) -> (not da)
+   predicate m2 = (not a) /\(not b) /\(not c)-> (not db)
+   predicate m3 = (not a) /\(not b) /\(not c) -> (not dc)
+   
+   goal ment1 :  a /\ b /\ c  ->  m1
+   goal ment2 :  a /\ b /\(not c)  ->  m1
+   goal ment3 :  a /\ (not b) /\ c  ->  m1
+   goal ment4 :  a /\ (not b) /\ (not c)  ->  m1
+   goal ment5 :  (not a) /\ b /\ c  ->  m1
+   goal ment6 :  (not a) /\ b /\ (not c)  ->  m1
+   goal ment7 :  (not a) /\ (not b) /\ c  ->  m1
+   goal ment8 :  (not a) /\(not b) /\(not c)  -> m1
+   goal ment9 :  a /\ b /\ c  -> m2
+   goal ment10 :  a /\ b /\(not c)  -> m2
+   goal ment11 :  a /\ (not b) /\ c  -> m2
+   goal ment12 :  a /\ (not b) /\ (not c) -> m2
+   goal ment13 :  (not a) /\ b /\ c  -> m2
+   goal ment14 :  (not a) /\ b /\ (not c)  -> m2
+   goal ment15 :  (not a) /\ (not b) /\ c  -> m2
+   goal ment16 :  (not a) /\(not b) /\(not c)  -> m2
+   goal ment17 :  a /\ b /\ c  -> m3
+   goal ment18 :  a /\ b /\(not c)  -> m3
+   goal ment19 :  a /\ (not b) /\ c  -> m3
+   goal ment20 :  a /\ (not b) /\ (not c)  -> m3
+   goal ment21 :  (not a) /\ b /\ c  -> m3
+   goal ment22 :  (not a) /\ b /\ (not c)  -> m3
+   goal ment23 :  (not a) /\ (not b) /\ c  -> m3
+   goal ment24 :  (not a) /\(not b) /\(not c)  -> m3
+   (*4*)
+   predicate e1 = (da /\ db /\ dc)  -> a
+   predicate e2 = (da /\ db /\ dc)  -> b
+   predicate e3 = (da /\ db /\ dc)  -> c
+
+   goal coup1 :  a /\ b /\ c  ->  e1
+   goal coup2 :  a /\ b /\(not c)  ->  e1
+   goal coup3 :  a /\ (not b) /\ c  ->  e1
+   goal coup4 :  a /\ (not b) /\ (not c)  ->  e1
+   goal coup5 :  (not a) /\ b /\ c  ->  e1
+   goal coup6 :  (not a) /\ b /\ (not c)  ->  e1
+   goal coup7 :  (not a) /\ (not b) /\ c  ->  e1
+   goal coup8 :  (not a) /\(not b) /\(not c)  -> e1
+   goal coup9 :  a /\ b /\ c  -> e2
+   goal coup10 :  a /\ b /\(not c)  -> e2
+   goal coup11 :  a /\ (not b) /\ c  -> e2
+   goal coup12 :  a /\ (not b) /\ (not c) -> e2
+   goal coup13 :  (not a) /\ b /\ c  -> e2
+   goal coup14 :  (not a) /\ b /\ (not c)  -> e2
+   goal coup15 :  (not a) /\ (not b) /\ c  -> e2
+   goal coup16 :  (not a) /\(not b) /\(not c)  -> e2
+   goal coup17 :  a /\ b /\ c  -> e3
+   goal coup18 :  a /\ b /\(not c)  -> e3
+   goal coup19 :  a /\ (not b) /\ c  -> e3
+   goal coup20 :  a /\ (not b) /\ (not c)  -> e3
+   goal coup21 :  (not a) /\ b /\ c  -> e3
+   goal coup22 :  (not a) /\ b /\ (not c)  -> e3
+   goal coup23 :  (not a) /\ (not b) /\ c  -> e3
+   goal coup24 :  (not a) /\(not b) /\(not c)  -> e3
+   (*5*)
+   predicate q1 = da -> (not a)
+   predicate q2 = db -> (not b)
+   predicate q3 = dc -> (not c)
+   
+   goal innc1 :  a /\ b /\ c  ->  q1
+   goal innc2 :  a /\ b /\(not c)  ->  q1
+   goal innc3 :  a /\ (not b) /\ c  ->  q1
+   goal innc4 :  a /\ (not b) /\ (not c)  ->  q1
+   goal innc5 :  (not a) /\ b /\ c  ->  q1
+   goal innc6 :  (not a) /\ b /\ (not c)  ->  q1
+   goal innc7 :  (not a) /\ (not b) /\ c  ->  q1
+   goal innc8 :  (not a) /\(not b) /\(not c)  -> q1
+   goal innc9 :  a /\ b /\ c  -> q2
+   goal innc10 :  a /\ b /\(not c)  -> q2
+   goal innc11 :  a /\ (not b) /\ c  -> q2
+   goal innc12 :  a /\ (not b) /\ (not c) -> q2
+   goal innc13 :  (not a) /\ b /\ c  -> q2
+   goal innc14 :  (not a) /\ b /\ (not c)  -> q2
+   goal innc15 :  (not a) /\ (not b) /\ c  -> q2
+   goal innc16 :  (not a) /\(not b) /\(not c)  -> q2
+   goal innc17 :  a /\ b /\ c  -> q3
+   goal innc18 :  a /\ b /\(not c)  -> q3
+   goal innc19 :  a /\ (not b) /\ c  -> q3
+   goal innc20 :  a /\ (not b) /\ (not c)  -> q3
+   goal innc21 :  (not a) /\ b /\ c  -> q3
+   goal innc22 :  (not a) /\ b /\ (not c)  -> q3
+   goal innc23 :  (not a) /\ (not b) /\ c  -> q3
+   goal innc24 :  (not a) /\(not b) /\(not c)  -> q3
+end

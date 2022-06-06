@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<Locations >
+  <Project >
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/khammi/pim/tp/tp/tp06/tp06.gpr</vfs_project>
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/dates.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/khammi/pim/tp/tp/tp06/tp06.gpr</vfs_project>
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/dates.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 28" line=" 9" >
+      <vfs_project>/home/khammi/pim/tp/tp/tp06/tp06.gpr</vfs_project>
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/exemple_dates.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 7" line=" 19" >
+      <vfs_project>/home/khammi/pim/tp/tp/tp06/tp06.gpr</vfs_project>
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/exemple_dates_erreurs.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 28" line=" 25" >
+      <vfs_project>/home/khammi/pim/tp/tp/tp06/tp06.gpr</vfs_project>
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/scenario_stock.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 28" line=" 1" >
+      <vfs_project>/home/khammi/pim/tp/tp/tp06/tp06.gpr</vfs_project>
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/stocks_materiel.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 38" line=" 81" >
+      <vfs_project>/home/khammi/pim/tp/tp/tp06/tp06.gpr</vfs_project>
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/stocks_materiel.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/khammi/pim/tp/tp/tp06/tp06.gpr</vfs_project>
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/stocks_materiel.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 19" line=" 75" >
+      <vfs_project>/home/khammi/pim/tp/tp/tp06/tp06.gpr</vfs_project>
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/stocks_materiel.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 10" line=" 68" >
+      <vfs_project>/home/khammi/pim/tp/tp/tp06/tp06.gpr</vfs_project>
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/stocks_materiel.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/khammi/pim/tp/tp/tp06/tp06.gpr</vfs_project>
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/scenario_stock.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 28" line=" 25" >
+      <vfs_project>/home/khammi/pim/tp/tp/tp06/tp06.gpr</vfs_project>
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/scenario_stock.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 13" line=" 1" >
+      <vfs_project />
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/tp06.gpr</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/khammi/pim/tp/tp/tp06/tp06.gpr</vfs_project>
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/scenario_stock.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 28" line=" 25" >
+      <vfs_project>/home/khammi/pim/tp/tp/tp06/tp06.gpr</vfs_project>
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/scenario_stock.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 13" line=" 1" >
+      <vfs_project />
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/tp06.gpr</vfs_file>
+    </file_marker>
+    <file_marker column=" 5" line=" 17" >
+      <vfs_project />
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/tp06.gpr</vfs_file>
+    </file_marker>
+    <file_marker column=" 9" line=" 1" >
+      <vfs_project />
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/tp06.gpr</vfs_file>
+    </file_marker>
+    <file_marker column=" 15" line=" 15" >
+      <vfs_project />
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/tp06.gpr</vfs_file>
+    </file_marker>
+    <file_marker column=" 13" line=" 1" >
+      <vfs_project />
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/tp06.gpr</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/khammi/pim/tp/tp/tp06/tp06.gpr</vfs_project>
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/scenario_stock.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 47" line=" 12" >
+      <vfs_project>/home/khammi/pim/tp/tp/tp06/tp06.gpr</vfs_project>
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/scenario_stock.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 13" line=" 1" >
+      <vfs_project />
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/tp06.gpr</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/khammi/pim/tp/tp/tp06/tp06.gpr</vfs_project>
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/stocks_materiel.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/khammi/pim/tp/tp/tp06/tp06.gpr</vfs_project>
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/exemple_dates_erreurs.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/khammi/pim/tp/tp/tp06/tp06.gpr</vfs_project>
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/scenario_stock.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 48" line=" 12" >
+      <vfs_project>/home/khammi/pim/tp/tp/tp06/tp06.gpr</vfs_project>
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/scenario_stock.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 13" line=" 1" >
+      <vfs_project />
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/tp06.gpr</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 1" line=" 1" >
+      <vfs_project>/home/khammi/pim/tp/tp/tp06/tp06.gpr</vfs_project>
+      <vfs_file>/home/khammi/pim/tp/tp/tp06/scenario_stock.adb</vfs_file>
+    </file_marker>
+  </Project>
+</Locations>

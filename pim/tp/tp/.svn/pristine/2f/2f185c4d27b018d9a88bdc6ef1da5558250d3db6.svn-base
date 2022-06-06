@@ -1,0 +1,121 @@
+with Ada.Text_IO;            use Ada.Text_IO;
+with Ada.Unchecked_Deallocation;
+with SDA_Exceptions; 		use SDA_Exceptions;
+with LCA;
+package body TH is
+
+
+   procedure Initialiser(Sda: out T_TH) is
+
+   begin
+      for i in 1..(Capacite) loop
+         begin
+            LCA1.Initialiser(Sda(i));
+         exception
+            when others => null;
+         end ;
+      end loop;
+
+   end Initialiser;
+
+
+   function Est_Vide (Sda : T_TH) return Boolean is
+   begin
+      return Taille(Sda)=0;
+   end;
+
+
+   function Taille (Sda : in T_TH) return Integer is
+
+      Taille:integer:=0;
+   begin
+      for i in 1..Capacite loop
+
+            Taille:=Taille + LCA1.Taille(Sda(i));
+
+      end loop;
+      return Taille;
+   end Taille;
+
+
+   procedure Enregistrer (Sda : in out T_TH ; Cle : in T_Cle ; Donnee : in T_Donnee) is
+
+   begin
+      Enregistrer(Sda(Hacher(Cle,Capacite)),Cle,Donnee);
+
+   end Enregistrer;
+
+
+   function Cle_Presente (Sda : in T_TH ; Cle : in T_Cle) return Boolean is
+      i: integer:=0;
+   begin
+      while i < Capacite loop
+         i:=i+1;
+         if Cle_Presente(Sda(i),Cle) then
+            return True;
+         end if;
+      end loop;
+      return False;
+   end;
+
+
+   function La_Donnee (Sda : in T_TH ; Cle : in T_Cle) return T_Donnee is
+
+   begin
+      for i in 1..Capacite loop
+         begin
+            return La_Donnee(Sda(i),Cle);
+         exception
+            when Cle_Absente_Exception => Null;
+         end;
+      end loop;
+      raise Cle_Absente_Exception;
+   end;
+
+   procedure Supprimer (Sda : in out T_TH ; Cle : in T_Cle) is
+
+   begin
+      for i in 1..Capacite loop
+         begin
+            Supprimer(Sda(i),Cle);
+         exception
+            when Cle_Absente_Exception => Null;
+         end;
+      end loop;
+      raise Cle_Absente_Exception;
+   end;
+
+
+   procedure Vider (Sda : in out T_TH) is
+   begin
+
+         for i in 1..Capacite loop
+            Vider(Sda(i));
+         end loop;
+   exception
+         when others => null;
+
+   end Vider;
+
+
+   procedure Pour_Chaque (Sda : in T_TH) is
+      procedure Pour_Chaque is
+        new LCA1.Pour_Chaque (Traiter);
+   begin
+      if Est_Vide(Sda) then
+         null;
+      else
+         for i in 1..Capacite loop
+            begin
+
+               Pour_Chaque(Sda(i));
+            exception
+               when others => Null;
+            end;
+         end loop;
+
+      end if;
+   end Pour_Chaque;
+
+
+end TH;

@@ -1,0 +1,30 @@
+Indiquer vos réponses aux questions de l'exercice 1 du Bilan 2 ci-après : 
+
+[B1.1] Quelle est la portée de chaque variable déclarée ? Pour chaque variable, on donnera le numéro de ligne où commence et se termine sa portée.
+
+n : entier initialisé à 10, sa portée commence de la ligne 8 jusqu'à 20 puis reprend du 26 jusqu'à 36.
+p : pointeur sur entier initialisé à NULL, sa portée commence de la ligne 9 jusqu'à 36.
+a : entier initialisé à 5, sa portée commence da la ligne 13 jusqu'à 17.
+n : entier initialisé à 7, sa portée commence de la ligne 22 jusqu'à 24.
+r : réel double initialisé à 11, sa portée commence de la ligne 30 jusqu'à 32.
+
+[B1.2] Y a-t-il un exemple de masquage de variable dans ce programme ?
+
+Oui, c'est l'entier n défini à la ligne 22 initialisé à 7, qui masque l'entier n défini à la ligne 8 initialisé à 10.
+
+[B1.3] Peut-on savoir ce que devrait afficher l’exécution de ce programme ?
+
+On peut prévoir l'affichage de quelques lignes mais non pas toutes, puisque on ne sait pas la valeur de l'adresse où se trouve l'entier n initialisé à 10. De mème pour a, n initialisé à 7, et r.
+
+[B1.4] Même s’il compile sans erreur, ce programme est faux. Pourquoi ?
+
+Ce programme est faux car dans la ligne 19 quand le compilateur va récupérer la valeur du pointeur p, ce dernier pointe sur l'entier a défini entre les deux crochets des lignes 12 et 18, le compilateur se blocke puisque il est interdit de utiliser a en dehors de ces deux crochets.    
+
+[B1.5] La valeur de `p` change-t-elle après l’initialisation de la ligne 14 ?
+
+Oui, car la portée du pointeur p régne sur tous les lignes de 9 jusqu'à 36.
+
+[B1.6] Que se passerait-il si on modifiait `*p` après la ligne 19 ?
+
+Rien, puisque il faut déja résoudre le problème de printf à la ligne 19.
+

@@ -1,0 +1,65 @@
+with Ada.Text_IO;           use Ada.Text_IO;
+with Ada.Integer_Text_IO;   use Ada.Integer_Text_IO;
+with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
+with LCA;
+procedure lca_sujet is
+   package LCA_String_Integer is
+     new LCA (T_Cle => Unbounded_String, T_Donnee => Integer);
+   use LCA_String_Integer;
+   -- Retourner une cha√Æne avec des guillemets autour de S
+   function Avec_Guillemets (S: Unbounded_String) return String is
+   begin
+      return '"' & To_String (S) & '"';
+   end;
+
+   -- Utiliser & entre String √† gauche et Unbounded_String √† droite.  Des
+   -- guillemets sont ajout√©es autour de la Unbounded_String
+   -- Il s'agit d'un masquage de l'op√©rteur & d√©fini dans Strings.Unbounded
+   function "&" (Left: String; Right: Unbounded_String) return String is
+   begin
+      return Left & Avec_Guillemets (Right);
+   end;
+
+
+   -- Surcharge l'op√©rateur unaire "+" pour convertir une String
+   -- en Unbounded_String.
+   -- Cette astuce permet de simplifier l'initialisation
+   -- de cles un peu plus loin.
+   function "+" (Item : in String) return Unbounded_String
+               renames To_Unbounded_String;
+
+
+   -- Afficher une Unbounded_String et un entier.
+   procedure Afficher (S : in Unbounded_String; N: in Integer) is
+   begin
+      Put (Avec_Guillemets (S));
+      Put (" : ");
+      Put (N, 1);
+      New_Line;
+   end Afficher;
+   -- Afficher la Sda.
+   procedure Afficher is
+     new Pour_Chaque (Afficher);
+   LCA: T_LCA; -- DÈfinir notre LCA.
+begin
+   --Initialiser LCA.
+   Initialiser(LCA);
+   --VÈrifier que LCA est vide.
+   pragma Assert (Est_Vide(LCA));
+   --Enregistrer la donnee "un" sous la Cle 1.
+   Enregistrer (LCA,To_Unbounded_String("un"),1);
+   -- VÈrifier que la Cle "un" est prÈsente.
+   pragma Assert (Cle_Presente(LCA,+("un")));
+   --VÈrifier que la donnee 1 est sous la Cle "un".
+   pragma Assert (La_Donnee(LCA,+("un"))=1);
+   --Enregistrer la donnee "deux" sous la Cle 2.
+   Enregistrer (LCA,To_Unbounded_String("deux"),2);
+   -- VÈrifier que la Cle "deux" est prÈsente.
+   pragma Assert (Cle_Presente(LCA,+("deux")));
+   --VÈrifier que la donnee 2 est sous la Cle "deux".
+   pragma Assert (La_Donnee(LCA,+("deux"))=2);
+   --Afficher LCA.
+   Afficher(LCA);
+   --Vider LCA.
+   Vider(LCA);
+end lca_sujet;

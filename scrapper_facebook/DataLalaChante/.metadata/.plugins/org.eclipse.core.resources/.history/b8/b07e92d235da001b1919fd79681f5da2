@@ -1,0 +1,113 @@
+package dataLalachante;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.awt.event.ActionEvent;
+
+public class dataLalaChante {
+
+	private JFrame frame;
+	private JTextField textField;
+	private JTextField textField_1;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					dataLalaChante window = new dataLalaChante();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public dataLalaChante() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(0, 0, 448, 1);
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("lien Google Sheet des Groupes");
+		lblNewLabel.setBounds(12, 13, 234, 15);
+		frame.getContentPane().add(lblNewLabel);
+		
+		textField = new JTextField();
+		textField.setBounds(248, 11, 114, 19);
+		frame.getContentPane().add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblPremi = new JLabel("Première Cellule");
+		lblPremi.setBounds(64, 36, 130, 15);
+		frame.getContentPane().add(lblPremi);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(248, 34, 114, 19);
+		frame.getContentPane().add(textField_1);
+		
+		JButton btnNewButton = new JButton("Scrapper Groupes");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					Process processus = Runtime.getRuntime().exec("node ../../adherer.js"); 
+					
+					StringBuilder resultat = new StringBuilder(); 
+					
+					BufferedReader lecteur = new BufferedReader(new InputStreamReader(processus.getInputStream())); 
+					
+					String ligne;
+					
+					while ((ligne = lecteur.readLine()) != null) {
+						resultat.append(ligne + "\n"); 
+					}
+					
+					int valeurDeSortie = processus.waitFor();
+					if (valeurDeSortie == 0) {
+						System.out.println("Success!");
+						System.out.println(resultat); 
+						System.exit(0);
+					} else {
+						System.out.println("Quelquechose de pas normal s'es produit :( "); 
+					}
+						
+				} catch (IOException e) {
+					e.printStackTrace();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		btnNewButton.setBounds(98, 63, 180, 25);
+		frame.getContentPane().add(btnNewButton);
+	}
+}

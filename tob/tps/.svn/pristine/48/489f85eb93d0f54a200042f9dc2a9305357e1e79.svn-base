@@ -1,0 +1,56 @@
+Nom       : Hammi
+Prénom    : Kamal
+Groupe TP : H
+
+Les « ... » indiquent les endroits à compléter.
+
+=====[ Temps passé ]============================================================
+
+Ces informations de temps sont demandées à titre indicatif et ne sont pas
+prises en compte dans la notation du projet.
+
+Toutes les durées sont à saisir en heures.  Par exemple, si vous avez passé
+1h45, il faudra indiquer 1.75.  Si vous avez passé 2h30, il faudra indiquer
+2.5.
+
+* Temps passé sur la V1 (en h) : 9.00
+* Temps passé sur la V2 (en h) : 2.00
+
+
+=====[ Questions ]==============================================================
+
+--------------------------------------------------------------------------------
+Pourquoi l'exception OperationInterditeException ne peut pas être définie
+comme vérifiée par le compilateur ?
+--------------------------------------------------------------------------------
+Car s'elle est vérifiée, elle devrait étre renseignée dans la spécification du jeu que l'utilisateur peut voir, et donc la classe procuration ne sera pas secrète ( l'utilisateur va savoir qu'il existe une classe qui lui interdit de tricher. C'est qu'on ne veut pas).
+
+--------------------------------------------------------------------------------
+Expliquer ce qu'il faut faire pour ajouter un nouveau niveau de jeu, par
+exemple la stratégie lente (C13).  Pour plus de précision, on numérotera
+les étapes à faire.
+--------------------------------------------------------------------------------
+
+Pour ajouter la stratégie lente, il faut :
+1) Définir la classe correspondante StrategieLente qui implement l'interface Strategie
+2) Ajouter son if correspondant dans la méthode static InitialiserStategie de la classe Jouer.
+
+
+--------------------------------------------------------------------------------
+Expliquer ce qui permet, dans votre conception, de changer dynamiquement
+(en cours d'exécution du programme) la stratégie d'un joueur (C14).
+--------------------------------------------------------------------------------
+
+L'interaction avec l'utilisateur se fait dans la méthode getPrise() de la classe StrategieHumain, cette méthode peut demander à l'utilisateur s'il veut changer sa stratégie ou non. On peut l'implanter de façon à ce que lorsue elle demande à l'utilisateur de donner le nombre d'allumettes à prendre, l'utilisateur peut faire entrer le mot "changer" pour changer la stratégie, et juste après, il indique le nom de la nouvelle stratégie.
+
+
+=====[ Explications ]===========================================================
+
+--------------------------------------------------------------------------------
+Donner ici les explications supplémentaires utiles à la compréhension du
+travail rendu.
+--------------------------------------------------------------------------------
+
+...
+
+--------------------------------------------------------------------------------

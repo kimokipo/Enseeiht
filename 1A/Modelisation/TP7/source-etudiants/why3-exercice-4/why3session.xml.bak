@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE why3session PUBLIC "-//Why3//proof session v5//EN"
+"http://why3.lri.fr/why3session.dtd">
+<why3session shape_version="5">
+<prover id="0" name="CVC3" version="2.4.1" timelimit="5" steplimit="0" memlimit="1000"/>
+<prover id="1" name="Alt-Ergo" version="2.0.0" timelimit="5" steplimit="0" memlimit="1000"/>
+<prover id="2" name="Z3" version="4.4.1" timelimit="5" steplimit="0" memlimit="1000"/>
+<file proved="true">
+<path name=".."/>
+<path name="why3-exercice-4.mlw"/>
+<theory name="Somme">
+ <goal name="VC somme" expl="VC for somme">
+ <proof prover="0"><result status="unknown" time="0.09"/></proof>
+ <proof prover="1"><result status="unknown" time="0.05"/></proof>
+ <proof prover="2"><result status="timeout" time="5.00"/></proof>
+ <transf name="split_vc" >
+  <goal name="VC somme.0" expl="loop invariant init">
+  <proof prover="1"><result status="valid" time="0.00" steps="1"/></proof>
+  </goal>
+  <goal name="VC somme.1" expl="loop variant decrease">
+  <proof prover="0"><result status="unknown" time="0.09"/></proof>
+  <proof prover="1"><result status="unknown" time="0.05"/></proof>
+  <proof prover="2"><result status="timeout" time="5.00"/></proof>
+  </goal>
+  <goal name="VC somme.2" expl="loop invariant preservation">
+  <proof prover="1"><result status="valid" time="0.00" steps="4"/></proof>
+  </goal>
+  <goal name="VC somme.3" expl="postcondition">
+  <proof prover="1"><result status="valid" time="0.00" steps="2"/></proof>
+  </goal>
+ </transf>
+ </goal>
+</theory>
+</file>
+</why3session>

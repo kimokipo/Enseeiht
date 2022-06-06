@@ -1,0 +1,116 @@
+package interfaceGraphique;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.awt.event.ActionEvent;
+import javax.swing.JSplitPane;
+import java.awt.GridLayout;
+
+public class LalaChanteWindowBuilder {
+
+	private JFrame frame;
+	private JTextField textField;
+	private JTextField textField_1;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					LalaChanteWindowBuilder window = new LalaChanteWindowBuilder();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public LalaChanteWindowBuilder() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(new GridLayout(0, 1, 0, 0));
+		
+		JPanel panel = new JPanel();
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Première Cellule");
+		lblNewLabel.setBounds(61, 32, 139, 15);
+		panel.add(lblNewLabel);
+		
+		JLabel lblLienGoogleSheet = new JLabel("lien Google sheet des Groupes");
+		lblLienGoogleSheet.setBounds(12, 7, 219, 15);
+		panel.add(lblLienGoogleSheet);
+		
+		textField = new JTextField();
+		textField.setBounds(252, 5, 114, 19);
+		panel.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(252, 30, 114, 19);
+		panel.add(textField_1);
+		
+		JButton btnNewButton = new JButton("Scrapper Groupes");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String lien = textField.getText();		
+				String cellule = textField_1.getText();	
+				try {
+					Process processus = Runtime.getRuntime().exec("node adherer.js"); 
+					
+					StringBuilder resultat = new StringBuilder(); 
+					
+					BufferedReader lecteur = new BufferedReader(new InputStreamReader(processus.getInputStream())); 
+					
+					String ligne;
+					
+					while ((ligne = lecteur.readLine()) != null) {
+						resultat.append(ligne + "\n"); 
+					}
+					
+					int valeurDeSortie = processus.waitFor();
+					if (valeurDeSortie == 0) {
+						System.out.println("Success!");
+						System.out.println(resultat); 
+						System.exit(0);
+					} else {
+						System.out.println("Quelquechose de pas normal s'es produit :( "); 
+					}
+						
+				} catch (IOException e) {
+					e.printStackTrace();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		btnNewButton.setBounds(137, 62, 174, 25);
+		panel.add(btnNewButton);
+	}
+}

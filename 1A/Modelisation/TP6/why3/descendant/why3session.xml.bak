@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE why3session PUBLIC "-//Why3//proof session v5//EN"
+"http://why3.lri.fr/why3session.dtd">
+<why3session shape_version="5">
+<prover id="0" name="Z3" version="4.4.1" timelimit="5" steplimit="0" memlimit="1000"/>
+<prover id="1" name="CVC3" version="2.4.1" timelimit="5" steplimit="0" memlimit="1000"/>
+<prover id="2" name="Alt-Ergo" version="2.0.0" timelimit="5" steplimit="0" memlimit="1000"/>
+<file proved="true">
+<path name=".."/>
+<path name="descendant.mlw"/>
+<theory name="FactorielleDescendant" proved="true">
+ <goal name="VC factorielle_descendant" expl="VC for factorielle_descendant" proved="true">
+ <proof prover="0"><result status="timeout" time="5.00"/></proof>
+ <transf name="split_vc" proved="true" >
+  <goal name="VC factorielle_descendant.0" expl="loop invariant init" proved="true">
+  <proof prover="0"><result status="valid" time="0.01"/></proof>
+  </goal>
+  <goal name="VC factorielle_descendant.1" expl="loop variant decrease" proved="true">
+  <proof prover="0"><result status="valid" time="0.00"/></proof>
+  </goal>
+  <goal name="VC factorielle_descendant.2" expl="loop invariant preservation" proved="true">
+  <proof prover="0"><result status="timeout" time="5.00"/></proof>
+  <proof prover="1"><result status="valid" time="0.01"/></proof>
+  <proof prover="2"><result status="timeout" time="5.00"/></proof>
+  </goal>
+  <goal name="VC factorielle_descendant.3" expl="postcondition" proved="true">
+  <proof prover="0"><result status="valid" time="0.00"/></proof>
+  <proof prover="2"><result status="valid" time="0.00" steps="7"/></proof>
+  </goal>
+ </transf>
+ </goal>
+</theory>
+</file>
+<file proved="true">
+<path name=".."/>
+<path name="home"/>
+<path name="khammi"/>
+<path name="1A"/>
+<path name="Modelisation"/>
+<path name="TP6"/>
+<path name="why3"/>
+<path name="descendant.mlw"/>
+</file>
+<file proved="true">
+<path name=".."/>
+<path name="home"/>
+<path name="khammi"/>
+<path name="1A"/>
+<path name="Modelisation"/>
+<path name="TP6"/>
+<path name="why3"/>
+<path name="ascendant.mlw"/>
+<theory name="FactorielleAscendant">
+ <goal name="VC factorielle_ascendant" expl="VC for factorielle_ascendant">
+ <proof prover="0"><result status="valid" time="0.05"/></proof>
+ </goal>
+</theory>
+</file>
+<file proved="true">
+<path name=".."/>
+<path name="home"/>
+<path name="khammi"/>
+<path name="1A"/>
+<path name="Modelisation"/>
+<path name="TP6"/>
+<path name="why3"/>
+<path name="division.mlw"/>
+</file>
+</why3session>

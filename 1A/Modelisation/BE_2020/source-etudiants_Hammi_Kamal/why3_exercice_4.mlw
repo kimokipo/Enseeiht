@@ -1,0 +1,25 @@
+(* BE : Session 1 2020 *)
+(* Implémentation de la fonction carre d'un entier naturel par un algorithme inspiré des identités remarquables *)
+
+module Somme
+
+  use int.Int
+  use int.Power
+  use ref.Refint
+
+  let puissance (n: int) : int
+    requires { n>=0}
+    ensures  { result=(power 2 n)}
+  =
+    let i = ref 0 in
+    let r = ref 1 in
+    while  (!i < n) do
+      invariant { (!r)=(power 2 (!i)) }
+      variant   { n-(!i) }
+      r :=  (!r) * 2;
+      i := (!i) + 1
+    done;
+    !r
+
+end
+(* Les commandes utilisées: split_vc, CVC3 2.4.1, Alt-Ergo 2.0.0, Z3 4.4.1 *)
