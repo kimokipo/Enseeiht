@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+	<extension
+       id="enigme"
+       name="enigme"
+       point="org.eclipse.emf.ecore.generated_package">
+		<package
+			uri = "http://www.xtext.org/enigme/ENIGME"
+			class = "org.xtext.enigme.eNIGME.ENIGMEPackage"
+			genModel = "model/generated/ENIGME.genmodel" />
+	</extension>
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ENIGME -->
+      <package
+            uri="http://www.n7.fr/ENIGME"
+            class="fr.n7.eNIGME.ENIGMEPackage"
+            genModel="model/generated/ENIGME.genmodel"/>
+   </extension>
+
+</plugin>

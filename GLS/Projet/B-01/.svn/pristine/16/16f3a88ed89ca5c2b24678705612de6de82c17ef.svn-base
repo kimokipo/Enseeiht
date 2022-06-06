@@ -1,0 +1,1167 @@
+module enigmetopetrinet;
+create OUT : petrinet from IN : ENIGME;
+	
+helper context ENIGME!JeuElement
+def: getJeu(): ENIGME!Jeu =
+	ENIGME!Jeu.allInstances()
+		->select(p | true)
+		->asSequence()->first();
+
+helper context ENIGME!Objet
+def: getNomCorrecte(): String = 
+		if (self.getJoueur().objets->includes(self)) then 
+			self.name 
+		else 
+			if (not self.getActionConsommeur().oclIsUndefined()) then 
+				self.name+'_'+self.getActionConsommeur().getReponse().name+'_consomme'
+			else
+				if (not self.getActionProducteur().oclIsUndefined()) then 
+					self.name+'_'+self.getActionProducteur().getReponse().name+'_producteur'
+				else
+					if (not self.getConditionRequis().oclIsUndefined()) then 
+						if (not self.getConditionRequis().getPersonneVisibilite().oclIsUndefined()) then 
+							self.name+'_'+self.getConditionRequis().getPersonneVisibilite().name+'_visibilite'
+						else
+							if (not self.getConditionRequis().getPersonneObligation().oclIsUndefined()) then 
+								self.name+'_'+self.getConditionRequis().getPersonneObligation().name+'_obligation'
+							else 
+								if (not self.getConditionRequis().getCheminVisibilite().oclIsUndefined()) then 
+									self.name+'_'+self.getConditionRequis().getCheminVisibilite().getNom()+'_visibilite'
+								else
+									if (not self.getConditionRequis().getCheminObligation().oclIsUndefined()) then 
+										self.name+'_'+self.getConditionRequis().getCheminObligation().getNom()+'_obligation'
+									else 
+										if (not self.getConditionRequis().getCheminOuverture().oclIsUndefined()) then 
+											self.name+'_'+self.getConditionRequis().getCheminOuverture().getNom()+'_ouverture'
+										else
+											if (not self.getConditionRequis().getChoix().oclIsUndefined()) then 
+												self.name+'_'+self.getConditionRequis().getChoix().name+'_est_fini'
+											else
+												''
+											endif
+										endif
+									endif
+								endif
+							endif
+						endif
+					else 
+							''
+					endif
+				endif
+			endif
+	endif;
+
+helper context ENIGME!Chemin
+def: getNom(): String =
+	'chemin_'+self.precedent.name+'_'+self.suivant.name;
+
+helper context ENIGME!Connaissance
+def: getNomCorrecte(): String = 
+		if (self.getJoueur().connaissances->includes(self)) then 
+			self.name 
+		else 
+			if (not self.getActionProducteur().oclIsUndefined()) then 
+					self.name+'_'+self.getActionProducteur().getReponse().name+'_producteur'
+				else
+					if (not self.getConditionRequis().oclIsUndefined()) then 
+						if (not self.getConditionRequis().getPersonneVisibilite().oclIsUndefined()) then 
+							self.name+'_'+self.getConditionRequis().getPersonneVisibilite().name+'_visibilite'
+						else
+							if (not self.getConditionRequis().getPersonneObligation().oclIsUndefined()) then 
+								self.name+'_'+self.getConditionRequis().getPersonneObligation().name+'_obligation'
+							else 
+								if (not self.getConditionRequis().getCheminVisibilite().oclIsUndefined()) then 
+									self.name+'_'+self.getConditionRequis().getCheminVisibilite().getNom()+'_visibilite'
+								else
+									if (not self.getConditionRequis().getCheminObligation().oclIsUndefined()) then 
+										self.name+'_'+self.getConditionRequis().getCheminObligation().getNom()+'_obligation'
+									else 
+										if (not self.getConditionRequis().getCheminOuverture().oclIsUndefined()) then 
+											self.name+'_'+self.getConditionRequis().getCheminOuverture().getNom()+'_ouverture'
+										else
+											if (not self.getConditionRequis().getChoix().oclIsUndefined()) then 
+												self.name+'_'+self.getConditionRequis().getChoix().name+'_est_fini'
+											else
+												''
+											endif
+										endif
+									endif
+								endif
+							endif
+						endif
+					else 
+						''
+					endif
+				endif
+			endif;
+	
+helper context ENIGME!Condition
+def: getPersonneVisibilite(): ENIGME!Personne =
+	ENIGME!Personne.allInstances()
+		->select(p | p.conditionv = self)
+		->asSequence()->first();
+
+helper context ENIGME!Condition
+def: getPersonneObligation(): ENIGME!Personne =
+	ENIGME!Personne.allInstances()
+		->select(p | p.conditiono = self)
+		->asSequence()->first();
+
+helper context ENIGME!Condition
+def: getCheminVisibilite(): ENIGME!Chemin =
+	ENIGME!Chemin.allInstances()
+		->select(p | p.conditionv = self)
+		->asSequence()->first();
+
+helper context ENIGME!Condition
+def: getCheminObligation(): ENIGME!Chemin =
+	ENIGME!Chemin.allInstances()
+		->select(p | p.conditiono = self)
+		->asSequence()->first();
+
+helper context ENIGME!Condition
+def: getChoix(): ENIGME!Choix =
+	ENIGME!Choix.allInstances()
+		->select(p | p.conditions->includes(self))
+		->asSequence()->first();
+
+helper context ENIGME!Condition
+def: getCheminOuverture(): ENIGME!Chemin =
+	ENIGME!Chemin.allInstances()
+		->select(p | p.conditionc = self)
+		->asSequence()->first();
+
+helper context ENIGME!Action
+def: getNombreConditions(): Integer =
+	ENIGME!Condition.allInstances()
+		->select(p | (not p.getPersonneVisibilite().oclIsUndefined()) or (not p.getPersonneObligation().oclIsUndefined()) or (not p.getCheminVisibilite().oclIsUndefined()) or (not p.getCheminObligation().oclIsUndefined()) or (not p.getCheminOuverture().oclIsUndefined()))
+		->asSequence()->size();
+
+helper context ENIGME!Action
+def: getReponse(): ENIGME!Reponse =
+	ENIGME!Reponse.allInstances()
+		->select(p | p.action = self)
+		->asSequence()->first();
+
+helper context ENIGME!JeuElement
+def: getJoueur(): ENIGME!Joueur =
+	ENIGME!Joueur.allInstances()
+		->select(p | true)
+		->asSequence()->first();
+
+helper context ENIGME!Objet
+def: getConditionRequis(): ENIGME!Condition =
+	ENIGME!Condition.allInstances()
+		->select(p | p.objetsRequis->includes(self))
+		->asSequence()->first();
+
+helper context ENIGME!Objet
+def: getObjet(): ENIGME!Objet =
+	ENIGME!Objet.allInstances()
+		->select(p | (p.getJoueur().objets->includes(p) or not p.getActionProducteur().oclIsUndefined()) and p.name = self.name)
+		->asSequence()->first();
+
+helper context ENIGME!Connaissance
+def: getConnaissance(): ENIGME!Connaissance =
+	ENIGME!Connaissance.allInstances()
+		->select(p | (p.getJoueur().connaissances->includes(p) or not p.getActionProducteur().oclIsUndefined()) and p.name = self.name)
+		->asSequence()->first();
+
+helper context ENIGME!Objet
+def: getActionMemeObjet(): ENIGME!Action =
+	ENIGME!Action.allInstances()
+		->select(p | (p.objetsconsommables->exists(o | o.name = self.name)) or (p.objetsattribuables->exists(o | o.name = self.name)))
+		->asSequence()->first();
+
+helper context ENIGME!Connaissance
+def: getActionMemeConnaissance(): ENIGME!Action =
+	ENIGME!Action.allInstances()
+		->select(p | p.connaissancesattribuables->exists(o | o.name = self.name))
+		->asSequence()->first();
+
+helper context ENIGME!Objet
+def: getActionConsommeur(): ENIGME!Action =
+	ENIGME!Action.allInstances()
+		->select(p | p.objetsconsommables->includes(self))
+		->asSequence()->first();
+
+helper context ENIGME!Objet
+def: getActionProducteur(): ENIGME!Action =
+	ENIGME!Action.allInstances()
+		->select(p | p.objetsattribuables->includes(self))
+		->asSequence()->first();
+
+helper context ENIGME!Connaissance
+def: getConditionRequis(): ENIGME!Condition =
+	ENIGME!Condition.allInstances()
+		->select(p | p.connaissancesRequises->includes(self))
+		->asSequence()->first();
+
+helper context ENIGME!Connaissance
+def: getActionProducteur(): ENIGME!Action =
+	ENIGME!Action.allInstances()
+		->select(p | p.connaissancesattribuables->includes(self))
+		->asSequence()->first();
+
+helper context ENIGME!Personne 
+def: getLieu(): ENIGME!Lieu =
+	ENIGME!Lieu.allInstances()
+		->select(p | p.personnes->includes(self))
+		->asSequence()->first();
+	
+helper context ENIGME!Interaction 
+def: getPersonne(): ENIGME!Personne =
+	ENIGME!Personne.allInstances()
+		->select(p | p.interaction = self)
+		->asSequence()->first();
+
+
+helper context ENIGME!Choix 
+def: getInteraction(): ENIGME!Interaction =
+	ENIGME!Interaction.allInstances()
+		->select(p | p.choix = self or p.choixFin = self)
+		->asSequence()->first();
+
+
+helper context ENIGME!Reponse 
+def: getChoix(): ENIGME!Choix =
+	ENIGME!Choix.allInstances()
+		->select(p | p.reponses->includes(self))
+		->asSequence()->first();
+
+helper context ENIGME!Lieu
+def: getLieuDepart(): ENIGME!Lieu =
+	ENIGME!Territoire.allInstances()->select(p | true)->asSequence()->first().lieuDebut;
+
+-- Traduire un Process en un PetriNet de même nom
+rule Jeu2PetriNet {
+	from p: ENIGME!Jeu
+	to pn: petrinet!Petri (name <- p.name)
+}
+
+rule Connaissance2PetriNet {
+	from o: ENIGME!Connaissance (o.name = o.getNomCorrecte() )
+	to 
+		    p_connaissance: petrinet!Place(
+				name <- o.name+o.getNomCorrecte(),
+				Jettons <- 1,
+				net <- o.getJeu()),
+			p_visible: petrinet!Place(
+					name <- o.name+'_visiblite',
+					Jettons <- if (o.etatv.toString() = 'visible') then 1 else 0 endif,
+					net <- o.getJeu()),
+			p_obtention: petrinet!Place(
+					name <- o.name+'_obtention',
+					Jettons <- if (o.etato.toString() = 'possede') then 1 else 0 endif,
+					net <- o.getJeu()),
+			p_non_obtention: petrinet!Place(
+					name <- o.name+'_non_obtention',
+					Jettons <- if (o.etato.toString() = 'npossede') then 1 else 0 endif,
+					net <- o.getJeu())	   
+}
+
+rule Object2PetriNet {
+	from o: ENIGME!Objet (o.name = o.getNomCorrecte())
+	to 
+			p_objet: petrinet!Place(
+				name <- o.name,
+				Jettons <- o.occurrence,
+				net <- o.getJeu()),
+			p_visible: petrinet!Place(
+					name <- o.name+'_visiblite',
+					Jettons <- if (o.etatv.toString() = 'visible') then 1 else 0 endif,
+					net <- o.getJeu()),
+			p_obtention: petrinet!Place(
+					name <- o.name+'_obtention',
+					Jettons <- if (o.etatp.toString() = 'possede') then 1 else 0 endif,
+					net <- o.getJeu())
+}
+
+rule ObjetConditionRequisPersonneVisibilite2PetriNet {
+	from o: ENIGME!Objet,
+		 p: ENIGME!Personne (if not p.conditionv->oclIsUndefined() then p.conditionv.objetsRequis->includes(o) and (o.occurrence <> 0) else false endif)
+    to 
+		arc_interaction_transition: petrinet!Arc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getActionMemeObjet().getReponse().getChoix().getInteraction().choixFin,'place_utilisation_choix'),
+				Destination <-thisModule.resolveTemp(p,'tr_personne_visibilite'),
+				net <- o.getJeu()),
+        arc_objet_personne_visibilite: petrinet!ReadArc(
+          	 	poids <- o.occurrence,
+				Source <-thisModule.resolveTemp(o.getObjet(),'p_objet'),
+				Destination <-thisModule.resolveTemp(p,'tr_personne_visibilite'),
+				net <- o.getJeu()),
+        arc_objet_personne_visibilite_obtention: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getObjet(),'p_obtention'),
+				Destination <-thisModule.resolveTemp(p,'tr_personne_visibilite'),
+				net <- o.getJeu())
+}
+
+rule ObjetConditionRequisPersonneObligation2PetriNet {
+	from o: ENIGME!Objet,
+		 p: ENIGME!Personne (if not p.conditiono->oclIsUndefined() then p.conditiono.objetsRequis->includes(o) and (o.occurrence <> 0) else false endif)
+    to 
+		arc_interaction_transition: petrinet!Arc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getActionMemeObjet().getReponse().getChoix().getInteraction().choixFin,'place_utilisation_choix'),
+				Destination <-thisModule.resolveTemp(p,'tr_personne_obligation'),
+				net <- o.getJeu()),
+        arc_objet_personne_obligation: petrinet!ReadArc(
+          	 	poids <- o.occurrence,
+				Source <-thisModule.resolveTemp(o.getObjet(),'p_objet'),
+				Destination <-thisModule.resolveTemp(p,'tr_personne_obligation'),
+				net <- o.getJeu()),
+        arc_objet_personne_obligation_obtention: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getObjet(),'p_obtention'),
+				Destination <-thisModule.resolveTemp(p,'tr_personne_obligation'),
+				net <- o.getJeu())
+}
+
+rule ObjetConditionRequisCheminVisibilite2PetriNet {
+	from o: ENIGME!Objet,
+		 c: ENIGME!Chemin (if not c.conditionv->oclIsUndefined() then c.conditionv.objetsRequis->includes(o) and (o.occurrence <> 0) else false endif)
+    to 
+		arc_interaction_transition: petrinet!Arc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getActionMemeObjet().getReponse().getChoix().getInteraction().choixFin,'place_utilisation_choix'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_visibilite'),
+				net <- o.getJeu()),
+        arc_objet_chemin_visibilite: petrinet!ReadArc(
+          	 	poids <- o.occurrence,
+				Source <-thisModule.resolveTemp(o.getObjet(),'p_objet'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_visibilite'),
+				net <- o.getJeu()),
+        arc_objet_chemin_visibilite_obtention: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getObjet(),'p_obtention'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_visibilite'),
+				net <- o.getJeu())
+}
+
+rule ObjetConditionRequisCheminObligation2PetriNet {
+	from o: ENIGME!Objet,
+		 c: ENIGME!Chemin (if not c.conditiono->oclIsUndefined() then c.conditiono.objetsRequis->includes(o) and (o.occurrence <> 0) else false endif)
+    to 
+		arc_interaction_transition: petrinet!Arc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getActionMemeObjet().getReponse().getChoix().getInteraction().choixFin,'place_utilisation_choix'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_obligation'),
+				net <- o.getJeu()),
+        arc_objet_chemin_obligation: petrinet!ReadArc(
+          	 	poids <- o.occurrence,
+				Source <-thisModule.resolveTemp(o.getObjet(),'p_objet'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_obligation'),
+				net <- o.getJeu()),
+        arc_objet_chemin_obligation_obtention: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getObjet(),'p_obtention'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_obligation'),
+				net <- o.getJeu())
+}
+
+rule ObjetConditionRequisCheminOuverture2PetriNet {
+	from o: ENIGME!Objet,
+		 c: ENIGME!Chemin (if not c.conditionc->oclIsUndefined() then c.conditionc.objetsRequis->includes(o) and (o.occurrence <> 0) else false endif)
+    to 
+		arc_interaction_transition: petrinet!Arc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getActionMemeObjet().getReponse().getChoix().getInteraction().choixFin,'place_utilisation_choix'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_ouverture'),
+				net <- o.getJeu()),
+        arc_objet_chemin_ouverture: petrinet!ReadArc(
+          	 	poids <- o.occurrence,
+				Source <-thisModule.resolveTemp(o.getObjet(),'p_objet'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_ouverture'),
+				net <- o.getJeu()),
+        arc_objet_chemin_ouverture_obtention: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getObjet(),'p_obtention'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_ouverture'),
+				net <- o.getJeu())
+}
+
+rule ObjetConditionRequisChoix2PetriNet {
+	from o: ENIGME!Objet,
+		 c: ENIGME!Condition (if not c.getChoix()->oclIsUndefined() then c.objetsRequis->includes(o) and (o.occurrence <> 0) else false endif)
+	to 
+        arc_objet_choix: petrinet!ReadArc(
+          	 	poids <- o.occurrence,
+				Source <-thisModule.resolveTemp(o.getObjet(),'p_objet'),
+				Destination <-thisModule.resolveTemp(c.getChoix().getInteraction(),'tr_utilisation_choix_fin'),
+				net <- o.getJeu()),
+        arc_objet_choix_obtention: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getObjet(),'p_obtention'),
+				Destination <-thisModule.resolveTemp(c.getChoix().getInteraction(),'tr_utilisation_choix_fin'),
+				net <- o.getJeu())
+}
+
+rule ConnaissanceConditionRequisPersonneVisibilite2PetriNet {
+	from o: ENIGME!Connaissance,
+		 p: ENIGME!Personne (if not p.conditionv.oclIsUndefined() then p.conditionv.connaissancesRequises->includes(o) and (o.etatp.toString() = 'possede') else false endif)
+ 	to 
+		arc_interaction_transition: petrinet!Arc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getActionMemeConnaissance().getReponse().getChoix().getInteraction().choixFin,'place_utilisation_choix'),
+				Destination <-thisModule.resolveTemp(p,'tr_personne_visibilite'),
+				net <- o.getJeu()),
+        arc_connaissance_personne_visibilite: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getConnaissance(),'p_connaissance'),
+				Destination <-thisModule.resolveTemp(p,'tr_personne_visibilite'),
+				net <- o.getJeu()),
+        arc_connaissance_personne_visibilite_obtention: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getConnaisssance(),'p_obtention'),
+				Destination <-thisModule.resolveTemp(p,'tr_personne_visibilite'),
+				net <- o.getJeu())
+}
+
+
+rule ConnaissanceConditionRequisPersonneObligation2PetriNet {
+	from o: ENIGME!Connaissance,
+		 p: ENIGME!Personne (if not p.conditiono.oclIsUndefined() then p.conditiono.connaissancesRequises->includes(o) and (o.etatp.toString() = 'possede') else false endif)
+ 	to 
+		arc_interaction_transition: petrinet!Arc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getActionMemeConnaissance().getReponse().getChoix().getInteraction().choixFin,'place_utilisation_choix'),
+				Destination <-thisModule.resolveTemp(p,'tr_personne_obligation'),
+				net <- o.getJeu()),
+        arc_connaissance_personne_obligation: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getConnaissance(),'p_connaissance'),
+				Destination <-thisModule.resolveTemp(p,'tr_personne_obligation'),
+				net <- o.getJeu()),
+		arc_connaissance_personne_obligation_obtention: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getConnaissance(),'p_obtention'),
+				Destination <-thisModule.resolveTemp(p,'tr_personne_obligation'),
+				net <- o.getJeu())
+}
+
+rule ConnaissanceConditionRequisCheminVisibilite2PetriNet { 
+	from o: ENIGME!Connaissance,
+		 c: ENIGME!Chemin (if not c.conditionv.oclIsUndefined() then c.conditionv.connaissancesRequises->includes(o) and (o.etatp.toString() = 'possede') else false endif)
+ 	to 
+		arc_interaction_transition: petrinet!Arc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getActionMemeConnaissance().getReponse().getChoix().getInteraction().choixFin,'place_utilisation_choix'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_visibilite'),
+				net <- o.getJeu()),
+        arc_connaissance_chemin_visibilite: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getConnaissance(),'p_connaissance'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_visibilite'),
+				net <- o.getJeu()),
+        arc_connaissance_chemin_visibilite_obtention: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getConnaissance(),'p_obtention'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_visibilite'),
+				net <- o.getJeu())
+}
+
+rule ConnaissanceConditionRequisCheminObligation2PetriNet {
+	from o: ENIGME!Connaissance,
+		 c: ENIGME!Chemin (if not c.conditiono.oclIsUndefined() then c.conditiono.connaissancesRequises->includes(o) and (o.etatp.toString() = 'possede') else false endif)
+ 	to 
+		arc_interaction_transition: petrinet!Arc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getActionMemeConnaissance().getReponse().getChoix().getInteraction().choixFin,'place_utilisation_choix'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_obligation'),
+				net <- o.getJeu()),
+        arc_connaissance_chemin_obligation: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getConnaissance(),'p_connaissance'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_obligation'),
+				net <- o.getJeu()),
+        arc_connaissance_chemin_obligation_obtention: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getConnaissance(),'p_obtention'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_obligation'),
+				net <- o.getJeu())
+}
+
+rule ConnaissanceConditionRequisCheminOuverture2PetriNet {
+	from o: ENIGME!Connaissance ,
+		 c: ENIGME!Chemin (if not c.conditionc.oclIsUndefined() then c.conditionc.connaissancesRequises->includes(o) and (o.etatp.toString() = 'possede') else false endif)
+ 	to 
+		arc_interaction_transition: petrinet!Arc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getActionMemeConnaissance().getReponse().getChoix().getInteraction().choixFin,'place_utilisation_choix'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_ouverture'),
+				net <- o.getJeu()),
+        arc_connaissance_chemin_ouverture: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getConnaissance(),'p_connaissance'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_ouverture'),
+				net <- o.getJeu()),
+        arc_connaissance_chemin_ouverture_obtention: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getConnaissance(),'p_obtention'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_ouverture'),
+				net <- o.getJeu())
+}
+
+rule ConnaissanceConditionRequisChoix2PetriNet {
+	from o: ENIGME!Connaissance,
+		 c: ENIGME!Condition (if not c.getChoix().oclIsUndefined() then c.connaissancesRequises->includes(o) and (o.etatp.toString() = 'possede') else false endif)
+	to 
+        arc_connaissance_choix: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getConnaissance(),'p_connaissance'),
+				Destination <-thisModule.resolveTemp(c.getChoix().getInteraction(),'tr_utilisation_choix_fin'),
+				net <- o.getJeu()),
+        arc_connaissance_choix_obtention: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getConnaissance(),'p_obtention'),
+				Destination <-thisModule.resolveTemp(c.getChoix().getInteraction(),'tr_utilisation_choix_fin'),
+				net <- o.getJeu()),
+        arc_connaissance_choix_non_obtention: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getConnaissance(),'p_non_obtention'),
+				Destination <-thisModule.resolveTemp(c.getChoix().getInteraction(),'tr_utilisation_choix_debut'),
+				net <- o.getJeu())
+}
+
+rule ObjetConditionRequisPersonneNonVisibilite2PetriNet {
+	from o: ENIGME!Objet,
+		 p: ENIGME!Personne (if not p.conditionv.oclIsUndefined() then p.conditionv.objetsRequis->includes(o) and (o.occurrence = 0) else false endif)
+ 	to 
+		arc_interaction_transition: petrinet!Arc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getActionMemeObjet().getReponse().getChoix().getInteraction().choixFin,'place_utilisation_choix'),
+				Destination <-thisModule.resolveTemp(p,'tr_personne_non_visibilite'),
+				net <- o.getJeu()),
+        arc_objet_personne_non_visibilite: petrinet!ReadArc(
+          	 	poids <- o.occurrence,
+				Source <-thisModule.resolveTemp(o.getObjet(),'p_objet'),
+				Destination <-thisModule.resolveTemp(p,'tr_personne_non_visibilite'),
+				net <- o.getJeu()),
+        arc_objet_personne_non_visibilite_obtention: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getObjet(),'p_obtention'),
+				Destination <-thisModule.resolveTemp(p,'tr_personne_non_visibilite'),
+				net <- o.getJeu())
+}
+
+
+rule ObjetConditionRequisPersonneNonObligation2PetriNet {
+	from o: ENIGME!Objet,
+		 p: ENIGME!Personne (if not p.conditiono.oclIsUndefined() then p.conditiono.objetsRequis->includes(o) and (o.occurrence = 0) else false endif)
+ 	to 
+		arc_interaction_transition: petrinet!Arc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getActionMemeObjet().getReponse().getChoix().getInteraction().choixFin,'place_utilisation_choix'),
+				Destination <-thisModule.resolveTemp(p,'tr_personne_non_obligation'),
+				net <- o.getJeu()),
+        arc_objet_personne_non_obligation: petrinet!ReadArc(
+          	 	poids <- o.occurrence,
+				Source <-thisModule.resolveTemp(o.getObjet(),'p_objet'),
+				Destination <-thisModule.resolveTemp(p,'tr_personne_non_obligation'),
+				net <- o.getJeu()),
+        arc_objet_personne_non_obligation_obtention: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getObjet(),'p_obtention'),
+				Destination <-thisModule.resolveTemp(p,'tr_personne_non_obligation'),
+				net <- o.getJeu())
+}
+
+rule ObjetConditionRequisCheminNonVisibilite2PetriNet {
+	from o: ENIGME!Objet,
+		 c: ENIGME!Chemin (if not c.conditionv.oclIsUndefined() then c.conditionv.objetsRequis->includes(o) and (o.occurrence = 0) else false endif)
+ 	to 
+		arc_interaction_transition: petrinet!Arc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getActionMemeObjet().getReponse().getChoix().getInteraction().choixFin,'place_utilisation_choix'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_non_visibilite'),
+				net <- o.getJeu()),
+        arc_objet_chemin_non_visibilite: petrinet!ReadArc(
+          	 	poids <- o.occurrence,
+				Source <-thisModule.resolveTemp(o.getObjet(),'p_objet'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_non_visibilite'),
+				net <- o.getJeu()),
+        arc_objet_chemin_non_visibilite_obtention: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getObjet(),'p_obtention'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_non_visibilite'),
+				net <- o.getJeu())
+}
+
+rule ObjetConditionRequisCheminNonObligation2PetriNet {
+	from o: ENIGME!Objet,
+		 c: ENIGME!Chemin (if not c.conditiono.oclIsUndefined() then c.conditiono.objetsRequis->includes(o) and (o.occurrence = 0) else false endif)
+ 	to 
+		arc_interaction_transition: petrinet!Arc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getActionMemeObjet().getReponse().getChoix().getInteraction().choixFin,'place_utilisation_choix'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_non_obligation'),
+				net <- o.getJeu()),
+        arc_objet_chemin_non_obligation: petrinet!ReadArc(
+          	 	poids <- o.occurrence,
+				Source <-thisModule.resolveTemp(o.getObjet(),'p_objet'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_non_obligation'),
+				net <- o.getJeu()),
+        arc_objet_chemin_non_obligation_obtention: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getObjet(),'p_obtention'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_non_obligation'),
+				net <- o.getJeu())
+}
+
+rule ObjetConditionRequisCheminNonOuverture2PetriNet {
+	from o: ENIGME!Objet,
+		 c: ENIGME!Chemin (if not c.conditionc.oclIsUndefined() then c.conditionc.objetsRequis->includes(o) and (o.occurrence = 0) else false endif)
+ 	to 
+		arc_interaction_transition: petrinet!Arc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getActionMemeObjet().getReponse().getChoix().getInteraction().choixFin,'place_utilisation_choix'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_non_ouverture'),
+				net <- o.getJeu()),
+        arc_objet_chemin_non_ouverture: petrinet!ReadArc(
+          	 	poids <- o.occurrence,
+				Source <-thisModule.resolveTemp(o.getObjet(),'p_objet'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_non_ouverture'),
+				net <- o.getJeu()),
+        arc_objet_chemin_non_ouverture_obtention: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getObjet(),'p_obtention'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_non_ouverture'),
+				net <- o.getJeu())
+}
+
+rule ObjetConditionRequisChoixDebut2PetriNet {
+	from o: ENIGME!Objet,
+		 c: ENIGME!Condition (if not c.getChoix().oclIsUndefined() then c.objetsRequis->includes(o) and (o.occurrence = 0) else false endif)
+	to 
+        arc_objet_choix: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getObjet(),'p_objet'),
+				Destination <-thisModule.resolveTemp(c.getChoix().getInteraction(),'tr_utilisation_choix_debut'),
+				net <- o.getJeu()),
+        arc_objet_choix_obtention: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getObjet(),'p_obtention'),
+				Destination <-thisModule.resolveTemp(c.getChoix().getInteraction(),'tr_utilisation_choix_debut'),
+				net <- o.getJeu())
+}
+
+rule ConnaissanceConditionRequisPersonneNonVisibilite2PetriNet {
+	from o: ENIGME!Connaissance,
+		 p: ENIGME!Personne (if not p.conditionv.oclIsUndefined() then p.conditionv.connaissancesRequises->includes(o) and (o.etatp.toString() = 'npossede') else false endif)
+ 	to 
+		arc_interaction_transition: petrinet!Arc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getActionMemeConnaissance().getReponse().getChoix().getInteraction().choixFin,'place_utilisation_choix'),
+				Destination <-thisModule.resolveTemp(p,'tr_personne_non_visibilite'),
+				net <- o.getJeu()),
+        arc_connaissance_personne_non_visibilite: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getConnaissance(),'p_connaissance'),
+				Destination <-thisModule.resolveTemp(p,'tr_personne_non_visibilite'),
+				net <- o.getJeu()),
+        arc_connaissance_personne_non_visibilite_obtention: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getConnaissance(),'p_obtention'),
+				Destination <-thisModule.resolveTemp(p,'tr_personne_non_visibilite'),
+				net <- o.getJeu())
+}
+
+
+rule ConnaissanceConditionRequisPersonneNonObligation2PetriNet {
+	from o: ENIGME!Connaissance,
+		 p: ENIGME!Personne (if not p.conditiono.oclIsUndefined() then p.conditiono.connaissancesRequises->includes(o) and (o.etatp.toString() = 'npossede') else false endif)
+ 	to 
+		arc_interaction_transition: petrinet!Arc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getActionMemeConnaissance().getReponse().getChoix().getInteraction().choixFin,'place_utilisation_choix'),
+				Destination <-thisModule.resolveTemp(p,'tr_personne_non_obligation'),
+				net <- o.getJeu()),
+        arc_connaissance_personne_non_obligation: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getConnaissance(),'p_connaissance'),
+				Destination <-thisModule.resolveTemp(p,'tr_personne_non_obligation'),
+				net <- o.getJeu()),
+        arc_connaissance_personne_non_obligation_obtention: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getConnaissance(),'p_obtention'),
+				Destination <-thisModule.resolveTemp(p,'tr_personne_non_obligation'),
+				net <- o.getJeu())
+}
+
+rule ConnaissanceConditionRequisCheminNonVisibilite2PetriNet {
+	from o: ENIGME!Connaissance,
+		 c: ENIGME!Chemin (if not c.conditionv.oclIsUndefined() then c.conditionv.connaissancesRequises->includes(o) and (o.etatp.toString() = 'npossede') else false endif)
+ 	to 
+		arc_interaction_transition: petrinet!Arc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getActionMemeConnaissance().getReponse().getChoix().getInteraction().choixFin,'place_utilisation_choix'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_non_visibilite'),
+				net <- o.getJeu()),
+        arc_connaissance_chemin_non_visibilite: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getConnaissance(),'p_connaissance'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_non_visibilite'),
+				net <- o.getJeu()),
+        arc_connaissance_chemin_non_visibilite_obtention: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getConnaissance(),'p_obtention'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_non_visibilite'),
+				net <- o.getJeu())
+}
+
+rule ConnaissanceConditionRequisCheminNonObligation2PetriNet {
+	from o: ENIGME!Connaissance,
+		 c: ENIGME!Chemin (if not c.conditiono.oclIsUndefined() then c.conditiono.connaissancesRequises->includes(o) and (o.etatp.toString() = 'npossede') else false endif)
+ 	to 
+		arc_interaction_transition: petrinet!Arc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getActionMemeConnaissance().getReponse().getChoix().getInteraction().choixFin,'place_utilisation_choix'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_non_obligation'),
+				net <- o.getJeu()),
+        arc_connaissance_chemin_non_obligation: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getConnaissance(),'p_connaissance'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_non_obligation'),
+				net <- o.getJeu()),
+        arc_connaissance_chemin_non_obligation_obtention: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getConnaissance(),'p_obtention'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_non_obligation'),
+				net <- o.getJeu())
+}
+
+rule ConnaissanceConditionRequisCheminNonOuverture2PetriNet {
+	from o: ENIGME!Connaissance,
+		 c: ENIGME!Chemin (if not c.conditionc.oclIsUndefined() then c.conditionc.connaissancesRequises->includes(o) and (o.etatp.toString() = 'npossede') else false endif)
+ 	to 
+		arc_interaction_transition: petrinet!Arc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getActionMemeConnaissance().getReponse().getChoix().getInteraction().choixFin,'place_utilisation_choix'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_non_ouverture'),
+				net <- o.getJeu()),
+        arc_connaissance_chemin_non_ouverture: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getConnaissance(),'p_connaissance'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_non_ouverture'),
+				net <- o.getJeu()),
+        arc_connaissance_chemin_non_ouverture_obtention: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getConnaissance(),'p_obtention'),
+				Destination <-thisModule.resolveTemp(c,'tr_chemin_non_ouverture'),
+				net <- o.getJeu())
+}
+
+rule ConnaissanceConditionRequisChoixDebut2PetriNet {
+	from o: ENIGME!Connaissance,
+		 c: ENIGME!Condition (if not c.getChoix().oclIsUndefined() then c.connaissancesRequises->includes(o) and (o.etatp.toString() = 'npossede') else false endif)
+	to 
+        arc_connaissance_chemin_ouverture: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getConnaissance(),'p_connaissance'),
+				Destination <-thisModule.resolveTemp(c.getChoix().getInteraction(),'tr_utilisation_choix_debut'),
+				net <- o.getJeu()),
+        arc_connaissance_chemin_ouverture_obtention: petrinet!ReadArc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(o.getConnaissance(),'p_obtention'),
+				Destination <-thisModule.resolveTemp(c.getChoix().getInteraction(),'tr_utilisation_choix_debut'),
+				net <- o.getJeu())
+}
+
+rule ObjectActionConsomme2PetriNet {
+	from o: ENIGME!Objet,
+	     r: ENIGME!Reponse (r.action.objetsconsommables->includes(o))
+	to 
+		arc_objet_transition_action : petrinet!Arc(
+				poids <- o.occurrence,
+				Source <-thisModule.resolveTemp(o.getObjet(),'p_objet'),
+				Destination <-thisModule.resolveTemp(r,'tr_action_lieu'),
+				net <- o.getJeu())
+}
+
+rule ObjectActionProduitNotExist2PetriNet {
+	from o: ENIGME!Objet ((o.name <> o.getNomCorrecte()) and (not o.getActionProducteur().oclIsUndefined()) and (o.getObjet().oclIsUndefined()))
+	to 
+			p_objet: petrinet!Place(
+				name <- o.name,
+				Jettons <- o.occurrence,
+				net <- o.getJeu()),
+			p_visible: petrinet!Place(
+					name <- o.name+'_visiblite',
+					Jettons <- 0,
+					net <- o.getJeu()),
+			p_obtention: petrinet!Place(
+					name <- o.name+'_obtention',
+					Jettons <-0,
+					net <- o.getJeu()),
+		    arc_action_transition_objet_visible : petrinet!Arc(
+				poids <- 1,
+				Source <-thisModule.resolveTemp(o.getActionProducteur().getReponse(),'tr_action_lieu'),
+				Destination <- p_visible,
+				net <- o.getJeu()),
+		    arc_action_transition_objet_obtention : petrinet!Arc(
+				poids <- 1,
+				Source <-thisModule.resolveTemp(o.getActionProducteur().getReponse(),'tr_action_lieu'),
+				Destination <- p_obtention,
+				net <- o.getJeu())
+		
+}
+
+rule ConnaissanceActionProduit2PetriNet {
+	from o: ENIGME!Connaissance ((o.name <> o.getNomCorrecte()) and (not o.getActionProducteur().oclIsUndefined()))
+	to 
+			p_connaissance: petrinet!Place(
+				name <- o.name,
+				Jettons <- 1,
+				net <- o.getJeu()),
+			p_visible: petrinet!Place(
+					name <- o.name+'_visiblite',
+					Jettons <- 0,
+					net <- o.getJeu()),
+			p_obtention: petrinet!Place(
+					name <- o.name+'_obtention',
+					Jettons <-0,
+					net <- o.getJeu()),
+			p_non_obtention: petrinet!Place(
+					name <- o.name+'_non_obtention',
+					Jettons <-1,
+					net <- o.getJeu()),
+		    arc_action_transition_connaissance_visible : petrinet!Arc(
+				poids <- 1,
+				Source <-thisModule.resolveTemp(o.getActionProducteur().getReponse(),'tr_action_lieu'),
+				Destination <- p_visible,
+				net <- o.getJeu()),
+		    arc_action_transition_connaissance_non_obtention : petrinet!Arc(
+				poids <- 1,
+				Source <-p_non_obtention,
+				Destination <-thisModule.resolveTemp(o.getActionProducteur().getReponse(),'tr_action_lieu'),
+				net <- o.getJeu()),
+		    arc_action_transition_connaissance_obtention : petrinet!Arc(
+				poids <- 1,
+				Source <-thisModule.resolveTemp(o.getActionProducteur().getReponse(),'tr_action_lieu'),
+				Destination <- p_obtention,
+				net <- o.getJeu())
+}
+
+rule ObjectActionProduitExist2PetriNet {
+	from o: ENIGME!Objet ((o.name <> o.getNomCorrecte()) and (not o.getActionProducteur().oclIsUndefined()) and (not o.getObjet().oclIsUndefined()))
+	to 
+		    arc_action_transition_objet : petrinet!Arc(
+				poids <- o.occurrence,
+				Source <-thisModule.resolveTemp(o.getActionProducteur().getReponse(),'tr_action_lieu'),
+				Destination <- thisModule.resolveTemp(o.getObjet(),'p_objet'),
+				net <- o.getJeu())
+}
+
+rule Lieu2PetriNet {
+	from l:ENIGME!Lieu
+	to
+          place_lieu: petrinet!Place(
+				name <- l.name,
+				Jettons <- if (l.getLieuDepart()= l) then 1 else 0 endif,
+				net <- l.getJeu())
+}
+
+
+rule Chemin2PetriNet {
+	from c:ENIGME!Chemin
+	to
+		tr_chemin_lieux: petrinet!Transition(
+				name <- 'tr_'+c.precedent.name+'_'+c.suivant.name,
+			    net <- c.getJeu()),
+        arc_chemin_precedent: petrinet!Arc(
+          	 	poids <- 1,
+				Source <-thisModule.resolveTemp(c.precedent,'place_lieu'),
+				Destination <-tr_chemin_lieux,
+				net <- c.getJeu()),
+		arc_chemin_suivant : petrinet!Arc(
+				poids <- 1,
+				Source <- tr_chemin_lieux,
+				Destination <-thisModule.resolveTemp(c.suivant,'place_lieu'),
+				net <- c.getJeu()),
+		place_visible: petrinet!Place(
+				name <- 'p_chemin_'+c.precedent.name+'_'+ c.suivant.name+'_visibilite',
+				Jettons <- if (c.etatv.toString() = 'visible') then 1 else 0 endif,
+				net <- c.getJeu()),
+		place_obligatoire: petrinet!Place(
+				name <- 'p_chemin_'+c.precedent.name+'_'+ c.suivant.name+'_obligation',
+				Jettons <- if (c.etato.toString() = 'obligatoire') then 1 else 0 endif,
+				net <- c.getJeu()),
+		place_ouvert: petrinet!Place(
+				name <- 'p_chemin_'+c.precedent.name+'_'+ c.suivant.name+'_ouvert',
+				Jettons <- if (c.etatc.toString() = 'ouvert') then 1 else 0 endif,
+				net <- c.getJeu()),
+		arc_visible : petrinet!Arc(
+				poids <- 1,
+				Source <- place_visible,
+				Destination <-tr_chemin_lieux,
+				net <- c.getJeu()),
+		arc_obligatoire : petrinet!Arc(
+				poids <- 1,
+				Source <-place_obligatoire,
+				Destination <-tr_chemin_lieux,
+				net <- c.getJeu()),
+		arc_ouvert : petrinet!Arc(
+				poids <- 1,
+				Source <-place_ouvert,
+				Destination <-tr_chemin_lieux,
+				net <- c.getJeu()),
+		tr_chemin_visibilite: petrinet!Transition(
+				name <- 'tr_'+c.getNom()+'_visibilite',
+			    net <- c.getJeu()),
+		arc_chemin_visibilite : petrinet!Arc(
+				poids <- 1,
+				Source <- tr_chemin_visibilite,
+				Destination <-place_visible,
+				net <-c.getJeu()),
+		tr_chemin_obligation: petrinet!Transition(
+				name <- 'tr_'+c.getNom()+'_obligation',
+			    net <- c.getJeu()),
+		arc_chemin_obligation : petrinet!Arc(
+				poids <- 1,
+				Source <- tr_chemin_obligation,
+				Destination <-place_obligatoire,
+				net <- c.getJeu()),
+		tr_chemin_ouverture: petrinet!Transition(
+				name <- 'tr_'+c.getNom()+'_ouverture',
+			    net <- c.getJeu()),
+		arc_chemin_ouverture : petrinet!Arc(
+				poids <- 1,
+				Source <- tr_chemin_ouverture,
+				Destination <-place_ouvert,
+				net <- c.getJeu()),
+		tr_chemin_non_visibilite: petrinet!Transition(
+				name <- 'tr_'+c.getNom()+'_non_visibilite',
+			    net <- c.getJeu()),
+		arc_chemin_non_visibilite : petrinet!Arc(
+				poids <- 1,
+				Source <- place_visible,
+				Destination <-tr_chemin_non_visibilite,
+				net <-c.getJeu()),
+		tr_chemin_non_obligation: petrinet!Transition(
+				name <- 'tr_'+c.getNom()+'_non_obligation',
+			    net <- c.getJeu()),
+		arc_chemin_non_obligation : petrinet!Arc(
+				poids <- 1,
+				Source <- place_obligatoire,
+				Destination <-tr_chemin_non_obligation,
+				net <- c.getJeu()),
+		tr_chemin_non_ouverture: petrinet!Transition(
+				name <- 'tr_'+c.getNom()+'_non_ouverture',
+			    net <- c.getJeu()),
+		arc_chemin_non_ouverture : petrinet!Arc(
+				poids <- 1,
+				Source <- place_ouvert,
+				Destination <-tr_chemin_non_ouverture,
+				net <- c.getJeu())
+}
+
+rule Personne2PetriNet {
+	from p:ENIGME!Personne
+	to 
+		place_personne: petrinet!Place(
+				name <- p.name,
+				Jettons <- 0,
+				net <- p.getJeu()),
+		tr_lieu_personne: petrinet!Transition(
+				name <- 'tr_'+p.getLieu().name+'_'+p.name,
+			    net <- p.getJeu()),
+		arc_lieu_personne1 : petrinet!ReadArc(
+				poids <- 1,
+				Source <-thisModule.resolveTemp(p.getLieu(),'place_lieu'),
+				Destination <-tr_lieu_personne,
+				net <- p.getJeu()),
+		arc_lieu_personne2 : petrinet!Arc(
+				poids <- 1,
+				Source <-tr_lieu_personne,
+				Destination <-place_personne,
+				net <- p.getJeu()),
+		place_visible: petrinet!Place(
+				name <- 'p_'+p.name+'_visibilite',
+				Jettons <- if (p.etatv.toString() = 'visible') then 1 else 0 endif,
+				net <- p.getJeu()),
+		place_obligatoire: petrinet!Place(
+				name <- 'p_'+p.name+'_obligation',
+				Jettons <- if (p.etato.toString() = 'obligatoire') then 1 else 0 endif,
+				net <- p.getJeu()),
+		arc_visible : petrinet!Arc(
+				poids <- 1,
+				Source <- place_visible,
+				Destination <-tr_lieu_personne,
+				net <- p.getJeu()),
+		arc_obligatoire : petrinet!Arc(
+				poids <- 1,
+				Source <-place_obligatoire,
+				Destination <-tr_lieu_personne,
+				net <- p.getJeu()),
+		tr_personne_visibilite: petrinet!Transition(
+				name <- 'tr_'+p.name+'_visibilite',
+			    net <- p.getJeu()),
+		arc_personne_visibilite : petrinet!Arc(
+				poids <- 1,
+				Source <- tr_personne_visibilite,
+				Destination <-place_visible,
+				net <- p.getJeu()),
+		tr_personne_obligation: petrinet!Transition(
+				name <- 'tr_'+p.name+'_obligation',
+			    net <- p.getJeu()),
+		arc_personne_obligation : petrinet!Arc(
+				poids <- 1,
+				Source <- tr_personne_obligation,
+				Destination <-place_obligatoire,
+				net <- p.getJeu()),
+		tr_personne_non_visibilite: petrinet!Transition(
+				name <- 'tr_'+p.name+'_non_visibilite',
+			    net <- p.getJeu()),
+		arc_personne_non_visibilite : petrinet!Arc(
+				poids <- 1,
+				Source <- place_visible,
+				Destination <-tr_personne_non_visibilite,
+				net <-p.getJeu()),
+		tr_personne_non_obligation: petrinet!Transition(
+				name <- 'tr_'+p.name+'_non_obligation',
+			    net <- p.getJeu()),
+		arc_personne_non_obligation : petrinet!Arc(
+				poids <- 1,
+				Source <- place_obligatoire,
+				Destination <-tr_personne_non_visibilite,
+				net <- p.getJeu())
+}
+
+rule Interaction2PetriNet {
+	from i:ENIGME!Interaction
+	to 
+		place_interaction: petrinet!Place(
+				name <- i.name,
+				Jettons <- 0,
+				net <- i.getJeu()),
+		tr_personne_interaction: petrinet!Transition(
+				name <- 'tr_'+i.getPersonne().name+'_'+i.name,
+			    net <- i.getJeu()),
+		arc_personne_interaction1 : petrinet!Arc(
+				poids <- 1,
+				Source <-thisModule.resolveTemp(i.getPersonne(),'place_personne'),
+				Destination <-tr_personne_interaction,
+				net <- i.getJeu()),
+		arc_personne_interaction2 : petrinet!Arc(
+				poids <- 1,
+				Source <-tr_personne_interaction,
+				Destination <-place_interaction,
+				net <- i.getJeu()),
+		tr_utilisation_choix_fin: petrinet!Transition(
+				name <- 'tr_utilisation_choix_fin',
+			    net <- i.getJeu()),
+		tr_utilisation_choix_debut: petrinet!Transition(
+				name <- 'tr_utilisation_choix_debut',
+			    net <- i.getJeu()),
+		arc_utilisation_choix_debut1 : petrinet!Arc(
+				poids <- 1,
+				Source <-thisModule.resolveTemp(i.choix,'place_utilisation_choix'),
+				Destination <-tr_utilisation_choix_debut,
+				net <- i.getJeu()),
+		arc_utilisation_choix_debut2 : petrinet!Arc(
+				poids <- 1,
+				Source <-thisModule.resolveTemp(i.choixFin,'place_choix'),
+				Destination <-tr_utilisation_choix_debut,
+				net <- i.getJeu()),
+		arc_utilisation_choix_debut3 : petrinet!Arc(
+				poids <- 1,
+				Source <-tr_utilisation_choix_debut,
+				Destination <-thisModule.resolveTemp(i.choix,'place_choix'),
+				net <- i.getJeu()),
+		arc_utilisation_choix_fin1 : petrinet!Arc(
+				poids <- 1,
+				Source <-thisModule.resolveTemp(i.choix,'place_utilisation_choix'),
+				Destination <-tr_utilisation_choix_fin,
+				net <- i.getJeu()),
+		arc_utilisation_choix_fin2 : petrinet!Arc(
+				poids <- 1,
+				Source <-tr_utilisation_choix_fin,
+				Destination <-thisModule.resolveTemp(i.choixFin,'place_choix'),
+				net <- i.getJeu()),
+		arc_utilisation_choix_fin4 : petrinet!Arc(
+				poids <- 1,
+				Source <-thisModule.resolveTemp(i.choix,'place_choix'),
+				Destination <-tr_utilisation_choix_fin,
+				net <- i.getJeu())
+}
+
+rule ChoixDebut2PetriNet {
+	from c:ENIGME!Choix (c.getInteraction().choix = c)
+	to 
+		place_utilisation_choix: petrinet!Place(
+				name <- 'p_utilisation_'+c.name,
+				Jettons <- 0,
+				net <- c.getJeu()),
+		place_choix: petrinet!Place(
+				name <- c.name,
+				Jettons <- 0,
+				net <- c.getJeu()),
+		tr_interaction_choix: petrinet!Transition(
+				name <- 'tr_'+c.getInteraction().name+'_'+c.name,
+			    net <- c.getJeu()),
+		arc_interaction_choix1 : petrinet!Arc(
+				poids <- 1,
+				Source <-thisModule.resolveTemp(c.getInteraction(),'place_interaction'),
+				Destination <-tr_interaction_choix,
+				net <- c.getJeu()),
+		arc_interaction_choix2 : petrinet!Arc(
+				poids <- 1,
+				Source <-tr_interaction_choix,
+				Destination <-place_choix,
+				net <- c.getJeu())
+}
+
+rule ChoixFin2PetriNet {
+	from c:ENIGME!Choix (c.getInteraction().choixFin = c)
+	to 
+		place_utilisation_choix: petrinet!Place(
+				name <- 'p_utilisation_'+c.name,
+				Jettons <- 0,
+				net <- c.getJeu()),
+		place_choix: petrinet!Place(
+				name <- c.name,
+				Jettons <- 0,
+				net <- c.getJeu())
+}
+
+rule Reponse2PetriNet {
+	from a:ENIGME!Reponse
+	to 
+		place_reponse: petrinet!Place(
+				name <- a.name+'_'+a.getChoix().name,
+				Jettons <- 0,
+				net <- a.getJeu()),
+		tr_choix_reponse: petrinet!Transition(
+				name <- 'tr_'+a.getChoix().name+'_'+a.name,
+			    net <- a.getJeu()),
+		arc_choix_reponse1 : petrinet!Arc(
+				poids <- 1,
+				Source <-thisModule.resolveTemp(a.getChoix(),'place_choix'),
+				Destination <-tr_choix_reponse,
+				net <- a.getJeu()),
+		arc_choix_reponse2 : petrinet!Arc(
+				poids <- 1,
+				Source <-tr_choix_reponse,
+				Destination <- place_reponse,
+				net <- a.getJeu()),
+		tr_action_lieu: petrinet!Transition(
+				name <- 'tr_action_'+a.name+'_'+a.getChoix().name,
+			    net <- a.getJeu()),
+		arc_action_lieu1 : petrinet!Arc(
+				poids <- 1,
+				Source <-thisModule.resolveTemp(a,'place_reponse'),
+				Destination <-tr_action_lieu,
+				net <- a.getJeu()),
+		arc_action_utilisation : petrinet!Arc(
+				poids <- if (a.getChoix().getInteraction().choix = a.getChoix()) then 1 else a.action.getNombreConditions() endif,
+				Source <-tr_action_lieu,
+				Destination <- thisModule.resolveTemp(a.getChoix(),'place_utilisation_choix'),
+				net <- a.getJeu()),
+		arc_action_choix_fin : petrinet!Arc(
+				poids <- if (a.getChoix().getInteraction().choix = a.getChoix()) then 1 else 0 endif,
+				Source <-tr_action_lieu,
+				Destination <- thisModule.resolveTemp(a.getChoix().getInteraction().choixFin,'place_choix'),
+				net <- a.getJeu())
+}

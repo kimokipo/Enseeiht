@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simplepdl:Process
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:simplepdl="http://simplepdl"
+    xsi:schemaLocation="http://simplepdl SimplePDL.ecore"
+    name="Process">
+  <processElements/>
+  <processElements
+      xsi:type="simplepdl:Poids">
+    <valeur>3</valeur>
+  </processElements>
+  <processElements
+      xsi:type="simplepdl:Ressource"
+      name="Ressource">
+    <nbOccurences>4</nbOccurences>
+  </processElements>
+  <processElements
+      xsi:type="simplepdl:Guidance"
+      text="description"
+      elements="//@processElements.0"/>
+  <processElements
+      xsi:type="simplepdl:WorkSequence"
+      predecessor="//@processElements.5"
+      successor="//@processElements.5"/>
+  <processElements
+      xsi:type="simplepdl:WorkDefinition"
+      linksToPredecessors="//@processElements.4"
+      linksToSuccessors="//@processElements.4"
+      name="WorkDefinition"
+      ressources="//@processElements.2"/>
+</simplepdl:Process>

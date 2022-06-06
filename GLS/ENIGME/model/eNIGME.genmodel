@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/ENIGME/src-gen" creationIcons="false" editDirectory="/ENIGME.edit/src-gen"
+    editorDirectory="/ENIGME.editor/src-gen" modelPluginID="ENIGME" modelName="ENIGME"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>eNIGME.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="ENIGME" disposableProviderFactory="true" ecorePackage="eNIGME.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="eNIGME.ecore#//EtatReponse">
+      <genEnumLiterals ecoreEnumLiteral="eNIGME.ecore#//EtatReponse/bonne"/>
+      <genEnumLiterals ecoreEnumLiteral="eNIGME.ecore#//EtatReponse/mauvaise"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="eNIGME.ecore#//EtatPossession">
+      <genEnumLiterals ecoreEnumLiteral="eNIGME.ecore#//EtatPossession/possede"/>
+      <genEnumLiterals ecoreEnumLiteral="eNIGME.ecore#//EtatPossession/npossede"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="eNIGME.ecore#//EtatVisibilite">
+      <genEnumLiterals ecoreEnumLiteral="eNIGME.ecore#//EtatVisibilite/visible"/>
+      <genEnumLiterals ecoreEnumLiteral="eNIGME.ecore#//EtatVisibilite/nvisible"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="eNIGME.ecore#//EtatObligation">
+      <genEnumLiterals ecoreEnumLiteral="eNIGME.ecore#//EtatObligation/obligatoire"/>
+      <genEnumLiterals ecoreEnumLiteral="eNIGME.ecore#//EtatObligation/nobligatoire"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="eNIGME.ecore#//EtatChemin">
+      <genEnumLiterals ecoreEnumLiteral="eNIGME.ecore#//EtatChemin/ouvert"/>
+      <genEnumLiterals ecoreEnumLiteral="eNIGME.ecore#//EtatChemin/ferme"/>
+    </genEnums>
+    <genClasses ecoreClass="eNIGME.ecore#//Jeu">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eNIGME.ecore#//Jeu/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eNIGME.ecore#//Jeu/jeuelement"/>
+    </genClasses>
+    <genClasses ecoreClass="eNIGME.ecore#//JeuElement"/>
+    <genClasses ecoreClass="eNIGME.ecore#//Joueur">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eNIGME.ecore#//Joueur/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eNIGME.ecore#//Joueur/limite"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eNIGME.ecore#//Joueur/objets"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eNIGME.ecore#//Joueur/connaissances"/>
+    </genClasses>
+    <genClasses ecoreClass="eNIGME.ecore#//Connaissance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eNIGME.ecore#//Connaissance/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eNIGME.ecore#//Connaissance/nomConnaissance"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eNIGME.ecore#//Connaissance/qualification"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eNIGME.ecore#//Connaissance/etatv"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eNIGME.ecore#//Connaissance/etatp"/>
+    </genClasses>
+    <genClasses ecoreClass="eNIGME.ecore#//Objet">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eNIGME.ecore#//Objet/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eNIGME.ecore#//Objet/nomObjet"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eNIGME.ecore#//Objet/occurrence"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eNIGME.ecore#//Objet/taille"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eNIGME.ecore#//Objet/etatv"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eNIGME.ecore#//Objet/etatp"/>
+    </genClasses>
+    <genClasses ecoreClass="eNIGME.ecore#//Territoire">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eNIGME.ecore#//Territoire/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eNIGME.ecore#//Territoire/lieuDebut"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eNIGME.ecore#//Territoire/lieuxintermediaires"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eNIGME.ecore#//Territoire/lieuxFin"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eNIGME.ecore#//Territoire/chemins"/>
+    </genClasses>
+    <genClasses ecoreClass="eNIGME.ecore#//Choix">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eNIGME.ecore#//Choix/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eNIGME.ecore#//Choix/reponses"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eNIGME.ecore#//Choix/conditions"/>
+    </genClasses>
+    <genClasses ecoreClass="eNIGME.ecore#//Interaction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eNIGME.ecore#//Interaction/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eNIGME.ecore#//Interaction/choix"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eNIGME.ecore#//Interaction/choixFin"/>
+    </genClasses>
+    <genClasses ecoreClass="eNIGME.ecore#//Personne">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eNIGME.ecore#//Personne/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eNIGME.ecore#//Personne/etato"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eNIGME.ecore#//Personne/conditiono"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eNIGME.ecore#//Personne/etatv"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eNIGME.ecore#//Personne/conditionv"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eNIGME.ecore#//Personne/texte"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eNIGME.ecore#//Personne/interaction"/>
+    </genClasses>
+    <genClasses ecoreClass="eNIGME.ecore#//Lieu">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eNIGME.ecore#//Lieu/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eNIGME.ecore#//Lieu/personnes"/>
+    </genClasses>
+    <genClasses ecoreClass="eNIGME.ecore#//Chemin">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eNIGME.ecore#//Chemin/etatc"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eNIGME.ecore#//Chemin/conditionc"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eNIGME.ecore#//Chemin/etato"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eNIGME.ecore#//Chemin/conditiono"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eNIGME.ecore#//Chemin/etatv"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eNIGME.ecore#//Chemin/conditionv"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eNIGME.ecore#//Chemin/precedent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eNIGME.ecore#//Chemin/suivant"/>
+    </genClasses>
+    <genClasses ecoreClass="eNIGME.ecore#//Qualification">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eNIGME.ecore#//Qualification/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eNIGME.ecore#//Qualification/qualification"/>
+    </genClasses>
+    <genClasses ecoreClass="eNIGME.ecore#//Action">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eNIGME.ecore#//Action/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eNIGME.ecore#//Action/objetsconsommables"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eNIGME.ecore#//Action/objetsattribuables"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eNIGME.ecore#//Action/connaissancesattribuables"/>
+    </genClasses>
+    <genClasses ecoreClass="eNIGME.ecore#//Reponse">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eNIGME.ecore#//Reponse/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eNIGME.ecore#//Reponse/etat"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eNIGME.ecore#//Reponse/texte"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eNIGME.ecore#//Reponse/action"/>
+    </genClasses>
+    <genClasses ecoreClass="eNIGME.ecore#//Condition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eNIGME.ecore#//Condition/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eNIGME.ecore#//Condition/objetsRequis"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eNIGME.ecore#//Condition/connaissancesRequises"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

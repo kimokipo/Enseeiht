@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Petri" nsURI="http://petrinet" nsPrefix="petrinet">
+  <eClassifiers xsi:type="ecore:EClass" name="Petri">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="petriElements" upperBound="-1"
+        eType="#//PetriElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PetriElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Place" eSuperTypes="#//PetriElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Jettons" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transitionSortante" upperBound="-1"
+        eType="#//Transition" eOpposite="#//Transition/placeSortie"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transitionEntrante" upperBound="-1"
+        eType="#//Transition" eOpposite="#//Transition/placeEntree"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Transition" eSuperTypes="#//PetriElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="placeSortie" lowerBound="1"
+        upperBound="-1" eType="#//Place" eOpposite="#//Place/transitionSortante"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="placeEntree" lowerBound="1"
+        upperBound="-1" eType="#//Place" eOpposite="#//Place/transitionEntrante"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="earcEntrants" lowerBound="1"
+        upperBound="-1" eType="#//EArc" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="earcSortants" lowerBound="1"
+        upperBound="-1" eType="#//EArc" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EArc" eSuperTypes="#//PetriElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="place" lowerBound="1" eType="#//Place"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transition" lowerBound="1"
+        eType="#//Transition"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="poids" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Arc" eSuperTypes="#//EArc"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ReadArc" eSuperTypes="#//EArc"/>
+</ecore:EPackage>

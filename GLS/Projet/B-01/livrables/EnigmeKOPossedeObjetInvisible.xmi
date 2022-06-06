@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eNIGMA:Jeu xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:eNIGMA="http://www.n7.fr/ENIGMA">
+  <jeuelement xsi:type="eNIGMA:Connaissance" name="Reussite"/>
+  <jeuelement xsi:type="eNIGMA:Action" name="mauvaiseReponse">
+    <objetsconsommables name="Tentative" occurrence="1" taille="1"/>
+  </jeuelement>
+  <jeuelement xsi:type="eNIGMA:Action" name="Quitter"/>
+  <jeuelement xsi:type="eNIGMA:Action" name="Rejouer"/>
+  <jeuelement xsi:type="eNIGMA:Action" name="bonneReponse" connaissancesattribuables="//@jeuelement.0"/>
+  <jeuelement xsi:type="eNIGMA:Joueur" name="Moi" limite="10">
+    <objets name="Tentative" occurrence="3" taille="1" etatv="nvisible"/>
+  </jeuelement>
+  <jeuelement xsi:type="eNIGMA:Condition" name="condTentativePos" connaissancesRequises="//@jeuelement.0">
+    <objetsRequis name="Tentative" occurrence="1" taille="1"/>
+  </jeuelement>
+  <jeuelement xsi:type="eNIGMA:Condition" name="condZeroTentative">
+    <objetsRequis name="Tentative" taille="1"/>
+  </jeuelement>
+  <jeuelement xsi:type="eNIGMA:Condition" name="condReussite">
+    <objetsRequis name="Tentative" occurrence="1" taille="1"/>
+  </jeuelement>
+  <jeuelement xsi:type="eNIGMA:Territoire" name="Egypte">
+    <lieuDebut name="Depart">
+      <personnes name="Sphinx" conditiono="//@jeuelement.6" conditionv="//@jeuelement.6">
+        <texte qualification="Quel est la capitale du Maroc ?"/>
+        <interaction name="question">
+          <choix name="reponses" conditions="//@jeuelement.7 //@jeuelement.8">
+            <reponses name="Ouarzazate" action="//@jeuelement.1"/>
+            <reponses name="Ifrane" action="//@jeuelement.1"/>
+            <reponses name="Casablanca" action="//@jeuelement.1"/>
+            <reponses name="Rabat" action="//@jeuelement.4"/>
+          </choix>
+          <choixFin name="choixFin"/>
+        </interaction>
+      </personnes>
+    </lieuDebut>
+    <lieuxintermediaires name="Milieu"/>
+    <lieuxFin name="Succes">
+      <personnes name="FinalSucces" conditiono="//@jeuelement.8" conditionv="//@jeuelement.8">
+        <texte qualification="Vous avez gagné !"/>
+        <interaction name="finDePartie">
+          <choix name="reponses">
+            <reponses name="quitter" action="//@jeuelement.2"/>
+            <reponses name="rejouer" action="//@jeuelement.3"/>
+          </choix>
+        </interaction>
+      </personnes>
+    </lieuxFin>
+    <lieuxFin name="Echec">
+      <personnes name="FinalEchec" conditiono="//@jeuelement.7" conditionv="//@jeuelement.7">
+        <texte qualification="Vous avez perdu !"/>
+        <interaction name="finDePartie">
+          <choix name="reponses">
+            <reponses name="quitter" action="//@jeuelement.2"/>
+            <reponses name="rejouer" action="//@jeuelement.3"/>
+          </choix>
+        </interaction>
+      </personnes>
+    </lieuxFin>
+    <chemins etatc="ferme" conditionc="//@jeuelement.8" conditiono="//@jeuelement.8" conditionv="//@jeuelement.8" precedent="//@jeuelement.9/@lieuDebut" suivant="//@jeuelement.9/@lieuxFin.0"/>
+    <chemins etatc="ferme" conditionc="//@jeuelement.7" conditiono="//@jeuelement.7" conditionv="//@jeuelement.7" precedent="//@jeuelement.9/@lieuDebut" suivant="//@jeuelement.9/@lieuxFin.1"/>
+  </jeuelement>
+</eNIGMA:Jeu>

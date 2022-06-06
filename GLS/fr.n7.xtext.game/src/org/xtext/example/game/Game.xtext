@@ -1,0 +1,154 @@
+grammar fr.n7.GAME with org.eclipse.xtext.common.Terminals
+generate gAME "http://www.n7.fr/GAME"
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+
+/* Exigence 40 */ /* Exigence 41 */ /* Exigence 42 */ /* Exigence 43 */
+
+Game :
+	'game' name = ID '{'
+	    explorateur = Explorateur /* Exigence 1 */
+	    territoire = Territoire
+	'}'
+;
+
+EString returns ecore::EString:
+	STRING | ID
+;
+
+Explorateur : 
+    'explorateur' name = ID '{'
+        'objets' objets += Objet* /* Exigence 3 */ /* Exigence 13 OCL */ /* Exigence 14 OCL */ /* Exigence 15 OCL */
+        'connaisances' connaissances += Connaissance* /* Exigence 3 */
+        'lieuCourant' lieuCourant = [Lieu] /* Exigence 12 OCL */ /* Exigence 18 OCL */
+        'lieuxExplores' lieuExplores += [Lieu]* 
+        'limiteTaille' limite = EInt /* Exigence 6 */ /* OCL */
+    '}'
+;
+
+Objet : 
+    'objet' name = ID 
+    'initVal' initVal = EInt 
+    'taille' taille = EInt  /* Exigence 3 */
+    'etat' etat = EtatVisibilite /* Exigence 9 */
+    ('obtention' condition = Condition)? /* Exigence 22 */
+    qualification += Qualification* /* Exigence 39 */
+;
+
+Connaissance :  
+    'connaissance' name = ID '{'
+        qualification += Qualification* /* Exigence 39 */
+        ('obtention' condition = Condition)? /* Exigence 22 */
+        'etat' etat = EtatVisibilite /* Exigence 9 */
+    '}'
+;
+
+Lieu :  /* Exigence 7 */ /* Exigence 9 */
+    'lieu' name = ID '{'
+        'personnes' personnes += Personne* /* Exigence 24 OCL */
+        'objets' objets += Objet*
+        'connaissances' connaisances += Connaissance*
+        'chemins' chemin += Chemin* /* Exigence 16 */ /* Exigence 17 OCL */ /* Exigence 19 OCL */
+        qualification += Qualification* /* Exigence 39 */
+    '}'
+;
+
+Territoire :
+    'territoire' '{'
+        'depart' lieuDepart = Lieu /* Exigence 8 */
+        'inter' lieux += Lieu*
+        'fins' lieuxFin += Lieu* /* Exigence 8 */
+        'chemins' chemins += Chemin*
+    '}'
+;
+
+Condition :
+    'condition' val = EBoolean '{'
+        'objetsTrue' objetsTrue += [Objet]*
+        'objetsFalse' objetsFalse += [Objet]*
+        'connaissanceTrue' connaissanceTrue += [Connaissance]*
+        'connaissanceFalse' connaissanceFalse += [Connaissance]*
+        'lieuExplores' lieuxExplores += [Lieu]*
+    '}'
+;
+
+Chemin :
+	'etatChemin' etat = EtatChemin 'de' predecessor = [Lieu] 'a' successor = [Lieu] '{'
+        'visible' conditionsVisible = Condition /* Exigence 11 */
+        'ouverture' conditionsOuverture = Condition /* Exigence 10*/
+        'obligation' conditionsObligation = Condition
+        'objetsTransmis' objetsTransmis += Objet* /* Exigence 20 */
+        'prixObjets' prixObjets += Objet* /* Exigence 21 */
+        qualification += Qualification* /* Exigence 39 */
+    '}'
+;
+
+
+Personne : 
+    'personne' name = EString '{'
+        'activite' activite = EtatActivite /* Exigence 9 */
+        'visibilite' conditionsVisible = Condition /* Exigence 11 */
+        'obligation' conditionsObligation = Condition /* Exigence 25 */ /* Exigence 26 OCL */ 
+        'interaction' interaction = Interaction /* Exigence 27 OCL */
+        qualification += Qualification* 
+    '}'
+;
+
+Interaction : /* Exigence 28 OCL? */
+    'interaction' '{'
+        'choixDebut' choixDebut = Choix /* Exigence 30 */
+        'choixInter' choixInter += Choix* /* Exigence 29 */
+        'choixFin' choixFin = Choix /* Exigence 30 */ /* Exigence 31 OCL */
+        'Fin' condition = Condition /* Exigence 34 OCL*/ 
+    '}'
+;
+
+Choix : 
+    'choix' '{'
+        'actions' actions += Action* /* Exigence 31 ? */
+    '}'
+;
+
+Type :
+    texte=EString
+;
+
+Action : /* Exigence 32 */
+    'action' '{'
+        ('objetsConsommes' objetsConsommes+=Objet*)? /* Exigence 35 */ /* Exigence 38 */
+        ('objetsProduits' objetsProduits+=Objet*)? /* Exigence 35 */ /* Exigence 36 */ /* Exigence 37 */
+        ('connaissanceProduits' connaissanceProduits+=Connaissance*)? /* Exigence 35 */
+        qualification += Qualification* /* Exigence 39 */
+    '}'
+;
+
+
+Qualification :
+	'qualif' texte=EString '{'
+        condition = Condition
+    '}'
+;
+
+EInt returns ecore::EInt:
+	'-'? INT
+;
+
+EBoolean returns ecore::EBoolean:
+	'true' | 'false'
+;
+
+enum EtatVisibilite returns EtatVisibilite:
+	visible = 'visible' | nonvisible = 'non visible'
+;
+
+enum EtatObligation returns EtatObligation:
+	obligatoire = 'obligatoire' | nonobligatoire = 'non obligatoire'
+;
+
+enum EtatChemin returns EtatChemin:
+	ouvert = 'ouvert' | ferme = 'ferme'
+
+;
+enum EtatActivite returns Activite:
+	actif = 'actif' | inactif = 'inactif'
+;

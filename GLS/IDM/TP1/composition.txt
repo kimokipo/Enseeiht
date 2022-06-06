@@ -1,0 +1,98 @@
+Tina version 3.4.4 -- 01/05/16 -- LAAS/CNRS
+
+mode -R
+
+INPUT NET ------------------------------------------------------- 
+
+parsed net noname
+
+14 places, 8 transitions
+
+net noname
+tr Cl1_enter Cl1_wait2 G2_Cl1_ack -> Cl1_work 
+tr Cl1_exit Cl1_work -> Cl1_G1_release Cl1_G2_release Cl1_idle 
+tr Cl1_req1 Cl1_idle -> Cl1_G1_req Cl1_wait1 
+tr Cl1_req2 Cl1_wait1 G1_Cl1_ack -> Cl1_G2_req Cl1_wait2 
+tr G1_fournir Cl1_G1_req G1_idle lib1 -> G1_Cl1_ack 
+tr G1_liberer Cl1_G1_release G1_Cl1_ack -> G1_idle lib1 
+tr G2_fournir Cl1_G2_req G2_idle lib1 -> G2_Cl1_ack 
+tr G2_liberer Cl1_G2_release G2_Cl1_ack -> G2_idle lib2 
+pl Cl1_G1_req (1)
+pl Cl1_G2_req (1)
+pl Cl1_idle (1)
+pl G1_idle (1)
+pl G2_idle (1)
+pl lib1 (1)
+pl lib2 (1)
+
+0.001s
+
+REACHABILITY ANALYSIS ------------------------------------------- 
+
+bounded
+
+7 marking(s), 8 transition(s)
+
+MARKINGS:
+
+0 : Cl1_G1_req Cl1_G2_req Cl1_idle G1_idle G2_idle lib1 lib2
+1 : Cl1_G1_req*2 Cl1_G2_req Cl1_wait1 G1_idle G2_idle lib1 lib2
+2 : Cl1_G2_req Cl1_idle G1_Cl1_ack G2_idle lib2
+3 : Cl1_G1_req Cl1_idle G1_idle G2_Cl1_ack lib2
+4 : Cl1_G1_req Cl1_G2_req Cl1_wait1 G1_Cl1_ack G2_idle lib2
+5 : Cl1_G1_req*2 Cl1_wait1 G1_idle G2_Cl1_ack lib2
+6 : Cl1_G1_req Cl1_G2_req*2 Cl1_wait2 G2_idle lib2
+
+REACHABILITY GRAPH:
+
+0 -> Cl1_req1/1, G1_fournir/2, G2_fournir/3
+1 -> G1_fournir/4, G2_fournir/5
+2 -> Cl1_req1/4
+3 -> Cl1_req1/5
+4 -> Cl1_req2/6
+5 -> 
+6 -> 
+
+0.000s
+
+LIVENESS ANALYSIS ----------------------------------------------- 
+
+not live
+not reversible
+
+2 dead marking(s), 2 live marking(s)
+4 dead transition(s), 0 live transition(s)
+
+dead marking(s): 6 5
+
+dead transition(s): G2_liberer G1_liberer Cl1_exit Cl1_enter
+
+STRONG CONNECTED COMPONENTS:
+
+0 : 6
+1 : 4
+2 : 5
+3 : 1
+4 : 2
+5 : 3
+6 : 0
+
+SCC GRAPH:
+
+0 ->
+1 -> Cl1_req2/0
+2 ->
+3 -> G1_fournir/1, G2_fournir/2
+4 -> Cl1_req1/1
+5 -> Cl1_req1/2
+6 -> Cl1_req1/3, G1_fournir/4, G2_fournir/5
+
+0.000s
+
+ANALYSIS COMPLETED ---------------------------------------------- 
+
+# net noname, 14 places, 8 transitions                                 #
+# bounded, not live, not reversible                                    #
+# abstraction        count      props      psets       dead       live #
+#      states            7         14          ?          2          2 # 
+# transitions            8          8          ?          4          0 #

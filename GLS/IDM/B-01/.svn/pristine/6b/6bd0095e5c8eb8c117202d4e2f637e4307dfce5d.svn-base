@@ -1,0 +1,127 @@
+-- @nsURI SimplePDL=http://simplepdl
+-- @nsURI PetriNet=http://petrinet
+module SimplePDL2PetriNet;
+create OUT: petrinet from  IN: simplepdl;
+
+-- Obtenir le processus qui contient ce process element.
+-- Remarque: Ce helper ne serait pas utile si une référence opposite
+-- avait été placée entre Process et ProcessElement
+helper context simplepdl!ProcessElement
+def: getProcess(): simplepdl!Process =
+	simplepdl!Process.allInstances()
+		->select(p | p.processElements->includes(self))
+		->asSequence()->first();
+
+helper context simplepdl!WorkDefinition
+def: Somme(): Integer =
+	 if (self.poids->size()=0) then 1
+	 else (self.poids->collect(p | p.val)->sum()) endif;
+
+
+
+
+-- Traduire un Process en un PetriNet de même nom
+rule Process2PetriNet {
+	from p: simplepdl!Process
+	to pn: petrinet!Petri (name <- p.name)
+}
+
+rule Ressource2PetriNet {
+	from r: simplepdl!Ressource
+	to 
+		p_ressource: petrinet!Place(
+				name <- r.name,
+				Jettons <- r.nb_occurence,
+				net <- r.getProcess())
+}
+
+rule Poids2PetriNet {
+	from r: simplepdl!Poids
+	to 
+		arc_poids1: petrinet!Arc(
+				poids <- r.val,
+				Source <-thisModule.resolveTemp(r.workdefinition,'tr_finish'),
+				Destination <-thisModule.resolveTemp(r.ressource,'p_ressource'),
+				net <- r.ressource.getProcess()),
+	   	arc_poids2: petrinet!Arc(
+				poids <- r.val,
+				Source <-thisModule.resolveTemp(r.ressource,'p_ressource'),
+				Destination <-thisModule.resolveTemp(r.workdefinition,'tr_start'),
+				net <- r.ressource.getProcess())		
+	 
+}
+-- Traduire une WorkDefinition en un motif sur le réseau de Petri
+rule WorkDefinition2PetriNet {
+	from wd: simplepdl!WorkDefinition
+	to
+		-- PLACES d'une WorkDefinition
+		p_ready: petrinet!Place(
+				name <- wd.name + '_ready',
+				Jettons <- 1,
+				net <- wd.getProcess()),
+				
+		p_started: petrinet!Place(
+			name <- wd.name + '_started',
+			Jettons <- 0,
+			net <- wd.getProcess()),
+			
+		p_finished: petrinet!Place(
+				name <- wd.name + '_finished',
+				Jettons <- 0,
+			    net <- wd.getProcess()),
+				
+		p_demarree: petrinet!Place(
+			name <- wd.name + '_demarree',
+			Jettons <- 0,
+			net <- wd.getProcess()),
+			
+			
+		-- Transition d'une WorkDefinition
+		tr_start: petrinet!Transition(
+				name <- wd.name + '_start',
+			    net <- wd.getProcess()),
+		tr_finish: petrinet!Transition(
+			name <- wd.name + '_finish',
+			net <- wd.getProcess()),
+			
+		-- Arcs d'une WorkDefinition
+		arc1: petrinet!Arc(
+				poids <- 1,
+				Source <- p_ready,
+				Destination <- tr_start,
+			net <- wd.getProcess()),
+		arc2: petrinet!Arc(
+				poids <-wd.Somme(),
+				Source <- tr_start,
+				Destination <- p_started,
+			net <- wd.getProcess()),
+		arc3: petrinet!Arc(
+				poids <- 1,
+				Source <- tr_start,
+				Destination <- p_demarree,
+			net <- wd.getProcess()),
+		arc4: petrinet!Arc(
+				poids <- wd.Somme(),
+				Source <- p_started,
+				Destination <- tr_finish,
+			net <- wd.getProcess()),
+		arc5: petrinet!Arc(
+				poids <- 1,
+				Source <- tr_finish,
+				Destination <- p_finished,
+			net <- wd.getProcess())
+}
+
+rule WorkSequence2PetriNet {
+	from ws: simplepdl!WorkSequence
+	to 
+		-- Read Arc de WorkSequence
+		read_arc: petrinet!ReadArc(
+				poids <- 1,
+				Source <- if ((ws.linkType.toString() = 'startToStart') or (ws.linkType.toString() = 'startToFinish')) then
+				thisModule.resolveTemp(ws.predecessor,'p_demarree') else thisModule.resolveTemp(ws.predecessor,'p_finished') endif,
+				Destination <- if ((ws.linkType.toString() = 'startToStart') or (ws.linkType.toString() = 'finishToStart')) then
+				thisModule.resolveTemp(ws.successor,'tr_start') else thisModule.resolveTemp(ws.successor,'tr_finish') endif,
+			net <- ws.getProcess())
+				
+}

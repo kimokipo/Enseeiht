@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<petrinet:Petri xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:petrinet="http://petrinet" name="Enigme">
+  <petriElements xsi:type="petrinet:Place" earcsortants="//@earc.1 //@earc.10 //@earc.12 //@earc.20 //@earc.21 //@earc.22 //@earc.23" name="Tentative" Jettons="3"/>
+  <petriElements xsi:type="petrinet:Place" name="Tentative_visiblite" Jettons="1"/>
+  <petriElements xsi:type="petrinet:Place" earcsortants="//@earc.2 //@earc.11 //@earc.13" name="Tentative_obtention" Jettons="1"/>
+  <petriElements xsi:type="petrinet:Place" earcsortants="//@earc.4 //@earc.6 //@earc.15 //@earc.18" name="Reussite" Jettons="1"/>
+  <petriElements xsi:type="petrinet:Place" earcentrants="//@earc.24" name="Reussite_visiblite"/>
+  <petriElements xsi:type="petrinet:Place" earcentrants="//@earc.26" earcsortants="//@earc.5 //@earc.7 //@earc.16 //@earc.19" name="Reussite_obtention"/>
+  <petriElements xsi:type="petrinet:Place" earcsortants="//@earc.8 //@earc.25" name="Reussite_non_obtention" Jettons="1"/>
+  <petriElements xsi:type="petrinet:Place" earcsortants="//@earc.27 //@earc.38 //@earc.49" name="Enigme" Jettons="1"/>
+  <petriElements xsi:type="petrinet:Place" earcentrants="//@earc.39" name="Succes"/>
+  <petriElements xsi:type="petrinet:Place" earcentrants="//@earc.28" name="Echec"/>
+  <petriElements xsi:type="petrinet:Transition" earcentrants="//@earc.27 //@earc.29 //@earc.30 //@earc.31" earcsortants="//@earc.28" name="tr_Enigme_Echec"/>
+  <petriElements xsi:type="petrinet:Place" earcentrants="//@earc.32" earcsortants="//@earc.29 //@earc.35" name="p_chemin_Enigme_Echec_visibilite" Jettons="1"/>
+  <petriElements xsi:type="petrinet:Place" earcentrants="//@earc.33" earcsortants="//@earc.30 //@earc.36" name="p_chemin_Enigme_Echec_obligation" Jettons="1"/>
+  <petriElements xsi:type="petrinet:Place" earcentrants="//@earc.34" earcsortants="//@earc.31 //@earc.37" name="p_chemin_Enigme_Echec_ouvert" Jettons="1"/>
+  <petriElements xsi:type="petrinet:Transition" earcsortants="//@earc.32" name="tr_chemin_Enigme_Echec_visibilite"/>
+  <petriElements xsi:type="petrinet:Transition" earcsortants="//@earc.33" name="tr_chemin_Enigme_Echec_obligation"/>
+  <petriElements xsi:type="petrinet:Transition" earcsortants="//@earc.34" name="tr_chemin_Enigme_Echec_ouverture"/>
+  <petriElements xsi:type="petrinet:Transition" earcentrants="//@earc.35" name="tr_chemin_Enigme_Echec_non_visibilite"/>
+  <petriElements xsi:type="petrinet:Transition" earcentrants="//@earc.9 //@earc.10 //@earc.11 //@earc.17 //@earc.18 //@earc.19 //@earc.36" name="tr_chemin_Enigme_Echec_non_obligation"/>
+  <petriElements xsi:type="petrinet:Transition" earcentrants="//@earc.37" name="tr_chemin_Enigme_Echec_non_ouverture"/>
+  <petriElements xsi:type="petrinet:Transition" earcentrants="//@earc.38 //@earc.40 //@earc.41 //@earc.42" earcsortants="//@earc.39" name="tr_Enigme_Succes"/>
+  <petriElements xsi:type="petrinet:Place" earcentrants="//@earc.43" earcsortants="//@earc.40 //@earc.46" name="p_chemin_Enigme_Succes_visibilite" Jettons="1"/>
+  <petriElements xsi:type="petrinet:Place" earcentrants="//@earc.44" earcsortants="//@earc.41 //@earc.47" name="p_chemin_Enigme_Succes_obligation" Jettons="1"/>
+  <petriElements xsi:type="petrinet:Place" earcentrants="//@earc.45" earcsortants="//@earc.42 //@earc.48" name="p_chemin_Enigme_Succes_ouvert"/>
+  <petriElements xsi:type="petrinet:Transition" earcsortants="//@earc.43" name="tr_chemin_Enigme_Succes_visibilite"/>
+  <petriElements xsi:type="petrinet:Transition" earcsortants="//@earc.44" name="tr_chemin_Enigme_Succes_obligation"/>
+  <petriElements xsi:type="petrinet:Transition" earcentrants="//@earc.3 //@earc.4 //@earc.5" earcsortants="//@earc.45" name="tr_chemin_Enigme_Succes_ouverture"/>
+  <petriElements xsi:type="petrinet:Transition" earcentrants="//@earc.46" name="tr_chemin_Enigme_Succes_non_visibilite"/>
+  <petriElements xsi:type="petrinet:Transition" earcentrants="//@earc.47" name="tr_chemin_Enigme_Succes_non_obligation"/>
+  <petriElements xsi:type="petrinet:Transition" earcentrants="//@earc.48" name="tr_chemin_Enigme_Succes_non_ouverture"/>
+  <petriElements xsi:type="petrinet:Place" earcentrants="//@earc.50" earcsortants="//@earc.57" name="Sphinx"/>
+  <petriElements xsi:type="petrinet:Transition" earcentrants="//@earc.49 //@earc.51 //@earc.52" earcsortants="//@earc.50" name="tr_Enigme_Sphinx"/>
+  <petriElements xsi:type="petrinet:Place" earcentrants="//@earc.53" earcsortants="//@earc.51 //@earc.55" name="p_Sphinx_visibilite" Jettons="1"/>
+  <petriElements xsi:type="petrinet:Place" earcentrants="//@earc.54" earcsortants="//@earc.52 //@earc.56" name="p_Sphinx_obligation" Jettons="1"/>
+  <petriElements xsi:type="petrinet:Transition" earcentrants="//@earc.0 //@earc.1 //@earc.2" earcsortants="//@earc.53" name="tr_Sphinx_visibilite"/>
+  <petriElements xsi:type="petrinet:Transition" earcsortants="//@earc.54" name="tr_Sphinx_obligation"/>
+  <petriElements xsi:type="petrinet:Transition" earcentrants="//@earc.14 //@earc.15 //@earc.16 //@earc.55 //@earc.56" name="tr_Sphinx_non_visibilite"/>
+  <petriElements xsi:type="petrinet:Transition" name="tr_Sphinx_non_obligation"/>
+  <petriElements xsi:type="petrinet:Place" earcentrants="//@earc.58" earcsortants="//@earc.65" name="Question"/>
+  <petriElements xsi:type="petrinet:Transition" earcentrants="//@earc.57" earcsortants="//@earc.58" name="tr_Sphinx_Question"/>
+  <petriElements xsi:type="petrinet:Transition" earcentrants="//@earc.6 //@earc.7 //@earc.62 //@earc.64" earcsortants="//@earc.63" name="tr_utilisation_choix_fin"/>
+  <petriElements xsi:type="petrinet:Transition" earcentrants="//@earc.8 //@earc.12 //@earc.13 //@earc.59 //@earc.60" earcsortants="//@earc.61" name="tr_utilisation_choix_debut"/>
+  <petriElements xsi:type="petrinet:Place" earcentrants="//@earc.70 //@earc.75 //@earc.80 //@earc.85" earcsortants="//@earc.59 //@earc.62" name="p_utilisation_debut"/>
+  <petriElements xsi:type="petrinet:Place" earcentrants="//@earc.61 //@earc.66" earcsortants="//@earc.64 //@earc.67 //@earc.72 //@earc.77 //@earc.82" name="debut"/>
+  <petriElements xsi:type="petrinet:Transition" earcentrants="//@earc.65" earcsortants="//@earc.66" name="tr_Question_debut"/>
+  <petriElements xsi:type="petrinet:Place" earcentrants="//@earc.90" earcsortants="//@earc.0 //@earc.3 //@earc.9 //@earc.14 //@earc.17" name="p_utilisation_choixFin"/>
+  <petriElements xsi:type="petrinet:Place" earcentrants="//@earc.63 //@earc.71 //@earc.76 //@earc.81 //@earc.86 //@earc.91" earcsortants="//@earc.60 //@earc.87" name="choixFin"/>
+  <petriElements xsi:type="petrinet:Place" earcentrants="//@earc.68" earcsortants="//@earc.69" name="r1_debut"/>
+  <petriElements xsi:type="petrinet:Transition" earcentrants="//@earc.67" earcsortants="//@earc.68" name="tr_debut_r1"/>
+  <petriElements xsi:type="petrinet:Transition" earcentrants="//@earc.20 //@earc.69" earcsortants="//@earc.70 //@earc.71" name="tr_action_r1_debut"/>
+  <petriElements xsi:type="petrinet:Place" earcentrants="//@earc.73" earcsortants="//@earc.74" name="r2_debut"/>
+  <petriElements xsi:type="petrinet:Transition" earcentrants="//@earc.72" earcsortants="//@earc.73" name="tr_debut_r2"/>
+  <petriElements xsi:type="petrinet:Transition" earcentrants="//@earc.21 //@earc.74" earcsortants="//@earc.75 //@earc.76" name="tr_action_r2_debut"/>
+  <petriElements xsi:type="petrinet:Place" earcentrants="//@earc.78" earcsortants="//@earc.79" name="r3_debut"/>
+  <petriElements xsi:type="petrinet:Transition" earcentrants="//@earc.77" earcsortants="//@earc.78" name="tr_debut_r3"/>
+  <petriElements xsi:type="petrinet:Transition" earcentrants="//@earc.22 //@earc.79" earcsortants="//@earc.80 //@earc.81" name="tr_action_r3_debut"/>
+  <petriElements xsi:type="petrinet:Place" earcentrants="//@earc.83" earcsortants="//@earc.84" name="r4_debut"/>
+  <petriElements xsi:type="petrinet:Transition" earcentrants="//@earc.82" earcsortants="//@earc.83" name="tr_debut_r4"/>
+  <petriElements xsi:type="petrinet:Transition" earcentrants="//@earc.23 //@earc.25 //@earc.84" earcsortants="//@earc.24 //@earc.26 //@earc.85 //@earc.86" name="tr_action_r4_debut"/>
+  <petriElements xsi:type="petrinet:Place" earcentrants="//@earc.88" earcsortants="//@earc.89" name="r1_choixFin"/>
+  <petriElements xsi:type="petrinet:Transition" earcentrants="//@earc.87" earcsortants="//@earc.88" name="tr_choixFin_r1"/>
+  <petriElements xsi:type="petrinet:Transition" earcentrants="//@earc.89" earcsortants="//@earc.90 //@earc.91" name="tr_action_r1_choixFin"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.45" Destination="//@petriElements.34"/>
+  <earc xsi:type="petrinet:ReadArc" poids="1" Source="//@petriElements.0" Destination="//@petriElements.34"/>
+  <earc xsi:type="petrinet:ReadArc" poids="1" Source="//@petriElements.2" Destination="//@petriElements.34"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.45" Destination="//@petriElements.26"/>
+  <earc xsi:type="petrinet:ReadArc" poids="1" Source="//@petriElements.3" Destination="//@petriElements.26"/>
+  <earc xsi:type="petrinet:ReadArc" poids="1" Source="//@petriElements.5" Destination="//@petriElements.26"/>
+  <earc xsi:type="petrinet:ReadArc" poids="1" Source="//@petriElements.3" Destination="//@petriElements.40"/>
+  <earc xsi:type="petrinet:ReadArc" poids="1" Source="//@petriElements.5" Destination="//@petriElements.40"/>
+  <earc xsi:type="petrinet:ReadArc" poids="1" Source="//@petriElements.6" Destination="//@petriElements.41"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.45" Destination="//@petriElements.18"/>
+  <earc xsi:type="petrinet:ReadArc" Source="//@petriElements.0" Destination="//@petriElements.18"/>
+  <earc xsi:type="petrinet:ReadArc" poids="1" Source="//@petriElements.2" Destination="//@petriElements.18"/>
+  <earc xsi:type="petrinet:ReadArc" poids="1" Source="//@petriElements.0" Destination="//@petriElements.41"/>
+  <earc xsi:type="petrinet:ReadArc" poids="1" Source="//@petriElements.2" Destination="//@petriElements.41"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.45" Destination="//@petriElements.36"/>
+  <earc xsi:type="petrinet:ReadArc" poids="1" Source="//@petriElements.3" Destination="//@petriElements.36"/>
+  <earc xsi:type="petrinet:ReadArc" poids="1" Source="//@petriElements.5" Destination="//@petriElements.36"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.45" Destination="//@petriElements.18"/>
+  <earc xsi:type="petrinet:ReadArc" poids="1" Source="//@petriElements.3" Destination="//@petriElements.18"/>
+  <earc xsi:type="petrinet:ReadArc" poids="1" Source="//@petriElements.5" Destination="//@petriElements.18"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.0" Destination="//@petriElements.49"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.0" Destination="//@petriElements.52"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.0" Destination="//@petriElements.55"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.0" Destination="//@petriElements.58"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.58" Destination="//@petriElements.4"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.6" Destination="//@petriElements.58"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.58" Destination="//@petriElements.5"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.7" Destination="//@petriElements.10"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.10" Destination="//@petriElements.9"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.11" Destination="//@petriElements.10"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.12" Destination="//@petriElements.10"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.13" Destination="//@petriElements.10"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.14" Destination="//@petriElements.11"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.15" Destination="//@petriElements.12"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.16" Destination="//@petriElements.13"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.11" Destination="//@petriElements.17"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.12" Destination="//@petriElements.18"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.13" Destination="//@petriElements.19"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.7" Destination="//@petriElements.20"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.20" Destination="//@petriElements.8"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.21" Destination="//@petriElements.20"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.22" Destination="//@petriElements.20"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.23" Destination="//@petriElements.20"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.24" Destination="//@petriElements.21"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.25" Destination="//@petriElements.22"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.26" Destination="//@petriElements.23"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.21" Destination="//@petriElements.27"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.22" Destination="//@petriElements.28"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.23" Destination="//@petriElements.29"/>
+  <earc xsi:type="petrinet:ReadArc" poids="1" Source="//@petriElements.7" Destination="//@petriElements.31"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.31" Destination="//@petriElements.30"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.32" Destination="//@petriElements.31"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.33" Destination="//@petriElements.31"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.34" Destination="//@petriElements.32"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.35" Destination="//@petriElements.33"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.32" Destination="//@petriElements.36"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.33" Destination="//@petriElements.36"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.30" Destination="//@petriElements.39"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.39" Destination="//@petriElements.38"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.42" Destination="//@petriElements.41"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.46" Destination="//@petriElements.41"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.41" Destination="//@petriElements.43"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.42" Destination="//@petriElements.40"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.40" Destination="//@petriElements.46"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.43" Destination="//@petriElements.40"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.38" Destination="//@petriElements.44"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.44" Destination="//@petriElements.43"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.43" Destination="//@petriElements.48"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.48" Destination="//@petriElements.47"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.47" Destination="//@petriElements.49"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.49" Destination="//@petriElements.42"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.49" Destination="//@petriElements.46"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.43" Destination="//@petriElements.51"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.51" Destination="//@petriElements.50"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.50" Destination="//@petriElements.52"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.52" Destination="//@petriElements.42"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.52" Destination="//@petriElements.46"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.43" Destination="//@petriElements.54"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.54" Destination="//@petriElements.53"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.53" Destination="//@petriElements.55"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.55" Destination="//@petriElements.42"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.55" Destination="//@petriElements.46"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.43" Destination="//@petriElements.57"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.57" Destination="//@petriElements.56"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.56" Destination="//@petriElements.58"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.58" Destination="//@petriElements.42"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.58" Destination="//@petriElements.46"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.46" Destination="//@petriElements.60"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.60" Destination="//@petriElements.59"/>
+  <earc xsi:type="petrinet:Arc" poids="1" Source="//@petriElements.59" Destination="//@petriElements.61"/>
+  <earc xsi:type="petrinet:Arc" poids="3" Source="//@petriElements.61" Destination="//@petriElements.45"/>
+  <earc xsi:type="petrinet:Arc" Source="//@petriElements.61" Destination="//@petriElements.46"/>
+</petrinet:Petri>

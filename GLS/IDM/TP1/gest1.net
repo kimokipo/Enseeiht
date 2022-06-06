@@ -1,0 +1,10 @@
+pl G1_idle (1)
+pl lib1 (1)
+pl Cl1_G1_req (1)
+pl Cl2_G1_req (1)
+
+tr G1_Cl1_fournir G1_idle Cl1_G1_req lib1 -> G1_Cl1_ack 
+tr G1_Cl2_fournir G1_idle Cl2_G1_req lib1 -> G1_Cl2_ack 
+tr G1_Cl1_liberer Cl1_G1_release -> lib1 G1_idle
+tr G1_Cl2_liberer Cl2_G1_release -> lib1 G1_idle
+

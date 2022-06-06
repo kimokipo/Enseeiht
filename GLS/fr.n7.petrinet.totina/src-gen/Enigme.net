@@ -1,0 +1,27 @@
+net Enigme
+pl Tentative (3)
+pl Tentative_visiblite (1)
+pl Enigme (1)
+pl Succes (0)
+pl Echec (0)
+pl p_chemin_Enigme_Succes_visibilite (0)
+pl p_chemin_Enigme_Succes_obligation (1)
+pl p_chemin_Enigme_Succes_ouvert (1)
+pl p_chemin_Enigme_Echec_visibilite (0)
+pl p_chemin_Enigme_Echec_obligation (1)
+pl p_chemin_Enigme_Echec_ouvert (1)
+pl Sphynx (1)
+pl p_Sphynx_visibilite (1)
+pl p_Sphynx_obligation (1)
+pl Interaction1 (1)
+pl Debut (1)
+pl reponse1 (0)
+pl reponse2 (0)
+tr tr_Enigme_Succes Enigme p_chemin_Enigme_Succes_visibilite p_chemin_Enigme_Succes_obligation p_chemin_Enigme_Succes_ouvert -> Succes
+tr tr_Enigme_Echec Enigme p_chemin_Enigme_Echec_visibilite p_chemin_Enigme_Echec_obligation p_chemin_Enigme_Echec_ouvert -> Echec
+tr tr_Enigme_Sphynx Enigme p_Sphynx_visibilite p_Sphynx_obligation -> Sphynx
+tr tr_Sphynx_Interaction1 Sphynx -> Interaction1
+tr tr_Interaction1_Debut Interaction1 -> Debut
+tr tr_Debut_reponse1 Debut -> reponse1
+tr tr_Debut_reponse2 Debut -> reponse2
+

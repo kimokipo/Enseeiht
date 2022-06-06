@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<petrinet:Petri
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:petrinet="http://petrinet"
+    xsi:schemaLocation="http://petrinet petrinet.ecore">
+  <petriElements/>
+  <petriElements
+      xsi:type="petrinet:Transition">
+    <earcEntrants
+        place="//@petriElements.2"/>
+    <earcSortants/>
+  </petriElements>
+  <petriElements
+      xsi:type="petrinet:Place">
+    <Jettons>0</Jettons>
+  </petriElements>
+  <petriElements
+      xsi:type="petrinet:Place">
+    <Jettons>2</Jettons>
+  </petriElements>
+</petrinet:Petri>

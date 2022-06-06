@@ -1,0 +1,49 @@
+game enigme {
+    explorateur moi 4 {
+    mes connaissances:
+    mes objets:objet Tentative est de taille 5
+               objet Tentative est de taille 6
+               objet Tentative est de taille 7
+    mes lieux explores: lieu tikiouine{
+        ce lieu contient:
+      }
+    }
+    territoire {
+        lieu Enigme {
+            ce lieu contient:
+            personne Sphynx {
+                objetsVisibilité : objet Tentative est de taille 5
+                connaissanceInVisibilité : connaissance Reussite
+                obligation : oui 
+                qualification : "Quel est la couleur du ciel ?"
+                interaction {
+                    choix {
+                        action {
+                            qualification : "Bleu"
+                            objetsConsommes : objet Tentative est de taille 5
+                            connaissanceProduits : connaissance Reussite
+                        }
+                        action {
+                            qualification : "Vert"
+                            objetsConsommes : objet Tentative est de taille 4
+                        }
+                    }
+                }
+            }
+        }
+        lieu Succes {
+            ce lieu contient:
+        }
+        lieu Echec {
+            ce lieu contient:
+        }
+        ce chemin est etat ferme
+        chemin de Enigme à Succes {
+                    connaissanceVisibilité : connaissance Reussite
+         }
+         ce chemin est etat ouvert
+         chemin de Enigme à Echec {
+                    objetsInVisibilité : objet Tentative est de taille 3
+         }
+    }
+}

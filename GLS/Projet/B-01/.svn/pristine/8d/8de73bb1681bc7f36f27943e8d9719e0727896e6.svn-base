@@ -1,0 +1,80 @@
+grammar fr.n7.GAME with org.eclipse.xtext.common.Terminals
+generate gAMe "http://www.n7.fr/GAME"
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+Game :
+	'game' name=ID '{'
+	    explorateur = Explorateur
+	    territoire = Territoire
+	'}' ;
+
+EString returns ecore::EString:
+	STRING | ID;
+	
+Territoire : 'territoire' '{'
+    lieux+=Lieu*
+    chemins+=Chemin*
+    '}';
+Chemin : 
+	'ce chemin est etat' etat = EtatChemin
+	'chemin de ' predecessor=[Lieu] 'à' successor=[Lieu] '{'
+	            ('objetsVisibilité :' objetsVisibilite+=Objet*)?      
+                ('objetsInVisibilité :' objetsInVisibilite+=Objet*)?
+                ('connaissanceVisibilité :' connaissanceVisibilite+=Connaissance*)?
+                ('connaissanceInVisibilité :' connaissanceInVisibilite+=Connaissance*)?
+     '}';
+		
+Objet : 'objet' name=ID 'est de taille' taille = EInt;
+Connaissance : 'connaissance' name=ID;
+
+Explorateur : 'explorateur' name=ID nbrobjects = EInt'{'
+    'mes connaissances:'connaisances+=Connaissance*
+    'mes objets:'objets+=Objet*
+    'mes lieux explores:' lieux+=Lieu*
+    
+    '}';
+
+Lieu : 'lieu' name=ID '{'
+    'ce lieu contient:'personnes+=Personne*
+    objets+=Objet*
+    connaisances+=Connaissance*
+    '}';
+    
+Personne : 'personne' name=EString '{' 
+                ('objetsVisibilité :' objetsVisibilite+=Objet*)?      
+                ('objetsInVisibilité :' objetsInVisibilite+=Objet* )?
+                ('connaissanceVisibilité :' connaissanceVisibilite+=Connaissance*)?
+                ('connaissanceInVisibilité :' connaissanceInVisibilite+=Connaissance*)? 
+                'obligation :' obligatoire=Obligatoire
+                qualification=Qualification
+                interaction=Interaction
+            '}';
+    
+Interaction : 'interaction' '{'
+    choix+=Choix*
+    '}';
+Choix : 'choix' '{'
+    (type=Type)?
+    actions+=Action*
+    '}';
+Type : 
+    texte=EString;
+    
+Action : 'action' '{'
+    qualification=Qualification
+    ('objetsConsommes :' objetsConsommes+=Objet*)?
+    ('objetsProduits :' objetsProduits+=Objet*)?
+    ('connaissanceProduits :' connaissanceProduits+=Connaissance*)?
+    '}';
+
+Obligatoire : 
+	texte=EString;
+		
+Qualification :
+	'qualification :' texte=EString ;	
+	
+EInt returns ecore::EInt:
+	'-'? INT;	
+	
+enum EtatChemin returns EtatChemin:
+	ouvert = 'ouvert' | ferme = 'ferme';

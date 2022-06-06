@@ -1,0 +1,12 @@
+
+OCL SimplePDL :
+
+* Ici on cherche pas à représenter des propriétés liées à l'exécution
+  (est_executable) (ok)
+* D'autres propriétés OCL pourraient être ajoutées... (ko) (contrainte : readArc place to transition)
+
+
+SimplePDL2PetriNet :
+
+* Il manque le traitement des ressources. (ok)
+

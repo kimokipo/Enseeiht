@@ -1,0 +1,54 @@
+import 'GAME.ecore'
+
+package game
+
+context Game
+-- Exigence 2 : L'explorateur ( JOUEUR ) du jeu est unique
+inv uniqueExplorer('The player '+self.name+' is not unique'):
+    Explorateur.allInstances()->size() = 1
+-- Exigence 8 : Le lieu de depart est unique
+inv uniqueStartingPoint('The starting point is not unique'):
+    Territoire.allInstances()->select(t: Territoire | t.lieuDepart)->size() = 1
+context Explorateur
+-- Inspire par l'Exigence 3 : L'explorateur ( JOUEUR ) a eu une limite pour les objets qu'il possede
+inv objectsLimitIsPositive('The player s max capacity is negative, has the value '+self.limite):
+    self.limite >= 0
+
+context Explorateur
+-- Exigence 13 : Les objets disponibles a l'explorateur ( JOUEUR ) sont ceux visibles
+inv pickedUpObjectIsInvisible('An invisible object was picked up by '+self.name):
+    self.objets->select(o: Objet | o.etat = EtatVisibilite.visible)->isEmpty()
+-- Exigence 15 Pour que les objets deposees puissent être repris ils doivent être visibles
+
+context Lieu
+-- Exigence 17 : Un seul (au plus) chemin peut être obligatoire par chemin
+inv uniqueMandatoryRoads('The mandatory road is not unique in the place '+self.name):
+    self.chemins->select(c: Chemin | c.conditionsObligation.val = true)->size() <= 1
+
+context Explorateur
+-- Exigence 12 : Les connaissances disponibles a l'explorateur ( JOUEUR ) sont celles visibles
+inv receivedKnowledgeIsInvisible('An invisible knowledge was received by '+self.name):
+    self.connaissances->select(c: Connaissance | o.etat = EtatVisibilite.visible)->isEmpty()
+
+context Lieu
+-- Exigence 26 : Une seule personne (au plus) peut-être obligatoire par chemin
+inv uniqueMandatoryPersonPerPlace('There is more than one mandatory person in the place '+self.name):
+    self.personnes->select(p: Personne | p.conditionsObligation.val = true)->size() <= 1
+
+context Explorateur
+-- Exigence 6 : La taille totale de objets que possede le joueur doit être inferieur a sa capacite totale
+inv explorersMaxCapacity('The object s total capacity exceeds the player s max capacity'):
+    self.limite < self.objets->iterate(o : Objet; sum : Integer = 0 | sum + o.taille)
+
+context Objet
+-- Inspire par l'Exigence 4 : La taille des objets possedees est positive
+inv objectsSizeIsPositive('An object has a negative size, has the value '+self.taille):
+    self.taille >= 0
+    
+context Explorateur
+inv ownedObjectIsInvisible('An invisible object is owned by '+self.name):
+    self.objets->select(o: Objet | o.etat = EtatVisibilite.visible)->isEmpty()
+-- On remarque que les exigences 13 et 15 traduites en OCL sont les mêmes on ne gardera qu'une
+endpackage
+
+-- Exigence 20 -- Exigence 21 -- 

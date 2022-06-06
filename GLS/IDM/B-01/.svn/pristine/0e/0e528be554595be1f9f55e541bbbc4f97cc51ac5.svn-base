@@ -1,0 +1,30 @@
+import 'petrinet.ecore'
+
+package Petri
+
+context Petri
+--
+-- example invariant with a custom error message to verify that
+-- the 'petriElements' property of all 'Petri::Petri' instances is non-null
+--
+inv NonNull_petriElements('The \'petriElements\' property of "' + self.toString() + '" is null'):
+	petriElements <> null
+	
+context EArc
+inv: self.poids > 0
+context Transition
+def: est_executable(): Boolean = self.earcEntrants->collect(a|a.poids > (a.place).Jettons)->size()=0
+inv: self.petri().petriElements
+		->select(p|p.oclIsKindOf(Transition))
+		-> collect(p|p.oclAsType(Transition))
+		->select(p|p.name = self.name)->size() = 1
+		
+context PetriElement
+def: petri(): Petri =
+	Petri.allInstances()
+		->select(p | p.petriElements->includes(self))
+		->asSequence()->first()
+		
+
+		
+endpackage

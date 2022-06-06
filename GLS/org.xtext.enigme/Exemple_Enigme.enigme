@@ -1,0 +1,33 @@
+jeu Enigme 
+    actions actionsID {
+        action mauvaiseReponse {
+            objets c {
+                objet Tentative occurrence 1, de taille 1 etat visible possede
+            }
+            objets a {}
+            connaissances a {}
+        }
+        action bonneReponse {
+            objets c {}
+            objets a {}
+            connaissances a {
+                conaissance Rabat "Capitale du Maroc" etat visible possede
+            }
+        }
+        action quitter {
+            objets c {}
+            objets a {}
+            connaissances a {}
+        }
+        action rejouer {
+            objets c {}
+            objets a {}
+            connaissances a {}
+        }        
+    }
+    joueur idj {
+        limite 5
+        objets {}
+        connaissances {}
+    }
+}

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" name="odesign" version="12.0.0.2017041100">
+  <ownedViewpoints name="MyViewpoint" modelFileExtension="enigme">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="JeuDiagram" domainClass="enigme::Jeu" enablePopupBars="true">
+      <metamodel href="../../Enigme/model/enigme.ecore#/"/>
+      <defaultLayer name="Default">
+        <edgeMappings name="CheminEdge" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='JeuDiagram']/@defaultLayer/@containerMappings[name='TerritoireContainer']/@subContainerMappings[name='LieuDebutContainer'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='JeuDiagram']/@defaultLayer/@containerMappings[name='TerritoireContainer']/@subContainerMappings[name='LieuFinContainer'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='JeuDiagram']/@defaultLayer/@containerMappings[name='TerritoireContainer']/@subContainerMappings[name='LieuIntermediareContainer']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='JeuDiagram']/@defaultLayer/@containerMappings[name='TerritoireContainer']/@subContainerMappings[name='LieuDebutContainer'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='JeuDiagram']/@defaultLayer/@containerMappings[name='TerritoireContainer']/@subContainerMappings[name='LieuFinContainer'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='JeuDiagram']/@defaultLayer/@containerMappings[name='TerritoireContainer']/@subContainerMappings[name='LieuIntermediareContainer']" targetFinderExpression="feature:suivant" sourceFinderExpression="feature:precedent" domainClass="enigme::Chemin" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="attribuablesconnaissancesAction" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='JeuDiagram']/@defaultLayer/@containerMappings[name='TerritoireContainer']/@subContainerMappings[name='LieuDebutContainer']/@subContainerMappings[name='PersonneContainer']/@subContainerMappings[name='InteractionContainer']/@subContainerMappings[name='ChoixFinContainer']/@subContainerMappings[name='ReponseContainer']/@subContainerMappings[name='ActionContainer'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='JeuDiagram']/@defaultLayer/@containerMappings[name='TerritoireContainer']/@subContainerMappings[name='LieuDebutContainer']/@subContainerMappings[name='PersonneContainer']/@subContainerMappings[name='InteractionContainer']/@subContainerMappings[name='ChoixContainer']/@subContainerMappings[name='ReponseContainer']/@subContainerMappings[name='ActionContainer'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='JeuDiagram']/@defaultLayer/@containerMappings[name='TerritoireContainer']/@subContainerMappings[name='LieuFinContainer']/@subContainerMappings[name='PersonneContainer']/@subContainerMappings[name='InteractionContainer']/@subContainerMappings[name='ChoixContainer']/@subContainerMappings[name='ReponseContainer']/@subContainerMappings[name='ActionContainer'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='JeuDiagram']/@defaultLayer/@containerMappings[name='TerritoireContainer']/@subContainerMappings[name='LieuFinContainer']/@subContainerMappings[name='PersonneContainer']/@subContainerMappings[name='InteractionContainer']/@subContainerMappings[name='ChoixFinContainer']/@subContainerMappings[name='ReponseContainer']/@subContainerMappings[name='ActionContainer'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='JeuDiagram']/@defaultLayer/@containerMappings[name='TerritoireContainer']/@subContainerMappings[name='LieuIntermediareContainer']/@subContainerMappings[name='PersonneContainer']/@subContainerMappings[name='interactionContainer']/@subContainerMappings[name='ChoixContainer']/@subContainerMappings[name='ReponseContainer']/@subContainerMappings[name='ActionContainer'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='JeuDiagram']/@defaultLayer/@containerMappings[name='TerritoireContainer']/@subContainerMappings[name='LieuIntermediareContainer']/@subContainerMappings[name='PersonneContainer']/@subContainerMappings[name='interactionContainer']/@subContainerMappings[name='ChoixFinContainer']/@subContainerMappings[name='ReponseContainer']/@subContainerMappings[name='ActionContainer']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='JeuDiagram']/@defaultLayer/@containerMappings[name='JoueurContainer']/@subContainerMappings[name='ConnaissanceNode']" targetFinderExpression="feature:connaissancesattribuables">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="TerritoireContainer" domainClass="enigme::Territoire" childrenPresentation="VerticalStack">
+          <subContainerMappings name="LieuDebutContainer" semanticCandidatesExpression="feature:lieuDebut" domainClass="enigme::Lieu">
+            <subContainerMappings name="PersonneContainer" semanticCandidatesExpression="feature:eAllContents" domainClass="enigme::Personne">
+              <subNodeMappings name="QualificationNode" semanticCandidatesExpression="feature:texte" domainClass="enigme::Qualification"/>
+              <subContainerMappings name="InteractionContainer" semanticCandidatesExpression="feature:eAllContents" domainClass="enigme::Interaction">
+                <subContainerMappings name="ChoixContainer" semanticCandidatesExpression="feature:choix" domainClass="enigme::Choix">
+                  <subContainerMappings name="ReponseContainer" semanticCandidatesExpression="feature:reponses" domainClass="enigme::Reponse">
+                    <subContainerMappings name="QualificationNode" semanticCandidatesExpression="feature:texte" domainClass="enigme::Qualification"/>
+                    <subContainerMappings name="ActionContainer" semanticCandidatesExpression="feature:action" domainClass="enigme::Action">
+                      <subNodeMappings name="objetsconsommablesNode" semanticCandidatesExpression="feature:objetsconsommables" domainClass="enigme::Objet"/>
+                      <subNodeMappings name="ObjetsattribuablesNode" semanticCandidatesExpression="feature:objetsattribuables" domainClass="enigme::Objet"/>
+                    </subContainerMappings>
+                  </subContainerMappings>
+                </subContainerMappings>
+                <subContainerMappings name="ChoixFinContainer" semanticCandidatesExpression="feature:choixFin" domainClass="enigme::Choix">
+                  <subContainerMappings name="ReponseContainer" semanticCandidatesExpression="feature:reponses" domainClass="enigme::Reponse">
+                    <subNodeMappings name="QualificationNode" semanticCandidatesExpression="feature:texte" domainClass="enigme::Qualification"/>
+                    <subContainerMappings name="ActionContainer" semanticCandidatesExpression="feature:action" domainClass="enigme::Action">
+                      <subNodeMappings name="objetsconsommablesNode" semanticCandidatesExpression="feature:objetsconsommables" domainClass="enigme::Objet"/>
+                      <subNodeMappings name="ObjetsattribuablesNode" semanticCandidatesExpression="feature:objetsattribuables" domainClass="enigme::Objet"/>
+                    </subContainerMappings>
+                  </subContainerMappings>
+                </subContainerMappings>
+              </subContainerMappings>
+            </subContainerMappings>
+          </subContainerMappings>
+          <subContainerMappings name="LieuIntermediareContainer" semanticCandidatesExpression="feature:lieuxintermediaires" domainClass="enigme::Lieu">
+            <subContainerMappings name="PersonneContainer" semanticCandidatesExpression="feature:eAllCont" domainClass="enigme::Personne">
+              <subNodeMappings name="QualificationNode" semanticCandidatesExpression="feature:texte" domainClass="enigme::Qualification"/>
+              <subContainerMappings name="interactionContainer" semanticCandidatesExpression="feature:eAllContents" domainClass="enigme::Interaction">
+                <subContainerMappings name="ChoixContainer" semanticCandidatesExpression="feature:choix" domainClass="enigme::Choix">
+                  <subContainerMappings name="ReponseContainer" semanticCandidatesExpression="feature:reponses" domainClass="enigme::Reponse">
+                    <subNodeMappings name="QualificationNode" semanticCandidatesExpression="feature:texte" domainClass="enigme::Qualification"/>
+                    <subContainerMappings name="ActionContainer" semanticCandidatesExpression="feature:action" domainClass="enigme::Action">
+                      <subNodeMappings name="objetsconsommablesNode" semanticCandidatesExpression="feature:objetsconsommables" domainClass="enigme::Objet"/>
+                      <subNodeMappings name="ObjetsattribuablesNode" semanticCandidatesExpression="feature:objetsattribuables" domainClass="enigme::Objet"/>
+                    </subContainerMappings>
+                  </subContainerMappings>
+                </subContainerMappings>
+                <subContainerMappings name="ChoixFinContainer" semanticCandidatesExpression="feature:choixFin" domainClass="enigme::Choix">
+                  <subContainerMappings name="ReponseContainer" semanticCandidatesExpression="feature:reponses" domainClass="enigme::Reponse">
+                    <subNodeMappings name="QualificationNode" semanticCandidatesExpression="feature:texte" domainClass="enigme::Qualification"/>
+                    <subContainerMappings name="ActionContainer" semanticCandidatesExpression="feature:action" domainClass="enigme::Action">
+                      <subNodeMappings name="objetsconsommablesNode" semanticCandidatesExpression="feature:objetsconsommables" domainClass="enigme::Objet"/>
+                      <subNodeMappings name="ObjetsattribuablesNode" semanticCandidatesExpression="feature:objetsattribuables" domainClass="enigme::Objet"/>
+                    </subContainerMappings>
+                  </subContainerMappings>
+                </subContainerMappings>
+              </subContainerMappings>
+            </subContainerMappings>
+          </subContainerMappings>
+          <subContainerMappings name="LieuFinContainer" semanticCandidatesExpression="feature:lieuxFin" domainClass="enigme::Lieu">
+            <subContainerMappings name="PersonneContainer" semanticCandidatesExpression="feature:eAllContents" domainClass="enigme::Personne">
+              <subNodeMappings name="QualificationNode" semanticCandidatesExpression="feature:texte" domainClass="enigme::Qualification"/>
+              <subContainerMappings name="InteractionContainer" semanticCandidatesExpression="feature:eAllContents" domainClass="enigme::Interaction">
+                <subContainerMappings name="ChoixContainer" semanticCandidatesExpression="feature:choix" domainClass="enigme::Choix">
+                  <subContainerMappings name="ReponseContainer" semanticCandidatesExpression="feature:eAllContents" domainClass="enigme::Reponse">
+                    <subNodeMappings name="QualificationNode" semanticCandidatesExpression="feature:eAllContents" domainClass="enigme::Qualification"/>
+                    <subContainerMappings name="ActionContainer" semanticCandidatesExpression="feature:action" domainClass="enigme::Action">
+                      <subNodeMappings name="objetsconsommablesNode" semanticCandidatesExpression="feature:objetsconsommables" domainClass="enigme::Objet"/>
+                      <subNodeMappings name="ObjetsattribuablesNode" semanticCandidatesExpression="feature:objetsattribuables" domainClass="enigme::Objet"/>
+                    </subContainerMappings>
+                  </subContainerMappings>
+                </subContainerMappings>
+                <subContainerMappings name="ChoixFinContainer" semanticCandidatesExpression="feature:choixFin" domainClass="enigme::Choix">
+                  <subContainerMappings name="ReponseContainer" semanticCandidatesExpression="feature:eAllContents" domainClass="enigme::Reponse">
+                    <subNodeMappings name="QualificationNode" semanticCandidatesExpression="feature:eAllContents" domainClass="enigme::Qualification"/>
+                    <subContainerMappings name="ActionContainer" semanticCandidatesExpression="feature:action" domainClass="enigme::Action">
+                      <subNodeMappings name="ObjetsattribuablesNode" semanticCandidatesExpression="feature:objetsattribuables" domainClass="enigme::Objet"/>
+                      <subNodeMappings name="objetsconsommablesNode" semanticCandidatesExpression="feature:objetsconsommables" domainClass="enigme::Objet"/>
+                    </subContainerMappings>
+                  </subContainerMappings>
+                </subContainerMappings>
+              </subContainerMappings>
+            </subContainerMappings>
+          </subContainerMappings>
+        </containerMappings>
+        <containerMappings name="JoueurContainer" domainClass="enigme::Joueur" childrenPresentation="VerticalStack">
+          <subNodeMappings name="ObjectNode" semanticCandidatesExpression="feature:objets" domainClass="enigme::Objet"/>
+          <subContainerMappings name="ConnaissanceNode" semanticCandidatesExpression="feature:connaissances" domainClass="enigme::Connaissance" childrenPresentation="VerticalStack">
+            <subNodeMappings name="QualificationNode" semanticCandidatesExpression="feature:qualification" domainClass="enigme::Qualification"/>
+          </subContainerMappings>
+        </containerMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="fr.n7.sample.odesign.Services"/>
+  </ownedViewpoints>
+</description:Group>

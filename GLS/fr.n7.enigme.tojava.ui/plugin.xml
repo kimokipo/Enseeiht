@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.enigme"
+            id="fr.n7.enigme.tojava.ui.popupMenus.contribution.IFile">
+         <menu id="org.eclipse.acceleo.module.menu" label="Acceleo Model to Text" path="additionsAcceleo">
+               <groupMarker name="acceleo"/> 
+         </menu>
+         <action
+               class="fr.n7.enigme.tojava.ui.popupMenus.AcceleoGenerateTojavaAction"
+               enablesFor="+"
+               id="fr.n7.enigme.tojava.ui.popupMenus.acceleoGenerateTojavaAction"
+               icon="icons/default.gif"
+               label="Generate Tojava"
+               menubarPath="org.eclipse.acceleo.module.menu/acceleo"/>
+      </objectContribution>
+   </extension>
+</plugin>

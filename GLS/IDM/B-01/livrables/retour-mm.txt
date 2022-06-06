@@ -1,0 +1,24 @@
+MM SimplePDL :
+
+* Pourquoi faire de Poids un ProcessElement ? Valide
+* Il faut prendre des Eint et non des EIntegerObject Valide
+* Pourquoi une relation de composition de Ressource vers Poids ? Valide
+* Est-ce que vous avez essayé de saisir des modèles de processus ?
+* Les relations entre Ressource, Poids et WorkDefinition ne sont pas facile à
+  lire sur le diagramme.  Y a-t-il des références bidirectionnelles ? Valide
+
+
+MM PetriNet :
+
+* Est-ce que vous avez essayé de saisir des modèles ?
+* Comment connait-on la direction d'un arc ?  Est-ce de place vers transition
+  ou l'inverse ?
+
+OCL SimplePDL :
+
+* Sauter des lignes entre les clauses OCL (avant les context...). Valide
+* Attention, on peut avoir moins de ressources que ce que réclament toutes les
+  activités qui l'utilisent.  Ceci signifie simplement qu'on ne pourra pas les
+  faire en parallèle : il faudra attendre que les ressources soient libérées.
+* Pour les contraintes OCL, il est bien de dire en français ce qu'elles
+  signifient.

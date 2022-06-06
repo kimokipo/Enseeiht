@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="enigme" version="12.0.0.2017041100">
+  <ownedViewpoints name="enigmeViewpoint" modelFileExtension="enigme">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="JeuDiagram" domainClass="eNIGME::Jeu" enablePopupBars="true">
+      <metamodel href="http://www.n7.fr/ENIGME#/"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="InteractionNode" domainClass="eNIGME::Interaction">
+          <borderedNodeMappings name="ChoixNode" domainClass="eNIGME::Choix">
+            <borderedNodeMappings name="ReponseNode" semanticCandidatesExpression="feature:reponses" domainClass="eNIGME::Reponse">
+              <style xsi:type="style:LozengeNodeDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
+              </style>
+            </borderedNodeMappings>
+            <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='chocolate']"/>
+            </style>
+          </borderedNodeMappings>
+          <style xsi:type="style:EllipseNodeDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="QualificationNode" domainClass="eNIGME::Qualification">
+          <style xsi:type="style:EllipseNodeDescription" labelSize="12" labelExpression="feature:qualification" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="CheminEdge" sourceMapping="//@ownedViewpoints[name='enigmeViewpoint']/@ownedRepresentations[name='JeuDiagram']/@defaultLayer/@containerMappings[name='TerritoireContainer']/@subContainerMappings[name='LieuContainer']" targetMapping="//@ownedViewpoints[name='enigmeViewpoint']/@ownedRepresentations[name='JeuDiagram']/@defaultLayer/@containerMappings[name='TerritoireContainer']/@subContainerMappings[name='LieuContainer']" targetFinderExpression="feature:suivant" sourceFinderExpression="feature:precedent" domainClass="eNIGME::Chemin" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="RelationPersonneInteraction" sourceMapping="//@ownedViewpoints[name='enigmeViewpoint']/@ownedRepresentations[name='JeuDiagram']/@defaultLayer/@containerMappings[name='TerritoireContainer']/@subContainerMappings[name='LieuContainer']/@subNodeMappings[name='PersonneNode']" targetMapping="//@ownedViewpoints[name='enigmeViewpoint']/@ownedRepresentations[name='JeuDiagram']/@defaultLayer/@nodeMappings[name='InteractionNode']" targetFinderExpression="feature:interaction">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_orange']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="RelationToQualification" sourceMapping="//@ownedViewpoints[name='enigmeViewpoint']/@ownedRepresentations[name='JeuDiagram']/@defaultLayer/@nodeMappings[name='InteractionNode']/@borderedNodeMappings[name='ChoixNode']/@borderedNodeMappings[name='ReponseNode'] //@ownedViewpoints[name='enigmeViewpoint']/@ownedRepresentations[name='JeuDiagram']/@defaultLayer/@containerMappings[name='TerritoireContainer']/@subContainerMappings[name='LieuContainer']/@subNodeMappings[name='PersonneNode']" targetMapping="//@ownedViewpoints[name='enigmeViewpoint']/@ownedRepresentations[name='JeuDiagram']/@defaultLayer/@nodeMappings[name='QualificationNode']" targetFinderExpression="feature:texte">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="RelationJoueurObjet" sourceMapping="//@ownedViewpoints[name='enigmeViewpoint']/@ownedRepresentations[name='JeuDiagram']/@defaultLayer/@containerMappings[name='TerritoireContainer']/@subNodeMappings[name='JoueurNode']" targetMapping="//@ownedViewpoints[name='enigmeViewpoint']/@ownedRepresentations[name='JeuDiagram']/@defaultLayer/@containerMappings[name='TerritoireContainer']/@subNodeMappings[name='ObjetNode']" targetFinderExpression="feature:objets">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_chocolate']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="RelationJoueurConnaissance" sourceMapping="//@ownedViewpoints[name='enigmeViewpoint']/@ownedRepresentations[name='JeuDiagram']/@defaultLayer/@containerMappings[name='TerritoireContainer']/@subNodeMappings[name='JoueurNode']" targetMapping="//@ownedViewpoints[name='enigmeViewpoint']/@ownedRepresentations[name='JeuDiagram']/@defaultLayer/@containerMappings[name='TerritoireContainer']/@subNodeMappings[name='ConnaissanceNode']" targetFinderExpression="feature:connaissances">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_chocolate']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="TerritoireContainer" domainClass="eNIGME::Territoire">
+          <subNodeMappings name="ObjetNode" preconditionExpression="[self.name = self.nomObjet/]" domainClass="eNIGME::Objet">
+            <style xsi:type="style:EllipseNodeDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="ConnaissanceNode" preconditionExpression="[self.name = self.nomConnaissance/]" domainClass="eNIGME::Connaissance">
+            <style xsi:type="style:LozengeNodeDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="JoueurNode" domainClass="eNIGME::Joueur">
+            <style xsi:type="style:DotDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
+            </style>
+          </subNodeMappings>
+          <subContainerMappings name="LieuContainer" domainClass="eNIGME::Lieu">
+            <subNodeMappings name="PersonneNode" semanticCandidatesExpression="feature:personnes" domainClass="eNIGME::Personne">
+              <style xsi:type="style:DotDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              </style>
+            </subNodeMappings>
+            <style xsi:type="style:ShapeContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:ShapeContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </containerMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="fr.n7.enigme.design.Services"/>
+  </ownedViewpoints>
+</description:Group>

@@ -1,0 +1,13 @@
+net enigme
+
+pl Enigme (1)
+pl Tentatives (3)
+pl Sphinx
+pl TentativesEchouees
+pl Echec
+pl Succes
+
+tr tentativeDeReponse Enigme Tentatives -> Sphinx
+tr mauvaiseReponse Sphinx -> TentativesEchouees Enigme
+tr bonneReponse Sphinx -> Succes
+tr echec TentativesEchouees*3 Enigme -> Echec

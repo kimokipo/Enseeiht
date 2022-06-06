@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="gAME" nsURI="http://www.n7.fr/GAME" nsPrefix="gAME">
+  <eClassifiers xsi:type="ecore:EClass" name="Game">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="explorateur" eType="#//Explorateur"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="territoire" eType="#//Territoire"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Explorateur">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="objets" upperBound="-1"
+        eType="#//Objet" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connaissances" upperBound="-1"
+        eType="#//Connaissance" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lieuCourant" eType="#//Lieu"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lieuExplores" unique="false"
+        upperBound="-1" eType="#//Lieu"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="limite" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Objet">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initVal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="taille" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="etat" eType="#//EtatVisibilite"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Condition"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="qualification" upperBound="-1"
+        eType="#//Qualification" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Connaissance">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="qualification" upperBound="-1"
+        eType="#//Qualification" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Condition"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="etat" eType="#//EtatVisibilite"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Lieu">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="personnes" upperBound="-1"
+        eType="#//Personne" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="objets" upperBound="-1"
+        eType="#//Objet" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connaisances" upperBound="-1"
+        eType="#//Connaissance" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="chemin" upperBound="-1"
+        eType="#//Chemin" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="qualification" upperBound="-1"
+        eType="#//Qualification" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Territoire">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lieuDepart" eType="#//Lieu"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lieux" upperBound="-1"
+        eType="#//Lieu" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lieuxFin" upperBound="-1"
+        eType="#//Lieu" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="chemins" upperBound="-1"
+        eType="#//Chemin" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Condition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="val" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="objetsTrue" unique="false"
+        upperBound="-1" eType="#//Objet"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="objetsFalse" unique="false"
+        upperBound="-1" eType="#//Objet"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connaissanceTrue" unique="false"
+        upperBound="-1" eType="#//Connaissance"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connaissanceFalse" unique="false"
+        upperBound="-1" eType="#//Connaissance"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lieuxExplores" unique="false"
+        upperBound="-1" eType="#//Lieu"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Chemin">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="etat" eType="#//EtatChemin"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="predecessor" eType="#//Lieu"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="successor" eType="#//Lieu"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conditionsVisible" eType="#//Condition"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conditionsOuverture" eType="#//Condition"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conditionsObligation" eType="#//Condition"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="objetsTransmis" upperBound="-1"
+        eType="#//Objet" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prixObjets" upperBound="-1"
+        eType="#//Objet" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="qualification" upperBound="-1"
+        eType="#//Qualification" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Personne">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="activite" eType="#//Activite"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="conditionsVisible" eType="#//EtatVisibilite"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conditionsObligation" eType="#//Condition"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interaction" eType="#//Interaction"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="qualification" upperBound="-1"
+        eType="#//Qualification" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Interaction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="choixDebut" eType="#//Choix"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="choixInter" upperBound="-1"
+        eType="#//Choix" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="choixFin" eType="#//Choix"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Condition"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Choix">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
+        eType="#//Action" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Type">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="texte" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Action">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="objetsConsommes" upperBound="-1"
+        eType="#//Objet" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="objetsProduits" upperBound="-1"
+        eType="#//Objet" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connaissanceProduits" upperBound="-1"
+        eType="#//Connaissance" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="qualification" upperBound="-1"
+        eType="#//Qualification" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Obligatoire">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="texte" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Qualification">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="texte" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Condition"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EtatVisibilite">
+    <eLiterals name="visible" literal="visible"/>
+    <eLiterals name="nonvisible" value="1" literal="non visible"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EtatObligation">
+    <eLiterals name="obligatoire" literal="obligatoire"/>
+    <eLiterals name="nonobligatoire" value="1" literal="non obligatoire"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EtatChemin">
+    <eLiterals name="ouvert" literal="ouvert"/>
+    <eLiterals name="ferme" value="1" literal="ferme"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Activite">
+    <eLiterals name="actif" literal="actif"/>
+    <eLiterals name="inactif" value="1" literal="inactif"/>
+  </eClassifiers>
+</ecore:EPackage>

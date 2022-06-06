@@ -1,0 +1,46 @@
+import 'SimplePDL.ecore'
+
+package simplepdl
+
+context ProcessElement
+
+def: process(): Process =
+	Process.allInstances()
+		->select(p | p.processElements->includes(self))
+		->asSequence()->first()
+
+context WorkDefinition
+--
+-- example invariant with a custom error message to verify that
+-- the 'linksToPredecessors' property of all 'simplepdl::WorkDefinition' instances is non-null
+--
+inv: self.process().processElements
+		->select(p|p.oclIsKindOf(WorkDefinition))
+		-> collect(p|p.oclAsType(WorkDefinition))
+		->select(p|p.name = self.name)->size() = 1
+		
+inv NonNull_linksToPredecessors('The \'linksToPredecessors\' property of "' + self.toString() + '" is null'):
+	linksToPredecessors <> null
+	
+inv: self.name.size() > 1
+
+inv: self.name.matches('[A-Za-z_][A-Za-z0-9_]*')
+
+context WorkSequence
+
+inv: self.predecessor <> self.successor
+
+context Ressource 
+
+inv: self.nb_occurence >= self.poids->collect(val)->sum()
+
+inv: self.process().processElements
+		->select(p|p.oclIsKindOf(Ressource))
+		-> collect(p|p.oclAsType(Ressource))
+		->select(p|p.name = self.name)->size() = 1
+		
+context Poids
+
+inv: self.val <= (self.ressource).nb_occurence
+		
+endpackage

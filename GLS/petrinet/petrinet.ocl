@@ -1,0 +1,44 @@
+import 'petrinet.ecore'
+
+package petrinet
+
+context Petri
+--
+-- example invariant with a custom error message to verify that
+-- the 'petriElements' property of all 'Petri::Petri' instances is non-null
+--
+inv NonNull_petriElements('The \'petriElements\' property of "' + self.toString() + '" is null'):
+	petriElements <> null
+
+	
+context Arc
+inv relation_transition_place: (self.Source.oclIsKindOf(Transition) and self.Destination.oclIsKindOf(Place)) or
+     (self.Source.oclIsKindOf(Place) and self.Destination.oclIsKindOf(Transition))
+inv poids_positive: self.poids > 0
+     
+context ReadArc
+inv relation_place_Transition: self.Source.oclIsKindOf(Place) and self.Destination.oclIsKindOf(Transition)
+
+context Transition
+                                                  
+
+def: est_executable(): Boolean= self.earcentrants->select(a|a.poids > (a.Source).petri_place().Jettons)->size()=0                                                   
+                                                                                                      
+
+		
+context PetriElement
+def: petri(): Petri =
+	 Petri.allInstances()
+		->select(p | p.petriElements->includes(self))
+		->asSequence()->first()
+		
+def: petri_place(): Place = if self.oclIsKindOf(Place) then 
+                               self.oclAsType(Place)
+                            else
+                               null
+							endif
+							
+inv: self.petri().petriElements
+		->select(p|p.name = self.name)->size() = 1							
+							
+endpackage

@@ -1,0 +1,26 @@
+net developpement
+pl Ready_Conception (1)
+pl Started_Conception (1)
+pl Finished_Conception (1)
+pl Demarree_Conception (1)
+pl Ready_RedactionDoc (1)
+pl Started_RedactionDoc (1)
+pl Finished_RedactionDoc (1)
+pl Demarree_RedactionDoc (1)
+pl Ready_Programmation (1)
+pl Started_Programmation (1)
+pl Finished_Programmation (1)
+pl Demarree_Programmation (1)
+pl Ready_RedactionTests (1)
+pl Started_RedactionTests (1)
+pl Finished_RedactionTests (1)
+pl Demarree_RedactionTests (1)
+tr Start_Conception Ready_Conception Demarree_Conception Demarree_Conception Demarree_Conception Demarree_Conception -> Started_Conception Demarree_Conception
+tr Finish_Conception Started_Conception -> Finished_Conception
+tr Start_RedactionDoc Ready_RedactionDoc -> Started_RedactionDoc Demarree_RedactionDoc
+tr Finish_RedactionDoc Started_RedactionDoc -> Finished_RedactionDoc
+tr Start_Programmation Ready_Programmation Demarree_Programmation -> Started_Programmation Demarree_Programmation
+tr Finish_Programmation Started_Programmation -> Finished_Programmation
+tr Start_RedactionTests Ready_RedactionTests -> Started_RedactionTests Demarree_RedactionTests
+tr Finish_RedactionTests Started_RedactionTests -> Finished_RedactionTests
+

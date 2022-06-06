@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="petrinet" nsURI="http://petrinet" nsPrefix="petrinet">
+  <eClassifiers xsi:type="ecore:EClass" name="Petri">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="petriElements" upperBound="-1"
+        eType="#//PetriElement" containment="true" eOpposite="#//PetriElement/net"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="earc" upperBound="-1" eType="#//EArc"
+        containment="true" eOpposite="#//EArc/net"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PetriElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="earcentrants" upperBound="-1"
+        eType="#//EArc" eOpposite="#//EArc/Destination"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="earcsortants" upperBound="-1"
+        eType="#//EArc" eOpposite="#//EArc/Source"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="net" lowerBound="1" eType="#//Petri"
+        eOpposite="#//Petri/petriElements"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Place" eSuperTypes="#//PetriElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Jettons" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Transition" eSuperTypes="#//PetriElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EArc">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="poids" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Source" lowerBound="1"
+        eType="#//PetriElement" eOpposite="#//PetriElement/earcsortants"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Destination" lowerBound="1"
+        eType="#//PetriElement" eOpposite="#//PetriElement/earcentrants"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="net" lowerBound="1" eType="#//Petri"
+        eOpposite="#//Petri/earc"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Arc" eSuperTypes="#//EArc"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ReadArc" eSuperTypes="#//EArc"/>
+</ecore:EPackage>

@@ -1,0 +1,13 @@
+import 'SimplePDL.ecore'
+
+package simplepdl
+
+context Process
+--
+-- example invariant with a custom error message to verify that
+-- the 'name' property of all 'simplepdl::Process' instances is non-null
+--
+inv NonNull_name('The \'name\' property of "' + self.toString() + '" is null'):
+	name <> null
+
+endpackage

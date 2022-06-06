@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated eNIGME -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="eNIGME.presentation.ENIGMEModelWizardID"
+            name="%_UI_ENIGMEModelWizard_label"
+            class="eNIGME.presentation.ENIGMEModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ENIGMEModelFile.gif">
+         <description>%_UI_ENIGMEModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated eNIGME -->
+      <editor
+            id="eNIGME.presentation.ENIGMEEditorID"
+            name="%_UI_ENIGMEEditor_label"
+            icon="icons/full/obj16/ENIGMEModelFile.gif"
+            extensions="enigme"
+            class="eNIGME.presentation.ENIGMEEditor"
+            contributorClass="eNIGME.presentation.ENIGMEActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

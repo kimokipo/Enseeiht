@@ -1,0 +1,82 @@
+[comment encoding = UTF-8 /]
+[module toTina('http://petrinet')]
+
+
+[template public petriTotina(aPetri : Petri)]
+[comment @main/]
+[file (aPetri.name+ '.net', false, 'UTF-8')]
+net [aPetri.name/]
+ [let places : OrderedSet(Place) = aPetri.getPlaces() ]
+ [if (places->size() > 0)]
+ [for (p : Place | places)]
+pl [p.name/] ([p.Jettons/])
+[/for]
+ [else]
+None.
+ [/if]
+ [/let]
+[let transitions : OrderedSet(Transition) = aPetri.getTransitions() ]
+ [if (transitions->size() > 0)]
+ [for (tr : Transition | transitions)]
+tr [tr.name/] [tr.tonet()/]
+[/for]
+
+ [else]
+None.
+ [/if]
+ [/let]
+ [/file]
+ [/template]
+
+ [query public getPlaces(p: Petri) : OrderedSet(Place) =
+ p.petriElements->select( e | e.oclIsTypeOf(Place) )
+ ->collect( e | e.oclAsType(Place) )
+ ->asOrderedSet()
+ /]
+
+[query public getTransitions(p: Petri) : OrderedSet(Transition) =
+ p.petriElements->select( e | e.oclIsTypeOf(Transition) )
+ ->collect( e | e.oclAsType(Transition) )
+ ->asOrderedSet()
+ /]
+
+[query public toStateEntrant(arc: EArc) : String =
+if (arc.oclIsTypeOf(ReadArc)) then 
+	if (arc.poids <> 1) then
+		arc.Source.name+'?'+arc.poids
+	else 
+		arc.Source.name
+	endif
+else
+	if arc.poids <> 1 then
+		arc.Source.name+'*'+arc.poids
+	else 
+		arc.Source.name
+	endif
+endif
+ /]
+
+[query public toStateSortant(arc: EArc) : String =
+if (arc.oclIsTypeOf(ReadArc)) then 
+	if (arc.poids <> 1) then
+		arc.Destination.name+'?'+arc.poids
+	else 
+		arc.Destination.name
+	endif
+else
+	if arc.poids <> 1 then
+		arc.Destination.name+'*'+arc.poids
+	else 
+		arc.Destination.name
+	endif
+endif
+ /]
+
+ [template public tonet(tr : Transition) post (trim()) ]
+ [for (arcentrant: EArc | tr.earcentrants)
+separator (' ') after(' -> ')
+ ][arcentrant.toStateEntrant()/][/for]
+ [for (arcsortant: EArc | tr.earcsortants)
+separator (' ')
+ ][arcsortant.toStateSortant()/][/for]
+ [/template]

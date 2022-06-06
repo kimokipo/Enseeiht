@@ -1,0 +1,921 @@
+[comment encoding = UTF-8 /]
+[module toJava('http://www.n7.fr/ENIGME')]
+
+
+[template public jeuToJava(aJeu : Jeu)]
+[comment @main/]
+[file (aJeu.name + '.java', false, 'UTF-8')]
+
+import java.util.*;
+public class [aJeu.name/] {
+
+	// SCANNER DES REPONSES DE L UTILISATEUR
+	public static final Scanner in = new Scanner(System.in);
+	
+	// TERRITOIRE
+	public Territoire territoire;
+	
+	public Territoire getTerritoire() {
+		return this.territoire;
+	}
+	
+	// JOUEUR
+	public Joueur joueur;
+
+	// ENSEMBLE DE CONDITIONS
+	public List<Condition> allconditions;
+	
+	public Joueur getJoueur() {
+		return this.joueur;
+	}
+
+	public List<Condition> getallconditions() {
+		return this.allconditions;
+	}
+	
+	public static void Initialiser_Territoire([aJeu.name/] enigme) {
+		List<Personne> personnes_[aJeu.getTerritoire().lieuDebut.name/] = new ArrayList<Personne>();
+		[for (p : Personne | aJeu.getTerritoire().lieuDebut.personnes)]
+			List<Choix> choix_[p.name/] = new ArrayList<Choix>();
+
+			[for (ch : Choix | p.interaction.choix)]
+				Choix choix_[ch.name/]_[p.interaction.name/] = enigme.new Choix(null, null, null);
+				List<Reponse> reponses_[p.interaction.name/] = new ArrayList<Reponse>();
+				
+				[for(r : Reponse | ch.reponses)]
+					List<Objet> objets_c_[r.name/] = new ArrayList<Objet>();
+					[for(o : Objet | r.action.objetsconsommables)]
+						objets_c_[r.name/].add(enigme.new Objet("[o.name/]", [o.occurrence/], [o.taille/], EtatVisibilite.[o.etatv/], EtatPossession.[o.etatp/]));
+					[/for]
+					List<Objet> objets_a_[r.name/] = new ArrayList<Objet>();
+					[for(o : Objet | r.action.objetsattribuables)]
+						objets_a_[r.name/].add(enigme.new Objet("[o.name/]", [o.occurrence/], [o.taille/], EtatVisibilite.[o.etatv/], EtatPossession.[o.etatp/]));
+					[/for]
+					List<Connaissance> connaissances_a_[r.name/] = new ArrayList<Connaissance>();
+					[for(c : Connaissance | r.action.connaissancesattribuables)]
+						connaissances_a_[r.name/].add(enigme.new Connaissance("[c.name/]", enigme.new Qualification("[c.qualification.qualification/]"), EtatVisibilite.[c.etatv/], EtatPossession.[c.etatp/]));
+					[/for]
+					Action action_[r.name/] =  enigme.new Action("[r.action.name/]", objets_c_[r.name/], objets_a_[r.name/], connaissances_a_[r.name/]);
+					Reponse reponse_[r.name/] = enigme.new Reponse("[r.name/]", enigme.new Qualification("[r.texte.qualification/]"), action_[r.name/], EtatReponse.[r.etat.toString()/]);
+					reponses_[p.interaction.name/].add(reponse_[r.name/]);			
+				[/for]
+
+				// CONDITIONS DE SORTIE DU CHOIX
+				
+				// CHOIX DE L INTERACTION
+				choix_[ch.name/]_[p.interaction.name/].setName("[ch.name/]");
+				choix_[ch.name/]_[p.interaction.name/].setReponses(reponses_[p.interaction.name/]);
+				// choix_[ch.name/]_[p.interaction.name/].setConditions(conditions_[ch.name/]_[aJeu.getTerritoire().lieuDebut.name/]);
+				choix_[p.name/].add(choix_[ch.name/]_[p.interaction.name/]);
+
+			[/for]
+
+			//CHOIX FIN DE LA PERSONNE
+
+			Choix choixFin_[p.name/] = enigme.new Choix(null, null, null);
+				List<Reponse> reponses_choixFin_[p.name/] = new ArrayList<Reponse>();
+				
+				[for(r : Reponse | p.interaction.choixFin.reponses)]
+					List<Objet> objets_FIN_c_[r.name/] = new ArrayList<Objet>();
+					[for(o : Objet | r.action.objetsconsommables)]
+						objets_FIN_c_[r.name/].add(enigme.new Objet("[o.name/]", [o.occurrence/], [o.taille/], EtatVisibilite.[o.etatv/]));
+					[/for]
+					List<Objet> objets_FIN_a_[r.name/] = new ArrayList<Objet>();
+					[for(o : Objet | r.action.objetsattribuables)]
+						objets_FIN_a_[r.name/].add(enigme.new Objet("[o.name/]", [o.occurrence/], [o.taille/], EtatVisibilite.[o.etatv/]));
+					[/for]
+					List<Connaissance> connaissances_FIN_a_[r.name/] = new ArrayList<Connaissance>();
+					[for(c : Connaissance | r.action.connaissancesattribuables)]
+						connaissances_FIN_a_[r.name/].add(enigme.new Connaissance("[c.name/]", enigme.new Qualification("[c.qualification.qualification/]"), EtatVisibilite.[c.etatv/], EtatObligation.obligatoire));
+					[/for]
+					Action action_FIN_[r.name/] =  enigme.new Action("[r.action.name/]", objets_FIN_c_[r.name/], objets_FIN_a_[r.name/], connaissances_FIN_a_[r.name/]);
+					Reponse reponse_FIN_[r.name/] = enigme.new Reponse("[r.name/]", enigme.new Qualification("[r.texte.qualification/]"), action_FIN_[r.name/], EtatReponse.[r.etat.toString()/]);
+					reponses_choixFin_[p.name/].add(reponse_FIN_[r.name/]);			
+				[/for]
+				
+				// CHOIX FIN DE L INTERACTION
+				choixFin_[p.name/].setName("[p.interaction.name/]");
+				choixFin_[p.name/].setReponses(reponses_choixFin_[p.name/]);
+				// choixFin_[p.name/].setConditions(conditions_choixFin_[p.name/]);
+
+			// INTERACTION DE LA PERSONNE
+			Interaction interaction_[p.name/] = enigme.new Interaction("[p.interaction.name/]", choix_[p.name/], choixFin_[p.name/]);
+			// QUALIFICATION DE LA PERSONNE
+			Qualification texte_[p.name/] = enigme.new Qualification("[p.texte.qualification/]");
+
+			// CONDITION D OBLIGATION DE LA PERSONNE
+			
+			// CONDITION DE VISIBILITE DE LA PERSONNE
+
+			// PERSONNE DU LIEU DE DEBUT
+			Personne personne_[p.name/] = enigme.new Personne("[p.name/]", EtatObligation.[p.etato/], "[p.conditiono.name/]", EtatVisibilite.[p.etatv/], "[p.conditionv.name/]", texte_[p.name/], interaction_[p.name/]);	
+			personnes_[aJeu.getTerritoire().lieuDebut.name/].add(personne_[p.name/]);
+
+		[/for]
+		// CONSTRUCTEUR DU LIEU DE DEBUT
+		Lieu [aJeu.getTerritoire().lieuDebut.name/] = enigme.new Lieu("[aJeu.getTerritoire().lieuDebut.name/]", personnes_[aJeu.getTerritoire().lieuDebut.name/]);
+		
+		// LIEUXINTERMEDIAIRES
+		List<Lieu> lieuxintermediaires = new ArrayList<Lieu>();
+		[for( l : Lieu | aJeu.getTerritoire().lieuxintermediaires)]
+			List<Personne> personnes_[l.name/] = new ArrayList<Personne>();
+			[for (p : Personne | l.personnes)]
+				List<Choix> choix_[p.name/] = new ArrayList<Choix>();
+
+				[for (ch : Choix | p.interaction.choix)]
+					Choix choix_[ch.name/]_[p.interaction.name/] = enigme.new Choix(null, null, null);
+					List<Reponse> reponses_[p.interaction.name/] = new ArrayList<Reponse>();
+					
+					[for(r : Reponse | ch.reponses)]
+						List<Objet> objets_c_[r.name/] = new ArrayList<Objet>();
+						[for(o : Objet | r.action.objetsconsommables)]
+							objets_c_[r.name/].add(enigme.new Objet("[o.name/]", [o.occurrence/], [o.taille/], EtatVisibilite.[o.etatv/], EtatPossession.[o.etatp/]));
+						[/for]
+						List<Objet> objets_a_[r.name/] = new ArrayList<Objet>();
+						[for(o : Objet | r.action.objetsattribuables)]
+							objets_a_[r.name/].add(enigme.new Objet("[o.name/]", [o.occurrence/], [o.taille/], EtatVisibilite.[o.etatv/], EtatPossession.[o.etatp/]));
+						[/for]
+						List<Connaissance> connaissances_a_[r.name/] = new ArrayList<Connaissance>();
+						[for(c : Connaissance | r.action.connaissancesattribuables)]
+							connaissances_a_[r.name/].add(enigme.new Connaissance("[c.name/]", enigme.new Qualification("[c.qualification.qualification/]"), EtatVisibilite.[c.etatv/], EtatPossession.[c.etatp/]));
+						[/for]
+						Action action_[r.name/] =  enigme.new Action("[r.action.name/]", objets_c_[r.name/], objets_a_[r.name/], connaissances_a_[r.name/]);
+						Reponse reponse_[r.name/] = enigme.new Reponse("[r.name/]", enigme.new Qualification("[r.texte.qualification/]"), action_[r.name/], EtatReponse.[r.etat.toString()/]);
+						reponses_[p.interaction.name/].add(reponse_[r.name/]);			
+					[/for]
+	
+					// CONDITIONS DE SORTIE DU CHOIX
+					
+					// CHOIX DE L INTERACTION
+					choix_[ch.name/]_[p.interaction.name/].setName("[ch.name/]");
+					choix_[ch.name/]_[p.interaction.name/].setReponses(reponses_[p.interaction.name/]);
+					// choix_[ch.name/]_[p.interaction.name/].setConditions(conditions_[ch.name/]_[aJeu.getTerritoire().lieuDebut.name/]);
+					choix_[p.name/].add(choix_[ch.name/]_[p.interaction.name/]);
+	
+				[/for]
+
+				//CHOIX FIN DE LA PERSONNE
+	
+				Choix choixFin_[p.name/] = enigme.new Choix(null, null, null);
+					List<Reponse> reponses_choixFin_[p.name/] = new ArrayList<Reponse>();
+					
+					[for(r : Reponse | p.interaction.choixFin.reponses)]
+						List<Objet> objets_FIN_c_[r.name/] = new ArrayList<Objet>();
+						[for(o : Objet | r.action.objetsconsommables)]
+							objets_FIN_c_[r.name/].add(enigme.new Objet("[o.name/]", [o.occurrence/], [o.taille/], EtatVisibilite.[o.etatv/]));
+						[/for]
+						List<Objet> objets_FIN_a_[r.name/] = new ArrayList<Objet>();
+						[for(o : Objet | r.action.objetsattribuables)]
+							objets_FIN_a_[r.name/].add(enigme.new Objet("[o.name/]", [o.occurrence/], [o.taille/], EtatVisibilite.[o.etatv/]));
+						[/for]
+						List<Connaissance> connaissances_FIN_a_[r.name/] = new ArrayList<Connaissance>();
+						[for(c : Connaissance | r.action.connaissancesattribuables)]
+							connaissances_FIN_a_[r.name/].add(enigme.new Connaissance("[c.name/]", enigme.new Qualification("[c.qualification.qualification/]"), EtatVisibilite.[c.etatv/], EtatObligation.obligatoire));
+						[/for]
+						Action action_FIN_[r.name/] =  enigme.new Action("[r.action.name/]", objets_FIN_c_[r.name/], objets_FIN_a_[r.name/], connaissances_FIN_a_[r.name/]);
+						Reponse reponse_FIN_[r.name/] = enigme.new Reponse("[r.name/]", enigme.new Qualification("[r.texte.qualification/]"), action_FIN_[r.name/], EtatReponse.[r.etat.toString()/]);
+						reponses_choixFin_[p.name/].add(reponse_FIN_[r.name/]);			
+					[/for]
+					
+					// CHOIX FIN DE L INTERACTION
+					choixFin_[p.name/].setName("[p.interaction.name/]");
+					choixFin_[p.name/].setReponses(reponses_choixFin_[p.name/]);
+					// choixFin_[p.name/].setConditions(conditions_choixFin_[p.name/]);
+	
+					// INTERACTION DE LA PERSONNE
+					Interaction interaction_[p.name/] = enigme.new Interaction("[p.interaction.name/]", choix_[p.name/], choixFin_[p.name/]);
+					// QUALIFICATION DE LA PERSONNE
+					Qualification texte_[p.name/] = enigme.new Qualification("[p.texte.qualification/]");
+		
+					// CONDITION D OBLIGATION DE LA PERSONNE
+					
+					// CONDITION DE VISIBILITE DE LA PERSONNE
+	
+				// PERSONNE DU LIEU INTERMEDAIRE
+				Personne personne_[p.name/] = enigme.new Personne("[p.name/]", EtatObligation.[p.etato/], "[p.conditiono.name/]", EtatVisibilite.[p.etatv/], "[p.conditionv.name/]", texte_[p.name/], interaction_[p.name/]);	
+				personnes_[l.name/].add(personne_[p.name/]);
+		
+			[/for]
+			Lieu [l.name/] = enigme.new Lieu("[l.name/]", personnes_[l.name/]);
+			lieuxintermediaires.add([l.name/]);
+		[/for]
+			
+		
+		// LIEUXFIN
+		List<Lieu> lieuxfin = new ArrayList<Lieu>();
+		[for( l : Lieu | aJeu.getTerritoire().lieuxFin)]
+			List<Personne> personnes_[l.name/] = new ArrayList<Personne>();
+			[for (p : Personne | l.personnes)]
+				List<Choix> choix_[p.name/] = new ArrayList<Choix>();
+	
+				[for (ch : Choix | p.interaction.choix)]
+					Choix choix_[p.interaction.name/]_[l.name/] = enigme.new Choix(null, null, null);
+					List<Reponse> reponses_[p.interaction.name/]_[l.name/] = new ArrayList<Reponse>();
+					
+					[for(r : Reponse | ch.reponses)]
+						List<Objet> objets_c_[r.name/]_[p.interaction.name/]_[l.name/] = new ArrayList<Objet>();
+						[for(o : Objet | r.action.objetsconsommables)]
+							objets_c_[r.name/]_[p.interaction.name/]_[l.name/].add(enigme.new Objet("[o.name/]", [o.occurrence/], [o.taille/], EtatVisibilite.[o.etatv/]));
+						[/for]
+						List<Objet> objets_a_[r.name/]_[p.interaction.name/]_[l.name/] = new ArrayList<Objet>();
+						[for(o : Objet | r.action.objetsattribuables)]
+							objets_a_[r.name/]_[p.interaction.name/]_[l.name/].add(enigme.new Objet("[o.name/]", [o.occurrence/], [o.taille/], EtatVisibilite.[o.etatv/]));
+						[/for]
+						List<Connaissance> connaissances_a_[r.name/]_[p.interaction.name/]_[l.name/] = new ArrayList<Connaissance>();
+						[for(c : Connaissance | r.action.connaissancesattribuables)]
+							connaissances_a_[r.name/]_[p.interaction.name/]_[l.name/].add(enigme.new Connaissance("[c.name/]", new Qualification("[c.qualification.qualification/]"), EtatVisibilite.[c.etatv/], EtatPossession.[c.etatp/]));
+						[/for]
+						Action action_[r.name/]_[p.interaction.name/]_[l.name/] =  enigme.new Action("[r.action.name/]", objets_c_[r.name/]_[p.interaction.name/]_[l.name/], objets_a_[r.name/]_[p.interaction.name/]_[l.name/], connaissances_a_[r.name/]_[p.interaction.name/]_[l.name/]);
+						Reponse reponse_[r.name/]_[p.interaction.name/]_[l.name/] = enigme.new Reponse("[r.name/]", enigme.new Qualification("[r.texte.qualification/]"), action_[r.name/]_[p.interaction.name/]_[l.name/]);
+						reponses_[p.interaction.name/]_[l.name/].add(reponse_[r.name/]_[p.interaction.name/]_[l.name/]);			
+					[/for]
+
+					
+					// CHOIX DE L INTERACTION
+					choix_[p.interaction.name/]_[l.name/].setName("[p.interaction.name/]");
+					choix_[p.interaction.name/]_[l.name/].setReponses(reponses_[p.interaction.name/]_[l.name/]);
+					choix_[p.name/].add(choix_[p.interaction.name/]_[l.name/]);
+	
+				[/for]			
+	
+				// INTERACTION DE LA PERSONNE
+				Interaction interaction_[p.name/] = enigme.new Interaction("[p.interaction.name/]", choix_[p.name/], enigme.new Choix(null, null, null));
+				// QUALIFICATION DE LA PERSONNE
+				Qualification texte_[p.name/] = enigme.new Qualification("[p.texte.qualification/]");
+
+				// CONDITION D OBLIGATION DE LA PERSONNE
+				
+
+				// CONDITION DE VISIBILITE DE LA PERSONNE
+							
+
+				// PERSONNE DU LIEU DE FIN
+				Personne personne_[p.name/] = enigme.new Personne("[p.name/]", EtatObligation.[p.etato/], "[p.conditiono.name/]", EtatVisibilite.[p.etatv/], "[p.conditionv.name/]", texte_[p.name/], interaction_[p.name/]);	
+				personnes_[l.name/].add(personne_[p.name/]);
+	
+			[/for]
+			Lieu [l.name/] = enigme.new Lieu("[l.name/]", personnes_[l.name/]);
+			lieuxfin.add([l.name/]);
+		[/for]
+		
+		// CHEMINS
+		List<Chemin> chemins = new ArrayList<Chemin>();
+		[for(c : Chemin | aJeu.getTerritoire().chemins)]
+			Chemin chemin_[c.precedent.name/]_[c.suivant.name/] = enigme.new Chemin(EtatChemin.[c.etatc/], EtatObligation.[c.etato/], EtatVisibilite.[c.etatv/], [c.precedent.name/], [c.suivant.name/]);
+			chemins.add(chemin_[c.precedent.name/]_[c.suivant.name/]);
+		[/for]
+	
+		// AJOUT DE TOUT CECI AU TERRITOIRE
+		enigme.territoire = enigme.new Territoire("[aJeu.getTerritoire().name/]", [aJeu.getTerritoire().lieuDebut.name/], lieuxintermediaires, lieuxfin, chemins);
+	}
+	
+	private static void Initialiser_Joueur([aJeu.name/] enigme) {
+		ArrayList<Objet> objets = new ArrayList<Objet>();
+		[for(o : Objet | aJeu.getJoueur().objets)]
+			objets.add(enigme.new Objet("[o.name/]", [o.occurrence/], [o.taille/], EtatVisibilite.[o.etatv/], EtatPossession.[o.etatp/]));
+		[/for]
+		ArrayList<Connaissance> connaissances = new ArrayList<Connaissance>();
+		[for(c : Connaissance | aJeu.getJoueur().connaissances)]
+			connaissances.add(enigme.new Connaissance("[c.name/]", EtatVisibilite.[c.etatv/], EtatPossession.[c.etatp/]));
+		[/for]
+		enigme.joueur = enigme.new Joueur("[aJeu.getJoueur().name/]", 1, objets, connaissances);
+	}
+
+	private static void Initialiser_Conditions([aJeu.name/] enigme) {
+		enigme.allconditions = new ArrayList<Condition>();
+		[for (c : Condition | aJeu.getConditions())]
+			List<Objet> objets_r_[c.name/] = new ArrayList<Objet>();
+			List<Connaissance> connaissances_r_[c.name/] = new ArrayList<Connaissance>();
+			[for(o : Objet | c.objetsRequis)]
+				objets_r_[c.name/].add(enigme.new Objet("[o.name/]", [o.occurrence/], [o.taille/], EtatVisibilite.[o.etatv/], EtatPossession.[o.etatp/]));
+			[/for]
+			[for(con : Connaissance | c.connaissancesRequises)]
+				connaissances_r_[c.name/].add(enigme.new Connaissance("[con.name/]", enigme.new Qualification("[con.qualification.qualification/]"), EtatVisibilite.[con.etatv/], EtatPossession.[con.etatp/]));
+			[/for]
+				enigme.allconditions.add(enigme.new Condition("[c.name/]", objets_r_[c.name/], connaissances_r_[c.name/]));
+		[/for]
+	}
+
+	public static void main(String['[]'/] args) throws InterruptedException {
+
+		// PROGRAMME PRINCIPAL
+		System.out.println("BONJOUR, BIENVENUE AU JEU Enigme");
+		System.out.println("Pour démarrer le jeu, taper D");
+		System.out.println("Pour quitter le jeu, taper Q");
+
+		// LIRE L ENTREE DE L UTILISATEUR
+		boolean b = true;
+		while(b) {
+			String rep = in.nextLine();
+			if (rep.contentEquals("Q")) {
+				System.out.println("MERCI, A BIENTOT !");
+				System.exit(0);
+			}
+			else if (rep.contentEquals("D")) {
+				Demarrer();
+				b = false;
+			}
+			else {
+				System.out.println("Veuillez taper soit D soit Q");
+			}
+		}
+	}
+
+	public static void Demarrer() throws InterruptedException {
+		System.out.println("Le jeu démarre dans 3 secondes");
+		System.out.println("A vos marques");
+		Thread.sleep(1000);
+		System.out.println("Prets");
+		Thread.sleep(1000);
+		System.out.println("Partez !");
+		Thread.sleep(1000);
+
+		[aJeu.name/] enigme = new [aJeu.name/]();
+		Initialiser_Territoire(enigme);
+		Initialiser_Joueur(enigme);
+		
+		/**initialiser_Sphinx_reponses();	
+		initialiser_Final_reponses();
+		initialiser_chemins();
+		initialiser_objets_joueur(); */
+
+		System.out.println("Vous etes maintenant au lieu" + enigme.getTerritoire().lieuDebut.name);
+		Interagir(enigme);
+	}
+
+	public static void Interagir([aJeu.name/] enigme) throws InterruptedException {
+		// OBJET DU JOUEUR
+		int nbtentative = enigme.getJoueur().getObjets().get(0).getOccurrence();
+		// ON BOUCLE SUR LES PERSONNES DU TERRITOIRE
+		for (int i = 0; i < enigme.getTerritoire().getLieuDebut().getPersonnes().size(); i++) {
+			System.out.println("Bonjour, je suis la personne " + enigme.getTerritoire().getLieuDebut().getPersonnes().get(i).getName());
+			System.out.println("Vous devez à la question suivante : " + enigme.getTerritoire().getLieuDebut().getPersonnes().get(i).getTexte().getQualification());
+			// LA CONDITION DE SORTIE DE LA BOUCLE EST QUE LES TENTATIVES SOIENT TOUTES CONSOMMES
+			while(nbtentative != 0) {
+				System.out.println("Choisissez entre les réponses suivantes : ");
+				for(Reponse r : enigme.getTerritoire().getLieuDebut().getPersonnes().get(i).getInteraction().getChoix().get(0).getReponses()) {
+					System.out.println(r.getName()+':'+r.getTexte().getQualification());
+				}
+				String re = in.nextLine();
+				String r = re;
+				boolean b = true;
+				while(b) {
+					// AU CAS OU LE JOUEUR N AS PAS TAPE UNE DES REPONSES EXISTANTES
+					if(!(enigme.getTerritoire().getLieuDebut().getPersonnes().get(i).getInteraction().getChoix().get(0).getNames().contains(r))) {
+						System.out.println("Vous devez taper une des réponses suivantes : ");
+						for (Reponse rep : enigme.getTerritoire().getLieuDebut().getPersonnes().get(i).getInteraction().getChoix().get(0).getReponses()) {
+	                		System.out.println(rep.getName()+':'+rep.getTexte().getQualification());
+	                	}
+	            		r = in.nextLine();
+					}
+					else {
+	        			b = false;
+	        		}
+				}
+				int pos = enigme.getTerritoire().getLieuDebut().getPersonnes().get(i).getInteraction().getChoix().get(0).getNames().indexOf(r);
+				EtatReponse etat = enigme.getTerritoire().getLieuDebut().getPersonnes().get(i).getInteraction().getChoix().get(0).getReponses().get(pos).getEtat();
+	        	if (etat.toString().contentEquals("bonne")) {
+	        		System.out.println("Félicitations, Bonne réponse !");
+	        		Thread.sleep(1000);
+	        		System.exit(0);
+	        	}
+				else {
+					// ON DIMINUE LE NOMBRE DE TENTATIVES DU JOUEUR SELON L ACTION CORRESPONDANTE 
+					nbtentative = nbtentative - enigme.getTerritoire().getLieuDebut().getPersonnes().get(i).getInteraction().getChoix().get(0).getReponses().get(pos).getAction().getObjetsconsommables().get(0).getOccurrence();
+					enigme.getTerritoire().getLieuDebut().getPersonnes().get(i).getInteraction().getChoix().get(0).getReponses().remove(pos);
+	        		if (nbtentative == 0) {
+	        			break;
+	        		}
+	        		System.out.println("Mauvaise réponse, il ne vous reste que " + nbtentative + " " + enigme.getJoueur().getObjets().get(0).getName());
+	        	}
+			}
+		}
+		
+		System.out.println("Mauvaise réponse !");
+    	Thread.sleep(1000);;
+    	System.out.println("Malheureusement, vous avez perdu toutes vos tentatives");
+    	System.exit(0);
+	}
+	
+	public class Joueur {
+		public String name;
+		public int limite;
+		public ArrayList<Objet> objets;
+		public ArrayList<Connaissance> connaissances;
+		public Joueur (String name, int limite, ArrayList<Objet> objets, ArrayList<Connaissance> connaissances) {
+			this.connaissances = connaissances;
+			this.limite = limite;
+			this.name = name;
+			this.objets = objets;
+		}
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public int getLimite() {
+			return limite;
+		}
+		public void setLimite(int limite) {
+			this.limite = limite;
+		}
+		public ArrayList<Objet> getObjets() {
+			return objets;
+		}
+		public void setObjets(ArrayList<Objet> objets) {
+			this.objets = objets;
+		}
+		public ArrayList<Connaissance> getConnaissances() {
+			return connaissances;
+		}
+		public void setConnaissances(ArrayList<Connaissance> connaissances) {
+			this.connaissances = connaissances;
+		}
+	}
+	
+	public class Objet {
+		public String name;
+		public int occurrence;
+		public int taille;
+		public EtatVisibilite etatvi;
+		public EtatPossession etatp; 
+		public Objet(String name, int occurrence, int taille, EtatVisibilite etatvi, EtatPossession etatp) {
+			this.etatvi = etatvi;
+			this.etatp = etatp;
+			this.name = name;
+			this.occurrence = occurrence;
+			this.taille = taille;
+		}
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public int getOccurrence() {
+			return occurrence;
+		}
+		public void setOccurrence(int occurrence) {
+			this.occurrence = occurrence;
+		}
+		public int getTaille() {
+			return taille;
+		}
+		public void setTaille(int taille) {
+			this.taille = taille;
+		}
+		public EtatVisibilite getEtatvi() {
+			return etatvi;
+		}
+		public void setEtatvi(EtatVisibilite etatvi) {
+			this.etatvi = etatvi;
+		}
+		public EtatPossession getEtatp() {
+			return etatp;
+		}
+		public void setEtatPossession(EtatPossession etatp) {
+			this.etatp = etatp;
+		}
+	}
+	
+	public class Connaissance {
+		public String name;
+		public Qualification qualification;
+		public EtatVisibilite etatvi;
+		public EtatPossession etatp;
+		public Connaissance(String name, Qualification qualification, EtatVisibilite etatvi, EtatPossession etatp) {
+			this.etatp = etatp;
+			this.etatvi = etatvi;
+			this.name = name;
+			this.qualification = qualification;
+		}
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public EtatVisibilite getEtatvi() {
+			return etatvi;
+		}
+		public void setEtatvi(EtatVisibilite etatvi) {
+			this.etatvi = etatvi;
+		}
+		public EtatPossession getEtatPossession() {
+			return etatp;
+		}
+		public void setEtatPossession(EtatPossession etatp) {
+			this.etatp = etatp;
+		}
+		public Qualification getQualification() {
+			return qualification;
+		}
+		public void setQualification(Qualification qualif) {
+			this.qualification = qualif;
+		}
+	}
+	
+	public class Territoire {
+		public String name;
+		public Lieu lieuDebut;
+		public List<Lieu> lieuxintermediaires;
+		public List<Lieu> lieuxFin;
+		public List<Chemin> chemins;
+		public Territoire(String name, Lieu lieudebut, List<Lieu> lieuxintermediaires2, List<Lieu> lieuxfin2, List<Chemin> chemins2) {
+			this.chemins = chemins2;
+			this.lieuDebut = lieudebut;
+			this.lieuxintermediaires = lieuxintermediaires2;
+			this.lieuxFin = lieuxfin2;
+			this.name = name;
+		}
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public Lieu getLieuDebut() {
+			return lieuDebut;
+		}
+		public void setLieuDebut(Lieu lieuDebut) {
+			this.lieuDebut = lieuDebut;
+		}
+		public List<Lieu> getLieuxintermediaires() {
+			return lieuxintermediaires;
+		}
+		public void setLieuxintermediaires(List<Lieu> lieuxintermediaires) {
+			this.lieuxintermediaires = lieuxintermediaires;
+		}
+		public List<Lieu> getLieuxFin() {
+			return lieuxFin;
+		}
+		public void setLieuxFin(List<Lieu> lieuxFin) {
+			this.lieuxFin = lieuxFin;
+		}
+		public List<Chemin> getChemins() {
+			return chemins;
+		}
+		public void setChemins(List<Chemin> chemins) {
+			this.chemins = chemins;
+		}
+		
+		
+	}
+	
+	public class Lieu {
+		public String name;
+		public List<Personne> personnes;
+		public Lieu (String name, List<Personne> personnes) {
+			this.name = name;
+			this.personnes = personnes;
+		}
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public List<Personne> getPersonnes() {
+			return personnes;
+		}
+		public void setPersonnes(List<Personne> personnes) {
+			this.personnes = personnes;
+		}
+	}
+	
+	public class Chemin {
+		public EtatChemin etatch;
+		public EtatObligation etatob;
+		public String conditionc;
+		public String conditiono;
+		public String conditionv;
+		public EtatVisibilite etatvi;
+		public Lieu precedent;
+		public Lieu suivant;
+		public Chemin(EtatChemin etatch, EtatObligation etatob, EtatVisibilite etatvi, Lieu precedent, Lieu suivant) {
+			this.etatch = etatch;
+			this.etatob = etatob;
+			this.etatvi = etatvi;
+			this.precedent = precedent;
+			this.suivant = suivant;
+		}
+		public EtatChemin getEtatch() {
+			return etatch;
+		}
+		public void setEtatch(EtatChemin etatch) {
+			this.etatch = etatch;
+		}
+		public EtatObligation getEtatob() {
+			return etatob;
+		}
+		public void setEtatob(EtatObligation etatob) {
+			this.etatob = etatob;
+		}
+		public EtatVisibilite getEtatvi() {
+			return etatvi;
+		}
+		public void setEtatvi(EtatVisibilite etatvi) {
+			this.etatvi = etatvi;
+		}
+		public Lieu getPrecedent() {
+			return precedent;
+		}
+		public void setPrecedent(Lieu precedent) {
+			this.precedent = precedent;
+		}
+		public Lieu getSuivant() {
+			return suivant;
+		}
+		public void setSuivant(Lieu suivant) {
+			this.suivant = suivant;
+		}
+	}
+	
+	public class Personne {
+		public String name;
+		public EtatObligation etatob;
+		public String conditiono;
+		public EtatVisibilite etatvi;
+		public String conditionv;
+		public Qualification texte;
+		public Interaction interaction;
+		public Personne(String name, EtatObligation etatob, String conditiono, EtatVisibilite etatvi, String conditionv, Qualification texte, Interaction interaction) {
+			this.name = name;
+			this.etatob = etatob;
+			this.conditiono = conditiono;
+			this.etatvi = etatvi;
+			this.conditionv = conditionv;
+			this.texte = texte;
+			this.interaction = interaction;
+		}
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public EtatObligation getEtatob() {
+			return etatob;
+		}
+		public void setEtatob(EtatObligation etatob) {
+			this.etatob = etatob;
+		}
+		public EtatVisibilite getEtatvi() {
+			return etatvi;
+		}
+		public void setEtatvi(EtatVisibilite etatvi) {
+			this.etatvi = etatvi;
+		}
+		public Qualification getTexte() {
+			return texte;
+		}
+		public void setTexte(Qualification texte) {
+			this.texte = texte;
+		}
+		public Interaction getInteraction() {
+			return interaction;
+		}
+		public void setInteraction(Interaction interaction) {
+			this.interaction = interaction;
+		}
+		public String getConditiono() {
+			return conditiono;
+		}
+		public void setConditiono(String conditiono) {
+			this.conditiono = conditiono;
+		}
+		public String getConditionv() {
+			return conditionv;
+		}
+		public void setConditionv(String conditionv) {
+			this.conditionv = conditionv;
+		}
+	}
+	
+	public class Qualification {
+		public String qualification;
+		public Qualification(String qualification) {
+			this.qualification = qualification;
+		}
+		public String getQualification() {
+			return qualification;
+		}
+		public void setQualification(String qualification) {
+			this.qualification = qualification;
+		}
+	}
+	
+	public class Interaction {
+		public String name;
+		public List<Choix> choix;
+		public Choix choixFin;
+		public Interaction (String name, List<Choix> choix, Choix choixFin) {
+			this.choixFin = choixFin;
+			this.choix = choix;
+			this.name = name;
+		}
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public List<Choix> getChoix() {
+			return choix;
+		}
+		public void setChoix(List<Choix> choix) {
+			this.choix = choix;
+		}
+		public Choix getChoixFin() {
+			return choixFin;
+		}
+		public void setChoixFin(Choix choixfin) {
+			this.choixFin = choixfin;
+		}
+	}
+	
+	public class Choix {
+		public String name;
+		public List<Reponse> reponses;
+		public List<String> conditions;
+		public Choix(String name, List<Reponse> reponses, List<String> conditions) {
+			this.name = name;
+			this.reponses = reponses;
+			this.conditions = conditions;
+		}
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public List<Reponse> getReponses() {
+			return reponses;
+		}
+		public void setReponses(List<Reponse> reponses) {
+			this.reponses = reponses;
+		}
+		public ArrayList<String> getNames() {
+			ArrayList<String> names = new ArrayList<String>();
+			reponses.forEach((n) -> names.add(n.getName()));
+			return names;
+		}
+		public List<String> getConditions() {
+			return conditions;
+		}
+		public void setConditions(List<String> conditions) {
+			this.conditions = conditions;
+		}
+	}
+	
+	public class Reponse {
+		public String name;
+		public Qualification texte;
+		public Action action;
+		public EtatReponse etat;
+		public Reponse(String name, Qualification texte, Action action, EtatReponse etat) {
+			this.name = name;
+			this.action = action;
+			this.texte = texte;
+			this.etat = etat;
+		}
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public EtatReponse getEtat() {
+			return etat;
+		}
+		public void setEtat(EtatReponse etat) {
+			this.etat = etat;
+		}
+		public Qualification getTexte() {
+			return texte;
+		}
+		public void setTexte(Qualification texte) {
+			this.texte = texte;
+		}
+		public Action getAction() {
+			return action;
+		}
+		public void setAction(Action action) {
+			this.action = action;
+		}
+	}
+	
+	public class Action {
+		public String texte;
+		public List<Objet> objetsconsommables;
+		public List<Objet> objetsattribuables;
+		public List<Connaissance> connaissancesattribuables;
+		public Action(String texte, List<Objet> oc, List<Objet> oa, List<Connaissance> ca) {
+			this.texte = texte;
+			this.objetsconsommables = oc;
+			this.objetsattribuables = oa;
+			this.connaissancesattribuables = ca;
+		}
+		public String getTexte() {
+			return texte;
+		}
+		public void setTexte(String texte) {
+			this.texte = texte;
+		}
+		public List<Objet> getObjetsconsommables() {
+			return objetsconsommables;
+		}
+		public void setObjetsconsommables(List<Objet> objetsconsommables) {
+			this.objetsconsommables = objetsconsommables;
+		}
+		public List<Objet> getObjetsattribuables() {
+			return objetsattribuables;
+		}
+		public void setObjetsattribuables(List<Objet> objetsattribuables) {
+			this.objetsattribuables = objetsattribuables;
+		}
+		public List<Connaissance> getConnaissancesattribuables() {
+			return connaissancesattribuables;
+		}
+		public void setConnaissancesattribuables(List<Connaissance> connaissancesattribuables) {
+			this.connaissancesattribuables = connaissancesattribuables;
+		}
+	}
+
+	public class Condition {
+		public String name;
+		public List<Objet> objetsRequis;
+		public List<Connaissance> connaissancesRequises;
+		public Condition(String name, List<Objet> or, List<Connaissance> cr) {
+			this.name = name;
+			this.objetsRequis = or;
+			this.connaissancesRequises = cr;
+		}
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public List<Objet> getObjetsRequis() {
+			return objetsRequis;
+		}
+		public void setObjetsRequis(List<Objet> objetsrequis) {
+			this.objetsRequis = objetsrequis;
+		}
+		public List<Connaissance> getConnaissancesRequises() {
+			return connaissancesRequises;
+		}
+		public void setConnaissancesRequises(List<Connaissance> connaissancesrequises) {
+			this.connaissancesRequises = connaissancesrequises;
+		}
+	}
+	
+	private enum EtatReponse {
+		bonne, mauvaise
+	}
+
+	private enum EtatVisibilite {
+		visible, nvisible
+	}
+	
+	private enum EtatObligation {
+		obligatoire, nobligatoire
+	}
+	
+	private enum EtatChemin {
+		ouvert, ferme
+	}
+	
+	private enum EtatPossession {
+		possede, npossede
+	}
+
+}
+
+[/file] 
+
+[/template] 
+
+[query public getTerritoire(j: Jeu) : Territoire =
+	j.jeuelement->select(t|t.oclIsTypeOf(Territoire))
+				->collect(t|t.oclAsType(Territoire))
+ 				->asSequence() -> first()
+/]
+
+[query public getJoueur(j: Jeu) : Joueur = 
+	j.jeuelement->select(j|j.oclIsTypeOf(Joueur))
+				->collect(j|j.oclAsType(Joueur))
+				->asSequence() -> first()
+/]
+
+[query public getUniqueCondition(c: Condition) : Condition = 
+	Condition.allInstances()->select(ce|ce.name = c.name)
+				->asSequence() -> first()
+/]
+
+[query public getConditions(j: Jeu) : Sequence(Condition) = 
+	Condition.allInstances()->select(c|c.getUniqueCondition() = c)
+				->asSequence()
+/]

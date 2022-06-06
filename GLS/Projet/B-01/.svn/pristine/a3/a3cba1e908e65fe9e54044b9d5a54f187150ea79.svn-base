@@ -1,0 +1,56 @@
+net Enigme
+pl Tentative (3)
+pl Tentative_visiblite (1)
+pl Tentative_obtention (1)
+pl Reussite (1)
+pl Reussite_visiblite (0)
+pl Reussite_obtention (0)
+pl Reussite_non_obtention (1)
+pl Enigme (1)
+pl Succes (0)
+pl Echec (0)
+pl p_chemin_Enigme_Echec_visibilite (1)
+pl p_chemin_Enigme_Echec_obligation (1)
+pl p_chemin_Enigme_Echec_ouvert (1)
+pl p_chemin_Enigme_Succes_visibilite (1)
+pl p_chemin_Enigme_Succes_obligation (1)
+pl p_chemin_Enigme_Succes_ouvert (0)
+pl Sphinx (0)
+pl p_Sphinx_visibilite (1)
+pl p_Sphinx_obligation (1)
+pl Question (0)
+pl p_utilisation_Debut (0)
+pl Debut (0)
+pl p_utilisation_Fin (0)
+pl Fin (0)
+pl r1_Debut (0)
+pl r5_Fin (0)
+pl r2_Debut (0)
+pl r3_Debut (0)
+pl r4_Debut (0)
+tr tr_Enigme_Echec Enigme p_chemin_Enigme_Echec_visibilite p_chemin_Enigme_Echec_obligation p_chemin_Enigme_Echec_ouvert -> Echec
+tr tr_chemin_Enigme_Echec_non_visibilite p_chemin_Enigme_Echec_visibilite ->
+tr tr_chemin_Enigme_Echec_non_obligation p_utilisation_Fin Tentative?0 Tentative_obtention?1 p_utilisation_Fin Reussite?1 Reussite_obtention?1 p_chemin_Enigme_Echec_obligation ->
+tr tr_chemin_Enigme_Echec_non_ouverture p_chemin_Enigme_Echec_ouvert ->
+tr tr_Enigme_Succes Enigme p_chemin_Enigme_Succes_visibilite p_chemin_Enigme_Succes_obligation p_chemin_Enigme_Succes_ouvert -> Succes
+tr tr_chemin_Enigme_Succes_ouverture p_utilisation_Fin Reussite?1 Reussite_obtention?1 -> p_chemin_Enigme_Succes_ouvert
+tr tr_chemin_Enigme_Succes_non_visibilite p_chemin_Enigme_Succes_visibilite ->
+tr tr_chemin_Enigme_Succes_non_obligation p_chemin_Enigme_Succes_obligation ->
+tr tr_chemin_Enigme_Succes_non_ouverture p_chemin_Enigme_Succes_ouvert ->
+tr tr_Enigme_Sphinx Enigme?1 p_Sphinx_visibilite p_Sphinx_obligation -> Sphinx
+tr tr_Sphinx_non_visibilite p_utilisation_Fin Tentative?0 Tentative_obtention?1 p_utilisation_Fin Reussite?1 Reussite_obtention?1 p_Sphinx_visibilite p_Sphinx_obligation ->
+tr tr_Sphinx_Question Sphinx -> Question
+tr tr_utilisation_choix_fin Reussite?1 Reussite_obtention?1 p_utilisation_Debut Debut -> Fin
+tr tr_utilisation_choix_debut Reussite_non_obtention?1 Tentative?1 Tentative_obtention?1 p_utilisation_Debut Fin -> Debut
+tr tr_Question_Debut Question -> Debut
+tr tr_Debut_r1 Debut -> r1_Debut
+tr tr_action_r1_Debut Tentative r1_Debut -> p_utilisation_Debut Fin
+tr tr_Fin_r5 Fin -> r5_Fin
+tr tr_action_r5_Fin r5_Fin -> p_utilisation_Fin*3 Fin*0
+tr tr_Debut_r2 Debut -> r2_Debut
+tr tr_action_r2_Debut Tentative r2_Debut -> p_utilisation_Debut Fin
+tr tr_Debut_r3 Debut -> r3_Debut
+tr tr_action_r3_Debut Tentative r3_Debut -> p_utilisation_Debut Fin
+tr tr_Debut_r4 Debut -> r4_Debut
+tr tr_action_r4_Debut Tentative Reussite_non_obtention r4_Debut -> Reussite_visiblite Reussite_obtention p_utilisation_Debut Fin
+
