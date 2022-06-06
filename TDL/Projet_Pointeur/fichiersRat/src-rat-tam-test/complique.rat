@@ -1,0 +1,12 @@
+prog {
+  const a = 5;
+  rat * x = (new rat);
+  *x = [6/a];
+  int * y = (new int);
+  *y = (a+1);
+  *x + = [3/2];
+  while (*y < 10) {
+    print ([a/*y] * *x);
+    *y + = 1;
+  }
+}

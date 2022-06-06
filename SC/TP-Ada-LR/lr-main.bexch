@@ -1,0 +1,38 @@
+[GENERATED OBJECT FILE]
+b__lr-main.o
+[PROJECT FILES]
+/home/khammi/SC/TP-Ada-LR/build.gpr
+20191107103406
+/usr/share/gpr/gtkada.gpr
+20200225110906
+[BOUND OBJECT FILES]
+/home/khammi/SC/TP-Ada-LR/lr.o
+/home/khammi/SC/TP-Ada-LR/lr-synchro.o
+/home/khammi/SC/TP-Ada-LR/lr-synchro-exclusion_fifo.o
+/home/khammi/SC/TP-Ada-LR/lr-simu.o
+/home/khammi/SC/TP-Ada-LR/lr-tasks.o
+/home/khammi/SC/TP-Ada-LR/lr-affic.o
+/home/khammi/SC/TP-Ada-LR/lr-main.o
+[GENERATED SOURCE FILES]
+b__lr-main.ads
+b__lr-main.adb
+b__lr-main.ali
+[RESULTING OPTIONS]
+-L/home/khammi/SC/TP-Ada-LR/
+-L/home/khammi/SC/TP-Ada-LR/
+-L/usr/lib/x86_64-linux-gnu/ada/adalib/gtkada/
+-L/usr/lib/gcc/x86_64-linux-gnu/9/adalib/
+-shared
+-shared-libgcc
+-shared-libgcc
+-shared-libgcc
+-lgthread-2.0
+-shared-libgcc
+-lgnarl-9
+-lgnat-9
+-lpthread
+-lrt
+-ldl
+[RUN PATH OPTION]
+/usr/lib/gcc/x86_64-linux-gnu/9/adalib/
+/usr/lib

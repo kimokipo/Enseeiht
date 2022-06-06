@@ -1,0 +1,10 @@
+int * f (int * a){
+ rat * a = (new rat);
+ *a = [3/2];
+ print *a;
+ return null;
+}
+
+main {
+    print (call f (1));
+}

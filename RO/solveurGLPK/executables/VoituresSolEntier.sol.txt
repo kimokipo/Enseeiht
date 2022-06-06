@@ -1,0 +1,31 @@
+Problem:    
+Rows:       3
+Columns:    2 (2 integer, 0 binary)
+Non-zeros:  5
+Status:     INTEGER OPTIMAL
+Objective:  Benefice = 10284000 (MAXimum)
+
+   No.   Row name        Activity     Lower bound   Upper bound
+------ ------------    ------------- ------------- -------------
+     1 CapaciteduSurface
+                               14970                       15000 
+     2 CapacitedeTemps
+                                6000                        6000 
+     3 CapacitedeXl              645                         800 
+
+   No. Column name       Activity     Lower bound   Upper bound
+------ ------------    ------------- ------------- -------------
+     1 Xl           *            645             0               
+     2 Xs           *            426             0               
+
+Integer feasibility conditions:
+
+KKT.PE: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+KKT.PB: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+End of output

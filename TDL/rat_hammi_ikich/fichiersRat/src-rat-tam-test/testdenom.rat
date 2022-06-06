@@ -1,0 +1,6 @@
+main {
+  typedef PRat = rat *;
+  PRat x = (new rat);
+  *x = [4/7];
+  print denom *x;
+}

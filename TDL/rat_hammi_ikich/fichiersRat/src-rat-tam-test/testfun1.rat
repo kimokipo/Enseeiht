@@ -1,0 +1,15 @@
+
+typedef PRat = rat *;
+typedef PInt = int *;
+typedef PBool = bool *;
+typedef Int2 = int;
+typedef Rat2 = rat;
+typedef Bool2 = bool;
+     
+Int2 f (){
+  return 1;
+}
+
+test{
+  print call f ();
+}

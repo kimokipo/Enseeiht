@@ -1,0 +1,15 @@
+prog {
+  typedef Int2 = int;
+  typedef PRat = rat *;
+  typedef PInt = Int2 *;
+  typedef Rat2 = rat;
+  typedef Bool2 = bool;
+  PInt x = (new Int2);
+  *x = 1;
+  Int2 y = 2;
+  if (*x = y) {
+    print 18;
+  } else {
+    print 21;
+  }
+}

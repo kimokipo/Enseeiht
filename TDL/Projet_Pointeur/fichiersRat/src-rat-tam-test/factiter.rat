@@ -1,0 +1,11 @@
+fact {
+     const n = 5;
+     int * fact = (new int);
+     *fact = 1; 
+     int i = 1;
+     while (i < (n+1)) {
+         *fact = (*fact * i);
+         i + = 1;
+     }
+     print *fact;
+}

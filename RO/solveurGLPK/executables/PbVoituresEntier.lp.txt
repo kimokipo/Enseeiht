@@ -1,0 +1,15 @@
+\* Problem: Fabrication de Voitures*\
+
+Maximize
+ Benefice: + 10000 Xl + 9000 Xs 
+
+Subject To
+ CapaciteduSurface: + 10 Xl + 20 Xs <= 15000
+ CapacitedeTemps: + 6 Xl + 5 Xs <= 6000
+ CapacitedeXl: + Xl <= 800
+
+Integer 
+ Xs
+ Xl
+
+End

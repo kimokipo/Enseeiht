@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Filter.java&apos; to &apos;jdbc/src/main/java/(default package)&apos;&#x0A;- Original project: &apos;ws&apos;&#x0A;- Destination element: &apos;jdbc/src/main/java/(default package)&apos;&#x0A;- Original element: &apos;Filter.java&apos;" description="Copy compilation unit" destination="=jdbc/src\/main\/java&lt;" element1="/src\/main\/java&lt;{Filter.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1641996881300" units="1" version="1.0"/>
+</session>

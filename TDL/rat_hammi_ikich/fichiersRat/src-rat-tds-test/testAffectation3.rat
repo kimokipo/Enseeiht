@@ -1,0 +1,9 @@
+test{
+  int * x = (new int);
+  *x = 3;
+  if (*x = 3){
+    *x = 4;
+  } else {
+    *x = 6;
+  } 
+}

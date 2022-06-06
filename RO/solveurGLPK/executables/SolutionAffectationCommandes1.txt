@@ -1,0 +1,77 @@
+Problem:    ModelAffectationCommandes1
+Rows:       11
+Columns:    12
+Non-zeros:  36
+Status:     OPTIMAL
+Objective:  CoutTotal = 9.5 (MINimum)
+
+   No.   Row name   St   Activity     Lower bound   Upper bound    Marginal
+------ ------------ -- ------------- ------------- ------------- -------------
+     1 Stockes_disponible[magasin1,fluide1]
+                    NU           2.5                         2.5            -1 
+     2 Stockes_disponible[magasin1,fluide2]
+                    NU             1                           1            -2 
+     3 Stockes_disponible[magasin2,fluide1]
+                    B            0.5                           1 
+     4 Stockes_disponible[magasin2,fluide2]
+                    B              1                           2 
+     5 Stockes_disponible[magasin3,fluide1]
+                    B              0                           2 
+     6 Stockes_disponible[magasin3,fluide2]
+                    NU             1                           1            -1 
+     7 Satisfaction_Demandes[demande1,fluide1]
+                    NS             2             2             =             2 
+     8 Satisfaction_Demandes[demande1,fluide2]
+                    B              0            -0             = 
+     9 Satisfaction_Demandes[demande2,fluide1]
+                    NS             1             1             =             2 
+    10 Satisfaction_Demandes[demande2,fluide2]
+                    NS             3             3             =             3 
+    11 CoutTotal    B            9.5                             
+
+   No. Column name  St   Activity     Lower bound   Upper bound    Marginal
+------ ------------ -- ------------- ------------- ------------- -------------
+     1 X[demande1,magasin1,fluide1]
+                    B              2             0               
+     2 X[demande2,magasin1,fluide1]
+                    B            0.5             0               
+     3 X[demande1,magasin1,fluide2]
+                    NL             0             0                           3 
+     4 X[demande2,magasin1,fluide2]
+                    B              1             0               
+     5 X[demande1,magasin2,fluide1]
+                    NL             0             0                       < eps
+     6 X[demande2,magasin2,fluide1]
+                    B            0.5             0               
+     7 X[demande1,magasin2,fluide2]
+                    NL             0             0                           3 
+     8 X[demande2,magasin2,fluide2]
+                    B              1             0               
+     9 X[demande1,magasin3,fluide1]
+                    NL             0             0                           1 
+    10 X[demande2,magasin3,fluide1]
+                    NL             0             0                           1 
+    11 X[demande1,magasin3,fluide2]
+                    NL             0             0                           3 
+    12 X[demande2,magasin3,fluide2]
+                    B              1             0               
+
+Karush-Kuhn-Tucker optimality conditions:
+
+KKT.PE: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+KKT.PB: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+KKT.DE: max.abs.err = 0.00e+00 on column 0
+        max.rel.err = 0.00e+00 on column 0
+        High quality
+
+KKT.DB: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+End of output

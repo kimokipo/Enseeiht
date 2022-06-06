@@ -1,0 +1,57 @@
+Problem:    ModelGestionPersonnel
+Rows:       8
+Columns:    9 (9 integer, 9 binary)
+Non-zeros:  36
+Status:     INTEGER OPTIMAL
+Objective:  CoutTotal = 3 (MINimum)
+
+   No.   Row name        Activity     Lower bound   Upper bound
+------ ------------    ------------- ------------- -------------
+     1 Affectation_totale
+                                   3             3             = 
+     2 Affection_unique_sur_les_personnes[personne1]
+                                   1             1             = 
+     3 Affection_unique_sur_les_personnes[personne2]
+                                   1             1             = 
+     4 Affection_unique_sur_les_personnes[personne3]
+                                   1             1             = 
+     5 Affection_unique_sur_les_travaux[travail1]
+                                   1             1             = 
+     6 Affection_unique_sur_les_travaux[travail2]
+                                   1             1             = 
+     7 Affection_unique_sur_les_travaux[travail3]
+                                   1             1             = 
+     8 CoutTotal                   3                             
+
+   No. Column name       Activity     Lower bound   Upper bound
+------ ------------    ------------- ------------- -------------
+     1 X[personne1,travail1]
+                    *              1             0             1 
+     2 X[personne1,travail2]
+                    *              0             0             1 
+     3 X[personne1,travail3]
+                    *              0             0             1 
+     4 X[personne2,travail1]
+                    *              0             0             1 
+     5 X[personne2,travail2]
+                    *              1             0             1 
+     6 X[personne2,travail3]
+                    *              0             0             1 
+     7 X[personne3,travail1]
+                    *              0             0             1 
+     8 X[personne3,travail2]
+                    *              0             0             1 
+     9 X[personne3,travail3]
+                    *              1             0             1 
+
+Integer feasibility conditions:
+
+KKT.PE: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+KKT.PB: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+End of output

@@ -1,0 +1,17 @@
+typedef PInt = int *;
+typedef Int2 = int;
+Int2 fact (Int2 i Int2 n){
+  PInt res = (new Int2);
+  *res = 0;
+  if (i=n){
+    *res = i;
+  } else {
+    *res = ( i * call fact ((i+1) n));
+  }
+  return *res;
+}
+
+test{
+  Int2 x = call fact (1 5);
+  print x;
+}

@@ -1,0 +1,23 @@
+# Données pour le problème de gestion de personnel
+
+data;
+
+set PERSONNES := 
+personne1
+personne2
+personne3;
+
+set TRAVAUX :=
+travail1
+travail2
+travail3;
+
+param N := 
+3;
+
+param cout: travail1 travail2 travail3 :=
+personne1 1 2 2 
+personne2 2 1 2
+personne3 2 2 1;
+
+end;

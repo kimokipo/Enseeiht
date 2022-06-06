@@ -1,0 +1,35 @@
+# Données pour le problème de gestion de personnel
+
+data;
+
+set DEMANDES := 
+demande1
+demande2;
+
+set MAGASINS :=
+magasin1
+magasin2
+magasin3;
+
+
+set FLUIDES :=
+fluide1
+fluide2;
+
+
+param A: fluide1 fluide2 :=
+demande1 2 0 
+demande2 1 3;
+
+param S: fluide1 fluide2 :=
+magasin1 2.5 1 
+magasin2 1 2
+magasin3 2 1;
+
+param C: fluide1 fluide2 :=
+magasin1 1 1 
+magasin2 2 3
+magasin3 3 2;
+
+
+end;

@@ -1,0 +1,16 @@
+\* Problem: Maximiser les intérêts de la société DELTA*\
+
+Maximize
+ Interet : + 0.07 C + 0.1 S + 0.19 Or + 0.12 Pl + 0.08 Th + 0.14 Pc 
+
+Subject To
+ Somme_investie_sur_C: + C <= 1250000
+ Somme_investie_sur_S: + S <= 1250000
+ Somme_investie_sur_Or: + Or <= 1250000
+ Somme_investie_sur_Pl: + Pl <= 1250000
+ Somme_investie_sur_Th: + Th <= 1250000
+ Somme_investie_sur_Pc: + Pc <= 1250000
+ Somme_investie_sur_metaux_precieux: + Or + Pl >= 1500000
+ Somme_investie_sur_credits_et_obligations: + C + S >= 2250000
+ Risque: -0.3 C -0.8 S + 1.7 Or + 0.4 Pl + 0.9 Pc <= 0
+End

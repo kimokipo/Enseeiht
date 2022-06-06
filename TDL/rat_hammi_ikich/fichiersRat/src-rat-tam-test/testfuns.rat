@@ -1,0 +1,28 @@
+typedef Int1 = int;
+typedef Int2 = Int1;
+typedef Rat2 = rat;
+Rat2 f3 (Int1 a Int2 b Rat2 r){
+  return [(a + num r) / (b + denom r)];
+}
+
+typedef PRat = Rat2 *;
+typedef Bool2 = bool;
+typedef PInt = Int1 *;
+Rat2 f2 (Bool2 b Rat2 x Rat2 y){
+  PInt x1 = (new Int1);
+  *x1 = num x;
+  Int2 x2 = denom x;
+  PRat res = (new Rat2);
+  *res = call f3(*x1 x2 y);
+  return *res;
+}
+
+Int2 f1 (Int2 i Rat2 r Int2 n){
+  Rat2 r2 = call f2(true r [i/n]);
+  return  denom r2;
+}
+
+test{
+  Int2 x = call f1 (13 [4/11] 17);
+  print x;
+}

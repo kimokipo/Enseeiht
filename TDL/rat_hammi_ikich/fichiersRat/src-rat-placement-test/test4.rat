@@ -1,0 +1,7 @@
+main {
+    rat * * x = (new rat *);
+    rat * y = (new rat);
+    rat z = [0/1];
+    *y = z;
+    *x = y;
+}

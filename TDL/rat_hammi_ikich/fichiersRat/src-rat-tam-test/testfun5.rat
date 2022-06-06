@@ -1,0 +1,10 @@
+typedef Int2 = int;
+Int2 f1 (Int2 i){
+ Int2 x = i;
+ return x;
+}
+
+test{
+  Int2 x = call f1 (13);
+  print x;
+}

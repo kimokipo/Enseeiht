@@ -1,0 +1,40 @@
+typedef PBool = bool *;
+typedef Bool2 = bool;
+Bool2 and (Bool2 b1 Bool2 b2){
+  if b1 {
+    if b2 { return true; }
+    else { return false; }
+  } else {
+    return false;
+  }
+}
+
+Bool2 or (Bool2 b1 Bool2 b2){
+  if b1 {
+    return true;
+  } else {
+    if b2 { return true; }
+    else { return false; }
+  }
+}
+
+Bool2 not (PBool b) {
+  if *b { return false; } else { return true; }
+}
+
+Bool2 implies (Bool2 p Bool2 q) {
+  return (call or((call not (&p)) q));
+}
+
+Bool2 veriftranspose(Bool2 a Bool2 b){
+  return ((call implies(a b)) = (call implies((call not(&b)) (call not(&a)))));
+}
+
+test{
+  Bool2 a = true;
+  Bool2 b = true;
+  print (call veriftranspose(a b));
+  a = true;
+  b = false;
+  print (call veriftranspose(a b));
+}

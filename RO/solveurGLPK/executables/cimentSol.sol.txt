@@ -1,0 +1,30 @@
+Problem:    
+Rows:       2
+Columns:    2 (2 integer, 0 binary)
+Non-zeros:  4
+Status:     INTEGER OPTIMAL
+Objective:  Benefice = 1130 (MAXimum)
+
+   No.   Row name        Activity     Lower bound   Upper bound
+------ ------------    ------------- ------------- -------------
+     1 CapaciteduFour
+                                 288                         360 
+     2 CapacitedeBroyage
+                                 480                         480 
+
+   No. Column name       Activity     Lower bound   Upper bound
+------ ------------    ------------- ------------- -------------
+     1 Q1           *              3             0               
+     2 Q2           *             14             0               
+
+Integer feasibility conditions:
+
+KKT.PE: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+KKT.PB: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+End of output

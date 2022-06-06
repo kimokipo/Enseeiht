@@ -1,0 +1,10 @@
+main {
+  typedef Rat2 = rat;
+  typedef PRat = Rat2 *;
+  typedef PInt = int *;
+  typedef Int2 = int;
+  typedef Bool2 = bool;
+  PRat x = (new Rat2);
+  *x = [4/7];
+  print num *x;
+}

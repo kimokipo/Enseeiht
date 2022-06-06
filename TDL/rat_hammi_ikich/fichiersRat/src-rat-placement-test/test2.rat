@@ -1,0 +1,8 @@
+main {
+    int * * x = (new int *);
+    int * y = *x;
+    int * z = y;
+    *y =0;
+    *z =0;
+    **x = *z;
+}

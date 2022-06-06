@@ -1,0 +1,55 @@
+Problem:    
+Rows:       9
+Columns:    6
+Non-zeros:  15
+Status:     OPTIMAL
+Objective:  Interet = 580000 (MAXimum)
+
+   No.   Row name   St   Activity     Lower bound   Upper bound    Marginal
+------ ------------ -- ------------- ------------- ------------- -------------
+     1 Somme_investie_sur_C
+                    NU      1.25e+06                    1.25e+06      0.116667 
+     2 Somme_investie_sur_S
+                    NU      1.25e+06                    1.25e+06      0.224444 
+     3 Somme_investie_sur_Or
+                    B         250000                    1.25e+06 
+     4 Somme_investie_sur_Pl
+                    NU      1.25e+06                    1.25e+06      0.132222 
+     5 Somme_investie_sur_Th
+                    NU      1.25e+06                    1.25e+06          0.08 
+     6 Somme_investie_sur_Pc
+                    B         500000                    1.25e+06 
+     7 Somme_investie_sur_metaux_precieux
+                    NL       1.5e+06       1.5e+06                  -0.0744444 
+     8 Somme_investie_sur_credits_et_obligations
+                    B        2.5e+06      2.25e+06               
+     9 Risque       NU             0                           0      0.155556 
+
+   No. Column name  St   Activity     Lower bound   Upper bound    Marginal
+------ ------------ -- ------------- ------------- ------------- -------------
+     1 C            B       1.25e+06             0               
+     2 S            B       1.25e+06             0               
+     3 Or           B         250000             0               
+     4 Pl           B       1.25e+06             0               
+     5 Th           B       1.25e+06             0               
+     6 Pc           B         500000             0               
+
+Karush-Kuhn-Tucker optimality conditions:
+
+KKT.PE: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+KKT.PB: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+KKT.DE: max.abs.err = 5.55e-17 on column 3
+        max.rel.err = 3.63e-17 on column 3
+        High quality
+
+KKT.DB: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+End of output

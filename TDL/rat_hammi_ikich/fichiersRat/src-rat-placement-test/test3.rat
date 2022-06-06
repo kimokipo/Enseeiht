@@ -1,0 +1,8 @@
+main {
+    bool * x = (new bool);
+    *x = true;
+    bool * y = (new bool);
+    *y = true;
+    bool * z = (new bool);
+    *z = true;
+}

@@ -1,0 +1,38 @@
+int * f (int * a) {
+      bool * x = (new bool);
+      *x = true;
+      rat * y = (new rat);
+      * y = [0/1];
+      int * z = (new int);
+      *z = 0;
+    while *x {
+      bool * x = (new bool);
+      *x = true;
+      rat * y = (new rat);
+      * y = [0/1];
+      int * z = (new int);
+      *z = 0;
+    } 
+      bool * x1 = (new bool);
+      *x1 = true;
+      rat * y1 = (new rat);
+      * y1 = [0/1];
+      int * z1 = (new int);
+      *z1 = 0;
+    return null;
+}
+
+
+main {
+    bool x = true;
+    rat y = [0/1];
+    int z = 0;
+    while x {
+       bool x = true;
+       rat y = [0/1];
+       int z = 0;
+    } 
+    bool x1 = true;
+    rat y1 = [0/1];
+    int z1 = 0;
+}

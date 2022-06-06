@@ -1,0 +1,13 @@
+
+typedef Int2 = int;
+Int2 f (Int2 a Int2 b){
+  return (a+b);
+}
+
+test{
+  typedef PInt = Int2 *;
+  PInt c = (new Int2);
+  *c = (3+4);
+  Int2 d = 3;
+  print call f (*c d);
+}

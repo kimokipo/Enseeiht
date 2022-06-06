@@ -1,0 +1,43 @@
+#  GLPK model file created by SUN for RO teaching
+
+
+###############################  Model ###############################
+
+
+###############################  Sets  ###############################
+
+set DEMANDES; 
+
+set FLUIDES;	
+
+set MAGASINS;
+
+################### Variables ###################
+
+var X{i in DEMANDES, j in MAGASINS , k in FLUIDES}, >=0; 
+
+###################  Constants: Data to load   #########################
+
+param A{i in DEMANDES, k in FLUIDES};
+
+param S{j in MAGASINS, k in FLUIDES};
+
+param C{j in MAGASINS, k in FLUIDES};
+
+################### Constraints ###################
+
+
+s.t. Stockes_disponible {j in MAGASINS , k in FLUIDES}:
+  sum{i in DEMANDES} X[i,j,k] <= S[j,k];
+  
+s.t. Satisfaction_Demandes {i in DEMANDES, k in FLUIDES}:
+  sum{j in MAGASINS} X[i,j,k] = A[i,k];   
+
+
+###### Objective ######
+
+minimize CoutTotal: 
+		sum{i in DEMANDES} sum{j in MAGASINS} sum{k in FLUIDES} X[i,j,k]* C[j,k]; 
+
+
+end;

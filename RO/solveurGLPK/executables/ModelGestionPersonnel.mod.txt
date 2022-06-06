@@ -1,0 +1,42 @@
+#  GLPK model file created by SUN for RO teaching
+
+
+###############################  Model ###############################
+
+
+###############################  Sets  ###############################
+
+set PERSONNES; 
+
+set TRAVAUX;	
+
+################### Variables ###################
+
+var X{i in PERSONNES, j in TRAVAUX},  binary; 
+
+###################  Constants: Data to load   #########################
+
+param cout{i in PERSONNES, j in TRAVAUX};
+
+param N;
+
+################### Constraints ###################
+
+
+s.t. Affectation_totale:
+  sum{i in PERSONNES} sum{j in TRAVAUX} X[i,j] = N;
+  
+s.t. Affection_unique_sur_les_personnes {i in PERSONNES}:
+  sum{j in TRAVAUX} X[i,j] = 1;   
+  
+s.t. Affection_unique_sur_les_travaux {j in TRAVAUX}:
+  sum{i in PERSONNES} X[i,j] = 1;  
+
+
+###### Objective ######
+
+minimize CoutTotal: 
+		sum{i in PERSONNES} sum{j in TRAVAUX} X[i,j]* cout[i,j]; 
+
+
+end;

@@ -1,0 +1,281 @@
+; ../../fichiersRat/src-rat-tam-test/teststruct9.rat
+JUMP main
+
+pgcd
+LOADL 0
+LOAD (1) -2[LB]
+LOAD (1) -1[LB]
+boucle
+LOAD (1) 5[LB]
+JUMPIF (0) fin
+LOAD (1) 4[LB]
+LOAD (1) 5 [LB]
+SUBR IMod
+STORE (1) 3[LB]
+LOAD (1) 5[LB]
+STORE (1) 4[LB]
+LOAD (1) 3[LB]
+STORE(1) 5[LB]
+JUMP boucle
+fin
+LOAD (1) 4[LB]
+RETURN (1) 2
+
+norm
+LOAD (1) -2[LB]
+LOAD (1) -1[LB]
+CALL (LB) pgcd
+LOAD (1) -2[LB]
+LOAD (1) 3[LB]
+SUBR IDiv
+LOAD (1) -1[LB]
+LOAD (1) 3[LB]
+SUBR IDiv
+RETURN (2) 2
+
+ROut
+LOADL '['
+SUBR COut
+LOAD (1) -2[LB]
+SUBR IOut
+LOADL '/'
+SUBR COut
+LOAD (1) -1[LB]
+SUBR IOut
+LOADL ']'
+SUBR COut
+RETURN (0) 2
+
+RAdd
+LOAD (1) -4[LB]
+LOAD (1) -1[LB]
+SUBR IMul
+LOAD (1) -2[LB]
+LOAD (1) -3[LB]
+SUBR IMul
+SUBR IAdd
+LOAD (1) -3[LB]
+LOAD (1) -1[LB]
+SUBR IMul
+CALL (ST) norm
+RETURN (2) 4
+
+RMul
+LOAD (1) -4[LB]
+LOAD (1) -2[LB]
+SUBR IMul
+LOAD (1) -3[LB]
+LOAD (1) -1[LB]
+SUBR IMul
+CALL (ST) norm
+RETURN (2) 4
+
+
+divRat
+
+LOAD (2) -4[LB]
+POP (0) 1
+LOAD (2) -2[LB]
+STORE (1) -2[ST]
+SUBR IMul
+LOAD (2) -2[LB]
+POP (0) 1
+LOAD (2) -4[LB]
+STORE (1) -2[ST]
+SUBR IMul
+CALL (SB) norm
+RETURN (2) 4
+moinsRat
+
+LOAD (2) -4[LB]
+LOADL -1
+LOADL 1
+CALL (SB) norm
+LOAD (2) -2[LB]
+CALL (SB) RMul
+CALL (SB) RAdd
+RETURN (2) 4
+eqRat
+
+
+PUSH 2
+
+LOAD (2) -4[LB]
+LOAD (2) -2[LB]
+CALL (LB) moinsRat
+STORE (2) 3[LB]
+LOAD (2) 3[LB]
+POP (0) 1
+LOADL 0
+SUBR IEq
+RETURN (1) 4
+POP (0) 2
+intersection
+
+
+LOAD (2) -8[LB]
+LOAD (2) -4[LB]
+CALL (LB) eqRat
+JUMPIF (1) if_truelabel13
+
+
+PUSH 1
+LOADL 2
+SUBR MAlloc
+STORE (1) 3[LB]
+
+PUSH 2
+
+
+LOAD (2) -6[LB]
+LOAD (2) -2[LB]
+CALL (LB) moinsRat
+
+LOAD (2) -4[LB]
+LOAD (2) -8[LB]
+CALL (LB) moinsRat
+CALL (LB) divRat
+STORE (2) 4[LB]
+LOAD (2) 4[LB]
+LOAD (1) 3[LB]
+STOREI (2)
+
+PUSH 1
+LOADL 2
+SUBR MAlloc
+STORE (1) 6[LB]
+LOAD (2) -8[LB]
+LOAD (2) 4[LB]
+CALL (SB) RMul
+LOAD (2) -6[LB]
+CALL (SB) RAdd
+LOAD (1) 6[LB]
+STOREI (2)
+
+PUSH 2
+
+LOAD (1) 3[LB]
+LOAD (1) 6[LB]
+STORE (2) 7[LB]
+
+LOADL 0
+
+LOAD (1) 7[LB]
+LOAD (1) 8[LB]
+RETURN (3) 8
+POP (0) 6
+JUMP if_finlabel13
+if_truelabel13
+
+
+LOADL 1
+
+LOADL -1
+LOADL -1
+RETURN (3) 8
+if_finlabel13
+printPositionOption
+
+LOAD (1) -3[LB]
+JUMPIF (1) if_truelabel14
+
+LOAD (1) -2[LB]
+LOADI (2)
+CALL (SB) ROut
+LOAD (1) -1[LB]
+LOADI (2)
+CALL (SB) ROut
+JUMP if_finlabel14
+if_truelabel14
+
+LOADL 0
+SUBR BOut
+if_finlabel14
+LOAD (1) -3[LB]
+RETURN (1) 3
+
+main
+
+
+PUSH 4
+
+LOADL 2
+LOADL 13
+CALL (SB) norm
+LOADL 1
+LOADL 3
+CALL (SB) norm
+STORE (4) 0[SB]
+
+PUSH 2
+LOADL 1
+LOADL 13
+CALL (SB) norm
+STORE (2) 4[SB]
+
+PUSH 2
+LOADL 1
+LOADL 4
+CALL (SB) norm
+STORE (2) 6[SB]
+
+PUSH 1
+LOADL 1
+STORE (1) 8[SB]
+JUMP whileTestlabel15
+whileDebutlabel15
+
+
+PUSH 4
+
+LOAD (2) 4[SB]
+LOAD (2) 6[SB]
+STORE (4) 9[SB]
+
+PUSH 3
+
+
+LOAD (2) 0[SB]
+LOAD (2) 2[SB]
+
+LOAD (2) 9[SB]
+LOAD (2) 11[SB]
+CALL (LB) intersection
+STORE (3) 13[SB]
+
+PUSH 1
+
+
+LOAD (1) 13[SB]
+
+LOAD (1) 14[SB]
+LOAD (1) 15[SB]
+CALL (LB) printPositionOption
+STORE (1) 16[SB]
+LOAD (2) 4[SB]
+LOADL 1
+LOADL 13
+CALL (SB) norm
+CALL (SB) RAdd
+
+STORE (2) 4[SB]
+LOAD (2) 6[SB]
+LOADL 1
+LOADL 7
+CALL (SB) norm
+CALL (SB) RAdd
+
+STORE (2) 6[SB]
+LOAD (1) 8[SB]
+LOADL 1
+SUBR IAdd
+
+STORE (1) 8[SB]
+POP (0) 8
+whileTestlabel15
+LOAD (1) 8[SB]
+LOADL 4
+SUBR ILss
+JUMPIF (1) whileDebutlabel15
+POP (0) 9
+HALT

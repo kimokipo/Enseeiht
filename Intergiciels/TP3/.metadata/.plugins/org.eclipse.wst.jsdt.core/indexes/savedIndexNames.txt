@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+/home/khammi/Intergiciels/TP3/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+2755476440.index
+972776803.index
+1965124227.index
+3775171827.index
+725462135.index
+2606295145.index
+2361052664.index

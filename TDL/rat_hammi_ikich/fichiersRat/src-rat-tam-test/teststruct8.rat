@@ -1,0 +1,16 @@
+typedef ListeChainee = struct {int val ListeChainee * suivante};
+int printListe (ListeChainee l){
+    print (l . val );
+    if (l.suivante = null){
+    }else {
+        ListeChainee s = (*l.suivante);
+        int inutil = call printListe (s);
+    }
+    return 0;
+}
+main {
+    ListeChainee v3 = {3 null};
+    ListeChainee v2 = {2 &v3};
+    ListeChainee v1 = {1 &v2};
+    int inutil = call printListe (v1);
+}
